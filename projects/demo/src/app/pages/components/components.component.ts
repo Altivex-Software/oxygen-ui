@@ -30,13 +30,16 @@ import { SidebarComponent } from 'oxygen-ui';
           <a routerLink="textarea" routerLinkActive="active" class="nav-item">Textarea</a>
           <a routerLink="date" routerLinkActive="active" class="nav-item">Date Input</a>
           <a routerLink="datepicker" routerLinkActive="active" class="nav-item">DatePicker</a>
-          <a routerLink="file" routerLinkActive="active" class="nav-item">File Upload</a>
+          <a routerLink="file-upload" routerLinkActive="active" class="nav-item">File Upload</a>
           <a routerLink="otp" routerLinkActive="active" class="nav-item">OTP</a>
           <a routerLink="radio" routerLinkActive="active" class="nav-item">Radio</a>
           <a routerLink="rating" routerLinkActive="active" class="nav-item">Rating</a>
           <a routerLink="slider" routerLinkActive="active" class="nav-item">Slider</a>
           <a routerLink="knob" routerLinkActive="active" class="nav-item">Knob</a>
           <a routerLink="dropdown" routerLinkActive="active" class="nav-item">Dropdown</a>
+          <a routerLink="multi-select" routerLinkActive="active" class="nav-item">MultiSelect</a>
+          <a routerLink="autocomplete" routerLinkActive="active" class="nav-item">AutoComplete</a>
+          <a routerLink="input-mask" routerLinkActive="active" class="nav-item">InputMask</a>
           <a routerLink="checkbox" routerLinkActive="active" class="nav-item">Checkbox</a>
           <a routerLink="switch" routerLinkActive="active" class="nav-item">Switch</a>
           
@@ -49,6 +52,8 @@ import { SidebarComponent } from 'oxygen-ui';
           <a routerLink="toast" routerLinkActive="active" class="nav-item">Toast</a>
           <a routerLink="dialog" routerLinkActive="active" class="nav-item">Dialog</a>
           <a routerLink="tooltip" routerLinkActive="active" class="nav-item">Tooltip</a>
+          <a routerLink="skeleton" routerLinkActive="active" class="nav-item">Skeleton</a>
+          <a routerLink="confirm" routerLinkActive="active" class="nav-item">ConfirmService</a>
           
           <div class="nav-section">Navigation</div>
           <a routerLink="menubar" routerLinkActive="active" class="nav-item">Menubar</a>

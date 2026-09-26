@@ -20,13 +20,13 @@ import {
     OxCardBackDirective
   ],
   template: `
-    <div class="demo-page">
+    <div class="ox-page-container">
       <h1>Card</h1>
-      <p class="description">
+      <p class="ox-description">
         Cards provide a flexible and extensible content container with multiple variants and options.
       </p>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Basic Card</h2>
         <div class="demo-row">
           <ox-card style="width: 350px">
@@ -41,7 +41,7 @@ import {
         </div>
       </section>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Hoverable & Lift</h2>
         <div class="demo-row">
           <ox-card [hoverable]="true" [liftOnHover]="true" style="width: 300px">
@@ -60,7 +60,7 @@ import {
         </div>
       </section>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Flippable Card</h2>
         <p style="margin-bottom: 1rem">A card that can be flipped to show content on the back.</p>
         <div class="demo-row">
@@ -79,15 +79,7 @@ import {
         </div>
       </section>
     </div>
-  `,
-  styles: [`
-    .demo-page { max-width: 800px; }
-    h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
-    .description { font-size: 1.125rem; color: #64748b; margin-bottom: 3rem; }
-    .demo-section { margin-bottom: 3rem; }
-    .demo-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 0.5rem; }
-    .demo-row { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem; }
-  `]
+  `
 })
 export class CardDemoComponent {
   isFlipped = false;

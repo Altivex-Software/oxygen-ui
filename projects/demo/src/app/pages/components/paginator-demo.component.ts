@@ -7,27 +7,27 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, PaginatorComponent, CardComponent],
   template: `
-    <div class="demo-container">
+    <div class="ox-page-container">
       <h1>Paginator</h1>
-      <p class="demo-description">Paginator is a generic component to display content in paged format.</p>
+      <p class="ox-description">Paginator is a generic component to display content in paged format.</p>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <ox-card>
-          <div class="p-4">
+          <div class="ox-p-4">
             <h5>Basic</h5>
             <ox-paginator 
               [rows]="10" 
               [totalRecords]="totalRecords()" 
               (onPageChange)="onPageChange($event)">
             </ox-paginator>
-            <p class="mt-4 text-muted">Current Page State: {{ pageState() | json }}</p>
+            <p class="ox-mt-4 text-muted">Current Page State: {{ pageState() | json }}</p>
           </div>
         </ox-card>
       </section>
 
-      <section class="demo-section mt-4">
+      <section class="ox-section ox-mt-4">
         <ox-card>
-          <div class="p-4">
+          <div class="ox-p-4">
             <h5>Total Records: 120</h5>
             <ox-paginator 
               [rows]="5" 

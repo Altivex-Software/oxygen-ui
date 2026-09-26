@@ -7,13 +7,13 @@ import { TableComponent, OxygenTemplateDirective, BadgeComponent, ButtonComponen
   standalone: true,
   imports: [CommonModule, TableComponent, OxygenTemplateDirective, BadgeComponent, ButtonComponent],
   template: `
-    <div class="demo-page">
+    <div class="ox-page-container">
       <h1>Table</h1>
-      <p class="description">
+      <p class="ox-description">
         Display large amounts of data in a structured way with custom templates.
       </p>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Basic Table</h2>
         <ox-table 
           [value]="customers" 
@@ -31,7 +31,7 @@ import { TableComponent, OxygenTemplateDirective, BadgeComponent, ButtonComponen
 
           <ng-template oxTemplate="body" let-customer>
             <tr>
-              <td class="font-bold">{{ customer.name }}</td>
+              <td class="ox-fw-bold">{{ customer.name }}</td>
               <td>{{ customer.country }}</td>
               <td>
                 <ox-badge 
@@ -50,14 +50,7 @@ import { TableComponent, OxygenTemplateDirective, BadgeComponent, ButtonComponen
         </ox-table>
       </section>
     </div>
-  `,
-  styles: [`
-    .demo-page { max-width: 1000px; }
-    h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
-    .description { font-size: 1.125rem; color: #64748b; margin-bottom: 3rem; }
-    .font-bold { font-weight: 600; color: #1e293b; }
-    .demo-section { background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border: 1px solid #f1f5f9; }
-  `]
+  `
 })
 export class TableDemoComponent {
   customers = [

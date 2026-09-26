@@ -8,11 +8,11 @@ import { PasswordComponent } from 'oxygen-ui';
   standalone: true,
   imports: [CommonModule, FormsModule, PasswordComponent],
   template: `
-    <div class="demo-page">
+    <div class="ox-page-container">
       <h1>Password</h1>
-      <p class="description">Campo con botón para mostrar/ocultar contraseña.</p>
+      <p class="ox-description">Campo con botón para mostrar/ocultar contraseña.</p>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Básico</h2>
         <form class="demo-grid" (submit)="$event.preventDefault()">
           <ox-password 
@@ -21,11 +21,11 @@ import { PasswordComponent } from 'oxygen-ui';
             [(ngModel)]="pass1"
             name="password-basic">
           </ox-password>
-          <p class="mt-2 text-sm">Valor: {{ pass1 }}</p>
+          <p class="ox-mt-2 ox-p-sm">Valor: {{ pass1 }}</p>
         </form>
       </section>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Variantes</h2>
         <form class="demo-grid" (submit)="$event.preventDefault()">
           <ox-password label="Estándar" variant="default" placeholder="Borde normal" [(ngModel)]="v1" name="v1"></ox-password>
@@ -34,7 +34,7 @@ import { PasswordComponent } from 'oxygen-ui';
         </form>
       </section>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Float Label</h2>
         <form class="demo-grid" (submit)="$event.preventDefault()">
           <ox-password label="Float Estándar" [floatLabel]="true" [(ngModel)]="f1" name="f1"></ox-password>
@@ -43,7 +43,7 @@ import { PasswordComponent } from 'oxygen-ui';
         </form>
       </section>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Tamaños</h2>
         <form class="demo-grid" (submit)="$event.preventDefault()">
           <ox-password label="Pequeño" size="sm" placeholder="Input pequeño" [(ngModel)]="passSm" name="sm"></ox-password>
@@ -52,7 +52,7 @@ import { PasswordComponent } from 'oxygen-ui';
         </form>
       </section>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Estados</h2>
         <form class="demo-grid" (submit)="$event.preventDefault()">
           <ox-password label="Con Error" error="Contraseña demasiado corta" [(ngModel)]="passError" name="error"></ox-password>
@@ -61,17 +61,7 @@ import { PasswordComponent } from 'oxygen-ui';
         </form>
       </section>
     </div>
-  `,
-  styles: [`
-    .demo-page { max-width: 800px; padding: 2rem; }
-    h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
-    .description { font-size: 1.125rem; color: #64748b; margin-bottom: 3rem; }
-    .demo-section { margin-bottom: 4rem; }
-    .demo-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 0.5rem; }
-    .demo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-    .mt-2 { margin-top: 0.5rem; }
-    .text-sm { font-size: 0.875rem; color: #64748b; }
-  `]
+  `
 })
 export class PasswordDemoComponent {
   pass1 = '';

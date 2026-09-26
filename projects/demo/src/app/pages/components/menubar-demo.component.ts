@@ -7,21 +7,21 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, MenubarComponent, CardComponent],
   template: `
-    <div class="demo-container">
+    <div class="ox-page-container">
       <h1>Menubar</h1>
-      <p class="demo-description">Menubar is a horizontal menu component.</p>
+      <p class="ox-description">Menubar is a horizontal menu component.</p>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <ox-card>
-          <div class="p-4" style="min-height: 200px;">
+          <div class="ox-p-4" style="min-height: 200px;">
             <ox-menubar [model]="items"></ox-menubar>
           </div>
         </ox-card>
       </section>
 
-      <section class="demo-section mt-4">
+      <section class="ox-section ox-mt-4">
         <ox-card>
-          <div class="p-4">
+          <div class="ox-p-4">
             <h5>With Input End Template (Optional)</h5>
             <p>The menubar can also include custom content at the end.</p>
             <ox-menubar [model]="items">

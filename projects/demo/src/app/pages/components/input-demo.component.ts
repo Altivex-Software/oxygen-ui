@@ -8,11 +8,11 @@ import { InputComponent } from 'oxygen-ui';
   standalone: true,
   imports: [CommonModule, FormsModule, InputComponent],
   template: `
-    <div class="demo-page">
+    <div class="ox-page-container">
       <h1>Input</h1>
-      <p class="description">Campos de entrada de texto versátiles con soporte para etiquetas y feedback.</p>
+      <p class="ox-description">Campos de entrada de texto versátiles con soporte para etiquetas y feedback.</p>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Básico</h2>
         <div class="demo-grid">
           <ox-input label="Nombre de usuario" placeholder="Ej. juanito123"></ox-input>
@@ -20,7 +20,7 @@ import { InputComponent } from 'oxygen-ui';
         </div>
       </section>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Estados</h2>
         <div class="demo-grid">
           <ox-input label="Deshabilitado" [disabled]="true" value="No puedes tocar esto"></ox-input>
@@ -29,7 +29,7 @@ import { InputComponent } from 'oxygen-ui';
         </div>
       </section>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Colores de Foco</h2>
         <p>Puedes personalizar el color del borde y el resplandor cuando el campo está activo.</p>
         <div class="demo-grid">
@@ -41,7 +41,7 @@ import { InputComponent } from 'oxygen-ui';
         </div>
       </section>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Float Label</h2>
         <p>La etiqueta se desplaza hacia arriba cuando el campo recibe el foco o tiene contenido. Disponible en las tres variantes.</p>
         <div class="demo-grid">
@@ -51,7 +51,7 @@ import { InputComponent } from 'oxygen-ui';
         </div>
       </section>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Variantes de Diseño</h2>
         <div class="demo-grid">
           <ox-input label="Estándar" variant="default" placeholder="Borde normal completol"></ox-input>
@@ -60,7 +60,7 @@ import { InputComponent } from 'oxygen-ui';
         </div>
       </section>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <h2>Tamaños</h2>
         <div class="demo-grid">
           <ox-input label="Pequeño" size="sm" placeholder="Input pequeño"></ox-input>
@@ -69,14 +69,6 @@ import { InputComponent } from 'oxygen-ui';
         </div>
       </section>
     </div>
-  `,
-  styles: [`
-    .demo-page { max-width: 800px; padding: 2rem; }
-    h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
-    .description { font-size: 1.125rem; color: #64748b; margin-bottom: 3rem; }
-    .demo-section { margin-bottom: 4rem; }
-    .demo-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 0.5rem; }
-    .demo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-  `]
+  `
 })
 export class InputDemoComponent {}

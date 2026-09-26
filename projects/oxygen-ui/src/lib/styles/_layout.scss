@@ -1,0 +1,49 @@
+// _layout.scss
+@use 'sass:map';
+@use './variables' as v;
+@use './breakpoints' as b;
+
+// Page Containers
+.ox-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+.ox-section {
+  margin-bottom: 4rem;
+}
+
+.ox-description {
+  font-size: 1.125rem;
+  color: #64748b; // Muted text
+  margin-bottom: 3rem;
+}
+
+// Hero
+.ox-hero {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 1rem;
+  margin-bottom: 4rem;
+}
+
+.ox-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+// Structural classes
+.ox-content {
+  padding: 1rem;
+}
+
+.ox-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+}

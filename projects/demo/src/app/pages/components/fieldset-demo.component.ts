@@ -6,13 +6,13 @@ import { FieldsetComponent, CardComponent } from 'oxygen-ui';
   standalone: true,
   imports: [FieldsetComponent, CardComponent],
   template: `
-    <div class="demo-container">
+    <div class="ox-page-container">
       <h1>Fieldset</h1>
-      <p class="demo-description">Fieldset is a grouping component with a legend and content.</p>
+      <p class="ox-description">Fieldset is a grouping component with a legend and content.</p>
 
-      <section class="demo-section">
+      <section class="ox-section">
         <ox-card>
-          <div class="p-4">
+          <div class="ox-p-4">
             <h5>Basic</h5>
             <ox-fieldset legend="Header">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -22,9 +22,9 @@ import { FieldsetComponent, CardComponent } from 'oxygen-ui';
         </ox-card>
       </section>
 
-      <section class="demo-section mt-4">
+      <section class="ox-section ox-mt-4">
         <ox-card>
-          <div class="p-4">
+          <div class="ox-p-4">
             <h5>Toggleable</h5>
             <ox-fieldset legend="Toggleable Header" [toggleable]="true">
                <p>This fieldset can be collapsed and expanded by clicking the legend or the toggle icon.</p>

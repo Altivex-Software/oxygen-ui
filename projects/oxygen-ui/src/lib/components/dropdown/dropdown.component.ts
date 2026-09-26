@@ -1,4 +1,4 @@
-import { Component, forwardRef, input, model, ChangeDetectionStrategy, ViewEncapsulation, signal, computed, inject, ElementRef, ViewChild } from '@angular/core';
+import { Component, forwardRef, input, model, ChangeDetectionStrategy, ViewEncapsulation, signal, computed, inject, ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, NgClass } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
@@ -47,7 +47,7 @@ export interface DropdownOption<T = unknown> {
         [cdkConnectedOverlayOpen]="isOpen()"
         [cdkConnectedOverlayMinWidth]="containerWidth"
         [cdkConnectedOverlayOffsetY]="4"
-        (overlayOutsideClick)="close()">
+        (overlayOutsideClick)="close($event)">
         
         <div class="ox-dropdown-panel ox-elevation-2">
           @if (filter()) {
@@ -138,17 +138,27 @@ export class DropdownComponent<T = unknown> implements ControlValueAccessor {
   private onChange: (value: any) => void = () => {};
   private onTouched: () => void = () => {};
 
+  private cdr = inject(ChangeDetectorRef);
+
   toggle() {
     if (this.disabled()) return;
     if (!this.isOpen()) {
       this.containerWidth = this.container.nativeElement.offsetWidth;
     }
     this.isOpen.update(v => !v);
+    this.cdr.markForCheck();
   }
 
-  close() {
+  close(event?: MouseEvent) {
+    if (event) {
+      const target = event.target as HTMLElement;
+      if (target && this.container.nativeElement.contains(target)) {
+        return;
+      }
+    }
     this.isOpen.set(false);
     this.filterValue.set('');
+    this.cdr.markForCheck();
   }
 
   selectOption(option: DropdownOption<T>, event: Event) {

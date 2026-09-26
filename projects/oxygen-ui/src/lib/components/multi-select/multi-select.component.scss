@@ -1,0 +1,256 @@
+.ox-multi-select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 2.5rem;
+  background: white;
+  border: 1px solid var(--oxy-surface-200, #e2e8f0);
+  border-radius: var(--radius-md, 0.375rem);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &-open, &:focus-within {
+    border-color: var(--oxy-primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  }
+
+  &-disabled {
+    background: #f3f4f6;
+    opacity: 0.6;
+    cursor: not-allowed;
+    border-color: #d1d5db;
+  }
+
+  /* Tamaños */
+  &.ox-multi-select-sm {
+    min-height: 32px;
+    font-size: 0.75rem;
+    .ox-multi-select-placeholder { font-size: 0.75rem; }
+    .ox-multi-select-trigger-icon { width: 14px; height: 14px; }
+  }
+
+  &.ox-multi-select-md {
+    min-height: 40px;
+  }
+
+  &.ox-multi-select-lg {
+    min-height: 48px;
+    font-size: 1.125rem;
+    .ox-multi-select-placeholder { font-size: 1.125rem; }
+    .ox-multi-select-trigger-icon { width: 20px; height: 20px; }
+  }
+
+  /* Variantes */
+  &.ox-multi-select-filled {
+    background: #f1f5f9;
+    border-color: transparent;
+    &:hover:not(.ox-multi-select-disabled) {
+      background: #e2e8f0;
+    }
+  }
+
+  &.ox-multi-select-outlined {
+    background: transparent;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d1d5db;
+  }
+
+  &.ox-multi-select-oneLine {
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    border-bottom-width: 1px;
+    border-bottom-color: #d1d5db;
+    padding-left: 4px;
+    padding-right: 4px;
+    
+    &.ox-multi-select-open {
+      box-shadow: none;
+      border-bottom-width: 2px;
+    }
+  }
+
+  &.ox-multi-select-fieldset {
+    margin-top: 8px;
+    position: relative;
+    background: transparent;
+
+    .ox-multi-select-fieldset-label {
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      background: white;
+      padding: 0 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #6b7280;
+      z-index: 1;
+      pointer-events: none;
+      transition: color 0.2s;
+    }
+
+    &.ox-multi-select-open, &:hover:not(.ox-multi-select-disabled) {
+      .ox-multi-select-fieldset-label {
+        color: inherit;
+      }
+    }
+  }
+
+  /* Severidades */
+  $severities: (
+    "primary": #3b82f6,
+    "secondary": #64748b,
+    "success": #22c55e,
+    "danger": #ef4444,
+    "warning": #f59e0b,
+    "info": #06b6d4
+  );
+
+  @each $name, $color in $severities {
+    &.ox-multi-select-#{$name} {
+      &.ox-multi-select-open, &:hover:not(.ox-multi-select-disabled) {
+        border-color: $color;
+      }
+      &.ox-multi-select-open {
+        box-shadow: 0 0 0 3px rgba($color, 0.1);
+      }
+      
+      &.ox-multi-select-filled.ox-multi-select-open {
+        background: white;
+        border-color: $color;
+      }
+    }
+  }
+}
+
+.ox-multi-select-label-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.ox-multi-select-placeholder {
+  color: var(--oxy-surface-400, #94a3b8);
+  padding-left: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.ox-multi-select-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.ox-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--oxy-primary-50, #f0fdf4);
+  color: var(--oxy-primary);
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  
+  &-remove {
+    width: 0.875rem;
+    height: 0.875rem;
+    cursor: pointer;
+    border-radius: 50%;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.ox-multi-select-trigger {
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+  color: var(--oxy-surface-400, #94a3b8);
+  
+  &-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+.ox-multi-select-panel {
+  background: white;
+  border-radius: var(--radius-md, 0.375rem);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--oxy-surface-200, #e2e8f0);
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  margin-top: 4px;
+}
+
+.ox-multi-select-items {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0;
+}
+
+.ox-multi-select-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--oxy-surface-700, #334155);
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: var(--oxy-surface-50, #f8fafc);
+  }
+
+  &-selected {
+    background-color: var(--oxy-primary-50, #f0fdf4);
+    color: var(--oxy-primary);
+    font-weight: 600;
+  }
+}
+
+.ox-multi-select-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid var(--oxy-surface-300, #cbd5e1);
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &-selected {
+    background-color: var(--oxy-primary);
+    border-color: var(--oxy-primary);
+    color: white;
+  }
+}
+
+.ox-multi-select-filter-container {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--oxy-surface-200, #e2e8f0);
+}
+
+.ox-multi-select-filter-input {
+  width: 100%;
+  padding: 0.375rem 0.5rem;
+  border: 1px solid var(--oxy-surface-300, #cbd5e1);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  outline: none;
+  
+  &:focus {
+    border-color: var(--oxy-primary);
+  }
+}

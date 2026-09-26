@@ -26,7 +26,6 @@ import { DividerDemoComponent } from './pages/components/divider-demo.component'
 import { FieldsetDemoComponent } from './pages/components/fieldset-demo.component';
 import { PasswordDemoComponent } from './pages/components/password-demo.component';
 import { DateDemoComponent } from './pages/components/date-demo.component';
-import { FileDemoComponent } from './pages/components/file-demo.component';
 import { OtpDemoComponent } from './pages/components/otp-demo.component';
 import { RadioDemoComponent } from './pages/components/radio-demo.component';
 import { RatingDemoComponent } from './pages/components/rating-demo.component';
@@ -35,6 +34,12 @@ import { SliderDemoComponent } from './pages/components/slider-demo.component';
 import { KnobDemoComponent } from './pages/components/knob-demo.component';
 import { InputSwitchDemoComponent } from './pages/components/input-switch-demo.component';
 import { DatePickerDemoComponent } from './pages/components/datepicker-demo.component';
+import { SkeletonDemoComponent } from './pages/components/skeleton-demo.component';
+import { ConfirmDemoComponent } from './pages/components/confirm-demo.component';
+import { MultiSelectDemoComponent } from './pages/components/multi-select-demo.component';
+import { AutoCompleteDemoComponent } from './pages/components/autocomplete-demo.component';
+import { InputMaskDemoComponent } from './pages/components/input-mask-demo.component';
+import { FileUploadDemoComponent } from './pages/components/file-upload-demo.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -57,7 +62,6 @@ export const routes: Routes = [
       { path: 'textarea', component: TextareaDemoComponent },
       { path: 'date', component: DateDemoComponent },
       { path: 'datepicker', component: DatePickerDemoComponent },
-      { path: 'file', component: FileDemoComponent },
       { path: 'otp', component: OtpDemoComponent },
       { path: 'radio', component: RadioDemoComponent },
       { path: 'rating', component: RatingDemoComponent },
@@ -72,6 +76,12 @@ export const routes: Routes = [
       { path: 'toast', component: ToastDemoComponent },
       { path: 'dialog', component: DialogDemoComponent },
       { path: 'tooltip', component: TooltipDemoComponent },
+      { path: 'skeleton', component: SkeletonDemoComponent },
+      { path: 'confirm', component: ConfirmDemoComponent },
+      { path: 'multi-select', component: MultiSelectDemoComponent },
+      { path: 'autocomplete', component: AutoCompleteDemoComponent },
+      { path: 'input-mask', component: InputMaskDemoComponent },
+      { path: 'file-upload', component: FileUploadDemoComponent },
       { path: 'menubar', component: MenubarDemoComponent },
       { path: 'breadcrumb', component: BreadcrumbDemoComponent },
       { path: 'stepper', component: StepperDemoComponent },

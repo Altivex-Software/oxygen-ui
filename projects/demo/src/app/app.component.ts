@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { RouterOutlet } from "@angular/router";
 import { HeaderComponent } from "./layout/header.component";
 import { FooterComponent } from "./layout/footer.component";
-import { ToastComponent } from "oxygen-ui";
+import { ToastComponent, ConfirmDialogComponent } from "oxygen-ui";
 
 @Component({
   selector: "app-root",
@@ -13,7 +13,8 @@ import { ToastComponent } from "oxygen-ui";
     RouterOutlet,
     HeaderComponent,
     FooterComponent,
-    ToastComponent
+    ToastComponent,
+    ConfirmDialogComponent
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss"
