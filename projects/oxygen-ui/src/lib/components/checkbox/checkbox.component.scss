@@ -20,11 +20,38 @@
 
   &-checked {
     .ox-checkbox-box {
-      background: var(--oxy-primary);
-      border-color: var(--oxy-primary);
+      background: var(--oxy-primary, #3b82f6);
+      border-color: var(--oxy-primary, #3b82f6);
     }
     .ox-checkbox-icon {
       color: white;
+    }
+
+    &.ox-checkbox--primary .ox-checkbox-box {
+      background: var(--oxy-primary, #3b82f6);
+      border-color: var(--oxy-primary, #3b82f6);
+    }
+    &.ox-checkbox--secondary .ox-checkbox-box {
+      background: var(--oxy-secondary, #64748b);
+      border-color: var(--oxy-secondary, #64748b);
+    }
+    &.ox-checkbox--success .ox-checkbox-box {
+      background: var(--oxy-success, #22c55e);
+      border-color: var(--oxy-success, #22c55e);
+    }
+    &.ox-checkbox--danger .ox-checkbox-box,
+    &.ox-checkbox--error .ox-checkbox-box {
+      background: var(--oxy-danger, #ef4444);
+      border-color: var(--oxy-danger, #ef4444);
+    }
+    &.ox-checkbox--warning .ox-checkbox-box,
+    &.ox-checkbox--warn .ox-checkbox-box {
+      background: var(--oxy-warning, #f59e0b);
+      border-color: var(--oxy-warning, #f59e0b);
+    }
+    &.ox-checkbox--info .ox-checkbox-box {
+      background: var(--oxy-info, #06b6d4);
+      border-color: var(--oxy-info, #06b6d4);
     }
   }
 
@@ -42,7 +69,7 @@
   }
 
   &:hover:not(.ox-checkbox-disabled) .ox-checkbox-box {
-    border-color: var(--oxy-primary-hover);
+    border-color: var(--oxy-primary-hover, #2563eb);
   }
 }
 

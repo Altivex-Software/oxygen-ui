@@ -17,70 +17,60 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
       </p>
 
       <!-- 1. BÁSICO -->
-      <section class="ox-section">
-        <h2>Uso Básico</h2>
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
-          <div style="max-width: 400px">
-            <ox-multi-select 
-              [options]="cities" 
-              [(value)]="selectedCities"
-              placeholder="Seleccione ciudades">
-            </ox-multi-select>
-          </div>
-          <p class="ox-mt-4" style="font-size: 0.875rem; color: #64748b;">
+      <app-doc-code 
+        title="1. Uso Básico"
+        description="Selección múltiple con contador y etiquetas."
+        [htmlCode]="basicHtml"
+        [tsCode]="basicTs">
+        <div style="max-width: 400px; width: 100%;">
+          <ox-multi-select 
+            [options]="cities" 
+            [(value)]="selectedCities"
+            placeholder="Seleccione ciudades">
+          </ox-multi-select>
+          <p class="ox-mt-4" style="font-size: 0.875rem; color: #64748b; margin-top: 0.75rem;">
             Valor seleccionado: <code>{{ selectedCities | json }}</code>
           </p>
         </div>
-
-        <app-doc-code 
-          title="MultiSelect Básico"
-          [htmlCode]="basicHtml"
-          [tsCode]="basicTs">
-        </app-doc-code>
-      </section>
+      </app-doc-code>
 
       <!-- 2. CON FILTRO -->
-      <section class="ox-section">
-        <h2>Con Filtro de Búsqueda</h2>
-        <p>Búsqueda en tiempo real dentro del panel desplegable para datasets medianos y grandes.</p>
-
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
-          <div style="max-width: 400px">
-            <ox-multi-select 
-              [options]="frameworks" 
-              [(value)]="selectedFrameworks"
-              [filter]="true"
-              filterPlaceholder="Buscar framework..."
-              placeholder="Frameworks favoritos">
-            </ox-multi-select>
-          </div>
+      <app-doc-code 
+        title="2. Con Filtro de Búsqueda"
+        description="Búsqueda en tiempo real dentro del panel desplegable para datasets medianos y grandes."
+        [htmlCode]="filterHtml"
+        [tsCode]="filterTs">
+        <div style="max-width: 400px; width: 100%;">
+          <ox-multi-select 
+            [options]="frameworks" 
+            [(value)]="selectedFrameworks"
+            [filter]="true"
+            filterPlaceholder="Buscar framework..."
+            placeholder="Frameworks favoritos">
+          </ox-multi-select>
         </div>
-
-        <app-doc-code 
-          title="MultiSelect con Filtro"
-          [htmlCode]="filterHtml"
-          [tsCode]="filterTs">
-        </app-doc-code>
-      </section>
+      </app-doc-code>
 
       <!-- 3. VARIANTES Y SEVERIDADES -->
-      <section class="ox-section">
-        <h2>Variantes de Estilo y Severidades</h2>
-        <div class="ox-card ox-p-4">
-          <div class="ox-flex ox-flex-column ox-gap-4" style="max-width: 400px">
-            <ox-multi-select [options]="cities" placeholder="Default"></ox-multi-select>
-            <ox-multi-select [options]="cities" placeholder="Filled" variant="filled"></ox-multi-select>
-            <ox-multi-select [options]="cities" placeholder="Outlined" variant="outlined"></ox-multi-select>
-            <ox-multi-select [options]="cities" placeholder="Success Color" severity="success"></ox-multi-select>
-          </div>
+      <app-doc-code
+        title="3. Variantes de Estilo y Severidades"
+        description="Variantes visuales y estados de color."
+        [htmlCode]="filterHtml"
+        [tsCode]="filterTs">
+        <div class="ox-flex ox-flex-column ox-gap-4" style="max-width: 400px; width: 100%;">
+          <ox-multi-select [options]="cities" placeholder="Default"></ox-multi-select>
+          <ox-multi-select [options]="cities" placeholder="Filled" variant="filled"></ox-multi-select>
+          <ox-multi-select [options]="cities" placeholder="Outlined" variant="outlined"></ox-multi-select>
+          <ox-multi-select [options]="cities" placeholder="Success Color" severity="success"></ox-multi-select>
         </div>
-      </section>
+      </app-doc-code>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
-        <h2>API Reference &mdash; &lt;ox-multi-select&gt;</h2>
-        <app-doc-api-table [properties]="multiSelectProperties" [events]="multiSelectEvents"></app-doc-api-table>
-      </section>
+      <app-doc-api-table 
+        title="API Reference: MultiSelectComponent"
+        [properties]="multiSelectProperties" 
+        [events]="multiSelectEvents">
+      </app-doc-api-table>
     </div>
   `
 })

@@ -17,53 +17,49 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
       </p>
 
       <!-- 1. BÁSICO -->
-      <section class="ox-section">
-        <h2>Uso Básico y Límites</h2>
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
-          <div style="max-width: 400px; display: flex; flex-direction: column; gap: 1rem;">
-            <ox-date-input label="Fecha de Nacimiento"></ox-date-input>
-            <ox-date-input label="Rango Válido (2024-2026)" min="2024-01-01" max="2026-12-31"></ox-date-input>
-          </div>
+      <app-doc-code 
+        title="1. Uso Básico y Límites"
+        description="Selector de fechas con validación de rango mínimo y máximo."
+        [htmlCode]="dateHtml"
+        [tsCode]="dateTs">
+        <div style="max-width: 400px; width: 100%; display: flex; flex-direction: column; gap: 1rem;">
+          <ox-date-input label="Fecha de Nacimiento"></ox-date-input>
+          <ox-date-input label="Rango Válido (2024-2026)" min="2024-01-01" max="2026-12-31"></ox-date-input>
         </div>
-
-        <app-doc-code 
-          title="Date Input"
-          [htmlCode]="dateHtml"
-          [tsCode]="dateTs">
-        </app-doc-code>
-      </section>
+      </app-doc-code>
 
       <!-- 2. FLOAT LABELS Y VARIANTES -->
-      <section class="ox-section">
-        <h2>Variantes y Float Labels</h2>
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
-          <div style="max-width: 400px; display: flex; flex-direction: column; gap: 1.5rem;">
-            <ox-date-input 
-              label="Default Float" 
-              [floatLabel]="true" 
-              variant="default">
-            </ox-date-input>
-            
-            <ox-date-input 
-              label="Fieldset Float" 
-              [floatLabel]="true" 
-              variant="fieldset">
-            </ox-date-input>
+      <app-doc-code 
+        title="2. Variantes y Float Labels"
+        description="Estilos fieldset, outline y animación de etiqueta flotante."
+        [htmlCode]="dateHtml"
+        [tsCode]="dateTs">
+        <div style="max-width: 400px; width: 100%; display: flex; flex-direction: column; gap: 1.5rem;">
+          <ox-date-input 
+            label="Default Float" 
+            [floatLabel]="true" 
+            variant="default">
+          </ox-date-input>
+          
+          <ox-date-input 
+            label="Fieldset Float" 
+            [floatLabel]="true" 
+            variant="fieldset">
+          </ox-date-input>
 
-            <ox-date-input 
-              label="One Line Float" 
-              [floatLabel]="true" 
-              variant="oneLine">
-            </ox-date-input>
-          </div>
+          <ox-date-input 
+            label="One Line Float" 
+            [floatLabel]="true" 
+            variant="oneLine">
+          </ox-date-input>
         </div>
-      </section>
+      </app-doc-code>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
-        <h2>API Reference &mdash; &lt;ox-date-input&gt;</h2>
-        <app-doc-api-table [properties]="dateProperties"></app-doc-api-table>
-      </section>
+      <app-doc-api-table 
+        title="API Reference: DateInputComponent"
+        [properties]="dateProperties">
+      </app-doc-api-table>
     </div>
   `
 })

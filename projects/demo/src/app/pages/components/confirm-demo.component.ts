@@ -16,31 +16,22 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
       </p>
 
       <!-- 1. USO BÁSICO -->
-      <section class="ox-section">
-        <h2>Uso del Servicio Global de Confirmación</h2>
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
-          <p class="ox-mb-4" style="color: #64748b; font-size: 0.875rem;">
-            Presiona los botones para disparar confirmaciones reactivas gestionadas por el servicio singleton <code>OxConfirmService</code>.
-          </p>
-          
-          <div class="ox-flex ox-gap-4">
-            <ox-button label="Borrar Registro" severity="danger" (onClick)="confirmDelete()"></ox-button>
-            <ox-button label="Guardar Cambios" severity="success" (onClick)="confirmSave()"></ox-button>
-          </div>
+      <app-doc-code 
+        title="1. Uso del Servicio Global de Confirmación"
+        description="Llamadas programáticas asíncronas para confirmar o cancelar acciones críticas."
+        [htmlCode]="confirmHtml"
+        [tsCode]="confirmTs">
+        <div class="ox-flex ox-gap-4 ox-flex-wrap">
+          <ox-button label="Borrar Registro" severity="danger" (onClick)="confirmDelete()"></ox-button>
+          <ox-button label="Guardar Cambios" severity="success" (onClick)="confirmSave()"></ox-button>
         </div>
-
-        <app-doc-code 
-          title="ConfirmService"
-          [htmlCode]="confirmHtml"
-          [tsCode]="confirmTs">
-        </app-doc-code>
-      </section>
+      </app-doc-code>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
-        <h2>API Reference &mdash; OxConfirmService</h2>
-        <app-doc-api-table [properties]="confirmProperties"></app-doc-api-table>
-      </section>
+      <app-doc-api-table 
+        title="API Reference: OxConfirmService"
+        [properties]="confirmProperties">
+      </app-doc-api-table>
     </div>
   `
 })

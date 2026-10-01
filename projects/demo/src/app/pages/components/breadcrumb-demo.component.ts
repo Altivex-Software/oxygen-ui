@@ -16,38 +16,32 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
       </p>
 
       <!-- 1. BÁSICO -->
-      <section class="ox-section">
-        <h2>Uso Básico</h2>
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
+      <app-doc-code 
+        title="1. Uso Básico"
+        description="Ruta de navegación estándar."
+        [htmlCode]="basicHtml"
+        [tsCode]="basicTs">
+        <div style="width: 100%;">
           <ox-breadcrumb [items]="items"></ox-breadcrumb>
         </div>
-
-        <app-doc-code 
-          title="Breadcrumb Básico"
-          [htmlCode]="basicHtml"
-          [tsCode]="basicTs">
-        </app-doc-code>
-      </section>
+      </app-doc-code>
 
       <!-- 2. SEPARADOR PERSONALIZADO -->
-      <section class="ox-section">
-        <h2>Separador Personalizado</h2>
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
+      <app-doc-code 
+        title="2. Separador Personalizado"
+        description="Modificación del glifo o carácter separador."
+        [htmlCode]="customSepHtml"
+        [tsCode]="basicTs">
+        <div style="width: 100%;">
           <ox-breadcrumb [items]="items" separator=">"></ox-breadcrumb>
         </div>
-
-        <app-doc-code 
-          title="Breadcrumb Separador"
-          [htmlCode]="customSepHtml"
-          [tsCode]="basicTs">
-        </app-doc-code>
-      </section>
+      </app-doc-code>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
-        <h2>API Reference &mdash; &lt;ox-breadcrumb&gt;</h2>
-        <app-doc-api-table [properties]="breadcrumbProperties"></app-doc-api-table>
-      </section>
+      <app-doc-api-table 
+        title="API Reference: BreadcrumbComponent"
+        [properties]="breadcrumbProperties">
+      </app-doc-api-table>
     </div>
   `
 })

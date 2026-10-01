@@ -16,31 +16,24 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
       </p>
 
       <!-- 1. POSICIONES -->
-      <section class="ox-section">
-        <h2>Posicionamiento del Tooltip</h2>
-        <p>Soporte para 4 cuadrantes principales: <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code>.</p>
-
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
-          <div class="ox-flex ox-flex-wrap ox-gap-4 ox-align-items-center">
-            <ox-button label="Arriba" oxTooltip="Información en la parte superior" tooltipPosition="top"></ox-button>
-            <ox-button label="Abajo" oxTooltip="Información en la parte inferior" tooltipPosition="bottom" severity="secondary"></ox-button>
-            <ox-button label="Izquierda" oxTooltip="Información a la izquierda" tooltipPosition="left" severity="info"></ox-button>
-            <ox-button label="Derecha" oxTooltip="Información a la derecha" tooltipPosition="right" severity="warn"></ox-button>
-          </div>
+      <app-doc-code 
+        title="1. Posicionamiento del Tooltip"
+        description="Soporte para 4 cuadrantes principales: top, bottom, left, right."
+        [htmlCode]="tooltipHtml"
+        [tsCode]="tooltipTs">
+        <div class="ox-flex ox-flex-wrap ox-gap-4 ox-align-items-center">
+          <ox-button label="Arriba" oxTooltip="Información en la parte superior" tooltipPosition="top"></ox-button>
+          <ox-button label="Abajo" oxTooltip="Información en la parte inferior" tooltipPosition="bottom" severity="secondary"></ox-button>
+          <ox-button label="Izquierda" oxTooltip="Información a la izquierda" tooltipPosition="left" severity="info"></ox-button>
+          <ox-button label="Derecha" oxTooltip="Información a la derecha" tooltipPosition="right" severity="warn"></ox-button>
         </div>
-
-        <app-doc-code 
-          title="Tooltip Directiva"
-          [htmlCode]="tooltipHtml"
-          [tsCode]="tooltipTs">
-        </app-doc-code>
-      </section>
+      </app-doc-code>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
-        <h2>API Reference &mdash; [oxTooltip] Directive</h2>
-        <app-doc-api-table [properties]="tooltipProperties"></app-doc-api-table>
-      </section>
+      <app-doc-api-table 
+        title="API Reference: TooltipDirective"
+        [properties]="tooltipProperties">
+      </app-doc-api-table>
     </div>
   `
 })

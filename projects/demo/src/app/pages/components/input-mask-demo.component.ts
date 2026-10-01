@@ -17,60 +17,56 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
       </p>
 
       <!-- 1. CASOS DE USO -->
-      <section class="ox-section">
-        <h2>Patrones de Máscara Comunes</h2>
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
-          <div class="ox-flex ox-flex-column ox-gap-4" style="max-width: 400px">
-            
-            <!-- Teléfono -->
-            <div class="ox-flex ox-flex-column">
-              <label class="ox-mb-2" style="font-weight: 600; font-size: 0.875rem;">Teléfono: (999) 999-9999</label>
-              <ox-input-mask 
-                mask="(999) 999-9999" 
-                [(value)]="phone" 
-                placeholder="(999) 999-9999">
-              </ox-input-mask>
-              <small class="ox-text-surface-500 ox-mt-1" style="color: #64748b; font-size: 0.75rem;">Valor raw: {{ phone || 'Vacío' }}</small>
-            </div>
-
-            <!-- Fecha -->
-            <div class="ox-flex ox-flex-column">
-              <label class="ox-mb-2" style="font-weight: 600; font-size: 0.875rem;">Fecha: 99/99/9999</label>
-              <ox-input-mask 
-                mask="99/99/9999" 
-                [(value)]="date" 
-                placeholder="dd/mm/yyyy"
-                slotChar="*">
-              </ox-input-mask>
-              <small class="ox-text-surface-500 ox-mt-1" style="color: #64748b; font-size: 0.75rem;">Valor raw: {{ date || 'Vacío' }}</small>
-            </div>
-
-            <!-- Matrícula -->
-            <div class="ox-flex ox-flex-column">
-              <label class="ox-mb-2" style="font-weight: 600; font-size: 0.875rem;">Matrícula (Letras y Números): a-9999-aa</label>
-              <ox-input-mask 
-                mask="a-9999-aa" 
-                [(value)]="plate" 
-                placeholder="a-9999-aa">
-              </ox-input-mask>
-              <small class="ox-text-surface-500 ox-mt-1" style="color: #64748b; font-size: 0.75rem;">Valor raw: {{ plate || 'Vacío' }}</small>
-            </div>
-
+      <app-doc-code 
+        title="1. Patrones de Máscara Comunes"
+        description="Formatos preestablecidos para teléfonos, fechas y matrículas."
+        [htmlCode]="maskHtml"
+        [tsCode]="maskTs">
+        <div class="ox-flex ox-flex-column ox-gap-4" style="max-width: 400px; width: 100%;">
+          
+          <!-- Teléfono -->
+          <div class="ox-flex ox-flex-column">
+            <label class="ox-mb-2" style="font-weight: 600; font-size: 0.875rem;">Teléfono: (999) 999-9999</label>
+            <ox-input-mask 
+              mask="(999) 999-9999" 
+              [(value)]="phone" 
+              placeholder="(999) 999-9999">
+            </ox-input-mask>
+            <small class="ox-text-surface-500 ox-mt-1" style="color: #64748b; font-size: 0.75rem; margin-top: 4px;">Valor raw: {{ phone || 'Vacío' }}</small>
           </div>
-        </div>
 
-        <app-doc-code 
-          title="InputMask"
-          [htmlCode]="maskHtml"
-          [tsCode]="maskTs">
-        </app-doc-code>
-      </section>
+          <!-- Fecha -->
+          <div class="ox-flex ox-flex-column">
+            <label class="ox-mb-2" style="font-weight: 600; font-size: 0.875rem;">Fecha: 99/99/9999</label>
+            <ox-input-mask 
+              mask="99/99/9999" 
+              [(value)]="date" 
+              placeholder="dd/mm/yyyy"
+              slotChar="*">
+            </ox-input-mask>
+            <small class="ox-text-surface-500 ox-mt-1" style="color: #64748b; font-size: 0.75rem; margin-top: 4px;">Valor raw: {{ date || 'Vacío' }}</small>
+          </div>
+
+          <!-- Matrícula -->
+          <div class="ox-flex ox-flex-column">
+            <label class="ox-mb-2" style="font-weight: 600; font-size: 0.875rem;">Matrícula (Letras y Números): a-9999-aa</label>
+            <ox-input-mask 
+              mask="a-9999-aa" 
+              [(value)]="plate" 
+              placeholder="a-9999-aa">
+            </ox-input-mask>
+            <small class="ox-text-surface-500 ox-mt-1" style="color: #64748b; font-size: 0.75rem; margin-top: 4px;">Valor raw: {{ plate || 'Vacío' }}</small>
+          </div>
+
+        </div>
+      </app-doc-code>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
-        <h2>API Reference &mdash; &lt;ox-input-mask&gt;</h2>
-        <app-doc-api-table [properties]="inputMaskProperties" [events]="inputMaskEvents"></app-doc-api-table>
-      </section>
+      <app-doc-api-table 
+        title="API Reference: InputMaskComponent"
+        [properties]="inputMaskProperties" 
+        [events]="inputMaskEvents">
+      </app-doc-api-table>
     </div>
   `
 })

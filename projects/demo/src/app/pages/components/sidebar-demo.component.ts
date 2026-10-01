@@ -16,53 +16,49 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
       </p>
 
       <!-- 1. POSICIONES -->
-      <section class="ox-section">
-        <h2>Posicionamiento del Sidebar</h2>
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
-          <div class="ox-flex ox-gap-2 ox-flex-wrap">
-            <ox-button label="Izquierda" (onClick)="left = true"></ox-button>
-            <ox-button label="Derecha" severity="secondary" (onClick)="right = true"></ox-button>
-            <ox-button label="Arriba" severity="info" (onClick)="top = true"></ox-button>
-            <ox-button label="Abajo" severity="warn" (onClick)="bottom = true"></ox-button>
-          </div>
+      <app-doc-code 
+        title="1. Posicionamiento del Sidebar"
+        description="Apertura interactiva desde izquierda, derecha, arriba y abajo."
+        [htmlCode]="sidebarHtml"
+        [tsCode]="sidebarTs">
+        <div class="ox-flex ox-gap-2 ox-flex-wrap">
+          <ox-button label="Izquierda" (onClick)="left = true"></ox-button>
+          <ox-button label="Derecha" severity="secondary" (onClick)="right = true"></ox-button>
+          <ox-button label="Arriba" severity="info" (onClick)="top = true"></ox-button>
+          <ox-button label="Abajo" severity="warn" (onClick)="bottom = true"></ox-button>
         </div>
+      </app-doc-code>
 
-        <ox-sidebar [(visible)]="left" position="left" header="Menú Lateral">
-          <div style="padding: 1rem 0;">
-            <p style="color: #64748b; font-size: 0.875rem;">Panel desplegado desde la izquierda.</p>
-          </div>
-        </ox-sidebar>
+      <ox-sidebar [(visible)]="left" position="left" header="Menú Lateral">
+        <div style="padding: 1rem 0;">
+          <p style="color: #64748b; font-size: 0.875rem;">Panel desplegado desde la izquierda.</p>
+        </div>
+      </ox-sidebar>
 
-        <ox-sidebar [(visible)]="right" position="right" header="Notificaciones">
-          <div style="padding: 1rem 0;">
-            <p style="color: #64748b; font-size: 0.875rem;">Panel de notificaciones desde la derecha.</p>
-          </div>
-        </ox-sidebar>
+      <ox-sidebar [(visible)]="right" position="right" header="Notificaciones">
+        <div style="padding: 1rem 0;">
+          <p style="color: #64748b; font-size: 0.875rem;">Panel de notificaciones desde la derecha.</p>
+        </div>
+      </ox-sidebar>
 
-        <ox-sidebar [(visible)]="top" position="top" header="Banner Superior">
-          <div style="padding: 1rem 0;">
-            <p style="color: #64748b; font-size: 0.875rem;">Contenido emergente desde la parte superior.</p>
-          </div>
-        </ox-sidebar>
+      <ox-sidebar [(visible)]="top" position="top" header="Banner Superior">
+        <div style="padding: 1rem 0;">
+          <p style="color: #64748b; font-size: 0.875rem;">Contenido emergente desde la parte superior.</p>
+        </div>
+      </ox-sidebar>
 
-        <ox-sidebar [(visible)]="bottom" position="bottom" header="Panel Inferior">
-          <div style="padding: 1rem 0;">
-            <p style="color: #64748b; font-size: 0.875rem;">Panel modal deslizable desde abajo.</p>
-          </div>
-        </ox-sidebar>
-
-        <app-doc-code 
-          title="Sidebar"
-          [htmlCode]="sidebarHtml"
-          [tsCode]="sidebarTs">
-        </app-doc-code>
-      </section>
+      <ox-sidebar [(visible)]="bottom" position="bottom" header="Panel Inferior">
+        <div style="padding: 1rem 0;">
+          <p style="color: #64748b; font-size: 0.875rem;">Panel modal deslizable desde abajo.</p>
+        </div>
+      </ox-sidebar>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
-        <h2>API Reference &mdash; &lt;ox-sidebar&gt;</h2>
-        <app-doc-api-table [properties]="sidebarProperties" [events]="sidebarEvents"></app-doc-api-table>
-      </section>
+      <app-doc-api-table 
+        title="API Reference: SidebarComponent"
+        [properties]="sidebarProperties" 
+        [events]="sidebarEvents">
+      </app-doc-api-table>
     </div>
   `
 })

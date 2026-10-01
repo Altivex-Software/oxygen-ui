@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenubarComponent, CardComponent, MenuItem } from 'oxygen-ui';
+import { MenubarComponent, MenuItem } from 'oxygen-ui';
 import { CommonModule } from '@angular/common';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
@@ -7,7 +7,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
 @Component({
   selector: 'app-menubar-demo',
   standalone: true,
-  imports: [CommonModule, MenubarComponent, CardComponent, DocCodeComponent, DocApiTableComponent],
+  imports: [CommonModule, MenubarComponent, DocCodeComponent, DocApiTableComponent],
   template: `
     <div class="ox-page-container">
       <h1>Menubar</h1>
@@ -16,26 +16,21 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
       </p>
 
       <!-- 1. BÁSICO -->
-      <section class="ox-section">
-        <h2>Menú de Navegación Horizontal</h2>
-        <ox-card style="margin-bottom: 1.5rem;">
-          <div class="ox-p-4" style="min-height: 180px;">
-            <ox-menubar [model]="items"></ox-menubar>
-          </div>
-        </ox-card>
-
-        <app-doc-code 
-          title="Menubar"
-          [htmlCode]="menubarHtml"
-          [tsCode]="menubarTs">
-        </app-doc-code>
-      </section>
+      <app-doc-code 
+        title="1. Menú de Navegación Horizontal"
+        description="Barra completa con menús multinivel, iconos y acciones."
+        [htmlCode]="menubarHtml"
+        [tsCode]="menubarTs">
+        <div style="width: 100%; min-height: 140px;">
+          <ox-menubar [model]="items"></ox-menubar>
+        </div>
+      </app-doc-code>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
-        <h2>API Reference &mdash; &lt;ox-menubar&gt;</h2>
-        <app-doc-api-table [properties]="menubarProperties"></app-doc-api-table>
-      </section>
+      <app-doc-api-table 
+        title="API Reference: MenubarComponent"
+        [properties]="menubarProperties">
+      </app-doc-api-table>
     </div>
   `
 })

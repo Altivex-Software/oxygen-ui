@@ -16,24 +16,27 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
       </p>
 
       <!-- 1. BÁSICO -->
-      <section class="ox-section">
-        <h2>Flujo Asistente (Wizard)</h2>
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
+      <app-doc-code 
+        title="1. Flujo Asistente (Wizard)"
+        description="Paso a paso interactivo con soporte de navegación en encabezados."
+        [htmlCode]="stepperHtml"
+        [tsCode]="stepperTs">
+        <div style="width: 100%;">
           <ox-stepper [headerNavigation]="true">
             <ox-step label="Cuenta">
-              <div class="ox-p-4" style="background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 1rem;">
+              <div style="padding: 1.5rem; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 1rem;">
                 <h3 style="margin-top: 0;">Paso 1: Datos de Usuario</h3>
                 <p style="color: #64748b; font-size: 0.875rem;">Ingresa tu correo y define tus credenciales de acceso.</p>
               </div>
             </ox-step>
             <ox-step label="Perfil">
-              <div class="ox-p-4" style="background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 1rem;">
+              <div style="padding: 1.5rem; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 1rem;">
                 <h3 style="margin-top: 0;">Paso 2: Información Personal</h3>
                 <p style="color: #64748b; font-size: 0.875rem;">Completa tus datos profesionales y preferencias de cuenta.</p>
               </div>
             </ox-step>
             <ox-step label="Finalizar">
-              <div class="ox-p-4 ox-text-center" style="background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 1rem; text-align: center;">
+              <div style="padding: 1.5rem; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 1rem; text-align: center;">
                 <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎉</div>
                 <h3 style="margin-top: 0;">¡Todo listo!</h3>
                 <p style="color: #64748b; font-size: 0.875rem;">Tu proceso de configuración se ha completado con éxito.</p>
@@ -41,19 +44,13 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
             </ox-step>
           </ox-stepper>
         </div>
-
-        <app-doc-code 
-          title="Stepper"
-          [htmlCode]="stepperHtml"
-          [tsCode]="stepperTs">
-        </app-doc-code>
-      </section>
+      </app-doc-code>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
-        <h2>API Reference &mdash; &lt;ox-stepper&gt;</h2>
-        <app-doc-api-table [properties]="stepperProperties"></app-doc-api-table>
-      </section>
+      <app-doc-api-table 
+        title="API Reference: StepperComponent"
+        [properties]="stepperProperties">
+      </app-doc-api-table>
     </div>
   `
 })

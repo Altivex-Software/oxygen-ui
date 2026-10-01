@@ -1,4 +1,4 @@
-import { Component, forwardRef, input, model, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
+import { Component, forwardRef, input, model, computed, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -11,6 +11,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       class="ox-checkbox" 
       [class.ox-checkbox-checked]="checked()" 
       [class.ox-checkbox-disabled]="disabled()"
+      [ngClass]="colorClass()"
       (click)="toggle($event)">
       <div class="ox-checkbox-box">
         @if (checked()) {
@@ -39,6 +40,11 @@ export class CheckboxComponent implements ControlValueAccessor {
   label = input<string>();
   disabled = input<boolean>(false);
   checked = model<boolean>(false);
+  color = input<string>('primary');
+  severity = input<string>('');
+
+  effectiveColor = computed(() => this.severity() || this.color() || 'primary');
+  colorClass = computed(() => 'ox-checkbox--' + this.effectiveColor());
 
   private onChange: (value: boolean) => void = () => {};
   private onTouched: () => void = () => {};

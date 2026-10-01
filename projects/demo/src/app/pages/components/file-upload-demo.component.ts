@@ -16,55 +16,43 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
       </p>
 
       <!-- 1. BÁSICO -->
-      <section class="ox-section">
-        <h2>Carga de Archivo Individual</h2>
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
-          <div style="max-width: 500px">
-            <ox-file-upload 
-              (onSelect)="onSelect($event)" 
-              (onRemove)="onRemove()"
-              chooseLabel="Seleccionar un documento">
-            </ox-file-upload>
-          </div>
+      <app-doc-code 
+        title="1. Carga de Archivo Individual"
+        description="Selección y arrastre de un archivo individual con previsualización."
+        [htmlCode]="singleHtml"
+        [tsCode]="uploadTs">
+        <div style="max-width: 500px; width: 100%;">
+          <ox-file-upload 
+            (onSelect)="onSelect($event)" 
+            (onRemove)="onRemove()"
+            chooseLabel="Seleccionar un documento">
+          </ox-file-upload>
         </div>
-
-        <app-doc-code 
-          title="FileUpload Simple"
-          [htmlCode]="singleHtml"
-          [tsCode]="uploadTs">
-        </app-doc-code>
-      </section>
+      </app-doc-code>
 
       <!-- 2. MÚLTIPLES Y FILTRADO -->
-      <section class="ox-section">
-        <h2>Múltiples Archivos y Filtro de Tipo</h2>
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
-          <p class="ox-mb-3 ox-text-surface-600" style="color: #64748b; font-size: 0.875rem;">
-            Solo imágenes (png, jpg, jpeg) y hasta 1 MB por archivo.
-          </p>
-          <div style="max-width: 500px">
-            <ox-file-upload 
-              [multiple]="true"
-              accept="image/png, image/jpeg"
-              [maxFileSize]="1048576"
-              (onSelect)="onSelect($event)"
-              (onError)="onError($event)">
-            </ox-file-upload>
-          </div>
+      <app-doc-code 
+        title="2. Múltiples Archivos y Filtro de Tipo"
+        description="Restricción de formatos a solo imágenes (PNG, JPG) y hasta 1 MB por archivo."
+        [htmlCode]="multipleHtml"
+        [tsCode]="uploadTs">
+        <div style="max-width: 500px; width: 100%;">
+          <ox-file-upload 
+            [multiple]="true"
+            accept="image/png, image/jpeg"
+            [maxFileSize]="1048576"
+            (onSelect)="onSelect($event)"
+            (onError)="onError($event)">
+          </ox-file-upload>
         </div>
-
-        <app-doc-code 
-          title="FileUpload con Validación"
-          [htmlCode]="multipleHtml"
-          [tsCode]="uploadTs">
-        </app-doc-code>
-      </section>
+      </app-doc-code>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
-        <h2>API Reference &mdash; &lt;ox-file-upload&gt;</h2>
-        <app-doc-api-table [properties]="fileUploadProperties" [events]="fileUploadEvents"></app-doc-api-table>
-      </section>
+      <app-doc-api-table 
+        title="API Reference: FileUploadComponent"
+        [properties]="fileUploadProperties" 
+        [events]="fileUploadEvents">
+      </app-doc-api-table>
     </div>
   `
 })

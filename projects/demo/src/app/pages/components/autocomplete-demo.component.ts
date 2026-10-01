@@ -17,62 +17,51 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
       </p>
 
       <!-- 1. BÚSQUEDA SIMPLE -->
-      <section class="ox-section">
-        <h2>Búsqueda Simple (Strings)</h2>
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
-          <div style="max-width: 400px">
-            <ox-autocomplete 
-              [(value)]="selectedCountry"
-              [suggestions]="filteredCountries"
-              (completeMethod)="searchCountry($event)"
-              placeholder="Escribe para buscar un país (ej: Ar...)">
-            </ox-autocomplete>
-          </div>
-          <p class="ox-mt-4" style="font-size: 0.875rem; color: #64748b;">
+      <app-doc-code 
+        title="1. Búsqueda Simple (Strings)"
+        description="Filtro reactivo sobre lista de cadenas de texto."
+        [htmlCode]="basicHtml"
+        [tsCode]="basicTs">
+        <div style="max-width: 400px; width: 100%;">
+          <ox-autocomplete 
+            [(value)]="selectedCountry"
+            [suggestions]="filteredCountries"
+            (completeMethod)="searchCountry($event)"
+            placeholder="Escribe para buscar un país (ej: Ar...)">
+          </ox-autocomplete>
+          <p class="ox-mt-4" style="font-size: 0.875rem; color: #64748b; margin-top: 0.75rem;">
             País seleccionado: <code>{{ selectedCountry | json }}</code>
           </p>
         </div>
-
-        <app-doc-code 
-          title="AutoComplete Básico"
-          [htmlCode]="basicHtml"
-          [tsCode]="basicTs">
-        </app-doc-code>
-      </section>
+      </app-doc-code>
 
       <!-- 2. OBJETOS Y DROPDOWN -->
-      <section class="ox-section">
-        <h2>Con Botón Dropdown y Objetos Complejos</h2>
-        <p>Mapeo de objetos mediante la propiedad <code>field</code> y botón desplegable para ver todas las sugerencias iniciales.</p>
-
-        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
-          <div style="max-width: 400px">
-            <ox-autocomplete 
-              [(value)]="selectedAdvancedCountry"
-              [suggestions]="filteredAdvancedCountries"
-              (completeMethod)="searchAdvancedCountry($event)"
-              field="name"
-              [dropdown]="true"
-              placeholder="Buscar país...">
-            </ox-autocomplete>
-          </div>
-          <p class="ox-mt-4" style="font-size: 0.875rem; color: #64748b;">
+      <app-doc-code 
+        title="2. Con Botón Dropdown y Objetos Complejos"
+        description="Mapeo de objetos mediante la propiedad field y botón desplegable para ver todas las sugerencias iniciales."
+        [htmlCode]="advancedHtml"
+        [tsCode]="advancedTs">
+        <div style="max-width: 400px; width: 100%;">
+          <ox-autocomplete 
+            [(value)]="selectedAdvancedCountry"
+            [suggestions]="filteredAdvancedCountries"
+            (completeMethod)="searchAdvancedCountry($event)"
+            field="name"
+            [dropdown]="true"
+            placeholder="Buscar país...">
+          </ox-autocomplete>
+          <p class="ox-mt-4" style="font-size: 0.875rem; color: #64748b; margin-top: 0.75rem;">
             Objeto seleccionado: <code>{{ selectedAdvancedCountry | json }}</code>
           </p>
         </div>
-
-        <app-doc-code 
-          title="AutoComplete con Objetos"
-          [htmlCode]="advancedHtml"
-          [tsCode]="advancedTs">
-        </app-doc-code>
-      </section>
+      </app-doc-code>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
-        <h2>API Reference &mdash; &lt;ox-autocomplete&gt;</h2>
-        <app-doc-api-table [properties]="autoCompleteProperties" [events]="autoCompleteEvents"></app-doc-api-table>
-      </section>
+      <app-doc-api-table 
+        title="API Reference: AutoCompleteComponent"
+        [properties]="autoCompleteProperties" 
+        [events]="autoCompleteEvents">
+      </app-doc-api-table>
     </div>
   `
 })

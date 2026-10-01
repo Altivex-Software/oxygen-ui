@@ -172,8 +172,14 @@ export interface CodeTab {
     }
 
     .ox-doc-preview-content {
-      padding: 1.5rem;
-      background: var(--bg-surface, #ffffff);
+      padding: 2rem;
+      background-color: #f8fafc;
+      background-image: radial-gradient(#e2e8f0 1.2px, transparent 1.2px);
+      background-size: 16px 16px;
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     /* Code View Section */

@@ -1,13 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PaginatorComponent, CardComponent } from 'oxygen-ui';
+import { PaginatorComponent } from 'oxygen-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
 @Component({
   selector: 'app-paginator-demo',
   standalone: true,
-  imports: [CommonModule, PaginatorComponent, CardComponent, DocCodeComponent, DocApiTableComponent],
+  imports: [CommonModule, PaginatorComponent, DocCodeComponent, DocApiTableComponent],
   template: `
     <div class="ox-page-container">
       <h1>Paginator</h1>
@@ -16,58 +16,45 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
       </p>
 
       <!-- 1. BÁSICO -->
-      <section class="ox-section">
-        <h2>Paginación Básica</h2>
-        <p>Control de navegación con cálculo dinámico de páginas y salto a primera/última página.</p>
-
-        <ox-card>
-          <div class="ox-p-4">
-            <ox-paginator 
-              [rows]="10" 
-              [totalRecords]="totalRecords()" 
-              (onPageChange)="onPageChange($event)">
-            </ox-paginator>
-            <div style="margin-top: 1rem; font-size: 0.875rem; color: #64748b; background: #f8fafc; padding: 8px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">
-              <strong>Estado actual:</strong> Página {{ (pageState()?.page ?? 0) + 1 }} &mdash; Primer índice: {{ pageState()?.first ?? 0 }} ({{ totalRecords() }} registros)
-            </div>
+      <app-doc-code 
+        title="1. Paginación Básica"
+        description="Control de navegación con cálculo dinámico de páginas y salto a primera/última página."
+        [htmlCode]="basicHtml"
+        [tsCode]="basicTs">
+        <div style="width: 100%;">
+          <ox-paginator 
+            [rows]="10" 
+            [totalRecords]="totalRecords()" 
+            (onPageChange)="onPageChange($event)">
+          </ox-paginator>
+          <div style="margin-top: 1rem; font-size: 0.875rem; color: #64748b; background: #ffffff; padding: 8px 12px; border-radius: 6px; border: 1px solid #e2e8f0; width: fit-content;">
+            <strong>Estado actual:</strong> Página {{ (pageState()?.page ?? 0) + 1 }} &mdash; Primer índice: {{ pageState()?.first ?? 0 }} ({{ totalRecords() }} registros)
           </div>
-        </ox-card>
-
-        <app-doc-code 
-          title="Paginación Básica"
-          [htmlCode]="basicHtml"
-          [tsCode]="basicTs">
-        </app-doc-code>
-      </section>
+        </div>
+      </app-doc-code>
 
       <!-- 2. CON FILAS POR PÁGINA -->
-      <section class="ox-section">
-        <h2>Con Selector de Filas por Página</h2>
-        <p>Permite al usuario cambiar dinámicamente la cantidad de elementos visibles por página.</p>
-
-        <ox-card>
-          <div class="ox-p-4">
-            <ox-paginator 
-              [rows]="10" 
-              [totalRecords]="120" 
-              [rowsPerPageOptions]="[5, 10, 25, 50]"
-              (onPageChange)="onPageChange($event)">
-            </ox-paginator>
-          </div>
-        </ox-card>
-
-        <app-doc-code 
-          title="Selector de Filas"
-          [htmlCode]="rowsOptionsHtml"
-          [tsCode]="rowsOptionsTs">
-        </app-doc-code>
-      </section>
+      <app-doc-code 
+        title="2. Con Selector de Filas por Página"
+        description="Permite al usuario cambiar dinámicamente la cantidad de elementos visibles por página."
+        [htmlCode]="rowsOptionsHtml"
+        [tsCode]="rowsOptionsTs">
+        <div style="width: 100%;">
+          <ox-paginator 
+            [rows]="10" 
+            [totalRecords]="120" 
+            [rowsPerPageOptions]="[5, 10, 25, 50]"
+            (onPageChange)="onPageChange($event)">
+          </ox-paginator>
+        </div>
+      </app-doc-code>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
-        <h2>API Reference &mdash; &lt;ox-paginator&gt;</h2>
-        <app-doc-api-table [properties]="paginatorProperties" [events]="paginatorEvents"></app-doc-api-table>
-      </section>
+      <app-doc-api-table 
+        title="API Reference: PaginatorComponent"
+        [properties]="paginatorProperties" 
+        [events]="paginatorEvents">
+      </app-doc-api-table>
     </div>
   `
 })

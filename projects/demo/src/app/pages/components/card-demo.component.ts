@@ -34,18 +34,16 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [ts]="cardTs">
         <div class="demo-row">
           <ox-card style="width: 350px">
-            <div style="padding: 1.5rem">
-              <h3 style="margin-top: 0">Título de la Tarjeta</h3>
-              <p style="color: #64748b; margin-bottom: 1.5rem">
-                Este es el contenido de una tarjeta básica. Puedes colocar cualquier componente o estructura HTML adentro.
-              </p>
-              <ox-button size="sm">Acción</ox-button>
-            </div>
+            <h3 style="margin-top: 0; font-size: 1.125rem;">Título de la Tarjeta</h3>
+            <p style="color: #64748b; margin-bottom: 1.25rem; font-size: 0.875rem; line-height: 1.5;">
+              Este es el contenido de una tarjeta básica. Puedes colocar cualquier componente o estructura HTML adentro.
+            </p>
+            <ox-button size="sm" label="Acción"></ox-button>
           </ox-card>
         </div>
       </app-doc-code>
 
-      <!-- 2. INTERACTIVA -->
+      <!-- 2. INTERACTIVA Y ELEVACIÓN -->
       <app-doc-code
         title="2. Efectos Hover & Elevación"
         description="Propiedades liftOnHover y sombras configurables."
@@ -53,17 +51,13 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [ts]="cardTs">
         <div class="demo-row">
           <ox-card [hoverable]="true" [liftOnHover]="true" style="width: 300px">
-            <div style="padding: 1.5rem">
-              <h3 style="margin-top: 0">Tarjeta Interactiva</h3>
-              <p style="color: #64748b">Pasa el cursor por encima para ver la animación de elevación.</p>
-            </div>
+            <h3 style="margin-top: 0; font-size: 1.125rem;">Tarjeta Interactiva</h3>
+            <p style="color: #64748b; font-size: 0.875rem;">Pasa el cursor por encima para ver la animación de elevación.</p>
           </ox-card>
           
           <ox-card boxShadow="lg" style="width: 300px">
-            <div style="padding: 1.5rem">
-              <h3 style="margin-top: 0">Sombra Elevada</h3>
-              <p style="color: #64748b">Esta tarjeta cuenta con mayor profundidad visual.</p>
-            </div>
+            <h3 style="margin-top: 0; font-size: 1.125rem;">Sombra Elevada</h3>
+            <p style="color: #64748b; font-size: 0.875rem;">Esta tarjeta cuenta con mayor profundidad visual con sombra de nivel lg.</p>
           </ox-card>
         </div>
       </app-doc-code>
@@ -75,16 +69,20 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="flipHtml"
         [ts]="cardTs">
         <div class="demo-row">
-          <ox-card [(flipped)]="isFlipped" style="width: 300px; height: 180px">
-            <div style="padding: 1.5rem">
-              <h3 style="margin-top: 0">Frente</h3>
-              <p style="color: #64748b; margin-bottom: 1rem">Haz clic para ver el reverso.</p>
-              <ox-button size="sm" (onClick)="isFlipped = !isFlipped">Girar</ox-button>
+          <ox-card [(flipped)]="isFlipped" style="width: 320px; height: 190px">
+            <div>
+              <h3 style="margin-top: 0; font-size: 1.125rem;">Frente</h3>
+              <p style="color: #64748b; margin-bottom: 1rem; font-size: 0.875rem;">Haz clic para ver el reverso de la tarjeta.</p>
+              <ox-button size="sm" label="Girar 🔄" (onClick)="isFlipped = !isFlipped"></ox-button>
             </div>
-            <div oxCardBack style="padding: 1.5rem; background: #f8fafc; height: 100%; border-radius: 8px;">
-              <h3 style="margin-top: 0">Reverso</h3>
-              <p style="color: #64748b; margin-bottom: 1rem">Contenido posterior.</p>
-              <ox-button size="sm" variant="secondary" (onClick)="isFlipped = !isFlipped">Volver</ox-button>
+            <div oxCardBack style="padding: 1.5rem; background: #ffffff; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <h3 style="margin-top: 0; font-size: 1.125rem; color: #1e293b;">Reverso</h3>
+                <p style="color: #64748b; font-size: 0.875rem;">Contenido posterior con soporte 3D.</p>
+              </div>
+              <div>
+                <ox-button size="sm" severity="secondary" label="Volver al Frente" (onClick)="isFlipped = !isFlipped"></ox-button>
+              </div>
             </div>
           </ox-card>
         </div>
@@ -110,27 +108,29 @@ export class CardDemoComponent {
   isFlipped = false;
 
   basicHtml = `<ox-card style="width: 350px">
-  <div style="padding: 1.5rem">
-    <h3>Card Title</h3>
-    <p>Card content goes here.</p>
-    <ox-button size="sm">Action</ox-button>
-  </div>
+  <h3>Título de la Tarjeta</h3>
+  <p>Este es el contenido de una tarjeta básica.</p>
+  <ox-button size="sm" label="Acción"></ox-button>
 </ox-card>`;
 
   hoverHtml = `<ox-card [hoverable]="true" [liftOnHover]="true" style="width: 300px">
-  <div style="padding: 1.5rem">
-    <h3>Interactive Card</h3>
-  </div>
+  <h3>Tarjeta Interactiva</h3>
+  <p>Pasa el cursor por encima para ver la animación.</p>
+</ox-card>
+
+<ox-card boxShadow="lg" style="width: 300px">
+  <h3>Sombra Elevada</h3>
+  <p>Mayor profundidad visual.</p>
 </ox-card>`;
 
-  flipHtml = `<ox-card [flippable]="true" [(flipped)]="isFlipped" style="width: 300px; height: 180px">
-  <div style="padding: 1.5rem">
+  flipHtml = `<ox-card [(flipped)]="isFlipped" style="width: 320px; height: 190px">
+  <div>
     <h3>Frente</h3>
-    <ox-button size="sm" (onClick)="isFlipped = !isFlipped">Girar</ox-button>
+    <ox-button size="sm" label="Girar" (onClick)="isFlipped = !isFlipped"></ox-button>
   </div>
-  <div oxCardBack style="padding: 1.5rem">
+  <div oxCardBack>
     <h3>Reverso</h3>
-    <ox-button size="sm" (onClick)="isFlipped = !isFlipped">Volver</ox-button>
+    <ox-button size="sm" severity="secondary" label="Volver" (onClick)="isFlipped = !isFlipped"></ox-button>
   </div>
 </ox-card>`;
 
@@ -167,10 +167,10 @@ export class MyCardComponent {
       description: 'Nivel de sombra y profundidad.'
     },
     {
-      name: 'flippable',
+      name: 'bordered',
       type: 'boolean',
-      default: 'false',
-      description: 'Habilita el comportamiento 3D de giro frente/reverso.'
+      default: 'true',
+      description: 'Muestra u oculta el borde sutil de la tarjeta.'
     },
     {
       name: 'flipped',

@@ -1,4 +1,4 @@
-import { Component, forwardRef, input, model, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
+import { Component, forwardRef, input, model, computed, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -11,6 +11,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       class="ox-input-switch" 
       [class.ox-input-switch-checked]="checked()" 
       [class.ox-input-switch-disabled]="disabled()"
+      [ngClass]="colorClass()"
       (click)="toggle($event)">
       <div class="ox-input-switch-slider"></div>
     </div>
@@ -29,6 +30,11 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class InputSwitchComponent implements ControlValueAccessor {
   disabled = input<boolean>(false);
   checked = model<boolean>(false);
+  color = input<string>('primary');
+  severity = input<string>('');
+
+  effectiveColor = computed(() => this.severity() || this.color() || 'primary');
+  colorClass = computed(() => 'ox-input-switch--' + this.effectiveColor());
 
   private onChange: (value: boolean) => void = () => {};
   private onTouched: () => void = () => {};
