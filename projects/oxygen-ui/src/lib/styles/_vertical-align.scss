@@ -11,7 +11,10 @@ $vertical-alignments: (
 );
 
 @mixin generate-vertical-align($breakpoint: null) {
-  $prefix: if($breakpoint, '-#{$breakpoint}', '');
+  $prefix: '';
+  @if $breakpoint {
+    $prefix: '-#{$breakpoint}';
+  }
 
   @each $name, $value in $vertical-alignments {
     .ox-align#{$prefix}-#{$name} {

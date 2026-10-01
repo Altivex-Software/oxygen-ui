@@ -7,8 +7,7 @@ import {
   SplitterComponent, 
   TimelineComponent, 
   TimelineItem,
-  CardComponent,
-  ButtonComponent
+  CardComponent
 } from "oxygen-ui";
 
 @Component({
@@ -20,8 +19,7 @@ import {
     TreeSelectComponent, 
     SplitterComponent, 
     TimelineComponent,
-    CardComponent,
-    ButtonComponent
+    CardComponent
   ],
   template: `
     <div class="ox-page-container">

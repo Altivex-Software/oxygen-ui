@@ -3,7 +3,10 @@
 @use './breakpoints' as b;
 
 @mixin generate-extras($breakpoint: null) {
-  $prefix: if($breakpoint, '-#{$breakpoint}', '');
+  $prefix: '';
+  @if $breakpoint {
+    $prefix: '-#{$breakpoint}';
+  }
 
   // Z-Index
   $z-indices: (0, 10, 20, 30, 40, 50, 100, 1000);

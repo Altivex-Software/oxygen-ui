@@ -3,7 +3,10 @@
 @use './breakpoints' as b;
 
 @mixin generate-position($breakpoint: null) {
-  $prefix: if($breakpoint, '-#{$breakpoint}', '');
+  $prefix: '';
+  @if $breakpoint {
+    $prefix: '-#{$breakpoint}';
+  }
 
   // Position types
   .ox-position#{$prefix}-static   { position: static !important; }

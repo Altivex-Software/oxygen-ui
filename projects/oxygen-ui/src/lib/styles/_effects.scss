@@ -17,7 +17,10 @@ $shadows: (
 );
 
 @mixin generate-effects($breakpoint: null) {
-  $prefix: if($breakpoint, '-#{$breakpoint}', '');
+  $prefix: '';
+  @if $breakpoint {
+    $prefix: '-#{$breakpoint}';
+  }
 
   @each $name, $value in $radii {
     .ox-rounded#{$prefix}-#{$name} {

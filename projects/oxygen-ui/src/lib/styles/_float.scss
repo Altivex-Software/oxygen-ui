@@ -2,7 +2,10 @@
 @use './breakpoints' as b;
 
 @mixin generate-float($breakpoint: null) {
-  $prefix: if($breakpoint, '-#{$breakpoint}', '');
+  $prefix: '';
+  @if $breakpoint {
+    $prefix: '-#{$breakpoint}';
+  }
 
   .ox-float#{$prefix}-start { float: left !important; }
   .ox-float#{$prefix}-end { float: right !important; }
