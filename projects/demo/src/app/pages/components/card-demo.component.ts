@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { 
   CardComponent, 
   ButtonComponent, 
-  BadgeComponent, 
-  AlertComponent,
   OxCardBackDirective 
 } from 'oxygen-ui';
 
@@ -15,8 +13,6 @@ import {
     CommonModule, 
     CardComponent, 
     ButtonComponent, 
-    BadgeComponent, 
-    AlertComponent,
     OxCardBackDirective
   ],
   template: `

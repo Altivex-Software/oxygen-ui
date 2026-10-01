@@ -4,7 +4,10 @@
 @use './breakpoints' as b;
 
 @mixin generate-spacing($breakpoint: null) {
-  $prefix: if($breakpoint, '-#{$breakpoint}', '');
+  $prefix: '';
+  @if $breakpoint {
+    $prefix: '-#{$breakpoint}';
+  }
 
   // Standard Scale (0-5 + auto)
   @each $key, $val in t.$spacings {

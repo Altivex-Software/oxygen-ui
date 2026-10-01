@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { DividerComponent, CardComponent, ButtonComponent } from 'oxygen-ui';
+import { DividerComponent, CardComponent } from 'oxygen-ui';
 
 @Component({
   selector: 'app-divider-demo',
   standalone: true,
-  imports: [DividerComponent, CardComponent, ButtonComponent],
+  imports: [DividerComponent, CardComponent],
   template: `
     <div class="ox-page-container">
       <h1>Divider</h1>

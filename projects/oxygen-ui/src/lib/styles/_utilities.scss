@@ -2,7 +2,10 @@
 @use './breakpoints' as b;
 
 @mixin generate-utils($breakpoint: null) {
-  $prefix: if($breakpoint, '-#{$breakpoint}', '');
+  $prefix: '';
+  @if $breakpoint {
+    $prefix: '-#{$breakpoint}';
+  }
 
   // Text alignment
   .ox-text#{$prefix}-start { text-align: left !important; }

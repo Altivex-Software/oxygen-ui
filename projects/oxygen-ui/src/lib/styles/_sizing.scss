@@ -3,7 +3,10 @@
 @use './breakpoints' as b;
 
 @mixin generate-sizing($breakpoint: null) {
-  $prefix: if($breakpoint, '-#{$breakpoint}', '');
+  $prefix: '';
+  @if $breakpoint {
+    $prefix: '-#{$breakpoint}';
+  }
 
   @each $pct in t.$percentages {
     .ox-w#{$prefix}-#{$pct} { width: $pct * 1% !important; }

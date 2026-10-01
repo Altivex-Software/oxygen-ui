@@ -1,0 +1,48 @@
+.ox-confirm-popup-target {
+  display: inline-block;
+}
+
+.ox-confirm-popup-panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  max-width: 280px;
+  z-index: 1050;
+  animation: ox-confirm-popup-in 0.15s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.ox-confirm-popup-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.ox-confirm-popup-icon {
+  font-size: 1.25rem;
+}
+
+.ox-confirm-popup-message {
+  font-size: 0.875rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.ox-confirm-popup-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+@keyframes ox-confirm-popup-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

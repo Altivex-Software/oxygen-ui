@@ -40,6 +40,24 @@
   width: 100%;
 }
 
+.oxy-input-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--oxy-placeholder-color, #9ca3af);
+  pointer-events: none;
+  z-index: 1;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
 .oxy-input-field {
   width: 100%;
   height: var(--oxy-input-height);
@@ -51,6 +69,10 @@
   border-radius: 0.375rem;
   transition: all 0.2s ease-in-out;
   outline: none;
+
+  &--has-icon {
+    padding-left: 2rem;
+  }
 
   &::placeholder {
     color: var(--oxy-placeholder-color, #9ca3af);

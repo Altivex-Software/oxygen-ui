@@ -1,3 +1,5 @@
+@use '../input/input.component.scss' as *;
+
 .oxy-datepicker-input {
   cursor: pointer !important;
   caret-color: transparent;
@@ -166,9 +168,6 @@
     }
   }
 }
-
-// Reutilizar estilos de wrappers e inputs
-@import '../input/input.component.scss';
 
 // Ajustes específicos para que el label flote correctamente con el trigger icon
 .oxy-input-wrapper--oneLine .oxy-datepicker-trigger {

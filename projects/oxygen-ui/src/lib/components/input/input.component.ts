@@ -45,6 +45,7 @@ export class InputComponent implements ControlValueAccessor {
   variant = input<'default' | 'fieldset' | 'oneLine'>('default');
   floatLabel = input<boolean>(false);
   focusColor = input<InputFocusColor>();
+  icon = input<string>();
 
   hasLabel = computed(() => !!this.label());
   hasValue = computed(() => !!this.value());

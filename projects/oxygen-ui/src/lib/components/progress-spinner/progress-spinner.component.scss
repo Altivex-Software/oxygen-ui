@@ -1,0 +1,47 @@
+.ox-progress-spinner {
+  display: inline-block;
+  position: relative;
+
+  &-svg {
+    animation: ox-spinner-rotate 2s linear infinite;
+    height: 100%;
+    transform-origin: center center;
+    width: 100%;
+  }
+
+  &-circle {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    animation: ox-spinner-dash 1.5s ease-in-out infinite;
+    stroke-linecap: round;
+  }
+
+  // Severities
+  &-primary .ox-progress-spinner-circle { stroke: #3b82f6; }
+  &-secondary .ox-progress-spinner-circle { stroke: #64748b; }
+  &-success .ox-progress-spinner-circle { stroke: #22c55e; }
+  &-danger .ox-progress-spinner-circle { stroke: #ef4444; }
+  &-warning .ox-progress-spinner-circle { stroke: #f59e0b; }
+  &-info .ox-progress-spinner-circle { stroke: #06b6d4; }
+}
+
+@keyframes ox-spinner-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ox-spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}

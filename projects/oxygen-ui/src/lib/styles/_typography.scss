@@ -20,7 +20,10 @@
 }
 
 @mixin generate-typography($breakpoint: null) {
-  $prefix: if($breakpoint, '-#{$breakpoint}', '');
+  $prefix: '';
+  @if $breakpoint {
+    $prefix: '-#{$breakpoint}';
+  }
 
   // Font Sizes
   @each $name, $size in t.$font-sizes {
@@ -29,29 +32,49 @@
 
   // Headings (Fluid)
   .ox-h1#{$prefix} {
-    font-size: if($breakpoint, map.get(t.$font-sizes, '4xl'), fluid(1.75rem, 3rem)) !important;
+    @if $breakpoint {
+      font-size: map.get(t.$font-sizes, '4xl') !important;
+    } @else {
+      font-size: fluid(1.75rem, 3rem) !important;
+    }
     font-weight: map.get(t.$font-weights, 'bold') !important;
     line-height: 1.2 !important;
   }
   .ox-h2#{$prefix} {
-    font-size: if($breakpoint, map.get(t.$font-sizes, '3xl'), fluid(1.5rem, 2.25rem)) !important;
+    @if $breakpoint {
+      font-size: map.get(t.$font-sizes, '3xl') !important;
+    } @else {
+      font-size: fluid(1.5rem, 2.25rem) !important;
+    }
     font-weight: map.get(t.$font-weights, 'semibold') !important;
     line-height: 1.3 !important;
   }
   .ox-h3#{$prefix} {
-    font-size: if($breakpoint, map.get(t.$font-sizes, '2xl'), fluid(1.25rem, 1.875rem)) !important;
+    @if $breakpoint {
+      font-size: map.get(t.$font-sizes, '2xl') !important;
+    } @else {
+      font-size: fluid(1.25rem, 1.875rem) !important;
+    }
     font-weight: map.get(t.$font-weights, 'semibold') !important;
     line-height: 1.4 !important;
   }
 
   // Subtitles (Fluid-ish)
   .ox-subtitle1#{$prefix} {
-    font-size: if($breakpoint, map.get(t.$font-sizes, 'xl'), fluid(1.125rem, 1.25rem)) !important;
+    @if $breakpoint {
+      font-size: map.get(t.$font-sizes, 'xl') !important;
+    } @else {
+      font-size: fluid(1.125rem, 1.25rem) !important;
+    }
     font-weight: map.get(t.$font-weights, 'medium') !important;
     line-height: 1.5 !important;
   }
   .ox-subtitle2#{$prefix} {
-    font-size: if($breakpoint, map.get(t.$font-sizes, 'lg'), fluid(1.0625rem, 1.125rem)) !important;
+    @if $breakpoint {
+      font-size: map.get(t.$font-sizes, 'lg') !important;
+    } @else {
+      font-size: fluid(1.0625rem, 1.125rem) !important;
+    }
     font-weight: map.get(t.$font-weights, 'medium') !important;
     line-height: 1.5 !important;
   }
@@ -63,7 +86,11 @@
 
   // Paragraphs
   .ox-p#{$prefix} {
-    font-size: if($breakpoint, map.get(t.$font-sizes, 'base'), fluid(0.9375rem, 1rem)) !important;
+    @if $breakpoint {
+      font-size: map.get(t.$font-sizes, 'base') !important;
+    } @else {
+      font-size: fluid(0.9375rem, 1rem) !important;
+    }
     font-weight: map.get(t.$font-weights, 'normal') !important;
     line-height: 1.6 !important;
   }

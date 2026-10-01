@@ -40,6 +40,9 @@ import { MultiSelectDemoComponent } from './pages/components/multi-select-demo.c
 import { AutoCompleteDemoComponent } from './pages/components/autocomplete-demo.component';
 import { InputMaskDemoComponent } from './pages/components/input-mask-demo.component';
 import { FileUploadDemoComponent } from './pages/components/file-upload-demo.component';
+import { OverlaysDemoComponent } from './pages/components/overlays-demo.component';
+import { FeedbackDemoComponent } from './pages/components/feedback-demo.component';
+import { AdvancedDemoComponent } from './pages/components/advanced-demo.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -75,8 +78,11 @@ export const routes: Routes = [
       { path: 'alert', component: AlertDemoComponent },
       { path: 'toast', component: ToastDemoComponent },
       { path: 'dialog', component: DialogDemoComponent },
+      { path: 'popover', component: OverlaysDemoComponent },
       { path: 'tooltip', component: TooltipDemoComponent },
       { path: 'skeleton', component: SkeletonDemoComponent },
+      { path: 'feedback', component: FeedbackDemoComponent },
+      { path: 'advanced', component: AdvancedDemoComponent },
       { path: 'confirm', component: ConfirmDemoComponent },
       { path: 'multi-select', component: MultiSelectDemoComponent },
       { path: 'autocomplete', component: AutoCompleteDemoComponent },

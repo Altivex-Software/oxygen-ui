@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { SidebarComponent } from 'oxygen-ui';
-
 @Component({
   selector: 'app-components-page',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet, SidebarComponent],
+  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet],
   template: `
     <div class="components-layout">
       <aside class="sidebar">
@@ -42,6 +40,7 @@ import { SidebarComponent } from 'oxygen-ui';
           <a routerLink="input-mask" routerLinkActive="active" class="nav-item">InputMask</a>
           <a routerLink="checkbox" routerLinkActive="active" class="nav-item">Checkbox</a>
           <a routerLink="switch" routerLinkActive="active" class="nav-item">Switch</a>
+          <a routerLink="advanced" routerLinkActive="active" class="nav-item">TreeSelect & Splitter</a>
           
           <div class="nav-section">Data</div>
           <a routerLink="table" routerLinkActive="active" class="nav-item">Table</a>
@@ -51,6 +50,8 @@ import { SidebarComponent } from 'oxygen-ui';
           <a routerLink="alert" routerLinkActive="active" class="nav-item">Alert</a>
           <a routerLink="toast" routerLinkActive="active" class="nav-item">Toast</a>
           <a routerLink="dialog" routerLinkActive="active" class="nav-item">Dialog</a>
+          <a routerLink="popover" routerLinkActive="active" class="nav-item">Popover & Overlays</a>
+          <a routerLink="feedback" routerLinkActive="active" class="nav-item">Progress & Feedback</a>
           <a routerLink="tooltip" routerLinkActive="active" class="nav-item">Tooltip</a>
           <a routerLink="skeleton" routerLinkActive="active" class="nav-item">Skeleton</a>
           <a routerLink="confirm" routerLinkActive="active" class="nav-item">ConfirmService</a>

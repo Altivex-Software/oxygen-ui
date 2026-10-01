@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ToolbarComponent, ButtonComponent, DividerComponent } from 'oxygen-ui';
+import { ToolbarComponent, ButtonComponent } from 'oxygen-ui';
 
 @Component({
   selector: 'app-toolbar-demo',
   standalone: true,
-  imports: [CommonModule, ToolbarComponent, ButtonComponent, DividerComponent],
+  imports: [CommonModule, ToolbarComponent, ButtonComponent],
   template: `
     <div class="ox-page-container">
       <h1>Toolbar</h1>

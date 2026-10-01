@@ -50,3 +50,16 @@ export * from './lib/components/multi-select/multi-select.component';
 export * from './lib/components/auto-complete/auto-complete.component';
 export * from './lib/components/input-mask/input-mask.component';
 export * from './lib/components/file-upload/file-upload.component';
+export * from './lib/components/popover/popover.component';
+export * from './lib/components/context-menu/context-menu.component';
+export * from './lib/components/confirm-popup/confirm-popup.component';
+export * from './lib/components/progress-bar/progress-bar.component';
+export * from './lib/components/progress-spinner/progress-spinner.component';
+export * from './lib/components/tag/tag.component';
+export * from './lib/components/block-ui/block-ui.component';
+export * from './lib/components/tree-select/tree-select.component';
+export * from './lib/components/splitter/splitter.component';
+export * from './lib/components/timeline/timeline.component';
+
+
+

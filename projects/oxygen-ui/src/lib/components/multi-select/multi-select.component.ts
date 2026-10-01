@@ -13,7 +13,7 @@ export interface MultiSelectOption<T = unknown> {
 @Component({
   selector: 'ox-multi-select',
   standalone: true,
-  imports: [CommonModule, OverlayModule, FormsModule, NgClass, BadgeComponent],
+  imports: [CommonModule, OverlayModule, FormsModule, NgClass],
   template: `
     <div 
       #container

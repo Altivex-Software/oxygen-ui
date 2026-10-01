@@ -48,26 +48,29 @@ $flex-properties: (
 
 // Helper to generate utilities
 @mixin generate-flex-utils($breakpoint: null) {
-  $prefix-base: if($breakpoint, '-#{$breakpoint}', '');
+  $prefix-base: '';
+  @if $breakpoint {
+    $prefix-base: '-#{$breakpoint}';
+  }
   
   @each $prop, $values in $flex-properties {
     @each $key, $val in $values {
       $class-name: '';
       
       @if $prop == 'flex-direction' {
-        $class-name: 'ox-flex#{if($breakpoint, "-#{$breakpoint}", "")}-#{$key}';
+        $class-name: 'ox-flex#{$prefix-base}-#{$key}';
       } @else if $prop == 'flex-wrap' {
-        $class-name: 'ox-flex#{if($breakpoint, "-#{$breakpoint}", "")}-#{$key}';
+        $class-name: 'ox-flex#{$prefix-base}-#{$key}';
       } @else if $prop == 'justify-content' {
-        $class-name: 'ox-justify-content#{if($breakpoint, "-#{$breakpoint}", "")}-#{$key}';
+        $class-name: 'ox-justify-content#{$prefix-base}-#{$key}';
       } @else if $prop == 'align-items' {
-        $class-name: 'ox-align-items#{if($breakpoint, "-#{$breakpoint}", "")}-#{$key}';
+        $class-name: 'ox-align-items#{$prefix-base}-#{$key}';
       } @else if $prop == 'align-content' {
-        $class-name: 'ox-align-content#{if($breakpoint, "-#{$breakpoint}", "")}-#{$key}';
+        $class-name: 'ox-align-content#{$prefix-base}-#{$key}';
       } @else if $prop == 'flex-grow' {
-        $class-name: 'ox-flex#{if($breakpoint, "-#{$breakpoint}", "")}-grow-#{$key}';
+        $class-name: 'ox-flex#{$prefix-base}-grow-#{$key}';
       } @else if $prop == 'flex-shrink' {
-        $class-name: 'ox-flex#{if($breakpoint, "-#{$breakpoint}", "")}-shrink-#{$key}';
+        $class-name: 'ox-flex#{$prefix-base}-shrink-#{$key}';
       }
 
       .#{$class-name} {
@@ -77,16 +80,16 @@ $flex-properties: (
   }
 
   // Flex fill
-  .ox-flex#{if($breakpoint, "-#{$breakpoint}", "")}-fill {
+  .ox-flex#{$prefix-base}-fill {
     flex: 1 1 auto !important;
   }
   
   // Display flex shortcuts
-  .ox-flex#{if($breakpoint, "-#{$breakpoint}", "")} {
+  .ox-flex#{$prefix-base} {
     display: flex !important;
   }
   
-  .ox-inline-flex#{if($breakpoint, "-#{$breakpoint}", "")} {
+  .ox-inline-flex#{$prefix-base} {
     display: inline-flex !important;
   }
 }

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent, BadgeComponent } from 'oxygen-ui';
+import { ButtonComponent } from 'oxygen-ui';
 
 @Component({
   selector: 'app-button-demo',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, BadgeComponent],
+  imports: [CommonModule, ButtonComponent],
   template: `
     <div class="ox-page-container">
       <h1>Button</h1>

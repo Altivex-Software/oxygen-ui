@@ -12,6 +12,10 @@
   text-align: left;
   font-size: 0.875rem;
 
+  th, td {
+    vertical-align: middle;
+  }
+
   &-thead {
     background: #f8fafc;
     border-bottom: 2px solid #e2e8f0;
@@ -50,6 +54,15 @@
     &:hover {
       background: #f8fafc;
     }
+
+    &.ox-table-row-selected {
+      background-color: #eff6ff !important;
+      color: #1d4ed8;
+
+      td {
+        border-bottom-color: #bfdbfe;
+      }
+    }
   }
 
   th {
@@ -59,6 +72,30 @@
     white-space: nowrap;
     text-align: left;
     border-bottom: 2px solid #e2e8f0;
+
+    &.ox-sortable-column {
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s, color 0.2s;
+
+      &:hover {
+        background: #f1f5f9;
+        color: #0f172a;
+      }
+    }
+  }
+
+  .ox-sort-icon {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    opacity: 0.4;
+    transition: opacity 0.2s, transform 0.2s;
+
+    &.active {
+      opacity: 1;
+      color: #2563eb;
+    }
   }
 
   td {
@@ -74,3 +111,4 @@
     font-style: italic;
   }
 }
+

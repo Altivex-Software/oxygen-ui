@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SkeletonComponent, CardComponent } from 'oxygen-ui';
+import { SkeletonComponent } from 'oxygen-ui';
 
 @Component({
   selector: 'app-skeleton-demo',
   standalone: true,
-  imports: [CommonModule, SkeletonComponent, CardComponent],
+  imports: [CommonModule, SkeletonComponent],
   template: `
     <div class="ox-page-container">
       <h1>Skeleton</h1>

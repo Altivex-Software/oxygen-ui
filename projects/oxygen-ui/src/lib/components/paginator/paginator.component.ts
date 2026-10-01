@@ -1,10 +1,11 @@
-import { Component, input, output, computed, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
+import { Component, input, output, computed, signal, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DropdownComponent, DropdownOption } from '../dropdown/dropdown.component';
 
 @Component({
   selector: 'ox-paginator',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, DropdownComponent],
   template: `
     <div class="ox-paginator">
       <button 
@@ -17,7 +18,7 @@ import { CommonModule } from '@angular/common';
       <button 
         class="ox-paginator-button" 
         [disabled]="isFirstPage()" 
-        (click)="changePage(page() - 1)"
+        (click)="changePage(currentPage() - 1)"
         title="Previous Page">
         <span class="ox-paginator-icon">‹</span>
       </button>
@@ -26,7 +27,7 @@ import { CommonModule } from '@angular/common';
         @for (p of visiblePages(); track p) {
           <button 
             class="ox-paginator-page" 
-            [class.ox-paginator-page-active]="p === page()"
+            [class.ox-paginator-page-active]="p === currentPage()"
             (click)="changePage(p)">
             {{ p + 1 }}
           </button>
@@ -36,7 +37,7 @@ import { CommonModule } from '@angular/common';
       <button 
         class="ox-paginator-button" 
         [disabled]="isLastPage()" 
-        (click)="changePage(page() + 1)"
+        (click)="changePage(currentPage() + 1)"
         title="Next Page">
         <span class="ox-paginator-icon">›</span>
       </button>
@@ -47,9 +48,20 @@ import { CommonModule } from '@angular/common';
         title="Last Page">
         <span class="ox-paginator-icon">»</span>
       </button>
-      
+
+      @if (rowsPerPageOptions().length > 0) {
+        <div class="ox-paginator-rpp-wrapper">
+          <ox-dropdown
+            size="sm"
+            [options]="dropdownOptions()"
+            [value]="rows()"
+            (valueChange)="onRowsPerPageSelect($event)">
+          </ox-dropdown>
+        </div>
+      }
+
       <span class="ox-paginator-current">
-        Showing {{ first() + 1 }} to {{ last() }} of {{ totalRecords() }}
+        Showing {{ totalRecords() === 0 ? 0 : currentFirst() + 1 }} to {{ currentLast() }} of {{ totalRecords() }}
       </span>
     </div>
   `,
@@ -61,19 +73,35 @@ export class PaginatorComponent {
   totalRecords = input<number>(0);
   rows = input<number>(10);
   page = input<number>(0);
+  first = input<number>(0);
+  rowsPerPageOptions = input<number[]>([]);
   
-  onPageChange = output<{page: number, rows: number}>();
+  onPageChange = output<{page: number, first: number, rows: number}>();
+
+  dropdownOptions = computed<DropdownOption<number>[]>(() => {
+    return this.rowsPerPageOptions().map(opt => ({
+      label: String(opt),
+      value: opt
+    }));
+  });
+
+  currentPage = computed(() => {
+    if (this.first() > 0 && this.rows() > 0) {
+      return Math.floor(this.first() / this.rows());
+    }
+    return this.page();
+  });
 
   pageCount = computed(() => Math.ceil(this.totalRecords() / this.rows()) || 1);
-  isFirstPage = computed(() => this.page() === 0);
-  isLastPage = computed(() => this.page() === this.pageCount() - 1);
+  isFirstPage = computed(() => this.currentPage() === 0);
+  isLastPage = computed(() => this.currentPage() === this.pageCount() - 1);
   
-  first = computed(() => this.page() * this.rows());
-  last = computed(() => Math.min((this.page() + 1) * this.rows(), this.totalRecords()));
+  currentFirst = computed(() => this.currentPage() * this.rows());
+  currentLast = computed(() => Math.min((this.currentPage() + 1) * this.rows(), this.totalRecords()));
 
   visiblePages = computed(() => {
     const total = this.pageCount();
-    const current = this.page();
+    const current = this.currentPage();
     let start = Math.max(0, current - 2);
     let end = Math.min(total, start + 5);
     
@@ -87,8 +115,16 @@ export class PaginatorComponent {
   });
 
   changePage(p: number) {
-    if (p >= 0 && p < this.pageCount() && p !== this.page()) {
-      this.onPageChange.emit({ page: p, rows: this.rows() });
+    if (p >= 0 && p < this.pageCount() && p !== this.currentPage()) {
+      const newFirst = p * this.rows();
+      this.onPageChange.emit({ page: p, first: newFirst, rows: this.rows() });
+    }
+  }
+
+  onRowsPerPageSelect(newRows: number) {
+    if (newRows && newRows !== this.rows()) {
+      this.onPageChange.emit({ page: 0, first: 0, rows: newRows });
     }
   }
 }
+

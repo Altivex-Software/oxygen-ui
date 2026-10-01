@@ -1,0 +1,92 @@
+.ox-timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &-event {
+    display: flex;
+    position: relative;
+    min-height: 70px;
+
+    &-opposite {
+      flex: 1;
+      padding: 0 1rem;
+      text-align: right;
+      font-size: 0.8125rem;
+      color: #64748b;
+    }
+
+    &-separator {
+      flex: 0;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    &-marker {
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 0.875rem;
+      z-index: 1;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &-connector {
+      width: 2px;
+      flex-grow: 1;
+      background: #e2e8f0;
+    }
+
+    &-content {
+      flex: 1;
+      padding: 0 1rem;
+    }
+  }
+
+  .ox-timeline-status {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1e293b;
+  }
+
+  .ox-timeline-description {
+    font-size: 0.8125rem;
+    color: #64748b;
+    margin-top: 2px;
+  }
+
+  // Horizontal Layout
+  &-horizontal {
+    flex-direction: row;
+
+    .ox-timeline-event {
+      flex-direction: column;
+      flex: 1;
+
+      &-opposite {
+        text-align: center;
+        padding: 0 0 0.5rem 0;
+      }
+
+      &-separator {
+        flex-direction: row;
+        width: 100%;
+      }
+
+      &-connector {
+        height: 2px;
+        width: 100%;
+      }
+
+      &-content {
+        text-align: center;
+        padding: 0.5rem 0 0 0;
+      }
+    }
+  }
+}

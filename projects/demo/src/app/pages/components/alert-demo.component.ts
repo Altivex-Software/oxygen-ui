@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AlertComponent, ButtonComponent } from 'oxygen-ui';
+import { AlertComponent } from 'oxygen-ui';
 
 @Component({
   selector: 'app-alert-demo',
   standalone: true,
-  imports: [CommonModule, AlertComponent, ButtonComponent],
+  imports: [CommonModule, AlertComponent],
   template: `
     <div class="ox-page-container">
       <h1>Alert</h1>

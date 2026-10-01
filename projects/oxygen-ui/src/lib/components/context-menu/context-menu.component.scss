@@ -1,0 +1,78 @@
+.ox-context-menu-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1050;
+  pointer-events: auto;
+}
+
+.ox-context-menu-panel {
+  position: fixed;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 4px 0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  min-width: 180px;
+  z-index: 1051;
+  animation: ox-context-menu-appear 0.12s ease-out;
+}
+
+.ox-context-menu-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ox-context-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  color: #1e293b;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+
+  &:hover:not(.ox-context-menu-item-disabled) {
+    background: #f1f5f9;
+    color: #0f172a;
+  }
+
+  &-danger {
+    color: #ef4444;
+    &:hover:not(.ox-context-menu-item-disabled) {
+      background: #fef2f2 !important;
+      color: #dc2626 !important;
+    }
+  }
+
+  &-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.ox-context-menu-separator {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 4px 0;
+}
+
+.ox-context-menu-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+@keyframes ox-context-menu-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
