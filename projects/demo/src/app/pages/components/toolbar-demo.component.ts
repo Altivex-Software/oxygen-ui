@@ -1,58 +1,73 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToolbarComponent, ButtonComponent } from 'oxygen-ui';
+import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
+import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api-table.component';
 
 @Component({
   selector: 'app-toolbar-demo',
   standalone: true,
-  imports: [CommonModule, ToolbarComponent, ButtonComponent],
+  imports: [CommonModule, ToolbarComponent, ButtonComponent, DocCodeComponent, DocApiTableComponent],
   template: `
     <div class="ox-page-container">
-      <h1>Toolbar</h1>
-      <p class="ox-description">Agrupa un conjunto de componentes, normalmente botones, de forma horizontal.</p>
+      <h1>Toolbar (Barra de Herramientas)</h1>
+      <p class="ox-description">Agrupa y organiza controles y botones de acción horizontalmente con secciones izquierda y derecha.</p>
 
-      <section class="ox-section">
-        <h2>Básico</h2>
-        <div class="ox-card ox-p-4">
-          <ox-toolbar>
-            <div left>
-              <ox-button icon="pi pi-plus" severity="success"></ox-button>
-              <ox-button icon="pi pi-file" severity="secondary"></ox-button>
-              <ox-button icon="pi pi-trash" severity="error"></ox-button>
-            </div>
-            
-            <div right>
-              <ox-button label="Exportar" icon="pi pi-download"></ox-button>
-            </div>
-          </ox-toolbar>
-        </div>
-      </section>
+      <!-- 1. BÁSICO -->
+      <app-doc-code
+        title="1. Barra Estándar con Secciones Izquierda y Derecha"
+        description="Agrupación de botones principales y acciones de exportación."
+        [html]="basicHtml"
+        [ts]="toolbarTs">
+        <ox-toolbar>
+          <div left style="display: flex; gap: 0.5rem;">
+            <ox-button variant="success">➕ Nuevo</ox-button>
+            <ox-button variant="secondary">📄 Abrir</ox-button>
+            <ox-button variant="danger">🗑️ Eliminar</ox-button>
+          </div>
+          
+          <div right>
+            <ox-button variant="outline-primary">📥 Exportar</ox-button>
+          </div>
+        </ox-toolbar>
+      </app-doc-code>
 
-      <section class="ox-section">
-        <h2>Variantes de Color</h2>
-        <div class="ox-flex ox-flex-column ox-gap-4">
-          <ox-toolbar color="primary">
-            <div left>
-              <ox-button icon="pi pi-bars" variant="ghost-secondary"></ox-button>
-              <span class="ox-fw-bold">Primary Toolbar</span>
-            </div>
-            <div right>
-              <ox-button icon="pi pi-search" variant="ghost-secondary"></ox-button>
-            </div>
-          </ox-toolbar>
-
-          <ox-toolbar color="secondary">
-            <div left>
-              <ox-button icon="pi pi-user" variant="ghost-secondary"></ox-button>
-              <span class="ox-fw-bold">Secondary Toolbar</span>
-            </div>
-            <div right>
-              <ox-button icon="pi pi-bell" variant="ghost-secondary"></ox-button>
-            </div>
-          </ox-toolbar>
-        </div>
-      </section>
+      <!-- API REFERENCE -->
+      <app-doc-api-table 
+        title="API Reference: ToolbarComponent"
+        [properties]="toolbarProps">
+      </app-doc-api-table>
     </div>
   `
 })
-export class ToolbarDemoComponent {}
+export class ToolbarDemoComponent {
+  basicHtml = `<ox-toolbar>
+  <div left>
+    <ox-button variant="success">Nuevo</ox-button>
+    <ox-button variant="secondary">Abrir</ox-button>
+  </div>
+  <div right>
+    <ox-button variant="outline-primary">Exportar</ox-button>
+  </div>
+</ox-toolbar>`;
+
+  toolbarTs = `import { Component } from '@angular/core';
+import { ToolbarComponent, ButtonComponent } from 'oxygen-ui';
+
+@Component({
+  selector: 'app-my-toolbar',
+  standalone: true,
+  imports: [ToolbarComponent, ButtonComponent],
+  templateUrl: './my-toolbar.component.html'
+})
+export class MyToolbarComponent {}`;
+
+  toolbarProps: ApiProperty[] = [
+    {
+      name: 'color',
+      type: "'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'transparent'",
+      default: "'transparent'",
+      description: 'Color de fondo o realce de la barra de herramientas.'
+    }
+  ];
+}

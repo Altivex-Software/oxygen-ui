@@ -43,6 +43,11 @@ import { FileUploadDemoComponent } from './pages/components/file-upload-demo.com
 import { OverlaysDemoComponent } from './pages/components/overlays-demo.component';
 import { FeedbackDemoComponent } from './pages/components/feedback-demo.component';
 import { AdvancedDemoComponent } from './pages/components/advanced-demo.component';
+import { ChipsDemoComponent } from './pages/components/chips-demo.component';
+import { SelectButtonDemoComponent } from './pages/components/select-button-demo.component';
+import { ImageDemoComponent } from './pages/components/image-demo.component';
+import { SpeedDialDemoComponent } from './pages/components/speed-dial-demo.component';
+import { TreeTableDemoComponent } from './pages/components/tree-table-demo.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -73,7 +78,10 @@ export const routes: Routes = [
       { path: 'dropdown', component: DropdownDemoComponent },
       { path: 'checkbox', component: CheckboxDemoComponent },
       { path: 'switch', component: InputSwitchDemoComponent },
+      { path: 'chips', component: ChipsDemoComponent },
+      { path: 'select-button', component: SelectButtonDemoComponent },
       { path: 'table', component: TableDemoComponent },
+      { path: 'tree-table', component: TreeTableDemoComponent },
       { path: 'paginator', component: PaginatorDemoComponent },
       { path: 'alert', component: AlertDemoComponent },
       { path: 'toast', component: ToastDemoComponent },
@@ -88,6 +96,8 @@ export const routes: Routes = [
       { path: 'autocomplete', component: AutoCompleteDemoComponent },
       { path: 'input-mask', component: InputMaskDemoComponent },
       { path: 'file-upload', component: FileUploadDemoComponent },
+      { path: 'image', component: ImageDemoComponent },
+      { path: 'speed-dial', component: SpeedDialDemoComponent },
       { path: 'menubar', component: MenubarDemoComponent },
       { path: 'breadcrumb', component: BreadcrumbDemoComponent },
       { path: 'stepper', component: StepperDemoComponent },

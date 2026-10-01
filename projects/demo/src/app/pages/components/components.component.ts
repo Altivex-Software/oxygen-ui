@@ -29,6 +29,8 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
           <a routerLink="date" routerLinkActive="active" class="nav-item">Date Input</a>
           <a routerLink="datepicker" routerLinkActive="active" class="nav-item">DatePicker</a>
           <a routerLink="file-upload" routerLinkActive="active" class="nav-item">File Upload</a>
+          <a routerLink="chips" routerLinkActive="active" class="nav-item">Chips / Tags</a>
+          <a routerLink="select-button" routerLinkActive="active" class="nav-item">SelectButton</a>
           <a routerLink="otp" routerLinkActive="active" class="nav-item">OTP</a>
           <a routerLink="radio" routerLinkActive="active" class="nav-item">Radio</a>
           <a routerLink="rating" routerLinkActive="active" class="nav-item">Rating</a>
@@ -44,7 +46,12 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
           
           <div class="nav-section">Data</div>
           <a routerLink="table" routerLinkActive="active" class="nav-item">Table</a>
+          <a routerLink="tree-table" routerLinkActive="active" class="nav-item">TreeTable</a>
           <a routerLink="paginator" routerLinkActive="active" class="nav-item">Paginator</a>
+
+          <div class="nav-section">Media & Actions</div>
+          <a routerLink="image" routerLinkActive="active" class="nav-item">Image (Zoom/Preview)</a>
+          <a routerLink="speed-dial" routerLinkActive="active" class="nav-item">SpeedDial (FAB)</a>
           
           <div class="nav-section">Feedback</div>
           <a routerLink="alert" routerLinkActive="active" class="nav-item">Alert</a>
@@ -60,6 +67,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
           <a routerLink="menubar" routerLinkActive="active" class="nav-item">Menubar</a>
           <a routerLink="breadcrumb" routerLinkActive="active" class="nav-item">Breadcrumb</a>
           <a routerLink="stepper" routerLinkActive="active" class="nav-item">Stepper</a>
+          <a routerLink="sidebar" routerLinkActive="active" class="nav-item">Sidebar</a>
         </nav>
       </aside>
       

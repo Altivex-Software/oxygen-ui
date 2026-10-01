@@ -1,4 +1,4 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { 
@@ -9,6 +9,8 @@ import {
   InputComponent,
   PaginatorComponent 
 } from "oxygen-ui";
+import { DocCodeComponent } from "../../shared/doc-code/doc-code.component";
+import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-code/doc-api-table.component";
 
 @Component({
   selector: "app-table-demo",
@@ -21,34 +23,38 @@ import {
     BadgeComponent, 
     ButtonComponent,
     InputComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    DocCodeComponent,
+    DocApiTableComponent
   ],
   template: `
     <div class="ox-page-container">
-      <h1>Table Advanced Features (Phase 1)</h1>
+      <h1>Table (Tabla de Datos Interactiva)</h1>
       <p class="ox-description">
-        Demonstration of enhanced <code>ox-table</code> features: Global Searching, Column Sorting, Row Selection, Pagination & CSV Export.
+        Componente de tabla avanzado con soporte para ordenamiento por columnas, selección múltiple de filas, paginación integrada y exportación a CSV.
       </p>
 
-      <!-- Global Actions Toolbar -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; gap: 1rem; flex-wrap: wrap;">
-        <div style="width: 280px;">
-          <ox-input 
-            placeholder="Search customers..." 
-            [(ngModel)]="searchValue"
-            icon="search">
-          </ox-input>
+      <app-doc-code
+        title="1. Tabla con Búsqueda, Ordenamiento, Paginación y Exportación CSV"
+        description="Filtra globalmente, selecciona filas con checkboxes y descarga los datos filtrados en formato CSV."
+        [html]="tableHtml"
+        [ts]="tableTs">
+        
+        <!-- Global Actions Toolbar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; gap: 1rem; flex-wrap: wrap;">
+          <div style="width: 280px;">
+            <ox-input 
+              placeholder="Buscar clientes..." 
+              [(ngModel)]="searchValue"
+              icon="search">
+            </ox-input>
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <ox-button variant="outline-primary" (onClick)="table.exportCSV('customers-export.csv')">
+              📥 Exportar CSV
+            </ox-button>
+          </div>
         </div>
-        <div style="display: flex; gap: 0.5rem;">
-          <ox-button variant="outline-primary" (click)="table.exportCSV('customers-export.csv')">
-            📥 Export CSV
-          </ox-button>
-        </div>
-      </div>
-
-      <!-- Advanced Interactive Table -->
-      <section class="ox-section">
-        <h2>Interactive Table with Sorting & Selection</h2>
 
         <ox-table 
           #table
@@ -64,25 +70,25 @@ import {
                 <input type="checkbox" [checked]="isAllSelected()" (change)="toggleSelectAll($event)" />
               </th>
               <th class="ox-sortable-column" (click)="table.toggleSort('name')">
-                Name 
+                Nombre 
                 <span class="ox-sort-icon" [class.active]="table.getSortOrder('name') !== 0">
                   {{ table.getSortOrder('name') === 1 ? '▲' : table.getSortOrder('name') === -1 ? '▼' : '⇅' }}
                 </span>
               </th>
               <th class="ox-sortable-column" (click)="table.toggleSort('country')">
-                Country
+                País
                 <span class="ox-sort-icon" [class.active]="table.getSortOrder('country') !== 0">
                   {{ table.getSortOrder('country') === 1 ? '▲' : table.getSortOrder('country') === -1 ? '▼' : '⇅' }}
                 </span>
               </th>
               <th class="ox-sortable-column" (click)="table.toggleSort('status')">
-                Status
+                Estado
                 <span class="ox-sort-icon" [class.active]="table.getSortOrder('status') !== 0">
                   {{ table.getSortOrder('status') === 1 ? '▲' : table.getSortOrder('status') === -1 ? '▼' : '⇅' }}
                 </span>
               </th>
               <th class="ox-sortable-column" (click)="table.toggleSort('activity')">
-                Activity
+                Actividad
                 <span class="ox-sort-icon" [class.active]="table.getSortOrder('activity') !== 0">
                   {{ table.getSortOrder('activity') === 1 ? '▲' : table.getSortOrder('activity') === -1 ? '▼' : '⇅' }}
                 </span>
@@ -120,17 +126,23 @@ import {
             (onPageChange)="onPageChange($event)">
           </ox-paginator>
         </div>
-      </section>
 
-      <!-- Selection Info Box -->
-      <div style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
-        <strong>Selected Rows ({{ selectedCustomers.length }}):</strong>
-        <span *ngIf="selectedCustomers.length === 0"> None</span>
-        <ul *ngIf="selectedCustomers.length > 0" style="margin: 0.5rem 0 0 1rem; padding: 0;">
-          <li *ngFor="let item of selectedCustomers">{{ item.name }} ({{ item.country }})</li>
-        </ul>
-      </div>
+        <!-- Selection Info Box -->
+        <div style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 0.875rem;">
+          <strong>Filas Seleccionadas ({{ selectedCustomers.length }}):</strong>
+          <span *ngIf="selectedCustomers.length === 0"> Ninguna</span>
+          <ul *ngIf="selectedCustomers.length > 0" style="margin: 0.5rem 0 0 1.25rem; padding: 0;">
+            <li *ngFor="let item of selectedCustomers">{{ item.name }} ({{ item.country }})</li>
+          </ul>
+        </div>
+      </app-doc-code>
 
+      <!-- API Reference -->
+      <app-doc-api-table 
+        title="API Reference: TableComponent"
+        [properties]="tableProps"
+        [events]="tableEvents">
+      </app-doc-api-table>
     </div>
   `
 })
@@ -138,7 +150,6 @@ export class TableDemoComponent {
   searchValue = "";
   selectedCustomers: any[] = [];
 
-  // Pagination state
   first = 0;
   rows = 3;
 
@@ -190,5 +201,93 @@ export class TableDemoComponent {
       default: return "primary";
     }
   }
-}
 
+  tableHtml = `<ox-table 
+  #table
+  [value]="customers" 
+  [globalFilter]="searchValue"
+  selectionMode="multiple"
+  [(selection)]="selectedCustomers"
+  dataKey="id">
+  
+  <ng-template oxTemplate="header">
+    <tr>
+      <th class="ox-sortable-column" (click)="table.toggleSort('name')">Nombre</th>
+      <th class="ox-sortable-column" (click)="table.toggleSort('country')">País</th>
+      <th>Estado</th>
+    </tr>
+  </ng-template>
+
+  <ng-template oxTemplate="body" let-customer let-selected="selected">
+    <tr [class.ox-table-row-selected]="selected" (click)="table.onRowClick($event, customer)">
+      <td class="ox-fw-bold">{{ customer.name }}</td>
+      <td>{{ customer.country }}</td>
+      <td><ox-badge [value]="customer.status"></ox-badge></td>
+    </tr>
+  </ng-template>
+</ox-table>`;
+
+  tableTs = `import { Component } from '@angular/core';
+import { TableComponent, OxygenTemplateDirective } from 'oxygen-ui';
+
+@Component({
+  selector: 'app-my-table',
+  standalone: true,
+  imports: [TableComponent, OxygenTemplateDirective],
+  templateUrl: './my-table.component.html'
+})
+export class MyTableComponent {
+  searchValue = '';
+  selectedCustomers = [];
+  customers = [
+    { id: 1, name: 'James Butt', country: 'Algeria', status: 'qualified' },
+    { id: 2, name: 'Art Venere', country: 'Panama', status: 'negotiation' }
+  ];
+}`;
+
+  tableProps: ApiProperty[] = [
+    {
+      name: 'value',
+      type: 'any[]',
+      default: '[]',
+      description: 'Arreglo de datos a renderizar en la tabla.'
+    },
+    {
+      name: 'globalFilter',
+      type: 'string',
+      default: "''",
+      description: 'Cadena de texto para filtrado global de registros en tiempo real.'
+    },
+    {
+      name: 'selectionMode',
+      type: "'single' | 'multiple' | null",
+      default: 'null',
+      description: 'Habilita el modo de selección de filas.'
+    },
+    {
+      name: 'dataKey',
+      type: 'string',
+      default: "'id'",
+      description: 'Identificador único de cada fila para control de selección.'
+    },
+    {
+      name: 'striped',
+      type: 'boolean',
+      default: 'false',
+      description: 'Aplica filas alternadas con fondo sutil (efecto cebra).'
+    }
+  ];
+
+  tableEvents: ApiEvent[] = [
+    {
+      name: 'selectionChange',
+      parameters: 'any | any[]',
+      description: 'Emitido cuando cambia la selección de elementos.'
+    },
+    {
+      name: 'onSort',
+      parameters: '{ field: string, order: number }',
+      description: 'Emitido cuando se ordena una columna.'
+    }
+  ];
+}

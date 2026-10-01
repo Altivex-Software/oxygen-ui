@@ -60,6 +60,13 @@ export * from './lib/components/block-ui/block-ui.component';
 export * from './lib/components/tree-select/tree-select.component';
 export * from './lib/components/splitter/splitter.component';
 export * from './lib/components/timeline/timeline.component';
-
-
-
+export * from './lib/components/chips/chips.component';
+export * from './lib/components/select-button/select-button.component';
+export * from './lib/components/select-button/toggle-button.component';
+export * from './lib/components/image/image.component';
+export * from './lib/components/speed-dial/speed-dial.component';
+export * from './lib/components/tree-table/tree-table.component';
+export * from './lib/components/dynamic-dialog/dynamic-dialog-config';
+export * from './lib/components/dynamic-dialog/dynamic-dialog-ref';
+export * from './lib/components/dynamic-dialog/dynamic-dialog-container.component';
+export * from './lib/components/dynamic-dialog/dynamic-dialog.service';

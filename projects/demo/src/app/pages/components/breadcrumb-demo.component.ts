@@ -1,28 +1,52 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BreadcrumbComponent } from 'oxygen-ui';
+import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
+import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
 @Component({
   selector: 'app-breadcrumb-demo',
   standalone: true,
-  imports: [CommonModule, BreadcrumbComponent],
+  imports: [CommonModule, BreadcrumbComponent, DocCodeComponent, DocApiTableComponent],
   template: `
     <div class="ox-page-container">
       <h1>Breadcrumb</h1>
-      <p class="ox-description">Componente de navegación que muestra la jerarquía de la página actual.</p>
+      <p class="ox-description">
+        Componente de navegación contextual que muestra la jerarquía y ubicación actual de la página dentro de la aplicación.
+      </p>
 
+      <!-- 1. BÁSICO -->
       <section class="ox-section">
-        <h2>Básico</h2>
-        <div class="ox-card ox-p-4">
+        <h2>Uso Básico</h2>
+        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
           <ox-breadcrumb [items]="items"></ox-breadcrumb>
         </div>
+
+        <app-doc-code 
+          title="Breadcrumb Básico"
+          [htmlCode]="basicHtml"
+          [tsCode]="basicTs">
+        </app-doc-code>
       </section>
 
+      <!-- 2. SEPARADOR PERSONALIZADO -->
       <section class="ox-section">
         <h2>Separador Personalizado</h2>
-        <div class="ox-card ox-p-4">
+        <div class="ox-card ox-p-4" style="margin-bottom: 1.5rem;">
           <ox-breadcrumb [items]="items" separator=">"></ox-breadcrumb>
         </div>
+
+        <app-doc-code 
+          title="Breadcrumb Separador"
+          [htmlCode]="customSepHtml"
+          [tsCode]="basicTs">
+        </app-doc-code>
+      </section>
+
+      <!-- API REFERENCE -->
+      <section class="ox-section">
+        <h2>API Reference &mdash; &lt;ox-breadcrumb&gt;</h2>
+        <app-doc-api-table [properties]="breadcrumbProperties"></app-doc-api-table>
       </section>
     </div>
   `
@@ -33,5 +57,30 @@ export class BreadcrumbDemoComponent {
     { label: 'Componentes' },
     { label: 'Navegación' },
     { label: 'Breadcrumb', current: true }
+  ];
+
+  basicHtml = `<ox-breadcrumb [items]="items"></ox-breadcrumb>`;
+
+  customSepHtml = `<ox-breadcrumb [items]="items" separator=">"></ox-breadcrumb>`;
+
+  basicTs = `import { Component } from '@angular/core';
+import { BreadcrumbComponent } from 'oxygen-ui';
+
+@Component({
+  standalone: true,
+  imports: [BreadcrumbComponent],
+  templateUrl: './my-component.html'
+})
+export class MyComponent {
+  items = [
+    { label: 'Inicio', url: '/' },
+    { label: 'Componentes' },
+    { label: 'Breadcrumb', current: true }
+  ];
+}`;
+
+  breadcrumbProperties: ApiProperty[] = [
+    { name: 'items', type: 'any[]', default: '[]', description: 'Arreglo de elementos que conforman la ruta (label, url, current).' },
+    { name: 'separator', type: 'string', default: "'/'", description: 'Carácter o separador visual entre los elementos.' }
   ];
 }

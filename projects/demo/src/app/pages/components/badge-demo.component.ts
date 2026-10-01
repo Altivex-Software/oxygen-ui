@@ -1,73 +1,49 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BadgeComponent, ButtonComponent } from 'oxygen-ui';
+import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
+import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api-table.component';
 
 @Component({
   selector: 'app-badge-demo',
   standalone: true,
-  imports: [CommonModule, BadgeComponent, ButtonComponent],
+  imports: [CommonModule, BadgeComponent, ButtonComponent, DocCodeComponent, DocApiTableComponent],
   template: `
     <div class="ox-page-container">
-      <h1>Badges</h1>
-      <p class="ox-description">Documentación y ejemplos para badges, nuestro componente de etiquetado pequeño y adaptable.</p>
+      <h1>Badge (Insignias e Indicadores)</h1>
+      <p class="ox-description">Etiquetas pequeñas para notificaciones, contadores numéricos y estados.</p>
 
-      <section class="ox-section">
-        <h2>Ejemplos</h2>
-        <p>Los badges escalan para coincidir con el tamaño del elemento padre inmediato utilizando fuentes relativas y em.</p>
-        <div class="ox-card ox-p-4 shadow-sm ox-border rounded">
-          <h1>Example heading <ox-badge value="New" severity="secondary"></ox-badge></h1>
-          <h2>Example heading <ox-badge value="New" severity="secondary"></ox-badge></h2>
-          <h3>Example heading <ox-badge value="New" severity="secondary"></ox-badge></h3>
-          <h4>Example heading <ox-badge value="New" severity="secondary"></ox-badge></h4>
-          <h5>Example heading <ox-badge value="New" severity="secondary"></ox-badge></h5>
-          <h6>Example heading <ox-badge value="New" severity="secondary"></ox-badge></h6>
-        </div>
-      </section>
-
-      <section class="ox-section">
-        <h2>Botones</h2>
-        <p>Los badges se pueden utilizar como parte de enlaces o botones para proporcionar un contador.</p>
-        <div class="ox-card ox-p-4 shadow-sm ox-border rounded">
-          <ox-button severity="primary">
-            Notifications <ox-badge value="4" severity="secondary" style="margin-left: 8px"></ox-badge>
+      <!-- 1. BÁSICO Y POSICIONADOS -->
+      <app-doc-code
+        title="1. Insignias Numéricas y Overlays"
+        description="Badges incrustados en botones o como puntos de notificación en esquina."
+        [html]="basicHtml"
+        [ts]="badgeTs">
+        <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+          <ox-button>
+            Bandeja de Entrada
+            <ox-badge value="4" severity="secondary" style="margin-left: 8px"></ox-badge>
           </ox-button>
-        </div>
-      </section>
 
-      <section class="ox-section">
-        <h2>Posicionados</h2>
-        <p>Usa utilidades para posicionar un ox-badge en la esquina de un componente.</p>
-        <div class="ox-card ox-p-4 shadow-sm ox-border rounded ox-flex ox-gap-4">
-          <ox-button severity="primary" class="relative">
-            Inbox
+          <ox-button style="position: relative;">
+            Mensajes
             <ox-badge value="99+" severity="error" [overlay]="true"></ox-badge>
           </ox-button>
 
-          <ox-button severity="primary" class="relative">
-            Profile
+          <ox-button style="position: relative;">
+            Perfil
             <ox-badge [dot]="true" severity="error" [overlay]="true"></ox-badge>
-            <span class="sr-only">unread messages</span>
           </ox-button>
         </div>
-      </section>
+      </app-doc-code>
 
-      <section class="ox-section">
-        <h2>Colores de fondo</h2>
-        <p>Usa las severidades para cambiar la apariencia de un badge.</p>
-        <div class="ox-card ox-p-4 shadow-sm ox-border rounded ox-flex ox-gap-2 ox-flex-wrap">
-          <ox-badge value="Primary" severity="primary"></ox-badge>
-          <ox-badge value="Secondary" severity="secondary"></ox-badge>
-          <ox-badge value="Success" severity="success"></ox-badge>
-          <ox-badge value="Danger" severity="error"></ox-badge>
-          <ox-badge value="Warning" severity="warn"></ox-badge>
-          <ox-badge value="Info" severity="info"></ox-badge>
-        </div>
-      </section>
-
-      <section class="ox-section">
-        <h2>Badges redondeados</h2>
-        <p>Usa la propiedad <code>pill</code> para hacer los badges más redondeados.</p>
-        <div class="ox-card ox-p-4 shadow-sm ox-border rounded ox-flex ox-gap-2">
+      <!-- 2. SEVERIDADES Y PILL -->
+      <app-doc-code
+        title="2. Severidades y Formato Pill (Píldora)"
+        description="Badges redondeados con colores contextuales."
+        [html]="severitiesHtml"
+        [ts]="badgeTs">
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
           <ox-badge value="Primary" severity="primary" [pill]="true"></ox-badge>
           <ox-badge value="Secondary" severity="secondary" [pill]="true"></ox-badge>
           <ox-badge value="Success" severity="success" [pill]="true"></ox-badge>
@@ -75,8 +51,66 @@ import { BadgeComponent, ButtonComponent } from 'oxygen-ui';
           <ox-badge value="Warning" severity="warn" [pill]="true"></ox-badge>
           <ox-badge value="Info" severity="info" [pill]="true"></ox-badge>
         </div>
-      </section>
+      </app-doc-code>
+
+      <!-- API REFERENCE -->
+      <app-doc-api-table 
+        title="API Reference: BadgeComponent"
+        [properties]="badgeProps">
+      </app-doc-api-table>
     </div>
   `
 })
-export class BadgeDemoComponent {}
+export class BadgeDemoComponent {
+  basicHtml = `<ox-button style="position: relative;">
+  Mensajes
+  <ox-badge value="99+" severity="error" [overlay]="true"></ox-badge>
+</ox-button>`;
+
+  severitiesHtml = `<ox-badge value="Success" severity="success" [pill]="true"></ox-badge>
+<ox-badge value="Danger" severity="error" [pill]="true"></ox-badge>`;
+
+  badgeTs = `import { Component } from '@angular/core';
+import { BadgeComponent, ButtonComponent } from 'oxygen-ui';
+
+@Component({
+  selector: 'app-my-badge',
+  standalone: true,
+  imports: [BadgeComponent, ButtonComponent],
+  templateUrl: './my-badge.component.html'
+})
+export class MyBadgeComponent {}`;
+
+  badgeProps: ApiProperty[] = [
+    {
+      name: 'value',
+      type: 'string | number',
+      default: "''",
+      description: 'Texto o número a mostrar dentro del badge.'
+    },
+    {
+      name: 'severity',
+      type: "'primary' | 'secondary' | 'success' | 'info' | 'warn' | 'error'",
+      default: "'primary'",
+      description: 'Color temático del badge.'
+    },
+    {
+      name: 'pill',
+      type: 'boolean',
+      default: 'false',
+      description: 'Aplica bordes completamente redondeados en forma de píldora.'
+    },
+    {
+      name: 'dot',
+      type: 'boolean',
+      default: 'false',
+      description: 'Muestra un pequeño punto circular de estado sin texto.'
+    },
+    {
+      name: 'overlay',
+      type: 'boolean',
+      default: 'false',
+      description: 'Posiciona el badge flotante en la esquina superior derecha del elemento padre.'
+    }
+  ];
+}
