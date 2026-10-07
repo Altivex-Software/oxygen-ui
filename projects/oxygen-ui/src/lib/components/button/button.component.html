@@ -1,5 +1,13 @@
+@if (icon() && iconPos() === 'left') {
+  <ox-icon [name]="icon()!" [size]="size() === 'lg' ? '1.25rem' : size() === 'sm' ? '0.875rem' : '1rem'"></ox-icon>
+}
 <ng-content></ng-content>
-{{ label() }}
+@if (label()) {
+  <span>{{ label() }}</span>
+}
+@if (icon() && iconPos() === 'right') {
+  <ox-icon [name]="icon()!" [size]="size() === 'lg' ? '1.25rem' : size() === 'sm' ? '0.875rem' : '1rem'"></ox-icon>
+}
 
 @if (badge() !== undefined) {
 <ox-badge
@@ -11,3 +19,4 @@
 >
 </ox-badge>
 }
+

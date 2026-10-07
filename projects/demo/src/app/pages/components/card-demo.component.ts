@@ -73,7 +73,7 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
             <div>
               <h3 style="margin-top: 0; font-size: 1.125rem;">Frente</h3>
               <p style="color: #64748b; margin-bottom: 1rem; font-size: 0.875rem;">Haz clic para ver el reverso de la tarjeta.</p>
-              <ox-button size="sm" label="Girar 🔄" (onClick)="isFlipped = !isFlipped"></ox-button>
+              <ox-button size="sm" label="Girar" icon="refresh-cw" (onClick)="isFlipped = !isFlipped"></ox-button>
             </div>
             <div oxCardBack style="padding: 1.5rem; background: #ffffff; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
               <div>

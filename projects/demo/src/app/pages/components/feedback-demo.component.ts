@@ -95,10 +95,10 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
         <p>Etiquetas de categorización con iconos, bordes redondeados y opción de remoción interactiva.</p>
 
         <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem;">
-          <ox-tag value="Activo" severity="success" icon="✅"></ox-tag>
-          <ox-tag value="Pendiente" severity="warning" icon="⏳"></ox-tag>
-          <ox-tag value="Rechazado" severity="danger" icon="❌"></ox-tag>
-          <ox-tag value="Procesando" severity="info" icon="⚡"></ox-tag>
+          <ox-tag value="Activo" severity="success" icon="check-circle"></ox-tag>
+          <ox-tag value="Pendiente" severity="warning" icon="clock"></ox-tag>
+          <ox-tag value="Rechazado" severity="danger" icon="x-circle"></ox-tag>
+          <ox-tag value="Procesando" severity="info" icon="zap"></ox-tag>
           <ox-tag value="Borrador" severity="secondary"></ox-tag>
         </div>
 
@@ -192,7 +192,7 @@ export class FeedbackDemoComponent {
 <ox-progress-spinner severity="success" size="2.5rem"></ox-progress-spinner>
 <ox-progress-spinner severity="warning" size="3rem" strokeWidth="6"></ox-progress-spinner>`;
 
-  tagsHtml = `<ox-tag value="Activo" severity="success" icon="✅"></ox-tag>
+  tagsHtml = `<ox-tag value="Activo" severity="success" icon="check-circle"></ox-tag>
 <ox-tag [value]="tag" [rounded]="true" [removable]="true" (onRemove)="removeTag(tag)"></ox-tag>`;
 
   blockUiHtml = `<ox-block-ui [blocked]="isBlocked" message="Cargando...">

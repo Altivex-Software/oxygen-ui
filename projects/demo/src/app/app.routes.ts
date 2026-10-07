@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { ComponentsPageComponent } from './pages/components/components.component';
 import { ButtonDemoComponent } from './pages/components/button-demo.component';
+import { IconDemoComponent } from './pages/components/icon-demo.component';
 import { TableDemoComponent } from './pages/components/table-demo.component';
 import { CardDemoComponent } from './pages/components/card-demo.component';
 import { AlertDemoComponent } from './pages/components/alert-demo.component';
@@ -48,15 +49,51 @@ import { SelectButtonDemoComponent } from './pages/components/select-button-demo
 import { ImageDemoComponent } from './pages/components/image-demo.component';
 import { SpeedDialDemoComponent } from './pages/components/speed-dial-demo.component';
 import { TreeTableDemoComponent } from './pages/components/tree-table-demo.component';
+import { TreeDemoComponent } from './pages/components/tree-demo.component';
+import { PanelMenuDemoComponent } from './pages/components/panel-menu-demo.component';
+import { UtilitiesPageComponent } from './pages/utilities/utilities.component';
+import { OverviewUtilityDemoComponent } from './pages/utilities/overview-utility-demo.component';
+import { GridUtilityDemoComponent } from './pages/utilities/grid-utility-demo.component';
+import { FlexUtilityDemoComponent } from './pages/utilities/flex-utility-demo.component';
+import { SpacingUtilityDemoComponent } from './pages/utilities/spacing-utility-demo.component';
+import { TypographyUtilityDemoComponent } from './pages/utilities/typography-utility-demo.component';
+import { ColorsUtilityDemoComponent } from './pages/utilities/colors-utility-demo.component';
+import { BordersUtilityDemoComponent } from './pages/utilities/borders-utility-demo.component';
+import { SizingUtilityDemoComponent } from './pages/utilities/sizing-utility-demo.component';
+import { PositionUtilityDemoComponent } from './pages/utilities/position-utility-demo.component';
+import { DisplayUtilityDemoComponent } from './pages/utilities/display-utility-demo.component';
+import { ExtrasUtilityDemoComponent } from './pages/utilities/extras-utility-demo.component';
+import { TokensUtilityDemoComponent } from './pages/utilities/tokens-utility-demo.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
+  {
+    path: 'utilities',
+    component: UtilitiesPageComponent,
+    children: [
+      { path: '', redirectTo: 'overview', pathMatch: 'full' },
+      { path: 'overview', component: OverviewUtilityDemoComponent },
+      { path: 'grid', component: GridUtilityDemoComponent },
+      { path: 'flex', component: FlexUtilityDemoComponent },
+      { path: 'spacing', component: SpacingUtilityDemoComponent },
+      { path: 'typography', component: TypographyUtilityDemoComponent },
+      { path: 'colors', component: ColorsUtilityDemoComponent },
+      { path: 'borders', component: BordersUtilityDemoComponent },
+      { path: 'sizing', component: SizingUtilityDemoComponent },
+      { path: 'position', component: PositionUtilityDemoComponent },
+      { path: 'display', component: DisplayUtilityDemoComponent },
+      { path: 'extras', component: ExtrasUtilityDemoComponent },
+      { path: 'tokens', component: TokensUtilityDemoComponent }
+    ]
+  },
   { 
     path: 'components', 
     component: ComponentsPageComponent,
     children: [
       { path: '', redirectTo: 'button', pathMatch: 'full' },
+      { path: 'utilities', redirectTo: '/utilities', pathMatch: 'full' },
       { path: 'button', component: ButtonDemoComponent },
+      { path: 'icon', component: IconDemoComponent },
       { path: 'badge', component: BadgeDemoComponent },
       { path: 'divider', component: DividerDemoComponent },
       { path: 'card', component: CardDemoComponent },
@@ -81,6 +118,7 @@ export const routes: Routes = [
       { path: 'chips', component: ChipsDemoComponent },
       { path: 'select-button', component: SelectButtonDemoComponent },
       { path: 'table', component: TableDemoComponent },
+      { path: 'tree', component: TreeDemoComponent },
       { path: 'tree-table', component: TreeTableDemoComponent },
       { path: 'paginator', component: PaginatorDemoComponent },
       { path: 'alert', component: AlertDemoComponent },
@@ -99,6 +137,7 @@ export const routes: Routes = [
       { path: 'image', component: ImageDemoComponent },
       { path: 'speed-dial', component: SpeedDialDemoComponent },
       { path: 'menubar', component: MenubarDemoComponent },
+      { path: 'panel-menu', component: PanelMenuDemoComponent },
       { path: 'breadcrumb', component: BreadcrumbDemoComponent },
       { path: 'stepper', component: StepperDemoComponent },
       { path: 'sidebar', component: SidebarDemoComponent }

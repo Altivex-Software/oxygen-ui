@@ -12,11 +12,12 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'ox-chips',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, IconComponent],
   template: `
     <div 
       class="ox-chips"
@@ -36,9 +37,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/f
                 class="ox-chip-remove" 
                 (click)="removeChip($index, $event)"
                 aria-label="Remove chip">
-                <svg viewBox="0 0 20 20" fill="currentColor" class="ox-chip-remove-icon">
-                  <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"/>
-                </svg>
+                <ox-icon name="x" size="0.75rem"></ox-icon>
               </button>
             }
           </li>

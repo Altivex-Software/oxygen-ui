@@ -3,6 +3,7 @@ import { CommonModule, NgClass } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { BadgeComponent } from '../badge/badge.component';
+import { IconComponent } from '../icon/icon.component';
 
 export interface MultiSelectOption<T = unknown> {
   label: string;
@@ -13,7 +14,7 @@ export interface MultiSelectOption<T = unknown> {
 @Component({
   selector: 'ox-multi-select',
   standalone: true,
-  imports: [CommonModule, OverlayModule, FormsModule, NgClass],
+  imports: [CommonModule, OverlayModule, FormsModule, NgClass, IconComponent],
   template: `
     <div 
       #container
@@ -37,9 +38,7 @@ export interface MultiSelectOption<T = unknown> {
             @for (opt of selectedOptions(); track opt.value) {
               <div class="ox-chip" (click)="removeOption(opt, $event)">
                 <span class="ox-chip-text">{{ opt.label }}</span>
-                <svg viewBox="0 0 20 20" fill="currentColor" class="ox-chip-remove">
-                  <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
-                </svg>
+                <ox-icon name="x" size="0.75rem" class="ox-chip-remove"></ox-icon>
               </div>
             }
           </div>
@@ -49,9 +48,7 @@ export interface MultiSelectOption<T = unknown> {
       </div>
       
       <div class="ox-multi-select-trigger">
-        <svg viewBox="0 0 20 20" fill="currentColor" class="ox-multi-select-trigger-icon">
-          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-        </svg>
+        <ox-icon name="chevron-down" size="1rem" class="ox-multi-select-trigger-icon"></ox-icon>
       </div>
 
       <ng-template 
@@ -83,9 +80,7 @@ export interface MultiSelectOption<T = unknown> {
                 
                 <div class="ox-multi-select-checkbox" [class.ox-multi-select-checkbox-selected]="isSelected(option)">
                   @if (isSelected(option)) {
-                    <svg viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                    </svg>
+                    <ox-icon name="check" size="0.875rem"></ox-icon>
                   }
                 </div>
                 {{ option.label }}

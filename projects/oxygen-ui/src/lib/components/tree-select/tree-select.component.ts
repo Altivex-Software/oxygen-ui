@@ -15,21 +15,16 @@ import {
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { IconComponent } from '../icon/icon.component';
+import { OxIconName } from '../icon/icon.types';
 
-export interface TreeNode<T = any> {
-  key?: string;
-  label: string;
-  data?: T;
-  icon?: string;
-  children?: TreeNode<T>[];
-  expanded?: boolean;
-  disabled?: boolean;
-}
+import { TreeNode } from '../tree/tree.types';
+export type { TreeNode };
 
 @Component({
   selector: 'ox-tree-select',
   standalone: true,
-  imports: [CommonModule, OverlayModule, FormsModule],
+  imports: [CommonModule, OverlayModule, FormsModule, IconComponent],
   template: `
     <div 
       #container
@@ -43,9 +38,7 @@ export interface TreeNode<T = any> {
       </div>
       
       <div class="ox-tree-select-trigger">
-        <svg viewBox="0 0 20 20" fill="currentColor" class="ox-tree-select-trigger-icon">
-          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-        </svg>
+        <ox-icon name="chevron-down" size="1rem" class="ox-tree-select-trigger-icon"></ox-icon>
       </div>
 
       <ng-template 
@@ -87,14 +80,14 @@ export interface TreeNode<T = any> {
                 
                 @if (node.children && node.children.length > 0) {
                   <span class="ox-tree-select-toggler" (click)="toggleNode(node, $event)">
-                    {{ node.expanded ? '▼' : '▶' }}
+                    <ox-icon [name]="node.expanded ? 'chevron-down' : 'chevron-right'" size="0.75rem"></ox-icon>
                   </span>
                 } @else {
                   <span class="ox-tree-select-toggler-placeholder"></span>
                 }
 
                 @if (node.icon) {
-                  <span class="ox-tree-select-node-icon">{{ node.icon }}</span>
+                  <ox-icon [name]="$any(node.icon)" size="0.875rem" class="ox-tree-select-node-icon"></ox-icon>
                 }
                 
                 <span class="ox-tree-select-node-label">{{ node.label }}</span>

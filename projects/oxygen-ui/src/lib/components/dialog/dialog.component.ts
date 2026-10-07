@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, Output, ViewEncapsulation, ChangeDetectionStrategy, model } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'ox-dialog',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   template: `
     @if (visible()) {
       <div class="ox-dialog-mask" (click)="onMaskClick($event)">
@@ -17,8 +18,8 @@ import { animate, style, transition, trigger } from '@angular/animations';
           
           <div class="ox-dialog-header">
             <span class="ox-dialog-title">{{ header }}</span>
-            <button class="ox-dialog-close" (click)="close()">
-              <span>×</span>
+            <button class="ox-dialog-close" (click)="close()" aria-label="Close dialog">
+              <ox-icon name="x" size="1.125rem"></ox-icon>
             </button>
           </div>
           

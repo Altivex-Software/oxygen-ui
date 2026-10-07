@@ -38,33 +38,33 @@ export class MenubarDemoComponent {
   items: MenuItem[] = [
     {
       label: 'Archivo',
-      icon: 'pi pi-fw pi-file',
+      icon: 'file',
       items: [
-        { label: 'Nuevo', icon: 'pi pi-fw pi-plus' },
-        { label: 'Abrir', icon: 'pi pi-fw pi-folder-open' },
+        { label: 'Nuevo', icon: 'plus' },
+        { label: 'Abrir', icon: 'folder' },
         { separator: true },
-        { label: 'Exportar', icon: 'pi pi-fw pi-upload' }
+        { label: 'Exportar', icon: 'upload' }
       ]
     },
     {
       label: 'Editar',
-      icon: 'pi pi-fw pi-pencil',
+      icon: 'pencil',
       items: [
-        { label: 'Deshacer', icon: 'pi pi-fw pi-undo' },
-        { label: 'Rehacer', icon: 'pi pi-fw pi-refresh' }
+        { label: 'Deshacer', icon: 'rotate-ccw' },
+        { label: 'Rehacer', icon: 'refresh' }
       ]
     },
     {
       label: 'Usuarios',
-      icon: 'pi pi-fw pi-user',
+      icon: 'user',
       items: [
-        { label: 'Nuevo Usuario', icon: 'pi pi-fw pi-user-plus' },
-        { label: 'Lista de Usuarios', icon: 'pi pi-fw pi-users' }
+        { label: 'Nuevo Usuario', icon: 'user-plus' },
+        { label: 'Lista de Usuarios', icon: 'users' }
       ]
     },
     {
       label: 'Salir',
-      icon: 'pi pi-fw pi-power-off'
+      icon: 'power'
     }
   ];
 

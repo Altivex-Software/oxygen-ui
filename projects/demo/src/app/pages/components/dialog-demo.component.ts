@@ -9,7 +9,8 @@ import {
   DynamicDialogRef,
   InputComponent,
   ToastService,
-  ToastComponent
+  ToastComponent,
+  IconComponent
 } from 'oxygen-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
@@ -71,7 +72,7 @@ export class UserFormModalComponent {
 @Component({
   selector: 'app-dialog-demo',
   standalone: true,
-  imports: [CommonModule, DialogComponent, ButtonComponent, ToastComponent, DocCodeComponent, DocApiTableComponent],
+  imports: [CommonModule, DialogComponent, ButtonComponent, ToastComponent, IconComponent, DocCodeComponent, DocApiTableComponent],
   template: `
     <div class="ox-page-container">
       <ox-toast></ox-toast>
@@ -120,13 +121,14 @@ export class UserFormModalComponent {
         <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
           <ox-button 
             label="Abrir Modal Dinámico con Datos" 
-            icon="⚡"
+            icon="zap"
             (onClick)="openDynamicDialog()">
           </ox-button>
 
           @if (returnedUser) {
-            <div style="font-size: 0.875rem; color: #059669; font-weight: 500; background: #ecfdf5; padding: 6px 12px; border-radius: 6px; border: 1px solid #a7f3d0;">
-              ✓ Resultado recibido: {{ returnedUser | json }}
+            <div style="font-size: 0.875rem; color: #059669; font-weight: 500; background: #ecfdf5; padding: 6px 12px; border-radius: 6px; border: 1px solid #a7f3d0; display: inline-flex; align-items: center; gap: 6px;">
+              <ox-icon name="check-circle" size="sm" color="success"></ox-icon>
+              Resultado recibido: {{ returnedUser | json }}
             </div>
           }
         </div>

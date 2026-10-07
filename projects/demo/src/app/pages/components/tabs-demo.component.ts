@@ -20,13 +20,13 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="basicHtml"
         [ts]="tabsTs">
         <ox-tabs>
-          <ox-tab label="Perfil" icon="👤">
+          <ox-tab label="Perfil" icon="user">
             <div style="padding: 1rem; color: #334155;">
               <h3 style="margin-top: 0;">Información de Perfil</h3>
               <p>Contenido relacionado con el perfil y datos del usuario.</p>
             </div>
           </ox-tab>
-          <ox-tab label="Seguridad" icon="🔒">
+          <ox-tab label="Seguridad" icon="lock">
             <div style="padding: 1rem; color: #334155;">
               <h3 style="margin-top: 0;">Ajustes de Seguridad</h3>
               <p>Cambio de contraseña y autenticación en dos factores.</p>
@@ -42,8 +42,8 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="colorHtml"
         [ts]="tabsTs">
         <ox-tabs color="success">
-          <ox-tab label="Ventas" icon="📈"><div style="padding: 1rem;">Métricas de ventas en tiempo real.</div></ox-tab>
-          <ox-tab label="Ingresos" icon="💰"><div style="padding: 1rem;">Reporte financiero consolidado.</div></ox-tab>
+          <ox-tab label="Ventas" icon="activity"><div style="padding: 1rem;">Métricas de ventas en tiempo real.</div></ox-tab>
+          <ox-tab label="Ingresos" icon="dollar-sign"><div style="padding: 1rem;">Reporte financiero consolidado.</div></ox-tab>
         </ox-tabs>
       </app-doc-code>
 
@@ -58,17 +58,17 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
 })
 export class TabsDemoComponent {
   basicHtml = `<ox-tabs>
-  <ox-tab label="Perfil" icon="👤">
+  <ox-tab label="Perfil" icon="user">
     <p>Contenido de perfil</p>
   </ox-tab>
-  <ox-tab label="Seguridad" icon="🔒">
+  <ox-tab label="Seguridad" icon="lock">
     <p>Ajustes de seguridad</p>
   </ox-tab>
 </ox-tabs>`;
 
   colorHtml = `<ox-tabs color="success">
-  <ox-tab label="Ventas" icon="📈">Contenido de ventas</ox-tab>
-  <ox-tab label="Ingresos" icon="💰">Contenido de ingresos</ox-tab>
+  <ox-tab label="Ventas" icon="activity">Contenido de ventas</ox-tab>
+  <ox-tab label="Ingresos" icon="dollar-sign">Contenido de ingresos</ox-tab>
 </ox-tabs>`;
 
   tabsTs = `import { Component } from '@angular/core';

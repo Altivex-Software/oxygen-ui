@@ -11,6 +11,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
         <nav class="nav">
           <div class="nav-section">General</div>
           <a routerLink="button" routerLinkActive="active" class="nav-item">Button</a>
+          <a routerLink="icon" routerLinkActive="active" class="nav-item">Icon (SVG)</a>
           <a routerLink="badge" routerLinkActive="active" class="nav-item">Badge</a>
           <a routerLink="divider" routerLinkActive="active" class="nav-item">Divider</a>
           
@@ -46,6 +47,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
           
           <div class="nav-section">Data</div>
           <a routerLink="table" routerLinkActive="active" class="nav-item">Table</a>
+          <a routerLink="tree" routerLinkActive="active" class="nav-item">Tree</a>
           <a routerLink="tree-table" routerLinkActive="active" class="nav-item">TreeTable</a>
           <a routerLink="paginator" routerLinkActive="active" class="nav-item">Paginator</a>
 
@@ -65,6 +67,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
           
           <div class="nav-section">Navigation</div>
           <a routerLink="menubar" routerLinkActive="active" class="nav-item">Menubar</a>
+          <a routerLink="panel-menu" routerLinkActive="active" class="nav-item">PanelMenu & MegaMenu</a>
           <a routerLink="breadcrumb" routerLinkActive="active" class="nav-item">Breadcrumb</a>
           <a routerLink="stepper" routerLinkActive="active" class="nav-item">Stepper</a>
           <a routerLink="sidebar" routerLinkActive="active" class="nav-item">Sidebar</a>

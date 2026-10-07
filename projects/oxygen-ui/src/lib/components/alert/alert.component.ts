@@ -1,13 +1,15 @@
-import { Component, input, output, signal } from '@angular/core';
+import { Component, input, output, signal, computed } from '@angular/core';
 import { OxygenSeverity } from '../../lib-core';
 import { CommonModule } from '@angular/common';
+import { IconComponent } from '../icon/icon.component';
+import { OxIconName } from '../icon/icon.types';
 
 export type AlertVariant = 'filled' | 'outlined' | 'flat' | 'glass';
 
 @Component({
   selector: 'ox-alert',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   templateUrl: './alert.component.html',
   styleUrl: './alert.component.scss',
   host: {
@@ -29,11 +31,25 @@ export class AlertComponent {
   severity = input<OxygenSeverity>('info');
   variant = input<AlertVariant>('flat');
   title = input<string>();
+  icon = input<OxIconName>();
+  showIcon = input<boolean>(true);
   closable = input<boolean>(false);
   
   onClose = output<void>();
   
   isVisible = signal<boolean>(true);
+
+  effectiveIcon = computed<OxIconName>(() => {
+    if (this.icon()) return this.icon()!;
+    switch (this.severity()) {
+      case 'success': return 'check-circle';
+      case 'warn': return 'alert-triangle';
+      case 'error': return 'alert-circle';
+      case 'info':
+      default:
+        return 'info';
+    }
+  });
 
   close() {
     this.isVisible.set(false);

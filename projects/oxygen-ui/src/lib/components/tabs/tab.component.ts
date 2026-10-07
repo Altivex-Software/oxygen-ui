@@ -1,5 +1,6 @@
 import { Component, input, TemplateRef, viewChild, Directive, inject, contentChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { OxIconName } from '../icon/icon.types';
 
 @Directive({
   selector: 'ng-template[oxTabHeader]',
@@ -25,6 +26,7 @@ let nextId = 0;
 export class TabComponent {
   id = input<string>(`ox-tab-${nextId++}`);
   label = input<string>(''); // Make optional if template is used
+  icon = input<OxIconName | string>();
   disabled = input<boolean>(false);
 
   content = viewChild.required<TemplateRef<any>>('tabContent');

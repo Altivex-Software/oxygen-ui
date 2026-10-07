@@ -1,10 +1,12 @@
 import { Component, input, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { IconComponent } from '../icon/icon.component';
+import { OxIconName } from '../icon/icon.types';
 
 export interface MenuItem {
   label?: string;
-  icon?: string;
+  icon?: OxIconName | string;
   routerLink?: string;
   items?: MenuItem[];
   separator?: boolean;
@@ -13,7 +15,7 @@ export interface MenuItem {
 @Component({
   selector: 'ox-menubar',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, IconComponent],
   template: `
     <nav class="ox-menubar ox-elevation-1">
       <div class="ox-menubar-start">
@@ -30,11 +32,11 @@ export interface MenuItem {
                 [routerLink]="item.routerLink" 
                 class="ox-menubar-item-link">
                 @if (item.icon) {
-                  <span class="ox-menubar-item-icon {{item.icon}}"></span>
+                  <ox-icon [name]="$any(item.icon)" size="1rem" class="ox-menubar-item-icon"></ox-icon>
                 }
                 <span class="ox-menubar-item-label">{{ item.label }}</span>
                 @if (item.items) {
-                  <span class="ox-menubar-submenu-icon">▾</span>
+                  <ox-icon name="chevron-down" size="0.75rem" class="ox-menubar-submenu-icon"></ox-icon>
                 }
               </a>
               
@@ -43,6 +45,9 @@ export interface MenuItem {
                   @for (subitem of item.items; track subitem.label) {
                     <li class="ox-menubar-item">
                       <a [routerLink]="subitem.routerLink" class="ox-menubar-item-link">
+                        @if (subitem.icon) {
+                          <ox-icon [name]="$any(subitem.icon)" size="1rem" class="ox-menubar-item-icon"></ox-icon>
+                        }
                         <span class="ox-menubar-item-label">{{ subitem.label }}</span>
                       </a>
                     </li>

@@ -11,10 +11,12 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { IconComponent } from '../icon/icon.component';
+import { OxIconName } from '../icon/icon.types';
 
 export interface ContextMenuItem {
   label?: string;
-  icon?: string;
+  icon?: OxIconName | string;
   command?: (event?: any) => void;
   disabled?: boolean;
   danger?: boolean;
@@ -24,7 +26,7 @@ export interface ContextMenuItem {
 @Component({
   selector: 'ox-context-menu',
   standalone: true,
-  imports: [CommonModule, OverlayModule],
+  imports: [CommonModule, OverlayModule, IconComponent],
   template: `
     <div 
       *ngIf="isOpen()"
@@ -47,7 +49,7 @@ export interface ContextMenuItem {
                 [class.ox-context-menu-item-danger]="item.danger"
                 (click)="onItemClick(item, $event)">
                 @if (item.icon) {
-                  <span class="ox-context-menu-icon">{{ item.icon }}</span>
+                  <ox-icon [name]="$any(item.icon)" size="1rem" class="ox-context-menu-icon"></ox-icon>
                 }
                 <span class="ox-context-menu-label">{{ item.label }}</span>
               </li>

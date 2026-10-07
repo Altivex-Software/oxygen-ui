@@ -9,11 +9,12 @@ import {
   HostListener
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'ox-image',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   template: `
     <div class="ox-image" [style.width]="width()" [style.height]="height()">
       <img 
@@ -26,10 +27,7 @@ import { CommonModule } from '@angular/common';
       @if (preview()) {
         <div class="ox-image-preview-mask" (click)="openPreview()">
           <span class="ox-image-preview-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;">
-              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-              <circle cx="12" cy="12" r="3"></circle>
-            </svg>
+            <ox-icon name="eye" size="1.5rem"></ox-icon>
           </span>
         </div>
       }
@@ -41,35 +39,22 @@ import { CommonModule } from '@angular/common';
         <!-- Toolbar -->
         <div class="ox-image-toolbar" (click)="$event.stopPropagation()">
           <button type="button" class="ox-image-action" (click)="rotateLeft()" title="Rotate Left">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-              <path d="M2.5 2v6h6M2.66 15.57a10 10 0 1 0 .57-8.38L2.5 8"/>
-            </svg>
+            <ox-icon name="rotate-ccw" size="1.125rem"></ox-icon>
           </button>
           <button type="button" class="ox-image-action" (click)="rotateRight()" title="Rotate Right">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38L21.5 8"/>
-            </svg>
+            <ox-icon name="rotate-cw" size="1.125rem"></ox-icon>
           </button>
           <button type="button" class="ox-image-action" (click)="zoomOut()" [disabled]="scale() <= 0.4" title="Zoom Out">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/>
-            </svg>
+            <ox-icon name="zoom-out" size="1.125rem"></ox-icon>
           </button>
           <button type="button" class="ox-image-action" (click)="zoomIn()" [disabled]="scale() >= 3.0" title="Zoom In">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
-            </svg>
+            <ox-icon name="zoom-in" size="1.125rem"></ox-icon>
           </button>
           <button type="button" class="ox-image-action" (click)="resetTransform()" title="Reset">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-              <path d="M3 3v5h5"/>
-            </svg>
+            <ox-icon name="refresh" size="1.125rem"></ox-icon>
           </button>
           <button type="button" class="ox-image-action ox-image-action-close" (click)="closePreview()" title="Close">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>
+            <ox-icon name="x" size="1.25rem"></ox-icon>
           </button>
         </div>
 

@@ -1,12 +1,13 @@
 import { Component, input, computed, signal, TemplateRef } from '@angular/core';
 import { CommonModule, NgTemplateOutlet } from '@angular/common';
+import { IconComponent } from '../icon/icon.component';
 
 export type FieldsetVariant = 'outlined' | 'flat' | 'seamless';
 
 @Component({
   selector: 'ox-fieldset',
   standalone: true,
-  imports: [CommonModule, NgTemplateOutlet],
+  imports: [CommonModule, NgTemplateOutlet, IconComponent],
   templateUrl: './fieldset.component.html',
   styleUrl: './fieldset.component.scss',
   host: {

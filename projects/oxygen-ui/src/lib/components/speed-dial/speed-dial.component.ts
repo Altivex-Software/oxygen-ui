@@ -10,9 +10,11 @@ import {
   HostListener
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IconComponent } from '../icon/icon.component';
+import { OxIconName } from '../icon/icon.types';
 
 export interface SpeedDialItem {
-  icon?: string;
+  icon?: OxIconName | string;
   label?: string;
   tooltip?: string;
   command?: (event: { originalEvent: Event; item: SpeedDialItem }) => void;
@@ -23,7 +25,7 @@ export interface SpeedDialItem {
 @Component({
   selector: 'ox-speed-dial',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   template: `
     <div 
       class="ox-speed-dial ox-speed-dial-{{ direction() }}"
@@ -40,14 +42,11 @@ export interface SpeedDialItem {
         [attr.aria-expanded]="visible()">
         <span class="ox-speed-dial-icon" [class.ox-speed-dial-icon-rotate]="visible()">
           @if (visible() && activeIcon()) {
-            {{ activeIcon() }}
+            <ox-icon [name]="$any(activeIcon())" size="1.25rem"></ox-icon>
           } @else if (icon()) {
-            {{ icon() }}
+            <ox-icon [name]="$any(icon())" size="1.25rem"></ox-icon>
           } @else {
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="ox-speed-dial-default-svg">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
+            <ox-icon name="plus" size="1.25rem"></ox-icon>
           }
         </span>
       </button>
@@ -67,7 +66,7 @@ export interface SpeedDialItem {
               [title]="item.tooltip || item.label || ''"
               (click)="onItemClick(item, $event)">
               @if (item.icon) {
-                <span class="ox-speed-dial-action-icon">{{ item.icon }}</span>
+                <ox-icon [name]="$any(item.icon)" size="1rem" class="ox-speed-dial-action-icon"></ox-icon>
               }
             </button>
 

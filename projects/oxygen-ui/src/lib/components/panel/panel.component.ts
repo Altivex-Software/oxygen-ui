@@ -1,5 +1,6 @@
 import { Component, input, signal, TemplateRef, computed } from '@angular/core';
 import { CommonModule, NgTemplateOutlet } from '@angular/common';
+import { IconComponent } from '../icon/icon.component';
 
 export type PanelVariant = 'outlined' | 'flat' | 'seamless';
 export type PanelHeaderPosition = 'start' | 'center' | 'end';
@@ -7,7 +8,7 @@ export type PanelHeaderPosition = 'start' | 'center' | 'end';
 @Component({
   selector: 'ox-panel',
   standalone: true,
-  imports: [CommonModule, NgTemplateOutlet],
+  imports: [CommonModule, NgTemplateOutlet, IconComponent],
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss',
   host: {

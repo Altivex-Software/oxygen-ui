@@ -1,6 +1,7 @@
 import { Component, input, model, computed, contentChild, viewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OxAccordionHeaderDirective } from './accordion-header.directive';
+import { IconComponent } from '../../icon/icon.component';
 
 export type AccordionColor = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
 export type AccordionVariantPrefix = 'outline' | 'ghost';
@@ -9,7 +10,7 @@ export type AccordionVariant = AccordionColor | `${AccordionVariantPrefix}-${Acc
 @Component({
   selector: 'ox-accordion-item',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   templateUrl: './accordion-item.component.html',
   styleUrl: './accordion-item.component.scss',
   host: {

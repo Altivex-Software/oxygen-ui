@@ -10,11 +10,13 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { IconComponent } from '../icon/icon.component';
+import { OxIconName } from '../icon/icon.types';
 
 @Component({
   selector: 'ox-toggle-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   template: `
     <button
       type="button"
@@ -24,7 +26,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       [disabled]="disabled()"
       (click)="toggle()">
       @if (currentIcon()) {
-        <span class="ox-toggle-button-icon">{{ currentIcon() }}</span>
+        <span class="ox-toggle-button-icon">
+          <ox-icon [name]="$any(currentIcon())" size="1rem"></ox-icon>
+        </span>
       }
       @if (currentLabel()) {
         <span class="ox-toggle-button-label">{{ currentLabel() }}</span>

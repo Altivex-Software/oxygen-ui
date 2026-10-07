@@ -57,46 +57,55 @@ export class TreeTableDemoComponent {
   files: TreeTableNode[] = [
     {
       key: '0',
-      data: { name: '📁 Documentos', size: '125 KB', type: 'Carpeta' },
+      data: { name: 'Documentos', size: '125 KB', type: 'Carpeta' },
+      icon: 'folder',
       expanded: true,
       children: [
         {
           key: '0-0',
-          data: { name: '📁 Trabajo', size: '80 KB', type: 'Carpeta' },
+          data: { name: 'Trabajo', size: '80 KB', type: 'Carpeta' },
+          icon: 'folder',
           children: [
             {
               key: '0-0-0',
-              data: { name: '📄 Informe_Financiero_2026.pdf', size: '55 KB', type: 'Documento PDF' }
+              data: { name: 'Informe_Financiero_2026.pdf', size: '55 KB', type: 'Documento PDF' },
+              icon: 'file-text'
             },
             {
               key: '0-0-1',
-              data: { name: '📊 Presupuesto.xlsx', size: '25 KB', type: 'Hoja de Cálculo' }
+              data: { name: 'Presupuesto.xlsx', size: '25 KB', type: 'Hoja de Cálculo' },
+              icon: 'file-text'
             }
           ]
         },
         {
           key: '0-1',
-          data: { name: '📄 Notas_Reunion.docx', size: '45 KB', type: 'Documento Word' }
+          data: { name: 'Notas_Reunion.docx', size: '45 KB', type: 'Documento Word' },
+          icon: 'file-text'
         }
       ]
     },
     {
       key: '1',
-      data: { name: '📁 Imágenes', size: '4.5 MB', type: 'Carpeta' },
+      data: { name: 'Imágenes', size: '4.5 MB', type: 'Carpeta' },
+      icon: 'folder',
       children: [
         {
           key: '1-0',
-          data: { name: '🖼️ logo_oxygen_ui.png', size: '1.2 MB', type: 'Imagen PNG' }
+          data: { name: 'logo_oxygen_ui.png', size: '1.2 MB', type: 'Imagen PNG' },
+          icon: 'image'
         },
         {
           key: '1-1',
-          data: { name: '🖼️ banner_hero.webp', size: '3.3 MB', type: 'Imagen WebP' }
+          data: { name: 'banner_hero.webp', size: '3.3 MB', type: 'Imagen WebP' },
+          icon: 'image'
         }
       ]
     },
     {
       key: '2',
-      data: { name: '⚙️ package.json', size: '2 KB', type: 'Archivo JSON' }
+      data: { name: 'package.json', size: '2 KB', type: 'Archivo JSON' },
+      icon: 'settings'
     }
   ];
 

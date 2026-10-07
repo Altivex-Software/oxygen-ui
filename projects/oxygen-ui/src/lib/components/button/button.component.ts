@@ -1,6 +1,8 @@
 import { Component, input, computed, ViewEncapsulation, output } from '@angular/core';
 import { OxygenColor, OxygenSize, OxygenSeverity } from '../../lib-core';
 import { BadgeComponent } from '../badge/badge.component';
+import { IconComponent } from '../icon/icon.component';
+import { OxIconName } from '../icon/icon.types';
 
 export type ButtonVariantPrefix = 'outline' | 'ghost';
 export type ButtonVariant = OxygenColor | `${ButtonVariantPrefix}-${OxygenColor}`;
@@ -11,7 +13,7 @@ export interface TypesButton {
 
 @Component({
   selector: 'ox-button, button[ox-button], button[oxy-button]',
-  imports: [BadgeComponent],
+  imports: [BadgeComponent, IconComponent],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -35,6 +37,8 @@ export interface TypesButton {
 })
 export class ButtonComponent {
   label = input<string>();
+  icon = input<OxIconName>();
+  iconPos = input<'left' | 'right'>('left');
   variant = input<ButtonVariant>('primary');
   size = input<OxygenSize>('sm');
   boxShadow = input<OxygenSize | 'none'>('none');

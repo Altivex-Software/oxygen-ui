@@ -2,11 +2,12 @@ import { Component, contentChildren, input, signal, computed, effect } from '@an
 import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import { trigger, transition, style, animate, query, group, state } from '@angular/animations';
 import { StepComponent } from './step.component';
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'ox-stepper',
   standalone: true,
-  imports: [CommonModule, NgTemplateOutlet],
+  imports: [CommonModule, NgTemplateOutlet, IconComponent],
   templateUrl: './stepper.component.html',
   styleUrl: './stepper.component.scss',
   host: {

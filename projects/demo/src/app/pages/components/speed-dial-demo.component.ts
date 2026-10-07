@@ -64,25 +64,25 @@ export class SpeedDialDemoComponent {
 
   items: SpeedDialItem[] = [
     {
-      icon: '➕',
+      icon: 'plus',
       label: 'Crear Nuevo',
       tooltip: 'Añadir nuevo registro',
       command: () => this.toastService.add({ severity: 'success', summary: 'Crear', detail: 'Acción ejecutada' })
     },
     {
-      icon: '✏️',
+      icon: 'edit-2',
       label: 'Editar',
       tooltip: 'Editar elemento',
       command: () => this.toastService.add({ severity: 'info', summary: 'Editar', detail: 'Abriendo editor' })
     },
     {
-      icon: '🗑️',
+      icon: 'trash-2',
       label: 'Eliminar',
       tooltip: 'Borrar registro',
       command: () => this.toastService.add({ severity: 'error', summary: 'Eliminar', detail: 'Registro borrado' })
     },
     {
-      icon: '🔗',
+      icon: 'share-2',
       label: 'Compartir',
       tooltip: 'Copiar enlace',
       command: () => this.toastService.add({ severity: 'success', summary: 'Compartir', detail: 'Enlace copiado' })
@@ -90,9 +90,9 @@ export class SpeedDialDemoComponent {
   ];
 
   mediaItems: SpeedDialItem[] = [
-    { icon: '📷', tooltip: 'Cámara', command: () => this.toastService.add({ severity: 'info', summary: 'Cámara', detail: 'Cámara activada' }) },
-    { icon: '📁', tooltip: 'Subir Archivo', command: () => this.toastService.add({ severity: 'info', summary: 'Archivo', detail: 'Explorador abierto' }) },
-    { icon: '📍', tooltip: 'Ubicación', command: () => this.toastService.add({ severity: 'info', summary: 'Ubicación', detail: 'Ubicación compartida' }) }
+    { icon: 'camera', tooltip: 'Cámara', command: () => this.toastService.add({ severity: 'info', summary: 'Cámara', detail: 'Cámara activada' }) },
+    { icon: 'folder', tooltip: 'Subir Archivo', command: () => this.toastService.add({ severity: 'info', summary: 'Archivo', detail: 'Explorador abierto' }) },
+    { icon: 'map-pin', tooltip: 'Ubicación', command: () => this.toastService.add({ severity: 'info', summary: 'Ubicación', detail: 'Ubicación compartida' }) }
   ];
 
   upHtml = `<ox-speed-dial 
@@ -107,8 +107,8 @@ export class SpeedDialDemoComponent {
 </ox-speed-dial>`;
 
   speedDialTs = `items: SpeedDialItem[] = [
-  { icon: '➕', label: 'Crear', command: () => console.log('Crear') },
-  { icon: '✏️', label: 'Editar', command: () => console.log('Editar') }
+  { icon: 'plus', label: 'Crear', command: () => console.log('Crear') },
+  { icon: 'edit-2', label: 'Editar', command: () => console.log('Editar') }
 ];`;
 
   speedDialProps: ApiProperty[] = [

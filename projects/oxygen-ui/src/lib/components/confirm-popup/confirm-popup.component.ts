@@ -13,11 +13,13 @@ import {
 import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ButtonComponent } from '../button/button.component';
+import { IconComponent } from '../icon/icon.component';
+import { OxIconName } from '../icon/icon.types';
 
 @Component({
   selector: 'ox-confirm-popup',
   standalone: true,
-  imports: [CommonModule, OverlayModule, ButtonComponent],
+  imports: [CommonModule, OverlayModule, ButtonComponent, IconComponent],
   template: `
     <div #targetOrigin class="ox-confirm-popup-target" (click)="toggle()">
       <ng-content select="[oxTarget]"></ng-content>
@@ -31,7 +33,9 @@ import { ButtonComponent } from '../button/button.component';
       (overlayOutsideClick)="reject()">
       <div class="ox-confirm-popup-panel ox-elevation-3">
         <div class="ox-confirm-popup-header">
-          <span class="ox-confirm-popup-icon">{{ icon() }}</span>
+          <span class="ox-confirm-popup-icon">
+            <ox-icon [name]="$any(icon())" size="md" color="warning"></ox-icon>
+          </span>
           <span class="ox-confirm-popup-message">{{ message() }}</span>
         </div>
         <div class="ox-confirm-popup-footer">
@@ -53,7 +57,7 @@ export class ConfirmPopupComponent {
   @ViewChild('targetOrigin') targetOrigin!: ElementRef;
 
   message = input<string>('Are you sure you want to proceed?');
-  icon = input<string>('⚠️');
+  icon = input<OxIconName | string>('alert-triangle');
   acceptLabel = input<string>('Yes');
   rejectLabel = input<string>('No');
   acceptVariant = input<any>('primary');

@@ -21,13 +21,13 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [ts]="toolbarTs">
         <ox-toolbar>
           <div left style="display: flex; gap: 0.5rem;">
-            <ox-button variant="success">➕ Nuevo</ox-button>
-            <ox-button variant="secondary">📄 Abrir</ox-button>
-            <ox-button variant="danger">🗑️ Eliminar</ox-button>
+            <ox-button variant="success" icon="plus">Nuevo</ox-button>
+            <ox-button variant="secondary" icon="folder">Abrir</ox-button>
+            <ox-button variant="danger" icon="trash-2">Eliminar</ox-button>
           </div>
           
           <div right>
-            <ox-button variant="outline-primary">📥 Exportar</ox-button>
+            <ox-button variant="outline-primary" icon="download">Exportar</ox-button>
           </div>
         </ox-toolbar>
       </app-doc-code>

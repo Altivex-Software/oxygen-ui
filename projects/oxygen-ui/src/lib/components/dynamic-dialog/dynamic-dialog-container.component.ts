@@ -11,11 +11,12 @@ import {
 import { CommonModule } from '@angular/common';
 import { DynamicDialogConfig } from './dynamic-dialog-config';
 import { DynamicDialogRef } from './dynamic-dialog-ref';
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'ox-dynamic-dialog-container',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   template: `
     <div class="ox-dialog-mask" (click)="onMaskClick($event)">
       <div 
@@ -33,19 +34,13 @@ import { DynamicDialogRef } from './dynamic-dialog-ref';
             <div class="ox-dialog-header-actions">
               @if (config.maximizable) {
                 <button type="button" class="ox-dialog-header-icon" (click)="toggleMaximize()" aria-label="Maximize dialog">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                    @if (isMaximized()) {
-                      <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
-                    } @else {
-                      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
-                    }
-                  </svg>
+                  <ox-icon [name]="isMaximized() ? 'minimize' : 'maximize'" size="1rem"></ox-icon>
                 </button>
               }
 
               @if (config.closable) {
                 <button type="button" class="ox-dialog-close" (click)="close()" aria-label="Close dialog">
-                  <span>×</span>
+                  <ox-icon name="x" size="1.125rem"></ox-icon>
                 </button>
               }
             </div>

@@ -1,10 +1,12 @@
 import { Component, input, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IconComponent } from '../icon/icon.component';
+import { OxIconName } from '../icon/icon.types';
 
 export interface TimelineItem {
   status: string;
   date?: string;
-  icon?: string;
+  icon?: OxIconName | string;
   color?: string;
   description?: string;
 }
@@ -12,7 +14,7 @@ export interface TimelineItem {
 @Component({
   selector: 'ox-timeline',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   template: `
     <div class="ox-timeline" [class.ox-timeline-horizontal]="layout() === 'horizontal'">
       @for (item of value(); track $index) {
@@ -26,7 +28,9 @@ export interface TimelineItem {
               class="ox-timeline-event-marker" 
               [style.background-color]="item.color || '#3b82f6'">
               @if (item.icon) {
-                <span class="ox-timeline-icon">{{ item.icon }}</span>
+                <span class="ox-timeline-icon">
+                  <ox-icon [name]="$any(item.icon)" size="xs" color="white"></ox-icon>
+                </span>
               }
             </div>
             @if (!$last) {

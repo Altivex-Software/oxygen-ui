@@ -1,5 +1,6 @@
 import { Component, input, output, signal, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IconComponent } from '../icon/icon.component';
 
 export interface FileUploadSelectEvent {
   originalEvent: Event;
@@ -20,11 +21,11 @@ export interface FileUploadErrorEvent {
 @Component({
   selector: 'ox-file-upload',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   template: `
     <div 
       class="ox-file-upload" 
-      [class.ox-file-upload-disabled]="disabled()"
+      [class.ox-file-upload-disabled]="disabled()" 
       [class.ox-file-upload-dragover]="isDragOver()">
       
       <!-- Hidden file input -->
@@ -47,9 +48,7 @@ export interface FileUploadErrorEvent {
           (click)="fileInput.click()">
           
           <div class="ox-file-upload-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-            </svg>
+            <ox-icon name="upload-cloud" size="2.5rem"></ox-icon>
           </div>
           <p class="ox-file-upload-text">{{ chooseLabel() }}</p>
           <p class="ox-file-upload-subtext">o arrastra y suelta aquí</p>
@@ -64,9 +63,7 @@ export interface FileUploadErrorEvent {
           @for (file of files(); track file.name + file.size) {
             <div class="ox-file-upload-item">
               <div class="ox-file-upload-item-info">
-                <svg viewBox="0 0 20 20" fill="currentColor" class="ox-file-icon">
-                  <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
-                </svg>
+                <ox-icon name="file-text" size="1.25rem" class="ox-file-icon"></ox-icon>
                 <div class="ox-file-details">
                   <span class="ox-file-name" [title]="file.name">{{ file.name }}</span>
                   <span class="ox-file-size">{{ formatSize(file.size) }}</span>
@@ -77,9 +74,7 @@ export interface FileUploadErrorEvent {
                 class="ox-file-remove-btn" 
                 (click)="removeFile(file, $event)"
                 [disabled]="disabled()">
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
+                <ox-icon name="x" size="1rem"></ox-icon>
               </button>
             </div>
           }

@@ -1,12 +1,14 @@
 import { Component, input, output, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IconComponent } from '../icon/icon.component';
+import { OxIconName } from '../icon/icon.types';
 
 export type TagSeverity = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
 
 @Component({
   selector: 'ox-tag',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   template: `
     <span 
       class="ox-tag"
@@ -14,16 +16,14 @@ export type TagSeverity = 'primary' | 'secondary' | 'success' | 'danger' | 'warn
       [class]="'ox-tag-' + severity()">
       
       @if (icon()) {
-        <span class="ox-tag-icon">{{ icon() }}</span>
+        <ox-icon [name]="$any(icon()!)" size="0.75rem" class="ox-tag-icon"></ox-icon>
       }
 
       <span class="ox-tag-value">{{ value() }}</span>
 
       @if (removable()) {
         <span class="ox-tag-remove" (click)="onRemoveClick($event)">
-          <svg viewBox="0 0 20 20" fill="currentColor">
-            <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
-          </svg>
+          <ox-icon name="x" size="0.75rem"></ox-icon>
         </span>
       }
     </span>
@@ -35,7 +35,7 @@ export type TagSeverity = 'primary' | 'secondary' | 'success' | 'danger' | 'warn
 export class TagComponent {
   value = input<string>('');
   severity = input<TagSeverity>('primary');
-  icon = input<string>();
+  icon = input<OxIconName | string>();
   rounded = input<boolean>(false);
   removable = input<boolean>(false);
 

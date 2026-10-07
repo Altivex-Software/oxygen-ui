@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StepperComponent, StepComponent } from 'oxygen-ui';
+import { StepperComponent, StepComponent, IconComponent } from 'oxygen-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
 @Component({
   selector: 'app-stepper-demo',
   standalone: true,
-  imports: [CommonModule, StepperComponent, StepComponent, DocCodeComponent, DocApiTableComponent],
+  imports: [CommonModule, StepperComponent, StepComponent, IconComponent, DocCodeComponent, DocApiTableComponent],
   template: `
     <div class="ox-page-container">
       <h1>Stepper</h1>
@@ -37,7 +37,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
             </ox-step>
             <ox-step label="Finalizar">
               <div style="padding: 1.5rem; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 1rem; text-align: center;">
-                <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎉</div>
+                <div style="margin-bottom: 0.5rem;">
+                  <ox-icon name="check-circle" size="3xl" color="success"></ox-icon>
+                </div>
                 <h3 style="margin-top: 0;">¡Todo listo!</h3>
                 <p style="color: #64748b; font-size: 0.875rem;">Tu proceso de configuración se ha completado con éxito.</p>
               </div>

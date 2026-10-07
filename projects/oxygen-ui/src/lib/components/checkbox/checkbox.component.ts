@@ -1,11 +1,12 @@
 import { Component, forwardRef, input, model, computed, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'ox-checkbox',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   template: `
     <div 
       class="ox-checkbox" 
@@ -15,9 +16,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       (click)="toggle($event)">
       <div class="ox-checkbox-box">
         @if (checked()) {
-          <svg class="ox-checkbox-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.6666 3.5L5.24992 9.91667L2.33325 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <ox-icon name="check" size="0.75rem" [strokeWidth]="3" class="ox-checkbox-icon"></ox-icon>
         }
       </div>
       @if (label()) {

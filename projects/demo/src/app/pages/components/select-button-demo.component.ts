@@ -67,8 +67,8 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
               [(ngModel)]="isNotificationsEnabled"
               onLabel="Notificaciones ON" 
               offLabel="Notificaciones OFF"
-              onIcon="🔔"
-              offIcon="🔕">
+              onIcon="bell"
+              offIcon="bell-off">
             </ox-toggle-button>
             <div style="margin-top: 0.5rem; font-size: 0.8125rem; color: #64748b;">
               Estado: {{ isNotificationsEnabled }}
@@ -80,8 +80,8 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
               [(ngModel)]="isFavorite"
               onLabel="Favorito" 
               offLabel="Añadir a Favoritos"
-              onIcon="❤️"
-              offIcon="🤍">
+              onIcon="heart"
+              offIcon="heart">
             </ox-toggle-button>
             <div style="margin-top: 0.5rem; font-size: 0.8125rem; color: #64748b;">
               Estado: {{ isFavorite }}
@@ -102,17 +102,17 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
 export class SelectButtonDemoComponent {
   selectedPayment = 'credit_card';
   paymentOptions = [
-    { label: 'Tarjeta de Crédito', value: 'credit_card', icon: '💳' },
-    { label: 'PayPal', value: 'paypal', icon: '🅿️' },
-    { label: 'Transferencia', value: 'transfer', icon: '🏦' }
+    { label: 'Tarjeta de Crédito', value: 'credit_card', icon: 'credit-card' },
+    { label: 'PayPal', value: 'paypal', icon: 'dollar-sign' },
+    { label: 'Transferencia', value: 'transfer', icon: 'briefcase' }
   ];
 
   selectedAlignments = ['left', 'bold'];
   alignOptions = [
-    { label: 'Izquierda', value: 'left', icon: '⬅️' },
-    { label: 'Centro', value: 'center', icon: '↔️' },
-    { label: 'Derecha', value: 'right', icon: '➡️' },
-    { label: 'Negrita', value: 'bold', icon: '🅱️' }
+    { label: 'Izquierda', value: 'left', icon: 'align-left' },
+    { label: 'Centro', value: 'center', icon: 'align-center' },
+    { label: 'Derecha', value: 'right', icon: 'align-right' },
+    { label: 'Negrita', value: 'bold', icon: 'bold' }
   ];
 
   isNotificationsEnabled = true;
@@ -135,13 +135,13 @@ export class SelectButtonDemoComponent {
   [(ngModel)]="isNotificationsEnabled"
   onLabel="Notificaciones ON" 
   offLabel="Notificaciones OFF"
-  onIcon="🔔"
-  offIcon="🔕">
+  onIcon="bell"
+  offIcon="bell-off">
 </ox-toggle-button>`;
 
   selectTs = `paymentOptions = [
-  { label: 'Tarjeta de Crédito', value: 'credit_card', icon: '💳' },
-  { label: 'PayPal', value: 'paypal', icon: '🅿️' }
+  { label: 'Tarjeta de Crédito', value: 'credit_card', icon: 'credit-card' },
+  { label: 'PayPal', value: 'paypal', icon: 'dollar-sign' }
 ];
 selectedPayment = 'credit_card';`;
 

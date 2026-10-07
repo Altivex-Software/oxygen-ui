@@ -2,11 +2,12 @@ import { Component, contentChildren, signal, computed, viewChildren, viewChild, 
 import { OxygenColor, OxygenSeverity } from '../../lib-core';
 import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import { TabComponent } from './tab.component';
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'ox-tabs',
   standalone: true,
-  imports: [CommonModule, NgTemplateOutlet],
+  imports: [CommonModule, NgTemplateOutlet, IconComponent],
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.scss',
   host: {

@@ -1,0 +1,255 @@
+.ox-tree {
+  display: flex;
+  flex-direction: column;
+  background: var(--ox-surface-card, #ffffff);
+  border: 1px solid var(--ox-border-color, rgba(226, 232, 240, 0.8));
+  border-radius: var(--ox-border-radius-lg, 0.75rem);
+  color: var(--ox-text-primary, #0f172a);
+  font-family: var(--ox-font-family, inherit);
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &.ox-tree-bordered {
+    box-shadow: var(--ox-shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  }
+
+  &.ox-tree-scrollable {
+    max-height: 450px;
+    overflow-y: auto;
+  }
+}
+
+.ox-tree-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--ox-border-color, rgba(226, 232, 240, 0.8));
+  background: var(--ox-surface-ground, #f8fafc);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  .ox-tree-filter-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    .ox-tree-filter-icon {
+      position: absolute;
+      left: 0.75rem;
+      color: var(--ox-text-secondary, #64748b);
+      pointer-events: none;
+    }
+
+    .ox-tree-filter-input {
+      width: 100%;
+      padding: 0.5rem 2rem 0.5rem 2.25rem;
+      font-size: 0.875rem;
+      border: 1px solid var(--ox-border-color, #cbd5e1);
+      border-radius: var(--ox-border-radius-md, 0.5rem);
+      background: var(--ox-surface-card, #ffffff);
+      color: var(--ox-text-primary, #0f172a);
+      outline: none;
+      transition: all 0.2s ease;
+
+      &:focus {
+        border-color: var(--ox-primary, #6366f1);
+        box-shadow: 0 0 0 3px var(--ox-primary-focus, rgba(99, 102, 241, 0.15));
+      }
+
+      &::placeholder {
+        color: var(--ox-text-tertiary, #94a3b8);
+      }
+    }
+
+    .ox-tree-filter-clear {
+      position: absolute;
+      right: 0.5rem;
+      background: none;
+      border: none;
+      padding: 0.25rem;
+      cursor: pointer;
+      color: var(--ox-text-secondary, #64748b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background 0.15s ease, color 0.15s ease;
+
+      &:hover {
+        background: var(--ox-surface-hover, rgba(0, 0, 0, 0.05));
+        color: var(--ox-text-primary, #0f172a);
+      }
+    }
+  }
+
+  .ox-tree-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+}
+
+.ox-tree-container {
+  padding: 0.5rem;
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.ox-tree-children {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  position: relative;
+
+  &.ox-tree-lines {
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0.625rem;
+      top: 0;
+      bottom: 0.75rem;
+      width: 1px;
+      background: var(--ox-border-color, rgba(203, 213, 225, 0.6));
+    }
+  }
+}
+
+.ox-treenode {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &.ox-treenode-leaf {
+    /* leaf specific */
+  }
+}
+
+.ox-treenode-content {
+  display: flex;
+  align-items: center;
+  padding: 0.375rem 0.625rem;
+  border-radius: var(--ox-border-radius-md, 0.5rem);
+  cursor: pointer;
+  user-select: none;
+  gap: 0.5rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  color: var(--ox-text-primary, #1e293b);
+
+  &:hover:not(.ox-treenode-disabled) {
+    background: var(--ox-surface-hover, rgba(99, 102, 241, 0.06));
+  }
+
+  &.ox-treenode-selected {
+    background: var(--ox-primary-light, rgba(99, 102, 241, 0.12));
+    color: var(--ox-primary-dark, var(--ox-primary, #6366f1));
+    font-weight: 500;
+
+    .ox-treenode-icon {
+      color: var(--ox-primary, #6366f1);
+    }
+  }
+
+  &.ox-treenode-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.ox-treenode-toggler {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--ox-border-radius-sm, 0.375rem);
+  color: var(--ox-text-secondary, #64748b);
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: var(--ox-surface-hover, rgba(0, 0, 0, 0.06));
+    color: var(--ox-text-primary, #0f172a);
+  }
+
+  &.ox-treenode-toggler-expanded {
+    transform: rotate(90deg);
+  }
+
+  &.ox-treenode-toggler-empty {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.ox-treenode-checkbox {
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 0.25rem;
+  border: 1.5px solid var(--ox-border-color, #94a3b8);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--ox-surface-card, #ffffff);
+  color: #ffffff;
+  transition: all 0.15s ease;
+
+  &:hover {
+    border-color: var(--ox-primary, #6366f1);
+  }
+
+  &.ox-treenode-checkbox-checked {
+    background: var(--ox-primary, #6366f1);
+    border-color: var(--ox-primary, #6366f1);
+  }
+
+  &.ox-treenode-checkbox-partial {
+    background: var(--ox-primary, #6366f1);
+    border-color: var(--ox-primary, #6366f1);
+
+    .ox-treenode-checkbox-indeterminate {
+      width: 0.5rem;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 1px;
+    }
+  }
+}
+
+.ox-treenode-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ox-text-secondary, #64748b);
+  flex-shrink: 0;
+  font-size: 1.125rem;
+}
+
+.ox-treenode-label {
+  flex: 1;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ox-tree-empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--ox-text-tertiary, #94a3b8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}

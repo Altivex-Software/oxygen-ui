@@ -18,6 +18,7 @@ import { ButtonComponent } from 'oxygen-ui';
         <nav class="main-nav">
           <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
           <a routerLink="/components" routerLinkActive="active">Components</a>
+          <a routerLink="/utilities" routerLinkActive="active">CSS Utilities</a>
           <a href="https://github.com" target="_blank">Docs</a>
         </nav>
 

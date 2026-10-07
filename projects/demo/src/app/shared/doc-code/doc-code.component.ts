@@ -7,6 +7,7 @@ import {
   ViewEncapsulation 
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IconComponent } from 'oxygen-ui';
 
 export interface CodeTab {
   label: string;
@@ -17,7 +18,7 @@ export interface CodeTab {
 @Component({
   selector: 'app-doc-code',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   template: `
     <div class="ox-doc-code-card">
       <!-- Preview Header & Actions -->
@@ -38,10 +39,7 @@ export interface CodeTab {
             [class.ox-doc-action-btn-active]="isCodeVisible()"
             (click)="toggleCode()"
             title="Ver código fuente">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
-            </svg>
+            <ox-icon name="code" size="1rem"></ox-icon>
             <span>{{ isCodeVisible() ? 'Ocultar Código' : 'Ver Código' }}</span>
           </button>
         </div>
@@ -76,17 +74,12 @@ export interface CodeTab {
               title="Copiar al portapapeles">
               @if (isCopied()) {
                 <span class="ox-doc-copied-text">
-                  <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
-                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                  </svg>
+                  <ox-icon name="check" size="0.875rem"></ox-icon>
                   ¡Copiado!
                 </span>
               } @else {
                 <span class="ox-doc-copy-text">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                  </svg>
+                  <ox-icon name="copy" size="0.875rem"></ox-icon>
                   Copiar
                 </span>
               }

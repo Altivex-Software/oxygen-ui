@@ -2,6 +2,7 @@ import { Component, forwardRef, input, model, ChangeDetectionStrategy, ViewEncap
 import { CommonModule, NgClass } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { IconComponent } from '../icon/icon.component';
 
 export interface AutoCompleteCompleteEvent {
   originalEvent: Event;
@@ -11,7 +12,7 @@ export interface AutoCompleteCompleteEvent {
 @Component({
   selector: 'ox-autocomplete',
   standalone: true,
-  imports: [CommonModule, OverlayModule, FormsModule, NgClass],
+  imports: [CommonModule, OverlayModule, FormsModule, NgClass, IconComponent],
   template: `
     <div 
       #container
@@ -44,9 +45,7 @@ export interface AutoCompleteCompleteEvent {
           
         @if (dropdown()) {
           <button type="button" class="ox-autocomplete-dropdown-btn" (click)="toggleDropdown($event)" tabindex="-1">
-            <svg viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-            </svg>
+            <ox-icon name="chevron-down" size="0.875rem"></ox-icon>
           </button>
         }
       </div>

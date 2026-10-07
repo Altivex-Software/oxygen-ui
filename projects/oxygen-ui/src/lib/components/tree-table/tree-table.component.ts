@@ -10,10 +10,13 @@ import {
   ContentChild
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IconComponent } from '../icon/icon.component';
+import { OxIconName } from '../icon/icon.types';
 
 export interface TreeTableNode<T = any> {
   key?: string;
   data: T;
+  icon?: OxIconName | string;
   children?: TreeTableNode<T>[];
   expanded?: boolean;
   leaf?: boolean;
@@ -38,7 +41,7 @@ interface FlattenedRow {
 @Component({
   selector: 'ox-tree-table',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   template: `
     <div class="ox-tree-table-wrapper" [class.ox-tree-table-striped]="striped()">
       <table class="ox-tree-table">
@@ -83,12 +86,13 @@ interface FlattenedRow {
                             [class.ox-tree-toggler-expanded]="row.expanded"
                             (click)="toggleNode(row.node, $event)"
                             aria-label="Toggle node">
-                            <svg viewBox="0 0 20 20" fill="currentColor" class="ox-tree-toggler-icon">
-                              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-                            </svg>
+                            <ox-icon name="chevron-right" size="0.875rem" class="ox-tree-toggler-icon"></ox-icon>
                           </button>
                         } @else {
                           <span class="ox-tree-toggler-spacer"></span>
+                        }
+                        @if (row.node.icon) {
+                          <ox-icon [name]="$any(row.node.icon)" size="sm" style="margin-right: 6px; color: var(--oxy-primary, #0066ff);"></ox-icon>
                         }
                         <span class="ox-tree-cell-value">{{ getCellValue(row.node, col.field) }}</span>
                       </div>

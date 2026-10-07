@@ -8,7 +8,8 @@ import {
   ContextMenuItem,
   BadgeComponent,
   OxygenTemplateDirective,
-  TableComponent
+  TableComponent,
+  IconComponent
 } from "oxygen-ui";
 import { DocCodeComponent } from "../../shared/doc-code/doc-code.component";
 import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-code/doc-api-table.component";
@@ -25,6 +26,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
     BadgeComponent,
     OxygenTemplateDirective,
     TableComponent,
+    IconComponent,
     DocCodeComponent,
     DocApiTableComponent
   ],
@@ -42,7 +44,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
 
         <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
           <ox-popover #userPopover>
-            <ox-button oxTarget variant="primary">👤 Ver Perfil de Usuario</ox-button>
+            <ox-button oxTarget variant="primary" icon="user">Ver Perfil de Usuario</ox-button>
 
             <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 220px; padding: 0.5rem;">
               <div style="display: flex; align-items: center; gap: 0.75rem;">
@@ -84,11 +86,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
             acceptVariant="danger"
             (onAccept)="onDeleteConfirmed()"
             (onReject)="onDeleteCancelled()">
-            <ox-button oxTarget variant="danger">🗑️ Eliminar Elemento</ox-button>
+            <ox-button oxTarget variant="danger" icon="trash-2">Eliminar Elemento</ox-button>
           </ox-confirm-popup>
 
           @if (lastActionMessage) {
-            <span style="font-size: 0.875rem; color: #475569; font-weight: 500; background: #f8fafc; padding: 6px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">
+            <span style="font-size: 0.875rem; color: #475569; font-weight: 500; background: #f8fafc; padding: 6px 12px; border-radius: 6px; border: 1px solid #e2e8f0; display: inline-flex; align-items: center; gap: 6px;">
+              <ox-icon name="info" size="sm" color="primary"></ox-icon>
               Estado: {{ lastActionMessage }}
             </span>
           }
@@ -127,7 +130,11 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
               <td>
                 <ox-badge [value]="user.role" [severity]="user.role === 'Admin' ? 'danger' : 'info'" size="sm"></ox-badge>
               </td>
-              <td style="color: #94a3b8; font-size: 0.8125rem;">Haz clic derecho aquí 🖱️</td>
+              <td style="color: #94a3b8; font-size: 0.8125rem;">
+                <span style="display: inline-flex; align-items: center; gap: 4px;">
+                  Haz clic derecho aquí <ox-icon name="mouse-pointer" size="sm"></ox-icon>
+                </span>
+              </td>
             </tr>
           </ng-template>
         </ox-table>
@@ -161,18 +168,18 @@ export class OverlaysDemoComponent {
   ];
 
   menuItems: ContextMenuItem[] = [
-    { label: "Ver Perfil", icon: "👤", command: (e) => this.action("Viendo perfil de " + e.data?.name) },
-    { label: "Editar Registro", icon: "✏️", command: (e) => this.action("Editando a " + e.data?.name) },
+    { label: "Ver Perfil", icon: "user", command: (e) => this.action("Viendo perfil de " + e.data?.name) },
+    { label: "Editar Registro", icon: "edit-2", command: (e) => this.action("Editando a " + e.data?.name) },
     { separator: true },
-    { label: "Eliminar Usuario", icon: "🗑️", danger: true, command: (e) => this.action("Eliminado " + e.data?.name) }
+    { label: "Eliminar Usuario", icon: "trash-2", danger: true, command: (e) => this.action("Eliminado " + e.data?.name) }
   ];
 
   onDeleteConfirmed() {
-    this.lastActionMessage = "¡Elemento eliminado con éxito! ✅";
+    this.lastActionMessage = "¡Elemento eliminado con éxito!";
   }
 
   onDeleteCancelled() {
-    this.lastActionMessage = "Eliminación cancelada ❌";
+    this.lastActionMessage = "Eliminación cancelada";
   }
 
   action(msg: string) {
@@ -242,9 +249,9 @@ import { ContextMenuComponent, ContextMenuItem } from 'oxygen-ui';
 })
 export class MyComponent {
   menuItems: ContextMenuItem[] = [
-    { label: 'Ver Perfil', icon: '👤', command: (e) => console.log(e.data) },
+    { label: 'Ver Perfil', icon: 'user', command: (e) => console.log(e.data) },
     { separator: true },
-    { label: 'Eliminar', icon: '🗑️', danger: true, command: (e) => console.log('Eliminar', e.data) }
+    { label: 'Eliminar', icon: 'trash-2', danger: true, command: (e) => console.log('Eliminar', e.data) }
   ];
 }`;
 

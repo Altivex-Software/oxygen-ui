@@ -28,14 +28,51 @@ $grid-gutter-width: 1.5rem !default;
   flex: 1 0 0%;
 }
 
+.ox-col-auto {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+// Base columns without breakpoint (ox-col-1 to ox-col-12)
+@for $i from 1 through $grid-columns {
+  .ox-col-#{$i} {
+    flex: 0 0 auto;
+    width: math.percentage(math.div($i, $grid-columns));
+  }
+}
+
+// Responsive breakpoint columns
 @each $name, $value in b.$breakpoints {
-  @include b.up($name) {
-    .ox-col-#{$name} {
+  @if $name != 'xs' {
+    @include b.up($name) {
+      .ox-col-#{$name} {
+        flex: 1 0 0%;
+      }
+
+      .ox-col-#{$name}-auto {
+        flex: 0 0 auto;
+        width: auto;
+      }
+
+      @for $i from 1 through $grid-columns {
+        .ox-col-#{$name}-#{$i} {
+          flex: 0 0 auto;
+          width: math.percentage(math.div($i, $grid-columns));
+        }
+      }
+    }
+  } @else {
+    .ox-col-xs {
       flex: 1 0 0%;
     }
 
+    .ox-col-xs-auto {
+      flex: 0 0 auto;
+      width: auto;
+    }
+
     @for $i from 1 through $grid-columns {
-      .ox-col-#{$name}-#{$i} {
+      .ox-col-xs-#{$i} {
         flex: 0 0 auto;
         width: math.percentage(math.div($i, $grid-columns));
       }

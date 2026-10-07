@@ -119,25 +119,25 @@ export class AdvancedDemoComponent {
     {
       key: "electronics",
       label: "Electrónica",
-      icon: "💻",
+      icon: "cpu",
       expanded: true,
       children: [
         {
           key: "phones",
           label: "Smartphones",
-          icon: "📱",
+          icon: "smartphone",
           children: [
-            { key: "iphone", label: "iPhone 15 Pro", icon: "🍎" },
-            { key: "galaxy", label: "Samsung Galaxy S24", icon: "🤖" }
+            { key: "iphone", label: "iPhone 15 Pro", icon: "smartphone" },
+            { key: "galaxy", label: "Samsung Galaxy S24", icon: "smartphone" }
           ]
         },
         {
           key: "laptops",
           label: "Portátiles",
-          icon: "💻",
+          icon: "laptop",
           children: [
-            { key: "macbook", label: "MacBook Pro M3", icon: "💻" },
-            { key: "dell", label: "Dell XPS 15", icon: "🖥️" }
+            { key: "macbook", label: "MacBook Pro M3", icon: "laptop" },
+            { key: "dell", label: "Dell XPS 15", icon: "monitor" }
           ]
         }
       ]
@@ -145,7 +145,7 @@ export class AdvancedDemoComponent {
     {
       key: "fashion",
       label: "Ropa & Calzado",
-      icon: "👕",
+      icon: "tag",
       children: [
         { key: "shirts", label: "Camisas & Polos" },
         { key: "shoes", label: "Zapatillas" }
@@ -157,28 +157,28 @@ export class AdvancedDemoComponent {
     {
       status: "Pedido Realizado",
       date: "15/10/2026 10:30",
-      icon: "🛒",
+      icon: "shopping-cart",
       color: "#3b82f6",
       description: "Orden confirmada y validada por el cliente."
     },
     {
       status: "En Preparación",
       date: "15/10/2026 14:15",
-      icon: "📦",
+      icon: "package",
       color: "#f59e0b",
       description: "Paquete embalado y entregado al servicio de mensajería."
     },
     {
       status: "En Tránsito",
       date: "16/10/2026 09:00",
-      icon: "🚚",
+      icon: "truck",
       color: "#06b6d4",
       description: "En ruta de entrega con número de seguimiento #OX-8840."
     },
     {
       status: "Entregado",
       date: "17/10/2026 16:45",
-      icon: "✅",
+      icon: "check-circle",
       color: "#22c55e",
       description: "Paquete entregado y firmado en destino."
     }
@@ -237,8 +237,8 @@ import { TimelineComponent, TimelineItem } from 'oxygen-ui';
 })
 export class MyComponent {
   orderHistory: TimelineItem[] = [
-    { status: 'Iniciado', date: '10:00', icon: '🚀' },
-    { status: 'Completado', date: '11:00', icon: '✅' }
+    { status: 'Iniciado', date: '10:00', icon: 'zap' },
+    { status: 'Completado', date: '11:00', icon: 'check-circle' }
   ];
 }`;
 

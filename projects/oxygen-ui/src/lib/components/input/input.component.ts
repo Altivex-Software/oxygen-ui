@@ -1,6 +1,8 @@
 import { Component, input, computed, ViewEncapsulation, forwardRef, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { IconComponent } from '../icon/icon.component';
+import { OxIconName } from '../icon/icon.types';
 
 export type InputFocusColor = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
 
@@ -9,7 +11,7 @@ let nextId = 0;
 @Component({
   selector: 'ox-input',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -45,7 +47,7 @@ export class InputComponent implements ControlValueAccessor {
   variant = input<'default' | 'fieldset' | 'oneLine'>('default');
   floatLabel = input<boolean>(false);
   focusColor = input<InputFocusColor>();
-  icon = input<string>();
+  icon = input<OxIconName | string>();
 
   hasLabel = computed(() => !!this.label());
   hasValue = computed(() => !!this.value());

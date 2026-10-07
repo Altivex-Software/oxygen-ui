@@ -2,11 +2,12 @@ import { Component, forwardRef, input, signal, ViewEncapsulation, ChangeDetectio
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'ox-date-picker',
   standalone: true,
-  imports: [CommonModule, OverlayModule, FormsModule],
+  imports: [CommonModule, OverlayModule, FormsModule, IconComponent],
   template: `
     <div class="oxy-input-wrapper" 
          [class.oxy-input-wrapper--disabled]="disabled()"
@@ -40,12 +41,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
           class="oxy-input-field oxy-datepicker-input"
         />
         <div class="oxy-datepicker-trigger">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="16" y1="2" x2="16" y2="6"></line>
-            <line x1="8" y1="2" x2="8" y2="6"></line>
-            <line x1="3" y1="10" x2="21" y2="10"></line>
-          </svg>
+          <ox-icon name="calendar" size="1.125rem"></ox-icon>
         </div>
       </div>
 
@@ -64,7 +60,9 @@ import { OverlayModule } from '@angular/cdk/overlay';
         
         <div class="oxy-datepicker-panel oxy-elevation-4">
           <div class="oxy-datepicker-header">
-            <button type="button" (click)="prev()" class="oxy-datepicker-nav-btn">&lt;</button>
+            <button type="button" (click)="prev()" class="oxy-datepicker-nav-btn">
+              <ox-icon name="chevron-left" size="0.875rem"></ox-icon>
+            </button>
             <span class="oxy-datepicker-month-year" (click)="toggleView()">
               @if (currentView() === 'days') {
                 {{ currentMonthName() }} {{ currentYear() }}
@@ -74,7 +72,9 @@ import { OverlayModule } from '@angular/cdk/overlay';
                 {{ yearsRange()[1] }} - {{ yearsRange()[yearsRange().length - 2] }}
               }
             </span>
-            <button type="button" (click)="next()" class="oxy-datepicker-nav-btn">&gt;</button>
+            <button type="button" (click)="next()" class="oxy-datepicker-nav-btn">
+              <ox-icon name="chevron-right" size="0.875rem"></ox-icon>
+            </button>
           </div>
           
           @if (currentView() === 'days') {

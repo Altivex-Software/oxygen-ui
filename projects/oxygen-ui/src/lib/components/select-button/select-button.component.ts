@@ -10,11 +10,13 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { IconComponent } from '../icon/icon.component';
+import { OxIconName } from '../icon/icon.types';
 
 export interface SelectButtonOption<T = any> {
   label?: string;
   value: T;
-  icon?: string;
+  icon?: OxIconName | string;
   disabled?: boolean;
   [key: string]: any;
 }
@@ -22,7 +24,7 @@ export interface SelectButtonOption<T = any> {
 @Component({
   selector: 'ox-select-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   template: `
     <div 
       class="ox-select-button" 
@@ -37,7 +39,9 @@ export interface SelectButtonOption<T = any> {
           [disabled]="disabled() || isOptionDisabled(opt)"
           (click)="selectOption(getOptionValue(opt))">
           @if (getOptionIcon(opt)) {
-            <span class="ox-select-button-icon">{{ getOptionIcon(opt) }}</span>
+            <span class="ox-select-button-icon">
+              <ox-icon [name]="$any(getOptionIcon(opt))" size="1rem"></ox-icon>
+            </span>
           }
           @if (getOptionLabel(opt)) {
             <span class="ox-select-button-label">{{ getOptionLabel(opt) }}</span>

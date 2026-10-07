@@ -50,8 +50,8 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
             </ox-input>
           </div>
           <div style="display: flex; gap: 0.5rem;">
-            <ox-button variant="outline-primary" (onClick)="table.exportCSV('customers-export.csv')">
-              📥 Exportar CSV
+            <ox-button variant="outline-primary" icon="download" (onClick)="table.exportCSV('customers-export.csv')">
+              Exportar CSV
             </ox-button>
           </div>
         </div>
