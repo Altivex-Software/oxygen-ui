@@ -16,22 +16,7 @@ import { OX_ICONS, IconDefinition } from './icons';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      [attr.fill]="resolvedFill()"
-      [attr.stroke]="resolvedStroke()"
-      [attr.stroke-width]="resolvedStrokeWidth()"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      [style.width]="dimension()"
-      [style.height]="dimension()"
-      [style.color]="resolvedColor()"
-      [style.transform]="transformStyle()"
-      [class.ox-icon-spin]="spin()"
-      class="ox-icon-svg"
-      [innerHTML]="sanitizedSvg()">
-    </svg>
+    <span class="ox-icon-wrapper" [innerHTML]="sanitizedFullSvg()"></span>
   `,
   styles: [`
     :host {
@@ -41,6 +26,13 @@ import { OX_ICONS, IconDefinition } from './icons';
       vertical-align: middle;
       line-height: 0;
       flex-shrink: 0;
+    }
+
+    .ox-icon-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 0;
     }
 
     .ox-icon-svg {
@@ -111,12 +103,24 @@ export class IconComponent {
     return OX_ICONS['info'];
   });
 
-  /** Contenido SVG saneado */
-  sanitizedSvg = computed<SafeHtml>(() => {
+  /** Contenido SVG completo saneado compatible con SSR */
+  sanitizedFullSvg = computed<SafeHtml>(() => {
     const def = this.activeIconDef();
     const filled = this.isFilled();
     const rawPaths = (filled && def.fillPaths) ? def.fillPaths : def.paths;
-    return this.sanitizer.bypassSecurityTrustHtml(rawPaths);
+    const fill = this.resolvedFill();
+    const stroke = this.resolvedStroke();
+    const strokeWidth = this.resolvedStrokeWidth();
+    const width = this.dimension();
+    const height = this.dimension();
+    const color = this.resolvedColor();
+    const transform = this.transformStyle();
+    const spinClass = this.spin() ? ' ox-icon-spin' : '';
+
+    const styleStr = `width:${width};height:${height};color:${color};${transform ? `transform:${transform};` : ''}`;
+    const svgString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round" style="${styleStr}" class="ox-icon-svg${spinClass}">${rawPaths}</svg>`;
+
+    return this.sanitizer.bypassSecurityTrustHtml(svgString);
   });
 
   /** Relleno resuelto del SVG */
