@@ -83,4 +83,5 @@ export * from './lib/components/carousel/carousel.component';
 export * from './lib/components/carousel/carousel.types';
 export * from './lib/components/galleria/galleria.component';
 export * from './lib/components/galleria/galleria.types';
+export * from './lib/components/form-field';
 

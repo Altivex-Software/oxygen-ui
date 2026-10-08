@@ -15,6 +15,9 @@ import { IconComponent } from 'oxygen-ui';
           <a routerLink="overview" routerLinkActive="active" class="nav-item">
             <ox-icon name="file-text" size="1.125rem" class="nav-icon"></ox-icon> Guía & Instalación
           </a>
+          <a routerLink="theme-builder" routerLinkActive="active" class="nav-item">
+            <ox-icon name="palette" size="1.125rem" class="nav-icon"></ox-icon> Theme Builder (Live)
+          </a>
           <a routerLink="tokens" routerLinkActive="active" class="nav-item">
             <ox-icon name="settings" size="1.125rem" class="nav-icon"></ox-icon> Variables & Tokens
           </a>

@@ -1,7 +1,9 @@
-import { Component, EventEmitter, Input, Output, ViewEncapsulation, ChangeDetectionStrategy, model } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation, ChangeDetectionStrategy, model, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { IconComponent } from '../icon/icon.component';
+
+let dialogId = 0;
 
 @Component({
   selector: 'ox-dialog',
@@ -12,13 +14,16 @@ import { IconComponent } from '../icon/icon.component';
       <div class="ox-dialog-mask" (click)="onMaskClick($event)">
         <div 
           class="ox-dialog ox-elevation-4" 
+          role="dialog"
+          aria-modal="true"
+          [attr.aria-labelledby]="header ? titleId : null"
           [style.width]="width"
           [@dialogAnim]
           (click)="$event.stopPropagation()">
           
           <div class="ox-dialog-header">
-            <span class="ox-dialog-title">{{ header }}</span>
-            <button class="ox-dialog-close" (click)="close()" aria-label="Close dialog">
+            <span class="ox-dialog-title" [id]="titleId">{{ header }}</span>
+            <button class="ox-dialog-close" type="button" (click)="close()" aria-label="Cerrar diálogo">
               <ox-icon name="x" size="1.125rem"></ox-icon>
             </button>
           </div>
@@ -56,9 +61,22 @@ export class DialogComponent {
   @Input() header: string = '';
   @Input() width: string = '50vw';
   @Input() dismissableMask: boolean = true;
+  @Input() closeOnEscape: boolean = true;
   @Input() hasFooter: boolean = false;
 
+  titleId = `ox-dialog-title-${dialogId++}`;
+
   @Output() onHide = new EventEmitter<void>();
+
+  @HostListener('window:keydown.escape', ['$event'])
+  onEscapePressed(event: any) {
+    if (this.visible() && this.closeOnEscape) {
+      if (event?.preventDefault) {
+        event.preventDefault();
+      }
+      this.close();
+    }
+  }
 
   close() {
     this.visible.set(false);

@@ -1,0 +1,376 @@
+/* Oxygen UI SpeedDial Component Styles */
+ox-speed-dial,
+.ox-speed-dial {
+  display: inline-flex !important;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  user-select: none;
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+}
+
+/* Primary FAB Button */
+.ox-speed-dial-button {
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  min-height: 50px !important;
+  border-radius: 50% !important;
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 6px 16px -2px rgba(15, 23, 42, 0.35), 0 3px 6px -2px rgba(15, 23, 42, 0.2) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  z-index: 102 !important;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+
+  &:hover:not(:disabled) {
+    transform: scale(1.08) !important;
+    background-color: #1e293b !important;
+    box-shadow: 0 10px 22px -3px rgba(15, 23, 42, 0.45) !important;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.94) !important;
+  }
+
+  &:disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Color Presets for FAB */
+.ox-speed-dial-primary .ox-speed-dial-button { background-color: var(--oxy-primary, #2563eb) !important; }
+.ox-speed-dial-success .ox-speed-dial-button { background-color: #10b981 !important; }
+.ox-speed-dial-warning .ox-speed-dial-button { background-color: #f59e0b !important; }
+.ox-speed-dial-danger .ox-speed-dial-button  { background-color: #ef4444 !important; }
+.ox-speed-dial-info .ox-speed-dial-button    { background-color: #06b6d4 !important; }
+.ox-speed-dial-orange .ox-speed-dial-button  { background-color: #f97316 !important; }
+
+.ox-speed-dial-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #ffffff !important;
+  line-height: 1 !important;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+
+  ox-icon, svg {
+    color: #ffffff !important;
+    stroke: #ffffff !important;
+  }
+}
+
+.ox-speed-dial-icon-rotate {
+  transform: rotate(45deg) !important;
+}
+
+/* Action Items List Default */
+.ox-speed-dial-list {
+  position: absolute !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  list-style-type: none !important;
+  display: flex !important;
+  z-index: 101 !important;
+  pointer-events: auto !important;
+
+  li {
+    list-style: none !important;
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* Linear Direction: UP (Deploys upwards above the button) */
+.ox-speed-dial-linear.ox-speed-dial-up .ox-speed-dial-list,
+.ox-speed-dial-up .ox-speed-dial-list {
+  flex-direction: column-reverse !important;
+  bottom: calc(100% + 12px) !important;
+  top: auto !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  gap: 12px !important;
+  align-items: center !important;
+  display: flex !important;
+}
+
+/* Linear Direction: DOWN (Deploys downwards below the button) */
+.ox-speed-dial-linear.ox-speed-dial-down .ox-speed-dial-list,
+.ox-speed-dial-down .ox-speed-dial-list {
+  flex-direction: column !important;
+  top: calc(100% + 12px) !important;
+  bottom: auto !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  gap: 12px !important;
+  align-items: center !important;
+  display: flex !important;
+}
+
+/* Linear Direction: LEFT (Deploys horizontally to the left) */
+.ox-speed-dial-linear.ox-speed-dial-left .ox-speed-dial-list,
+.ox-speed-dial-left .ox-speed-dial-list {
+  flex-direction: row-reverse !important;
+  right: calc(100% + 12px) !important;
+  left: auto !important;
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-50%) !important;
+  gap: 12px !important;
+  align-items: center !important;
+  display: flex !important;
+}
+
+/* Linear Direction: RIGHT (Deploys horizontally to the right) */
+.ox-speed-dial-linear.ox-speed-dial-right .ox-speed-dial-list,
+.ox-speed-dial-right .ox-speed-dial-list {
+  flex-direction: row !important;
+  left: calc(100% + 12px) !important;
+  right: auto !important;
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-50%) !important;
+  gap: 12px !important;
+  align-items: center !important;
+  display: flex !important;
+}
+
+/* Radial Types: Circle, Semi-Circle, Quarter-Circle */
+.ox-speed-dial-circle .ox-speed-dial-list,
+.ox-speed-dial-semi-circle .ox-speed-dial-list,
+.ox-speed-dial-quarter-circle .ox-speed-dial-list {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: auto !important;
+  right: auto !important;
+  transform: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ox-speed-dial-circle .ox-speed-dial-action-item,
+.ox-speed-dial-semi-circle .ox-speed-dial-action-item,
+.ox-speed-dial-quarter-circle .ox-speed-dial-action-item {
+  position: absolute !important;
+  top: calc(50% - 20px) !important;
+  left: calc(50% - 20px) !important;
+}
+
+/* Action Item */
+.ox-speed-dial-action-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  list-style-type: none !important;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease !important;
+
+  &::marker {
+    display: none !important;
+    content: '' !important;
+  }
+}
+
+/* Action Buttons */
+.ox-speed-dial-action {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  border-radius: 50% !important;
+  background-color: var(--oxy-surface-card, #ffffff) !important;
+  color: #334155 !important;
+  border: 1px solid var(--oxy-surface-border, #e2e8f0) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  outline: none !important;
+  position: relative !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+
+  &:hover:not(:disabled) {
+    background-color: var(--oxy-primary-50, #f8fafc) !important;
+    color: var(--oxy-primary-600, #0f172a) !important;
+    border-color: #cbd5e1 !important;
+    transform: scale(1.12) !important;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.95) !important;
+  }
+
+  ox-icon, svg {
+    display: inline-flex !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+  }
+}
+
+.ox-speed-dial-action-disabled {
+  opacity: 0.4 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+
+/* Floating Side Labels */
+.ox-speed-dial-action-label {
+  position: absolute !important;
+  right: calc(100% + 12px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+  color: var(--oxy-text-color, #1e293b) !important;
+  background-color: var(--oxy-surface-card, #ffffff) !important;
+  padding: 5px 12px !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid var(--oxy-surface-border, #e2e8f0) !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  letter-spacing: 0.01em !important;
+  user-select: none !important;
+  transition: all 0.15s ease !important;
+
+  &:hover {
+    background-color: var(--oxy-primary-50, #f8fafc) !important;
+    color: var(--oxy-primary-600, #0f172a) !important;
+  }
+}
+
+/* Hover Tooltip Popup */
+.ox-speed-dial-tooltip {
+  position: absolute !important;
+  background: #0f172a !important;
+  color: #ffffff !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  padding: 5px 10px !important;
+  border-radius: 6px !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transition: opacity 0.15s ease, transform 0.15s ease !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  z-index: 120 !important;
+  line-height: 1.2 !important;
+}
+
+/* Tooltip: TOP */
+.ox-speed-dial-tooltip-top {
+  bottom: calc(100% + 8px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(4px) scale(0.9) !important;
+}
+.ox-speed-dial-action:hover .ox-speed-dial-tooltip-top {
+  opacity: 1 !important;
+  transform: translateX(-50%) translateY(0) scale(1) !important;
+}
+
+/* Tooltip: BOTTOM */
+.ox-speed-dial-tooltip-bottom {
+  top: calc(100% + 8px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(-4px) scale(0.9) !important;
+}
+.ox-speed-dial-action:hover .ox-speed-dial-tooltip-bottom {
+  opacity: 1 !important;
+  transform: translateX(-50%) translateY(0) scale(1) !important;
+}
+
+/* Tooltip: LEFT */
+.ox-speed-dial-tooltip-left {
+  right: calc(100% + 10px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) translateX(4px) scale(0.9) !important;
+}
+.ox-speed-dial-action:hover .ox-speed-dial-tooltip-left {
+  opacity: 1 !important;
+  transform: translateY(-50%) translateX(0) scale(1) !important;
+}
+
+/* Tooltip: RIGHT */
+.ox-speed-dial-tooltip-right {
+  left: calc(100% + 10px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) translateX(-4px) scale(0.9) !important;
+}
+.ox-speed-dial-action:hover .ox-speed-dial-tooltip-right {
+  opacity: 1 !important;
+  transform: translateY(-50%) translateX(0) scale(1) !important;
+}
+
+/* Backdrop Mask */
+.ox-speed-dial-mask {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(15, 23, 42, 0.4) !important;
+  backdrop-filter: blur(3px) !important;
+  z-index: 99 !important;
+  animation: oxSpeedDialMaskFade 0.2s ease-out !important;
+}
+
+@keyframes oxSpeedDialMaskFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Dark Mode Overrides */
+.dark .ox-speed-dial-button {
+  background-color: #334155 !important;
+  box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.5) !important;
+
+  &:hover:not(:disabled) {
+    background-color: #475569 !important;
+  }
+}
+
+.dark .ox-speed-dial-action {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border-color: #334155 !important;
+
+  &:hover:not(:disabled) {
+    background-color: #334155 !important;
+    color: #ffffff !important;
+    border-color: #475569 !important;
+  }
+}
+
+.dark .ox-speed-dial-action-label {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border-color: #334155 !important;
+}

@@ -10,6 +10,7 @@ import { AccordionDemoComponent } from './pages/components/accordion-demo.compon
 import { DropdownDemoComponent } from './pages/components/dropdown-demo.component';
 import { ToastDemoComponent } from './pages/components/toast-demo.component';
 import { InputDemoComponent } from './pages/components/input-demo.component';
+import { FormFieldDemoComponent } from './pages/components/form-field-demo.component';
 import { DialogDemoComponent } from './pages/components/dialog-demo.component';
 import { TooltipDemoComponent } from './pages/components/tooltip-demo.component';
 import { CheckboxDemoComponent } from './pages/components/checkbox-demo.component';
@@ -69,6 +70,7 @@ import { TokensUtilityDemoComponent } from './pages/utilities/tokens-utility-dem
 import { MotionUtilityDemoComponent } from './pages/utilities/motion-utility-demo.component';
 import { FiltersUtilityDemoComponent } from './pages/utilities/filters-utility-demo.component';
 import { InteractivityUtilityDemoComponent } from './pages/utilities/interactivity-utility-demo.component';
+import { ThemeBuilderDemoComponent } from './pages/utilities/theme-builder-demo.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -78,6 +80,7 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: OverviewUtilityDemoComponent },
+      { path: 'theme-builder', component: ThemeBuilderDemoComponent },
       { path: 'grid', component: GridUtilityDemoComponent },
       { path: 'flex', component: FlexUtilityDemoComponent },
       { path: 'spacing', component: SpacingUtilityDemoComponent },
@@ -110,6 +113,7 @@ export const routes: Routes = [
       { path: 'accordion', component: AccordionDemoComponent },
       { path: 'tabs', component: TabsDemoComponent },
       { path: 'toolbar', component: ToolbarDemoComponent },
+      { path: 'form-field', component: FormFieldDemoComponent },
       { path: 'input', component: InputDemoComponent },
       { path: 'password', component: PasswordDemoComponent },
       { path: 'textarea', component: TextareaDemoComponent },
