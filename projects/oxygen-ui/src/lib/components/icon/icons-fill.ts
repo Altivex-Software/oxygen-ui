@@ -15,32 +15,32 @@ export const OX_FILL_ICONS: Partial<Record<OxIconName, IconDefinition>> = {
   },
   'user-fill': {
     category: 'UI & General (Fill)',
-    paths: '<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>',
+    paths: '<path d="M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-2.67 0-8 1.34-8 4v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3c0-2.66-5.33-4-8-4z"></path>',
     strokeInFill: false
   },
   'users-fill': {
     category: 'UI & General (Fill)',
-    paths: '<path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path>',
+    paths: '<path d="M8 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-3 0-7 1.5-7 4.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5c0-3-4-4.5-7-4.5zm8.5-3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm-1 3c.8-.3 1.7-.5 2.5-.5 3 0 5 1.5 5 4v3a1 1 0 0 1-1 1h-4v-2.5c0-1.9-.9-3.6-2.3-4.7.3-.1.5-.2.8-.3z"></path>',
     strokeInFill: false
   },
   'user-plus-fill': {
     category: 'UI & General (Fill)',
-    paths: '<path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>',
+    paths: '<path d="M8.5 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-2.67 0-7 1.33-7 4v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3c0-2.67-4.33-4-7-4zm11.5-6a1 1 0 0 1 1 1v2h2a1 1 0 1 1 0 2h-2v2a1 1 0 1 1-2 0v-2h-2a1 1 0 1 1 0-2h2V8a1 1 0 0 1 1-1z"></path>',
     strokeInFill: false
   },
   'user-minus-fill': {
     category: 'UI & General (Fill)',
-    paths: '<path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-1V9H1v2h5zm9 3c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>',
+    paths: '<path d="M8.5 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-2.67 0-7 1.33-7 4v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3c0-2.67-4.33-4-7-4zm8.5-3h6a1 1 0 0 1 0 2h-6a1 1 0 0 1 0-2z"></path>',
     strokeInFill: false
   },
   'user-check-fill': {
     category: 'UI & General (Fill)',
-    paths: '<path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9.5 1.5L2 10l1.41-1.41L5.5 10.67l5.09-5.09L12 7l-6.5 6.5zm9.5.5c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>',
+    paths: '<path d="M8.5 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-2.67 0-7 1.33-7 4v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3c0-2.67-4.33-4-7-4zm7.79-1.29a1 1 0 0 1 1.41 0l1.3 1.29 3.29-3.29a1 1 0 1 1 1.41 1.41l-4 4a1 1 0 0 1-1.41 0l-2-2a1 1 0 0 1 0-1.41z"></path>',
     strokeInFill: false
   },
   'user-x-fill': {
     category: 'UI & General (Fill)',
-    paths: '<path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-7.5 1.5L6 12 4.5 13.5 3 12l-1.5 1.5L3 15l-1.5 1.5L3 18l1.5-1.5L6 18l1.5-1.5L6 15l1.5-1.5zM15 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>',
+    paths: '<path d="M8.5 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-2.67 0-7 1.33-7 4v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3c0-2.67-4.33-4-7-4zm8.79-4.29a1 1 0 0 1 1.41-1.41L20 8.59l1.29-1.29a1 1 0 1 1 1.41 1.41L21.41 10l1.29 1.29a1 1 0 0 1-1.41 1.41L20 11.41l-1.29 1.29a1 1 0 0 1-1.41-1.41L18.59 10l-1.3-1.29z"></path>',
     strokeInFill: false
   },
   'id-card-fill': {
@@ -943,7 +943,7 @@ export const OX_FILL_ICONS: Partial<Record<OxIconName, IconDefinition>> = {
   },
   'umbrella-fill': {
     category: 'Clima & Elementos (Fill)',
-    paths: '<path d="M13.5 17c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5v-4H2c0-.36.03-.71.08-1.06L11 3.21V2c0-.55.45-1 1-1s1 .45 1 1v1.21l8.92 8.73c.05.35.08.7.08 1.06h-8.5v4z"></path>',
+    paths: '<path d="M12 2c.55 0 1 .45 1 1v.05A10 10 0 0 1 22 13a1 1 0 0 1-1 1h-8v5a2 2 0 0 0 4 0 1 1 0 0 1 2 0 4 4 0 0 1-8 0v-5H3a1 1 0 0 1-1-1A10 10 0 0 1 11 3.05V3c0-.55.45-1 1-1z"></path>',
     strokeInFill: false
   }
 };

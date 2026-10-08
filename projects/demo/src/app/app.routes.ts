@@ -66,6 +66,9 @@ import { PositionUtilityDemoComponent } from './pages/utilities/position-utility
 import { DisplayUtilityDemoComponent } from './pages/utilities/display-utility-demo.component';
 import { ExtrasUtilityDemoComponent } from './pages/utilities/extras-utility-demo.component';
 import { TokensUtilityDemoComponent } from './pages/utilities/tokens-utility-demo.component';
+import { MotionUtilityDemoComponent } from './pages/utilities/motion-utility-demo.component';
+import { FiltersUtilityDemoComponent } from './pages/utilities/filters-utility-demo.component';
+import { InteractivityUtilityDemoComponent } from './pages/utilities/interactivity-utility-demo.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -81,6 +84,9 @@ export const routes: Routes = [
       { path: 'typography', component: TypographyUtilityDemoComponent },
       { path: 'colors', component: ColorsUtilityDemoComponent },
       { path: 'borders', component: BordersUtilityDemoComponent },
+      { path: 'motion', component: MotionUtilityDemoComponent },
+      { path: 'filters', component: FiltersUtilityDemoComponent },
+      { path: 'interactivity', component: InteractivityUtilityDemoComponent },
       { path: 'sizing', component: SizingUtilityDemoComponent },
       { path: 'position', component: PositionUtilityDemoComponent },
       { path: 'display', component: DisplayUtilityDemoComponent },

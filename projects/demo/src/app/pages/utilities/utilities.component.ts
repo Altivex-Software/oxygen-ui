@@ -36,7 +36,7 @@ import { IconComponent } from 'oxygen-ui';
             <ox-icon name="map-pin" size="1.125rem" class="nav-icon"></ox-icon> Posicionamiento
           </a>
 
-          <div class="nav-section">Estilos & Contenido</div>
+          <div class="nav-section">Estilos & Efectos</div>
           <a routerLink="spacing" routerLinkActive="active" class="nav-item">
             <ox-icon name="sliders" size="1.125rem" class="nav-icon"></ox-icon> Espaciado (M / P / Gap)
           </a>
@@ -44,13 +44,22 @@ import { IconComponent } from 'oxygen-ui';
             <ox-icon name="edit-3" size="1.125rem" class="nav-icon"></ox-icon> Tipografía & Texto
           </a>
           <a routerLink="colors" routerLinkActive="active" class="nav-item">
-            <ox-icon name="sun" size="1.125rem" class="nav-icon"></ox-icon> Colores & Fondos
+            <ox-icon name="sun" size="1.125rem" class="nav-icon"></ox-icon> Colores & Gradientes
           </a>
           <a routerLink="borders" routerLinkActive="active" class="nav-item">
-            <ox-icon name="shield" size="1.125rem" class="nav-icon"></ox-icon> Bordes & Sombras
+            <ox-icon name="shield" size="1.125rem" class="nav-icon"></ox-icon> Bordes, Rings & Sombras
+          </a>
+          <a routerLink="motion" routerLinkActive="active" class="nav-item">
+            <ox-icon name="activity" size="1.125rem" class="nav-icon"></ox-icon> Movimiento & Animaciones
+          </a>
+          <a routerLink="filters" routerLinkActive="active" class="nav-item">
+            <ox-icon name="sparkles" size="1.125rem" class="nav-icon"></ox-icon> Filtros & Glassmorphism
+          </a>
+          <a routerLink="interactivity" routerLinkActive="active" class="nav-item">
+            <ox-icon name="mouse-pointer" size="1.125rem" class="nav-icon"></ox-icon> Interactividad & A11y
           </a>
           <a routerLink="extras" routerLinkActive="active" class="nav-item">
-            <ox-icon name="zap" size="1.125rem" class="nav-icon"></ox-icon> Extras & Floats
+            <ox-icon name="zap" size="1.125rem" class="nav-icon"></ox-icon> Extras & Tablas
           </a>
         </nav>
       </aside>

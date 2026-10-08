@@ -6,6 +6,7 @@
 
 @use './fonts';
 @use './grid';
+@use './grid-native';
 @use './display';
 @use './sizing';
 @use './flex';
@@ -15,8 +16,21 @@
 @use './layout';
 @use './gutters';
 @use './colors';
+@use './gradients';
 @use './effects';
+@use './filters';
+@use './borders-extended';
+@use './rings';
+@use './dividers';
+@use './transitions';
+@use './transforms';
+@use './animations';
 @use './position';
+@use './interactivity';
+@use './accessibility';
+@use './tables';
+@use './lists';
+@use './states';
 @use './extras';
 @use './vertical-align';
 @use './float';

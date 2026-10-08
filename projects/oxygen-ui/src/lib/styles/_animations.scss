@@ -1,0 +1,72 @@
+// Keyframes para animaciones preconstruidas
+@keyframes ox-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ox-ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes ox-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+@keyframes ox-bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+@keyframes ox-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Clases de utilidad para animaciones
+.ox-animate-none {
+  animation: none !important;
+}
+
+.ox-animate-spin {
+  animation: ox-spin 1s linear infinite !important;
+}
+
+.ox-animate-ping {
+  animation: ox-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite !important;
+}
+
+.ox-animate-pulse {
+  animation: ox-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+}
+
+.ox-animate-bounce {
+  animation: ox-bounce 1s infinite !important;
+}
+
+.ox-animate-fade-in {
+  animation: ox-fade-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}

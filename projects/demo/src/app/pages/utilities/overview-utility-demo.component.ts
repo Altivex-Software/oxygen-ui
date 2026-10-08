@@ -148,8 +148,32 @@ import { IconComponent } from 'oxygen-ui';
 
           <a routerLink="/utilities/borders" class="ox-nav-card">
             <span class="ox-card-icon"><ox-icon name="shield" size="1.25rem"></ox-icon></span>
-            <h4>Bordes & Sombras</h4>
-            <p>Radios redondeados, pill, círculos, grosores y sombras de elevación.</p>
+            <h4>Bordes, Sombras & Rings</h4>
+            <p>Radios, bordes direccionales, rings de foco, dividers y sombras.</p>
+          </a>
+
+          <a routerLink="/utilities/colors" class="ox-nav-card">
+            <span class="ox-card-icon"><ox-icon name="sun" size="1.25rem"></ox-icon></span>
+            <h4>Colores & Gradientes</h4>
+            <p>Paleta semántica, fondos degradados en 8 direcciones y paradas de color.</p>
+          </a>
+
+          <a routerLink="/utilities/extras" class="ox-nav-card">
+            <span class="ox-card-icon"><ox-icon name="activity" size="1.25rem"></ox-icon></span>
+            <h4>Movimiento & Animaciones</h4>
+            <p>Transiciones, duraciones, curvas ease, escala, rotación y keyframes predefinidos.</p>
+          </a>
+
+          <a routerLink="/utilities/extras" class="ox-nav-card">
+            <span class="ox-card-icon"><ox-icon name="sparkles" size="1.25rem"></ox-icon></span>
+            <h4>Filtros & Glassmorphism</h4>
+            <p>Backdrop-blur (efecto vidrio), desenfoque, brillo, contraste y drop-shadows.</p>
+          </a>
+
+          <a routerLink="/utilities/extras" class="ox-nav-card">
+            <span class="ox-card-icon"><ox-icon name="mouse-pointer" size="1.25rem"></ox-icon></span>
+            <h4>Interactividad & Accesibilidad</h4>
+            <p>Cursores, user-select, pointer-events, scroll suave y lectores de pantalla (sr-only).</p>
           </a>
 
           <a routerLink="/utilities/sizing" class="ox-nav-card">
@@ -167,13 +191,13 @@ import { IconComponent } from 'oxygen-ui';
           <a routerLink="/utilities/display" class="ox-nav-card">
             <span class="ox-card-icon"><ox-icon name="eye" size="1.25rem"></ox-icon></span>
             <h4>Display & Visibilidad</h4>
-            <p>Block, inline, flex, grid, none y utilidades de visibilidad por resolución.</p>
+            <p>Block, inline, flex, grid nativo, none y utilidades de visibilidad por resolución.</p>
           </a>
 
           <a routerLink="/utilities/extras" class="ox-nav-card">
             <span class="ox-card-icon"><ox-icon name="zap" size="1.25rem"></ox-icon></span>
-            <h4>Extras & Misceláneos</h4>
-            <p>Z-Index, opacidad, object-fit, floats, clearfix y vertical-align.</p>
+            <h4>Extras & Estados</h4>
+            <p>Z-Index, opacidad, hover-scale, focus-ring, tablas y estilos de listas.</p>
           </a>
 
           <a routerLink="/utilities/tokens" class="ox-nav-card">

@@ -1,0 +1,82 @@
+@use './breakpoints' as b;
+
+// Mixin para generar utilidades de CSS Grid Nativo
+@mixin generate-native-grid($breakpoint: null) {
+  $prefix: '';
+  @if $breakpoint {
+    $prefix: '-#{$breakpoint}';
+  }
+
+  // Grid Template Columns
+  .ox-grid-cols#{$prefix}-none { grid-template-columns: none !important; }
+  .ox-grid-cols#{$prefix}-subgrid { grid-template-columns: subgrid !important; }
+
+  @for $i from 1 through 12 {
+    .ox-grid-cols#{$prefix}-#{$i} {
+      grid-template-columns: repeat(#{$i}, minmax(0, 1fr)) !important;
+    }
+    .ox-col-span#{$prefix}-#{$i} {
+      grid-column: span #{$i} / span #{$i} !important;
+    }
+    .ox-col-start#{$prefix}-#{$i} {
+      grid-column-start: #{$i} !important;
+    }
+    .ox-col-end#{$prefix}-#{$i} {
+      grid-column-end: #{$i} !important;
+    }
+  }
+
+  .ox-col-span#{$prefix}-full {
+    grid-column: 1 / -1 !important;
+  }
+  .ox-col-span#{$prefix}-auto {
+    grid-column: auto !important;
+  }
+  .ox-col-start#{$prefix}-auto { grid-column-start: auto !important; }
+  .ox-col-end#{$prefix}-auto { grid-column-end: auto !important; }
+
+  // Grid Template Rows
+  .ox-grid-rows#{$prefix}-none { grid-template-rows: none !important; }
+  .ox-grid-rows#{$prefix}-subgrid { grid-template-rows: subgrid !important; }
+
+  @for $i from 1 through 6 {
+    .ox-grid-rows#{$prefix}-#{$i} {
+      grid-template-rows: repeat(#{$i}, minmax(0, 1fr)) !important;
+    }
+    .ox-row-span#{$prefix}-#{$i} {
+      grid-row: span #{$i} / span #{$i} !important;
+    }
+    .ox-row-start#{$prefix}-#{$i} {
+      grid-row-start: #{$i} !important;
+    }
+    .ox-row-end#{$prefix}-#{$i} {
+      grid-row-end: #{$i} !important;
+    }
+  }
+
+  .ox-row-span#{$prefix}-full {
+    grid-row: 1 / -1 !important;
+  }
+  .ox-row-span#{$prefix}-auto {
+    grid-row: auto !important;
+  }
+
+  // Grid Auto Flow
+  .ox-grid-flow#{$prefix}-row { grid-auto-flow: row !important; }
+  .ox-grid-flow#{$prefix}-col { grid-auto-flow: column !important; }
+  .ox-grid-flow#{$prefix}-dense { grid-auto-flow: dense !important; }
+  .ox-grid-flow#{$prefix}-row-dense { grid-auto-flow: row dense !important; }
+  .ox-grid-flow#{$prefix}-col-dense { grid-auto-flow: column dense !important; }
+}
+
+// Base
+@include generate-native-grid();
+
+// Responsive
+@each $name, $value in b.$breakpoints {
+  @if $name != 'xs' {
+    @include b.up($name) {
+      @include generate-native-grid($name);
+    }
+  }
+}

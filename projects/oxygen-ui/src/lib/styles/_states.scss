@@ -1,0 +1,50 @@
+// Micro-utilidades de estados Hover y Focus
+
+// Hover Opacity
+.ox-hover-opacity-100:hover { opacity: 1 !important; }
+.ox-hover-opacity-90:hover { opacity: .9 !important; }
+.ox-hover-opacity-75:hover { opacity: .75 !important; }
+.ox-hover-opacity-50:hover { opacity: .5 !important; }
+.ox-hover-opacity-25:hover { opacity: .25 !important; }
+.ox-hover-opacity-0:hover { opacity: 0 !important; }
+
+// Hover Scale
+.ox-hover-scale-105:hover { transform: scale(1.05) !important; }
+.ox-hover-scale-110:hover { transform: scale(1.1) !important; }
+.ox-hover-scale-95:hover { transform: scale(0.95) !important; }
+.ox-hover-scale-100:hover { transform: scale(1) !important; }
+
+// Hover Shadows
+.ox-hover-shadow-sm:hover { box-shadow: var(--shadow-sm) !important; }
+.ox-hover-shadow-md:hover { box-shadow: var(--shadow-md) !important; }
+.ox-hover-shadow-none:hover { box-shadow: none !important; }
+
+// Hover Colors
+.ox-hover-text-primary:hover { color: var(--oxy-primary-hover, var(--oxy-primary)) !important; }
+.ox-hover-text-secondary:hover { color: var(--oxy-secondary-hover, var(--oxy-secondary)) !important; }
+.ox-hover-text-success:hover { color: var(--oxy-success-hover, var(--oxy-success)) !important; }
+.ox-hover-text-danger:hover { color: var(--oxy-danger-hover, var(--oxy-danger)) !important; }
+.ox-hover-text-warning:hover { color: var(--oxy-warning-hover, var(--oxy-warning)) !important; }
+.ox-hover-text-info:hover { color: var(--oxy-info-hover, var(--oxy-info)) !important; }
+
+.ox-hover-bg-primary:hover { background-color: var(--oxy-primary-hover, var(--oxy-primary)) !important; }
+.ox-hover-bg-secondary:hover { background-color: var(--oxy-secondary-hover, var(--oxy-secondary)) !important; }
+.ox-hover-bg-success:hover { background-color: var(--oxy-success-hover, var(--oxy-success)) !important; }
+.ox-hover-bg-danger:hover { background-color: var(--oxy-danger-hover, var(--oxy-danger)) !important; }
+.ox-hover-bg-light:hover { background-color: #f3f4f6 !important; }
+.ox-hover-bg-dark:hover { background-color: #111827 !important; }
+
+// Focus Rings
+.ox-focus-ring:focus {
+  outline: none !important;
+  --ox-ring-offset-shadow: var(--ox-ring-inset) 0 0 0 var(--ox-ring-offset-width) var(--ox-ring-offset-color);
+  --ox-ring-shadow: var(--ox-ring-inset) 0 0 0 calc(3px + var(--ox-ring-offset-width)) var(--ox-ring-color);
+  box-shadow: var(--ox-ring-offset-shadow), var(--ox-ring-shadow), var(--ox-shadow, 0 0 #0000) !important;
+}
+
+.ox-focus-visible-ring:focus-visible {
+  outline: none !important;
+  --ox-ring-offset-shadow: var(--ox-ring-inset) 0 0 0 var(--ox-ring-offset-width) var(--ox-ring-offset-color);
+  --ox-ring-shadow: var(--ox-ring-inset) 0 0 0 calc(3px + var(--ox-ring-offset-width)) var(--ox-ring-color);
+  box-shadow: var(--ox-ring-offset-shadow), var(--ox-ring-shadow), var(--ox-shadow, 0 0 #0000) !important;
+}

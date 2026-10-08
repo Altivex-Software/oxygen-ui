@@ -1,0 +1,65 @@
+@use './breakpoints' as b;
+
+// Escala (Scale)
+$scales: (
+  '0': 0,
+  '50': 0.5,
+  '75': 0.75,
+  '90': 0.9,
+  '95': 0.95,
+  '100': 1,
+  '105': 1.05,
+  '110': 1.1,
+  '125': 1.25,
+  '150': 1.5
+);
+
+@each $name, $value in $scales {
+  .ox-scale-#{$name} {
+    transform: scale(#{$value}) !important;
+  }
+  .ox-scale-x-#{$name} {
+    transform: scaleX(#{$value}) !important;
+  }
+  .ox-scale-y-#{$name} {
+    transform: scaleY(#{$value}) !important;
+  }
+}
+
+// Rotación (Rotate)
+$rotates: (
+  '0': 0deg,
+  '1': 1deg,
+  '2': 2deg,
+  '3': 3deg,
+  '6': 6deg,
+  '12': 12deg,
+  '45': 45deg,
+  '90': 90deg,
+  '180': 180deg,
+  'n1': -1deg,
+  'n2': -2deg,
+  'n3': -3deg,
+  'n6': -6deg,
+  'n12': -12deg,
+  'n45': -45deg,
+  'n90': -90deg,
+  'n180': -180deg
+);
+
+@each $name, $value in $rotates {
+  .ox-rotate-#{$name} {
+    transform: rotate(#{$value}) !important;
+  }
+}
+
+// Origen de transformación (Transform Origin)
+.ox-origin-center { transform-origin: center !important; }
+.ox-origin-top { transform-origin: top !important; }
+.ox-origin-top-right { transform-origin: top right !important; }
+.ox-origin-right { transform-origin: right !important; }
+.ox-origin-bottom-right { transform-origin: bottom right !important; }
+.ox-origin-bottom { transform-origin: bottom !important; }
+.ox-origin-bottom-left { transform-origin: bottom left !important; }
+.ox-origin-left { transform-origin: left !important; }
+.ox-origin-top-left { transform-origin: top left !important; }

@@ -1,0 +1,59 @@
+// Gradientes Direccionales
+.ox-bg-none {
+  background-image: none !important;
+}
+
+.ox-bg-gradient-to-t {
+  background-image: linear-gradient(to top, var(--ox-gradient-stops, var(--ox-gradient-from, transparent), var(--ox-gradient-to, transparent))) !important;
+}
+.ox-bg-gradient-to-tr {
+  background-image: linear-gradient(to top right, var(--ox-gradient-stops, var(--ox-gradient-from, transparent), var(--ox-gradient-to, transparent))) !important;
+}
+.ox-bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--ox-gradient-stops, var(--ox-gradient-from, transparent), var(--ox-gradient-to, transparent))) !important;
+}
+.ox-bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--ox-gradient-stops, var(--ox-gradient-from, transparent), var(--ox-gradient-to, transparent))) !important;
+}
+.ox-bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--ox-gradient-stops, var(--ox-gradient-from, transparent), var(--ox-gradient-to, transparent))) !important;
+}
+.ox-bg-gradient-to-bl {
+  background-image: linear-gradient(to bottom left, var(--ox-gradient-stops, var(--ox-gradient-from, transparent), var(--ox-gradient-to, transparent))) !important;
+}
+.ox-bg-gradient-to-l {
+  background-image: linear-gradient(to left, var(--ox-gradient-stops, var(--ox-gradient-from, transparent), var(--ox-gradient-to, transparent))) !important;
+}
+.ox-bg-gradient-to-tl {
+  background-image: linear-gradient(to top left, var(--ox-gradient-stops, var(--ox-gradient-from, transparent), var(--ox-gradient-to, transparent))) !important;
+}
+
+// Paradas de color
+$gradient-colors: (
+  'primary': var(--oxy-primary),
+  'secondary': var(--oxy-secondary),
+  'success': var(--oxy-success),
+  'danger': var(--oxy-danger),
+  'warning': var(--oxy-warning),
+  'info': var(--oxy-info),
+  'dark': #111827,
+  'light': #f9fafb,
+  'white': #ffffff,
+  'black': #000000,
+  'transparent': transparent
+);
+
+@each $name, $value in $gradient-colors {
+  .ox-from-#{$name} {
+    --ox-gradient-from: #{$value};
+    --ox-gradient-to: rgba(255, 255, 255, 0);
+    --ox-gradient-stops: var(--ox-gradient-from), var(--ox-gradient-to);
+  }
+  .ox-via-#{$name} {
+    --ox-gradient-to: rgba(255, 255, 255, 0);
+    --ox-gradient-stops: var(--ox-gradient-from), #{$value}, var(--ox-gradient-to);
+  }
+  .ox-to-#{$name} {
+    --ox-gradient-to: #{$value};
+  }
+}

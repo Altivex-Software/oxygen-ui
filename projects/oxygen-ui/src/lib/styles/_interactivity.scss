@@ -1,0 +1,58 @@
+// Cursores
+.ox-cursor-auto { cursor: auto !important; }
+.ox-cursor-default { cursor: default !important; }
+.ox-cursor-pointer { cursor: pointer !important; }
+.ox-cursor-wait { cursor: wait !important; }
+.ox-cursor-text { cursor: text !important; }
+.ox-cursor-move { cursor: move !important; }
+.ox-cursor-help { cursor: help !important; }
+.ox-cursor-not-allowed { cursor: not-allowed !important; }
+.ox-cursor-none { cursor: none !important; }
+.ox-cursor-context-menu { cursor: context-menu !important; }
+.ox-cursor-progress { cursor: progress !important; }
+.ox-cursor-cell { cursor: cell !important; }
+.ox-cursor-crosshair { cursor: crosshair !important; }
+.ox-cursor-vertical-text { cursor: vertical-text !important; }
+.ox-cursor-alias { cursor: alias !important; }
+.ox-cursor-copy { cursor: copy !important; }
+.ox-cursor-no-drop { cursor: no-drop !important; }
+.ox-cursor-grab { cursor: grab !important; }
+.ox-cursor-grabbing { cursor: grabbing !important; }
+.ox-cursor-all-scroll { cursor: all-scroll !important; }
+.ox-cursor-col-resize { cursor: col-resize !important; }
+.ox-cursor-row-resize { cursor: row-resize !important; }
+.ox-cursor-n-resize { cursor: n-resize !important; }
+.ox-cursor-e-resize { cursor: e-resize !important; }
+.ox-cursor-s-resize { cursor: s-resize !important; }
+.ox-cursor-w-resize { cursor: w-resize !important; }
+.ox-cursor-zoom-in { cursor: zoom-in !important; }
+.ox-cursor-zoom-out { cursor: zoom-out !important; }
+
+// Selección de usuario
+.ox-user-select-none { user-select: none !important; -webkit-user-select: none !important; }
+.ox-user-select-text { user-select: text !important; -webkit-user-select: text !important; }
+.ox-user-select-all { user-select: all !important; -webkit-user-select: all !important; }
+.ox-user-select-auto { user-select: auto !important; -webkit-user-select: auto !important; }
+
+// Eventos de puntero
+.ox-pointer-events-none { pointer-events: none !important; }
+.ox-pointer-events-auto { pointer-events: auto !important; }
+
+// Resize
+.ox-resize-none { resize: none !important; }
+.ox-resize-y { resize: vertical !important; }
+.ox-resize-x { resize: horizontal !important; }
+.ox-resize { resize: both !important; }
+
+// Scroll Behavior & Overscroll
+.ox-scroll-auto { scroll-behavior: auto !important; }
+.ox-scroll-smooth { scroll-behavior: smooth !important; }
+.ox-overscroll-auto { overscroll-behavior: auto !important; }
+.ox-overscroll-contain { overscroll-behavior: contain !important; }
+.ox-overscroll-none { overscroll-behavior: none !important; }
+.ox-overscroll-y-auto { overscroll-behavior-y: auto !important; }
+.ox-overscroll-y-contain { overscroll-behavior-y: contain !important; }
+.ox-overscroll-y-none { overscroll-behavior-y: none !important; }
+.ox-overscroll-x-auto { overscroll-behavior-x: auto !important; }
+.ox-overscroll-x-contain { overscroll-behavior-x: contain !important; }
+.ox-overscroll-x-none { overscroll-behavior-x: none !important; }
