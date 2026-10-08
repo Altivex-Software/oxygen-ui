@@ -79,3 +79,8 @@ export * from './lib/components/panel-menu/panel-menu.component';
 export * from './lib/components/panel-menu/panel-menu.types';
 export * from './lib/components/mega-menu/mega-menu.component';
 export * from './lib/components/mega-menu/mega-menu.types';
+export * from './lib/components/carousel/carousel.component';
+export * from './lib/components/carousel/carousel.types';
+export * from './lib/components/galleria/galleria.component';
+export * from './lib/components/galleria/galleria.types';
+

@@ -47,6 +47,8 @@ import { AdvancedDemoComponent } from './pages/components/advanced-demo.componen
 import { ChipsDemoComponent } from './pages/components/chips-demo.component';
 import { SelectButtonDemoComponent } from './pages/components/select-button-demo.component';
 import { ImageDemoComponent } from './pages/components/image-demo.component';
+import { CarouselDemoComponent } from './pages/components/carousel-demo.component';
+import { GalleriaDemoComponent } from './pages/components/galleria-demo.component';
 import { SpeedDialDemoComponent } from './pages/components/speed-dial-demo.component';
 import { TreeTableDemoComponent } from './pages/components/tree-table-demo.component';
 import { TreeDemoComponent } from './pages/components/tree-demo.component';
@@ -135,6 +137,8 @@ export const routes: Routes = [
       { path: 'input-mask', component: InputMaskDemoComponent },
       { path: 'file-upload', component: FileUploadDemoComponent },
       { path: 'image', component: ImageDemoComponent },
+      { path: 'carousel', component: CarouselDemoComponent },
+      { path: 'galleria', component: GalleriaDemoComponent },
       { path: 'speed-dial', component: SpeedDialDemoComponent },
       { path: 'menubar', component: MenubarDemoComponent },
       { path: 'panel-menu', component: PanelMenuDemoComponent },

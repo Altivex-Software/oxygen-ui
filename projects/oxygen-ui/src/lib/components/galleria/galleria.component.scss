@@ -1,0 +1,320 @@
+.ox-galleria {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--oxy-surface-card, #ffffff);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--oxy-surface-border, #e2e8f0);
+
+  &.ox-galleria-top {
+    flex-direction: column-reverse;
+  }
+
+  &.ox-galleria-left {
+    flex-direction: row-reverse;
+  }
+
+  &.ox-galleria-right {
+    flex-direction: row;
+  }
+
+  // Item Main Container
+  .ox-galleria-item-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    background-color: #0f172a;
+
+    &:hover {
+      .ox-galleria-item-nav-onhover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .ox-galleria-item-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 320px;
+    max-height: 520px;
+    overflow: hidden;
+  }
+
+  .ox-galleria-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    img {
+      max-width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  // Item Navigators
+  .ox-galleria-item-prev,
+  .ox-galleria-item-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background-color: rgba(15, 23, 42, 0.6);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 3;
+    backdrop-filter: blur(4px);
+
+    &:hover:not(:disabled) {
+      background-color: rgba(0, 102, 255, 0.85);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    &:disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+    }
+  }
+
+  .ox-galleria-item-prev {
+    left: 1rem;
+  }
+
+  .ox-galleria-item-next {
+    right: 1rem;
+  }
+
+  .ox-galleria-item-nav-onhover {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  // Caption
+  .ox-galleria-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.85) 100%);
+    color: #ffffff;
+    padding: 1.5rem 1.25rem 0.75rem;
+    pointer-events: none;
+
+    .ox-galleria-caption-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 0 0 0.25rem;
+    }
+
+    .ox-galleria-caption-text {
+      font-size: 0.875rem;
+      color: #cbd5e1;
+      margin: 0;
+    }
+  }
+
+  // Indicators on Item
+  .ox-galleria-indicators {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    list-style: none;
+    margin: 0;
+
+    &.ox-galleria-indicators-on-item {
+      position: absolute;
+      bottom: 0.5rem;
+      left: 0;
+      right: 0;
+      z-index: 2;
+    }
+
+    .ox-galleria-indicator-btn {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.4);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 0;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.75);
+      }
+
+      &.ox-galleria-indicator-active {
+        background-color: var(--oxy-primary, #0066ff);
+        transform: scale(1.25);
+      }
+    }
+  }
+
+  // Thumbnails Container
+  .ox-galleria-thumbnail-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: var(--oxy-surface-card, #ffffff);
+    position: relative;
+    overflow: hidden;
+
+    &.ox-galleria-thumbnail-vertical {
+      flex-direction: column;
+      width: 90px;
+      height: 100%;
+
+      .ox-galleria-thumbnail-items-container {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .ox-galleria-thumbnail-viewport {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  .ox-galleria-thumbnail-items-container {
+    display: flex;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+    gap: 0.5rem;
+  }
+
+  .ox-galleria-thumbnail-item {
+    flex-shrink: 0;
+    cursor: pointer;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &.ox-galleria-thumbnail-active {
+      opacity: 1;
+      border-color: var(--oxy-primary, #0066ff);
+      box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.2);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .ox-galleria-thumb-prev,
+  .ox-galleria-thumb-next {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    color: var(--oxy-text-color, #334155);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+
+    &:hover:not(:disabled) {
+      background-color: var(--oxy-surface-hover, #f1f5f9);
+      color: var(--oxy-primary, #0066ff);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// Fullscreen Modal Overlay
+.ox-galleria-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  animation: oxGalleriaFadeIn 0.2s ease-out;
+
+  .ox-galleria-fullscreen-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    z-index: 10001;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(239, 68, 68, 0.8);
+      transform: scale(1.1);
+    }
+  }
+
+  .ox-galleria {
+    max-width: 90vw;
+    max-height: 90vh;
+    border: none;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+    .ox-galleria-item-container {
+      max-height: 70vh;
+    }
+
+    .ox-galleria-item img {
+      max-height: 70vh;
+    }
+  }
+}
+
+@keyframes oxGalleriaFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

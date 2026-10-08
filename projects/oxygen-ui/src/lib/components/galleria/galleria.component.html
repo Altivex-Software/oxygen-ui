@@ -1,0 +1,200 @@
+<!-- Render logic: standard or fullscreen mask -->
+@if (fullScreen()) {
+  @if (visible()) {
+    <div class="ox-galleria-mask" (click)="closeFullScreen()">
+      <button 
+        type="button" 
+        class="ox-galleria-fullscreen-close" 
+        (click)="closeFullScreen()"
+        [attr.aria-label]="'Cerrar'">
+        <ox-icon name="x" size="1.25rem"></ox-icon>
+      </button>
+
+      <div 
+        class="ox-galleria ox-galleria-{{ thumbnailsPosition() }} {{ containerClass() }}"
+        [style]="containerStyle()"
+        (click)="$event.stopPropagation()"
+        (mouseenter)="onMouseEnter()"
+        (mouseleave)="onMouseLeave()">
+        <ng-container *ngTemplateOutlet="galleriaContent"></ng-container>
+      </div>
+    </div>
+  }
+} @else {
+  <div 
+    class="ox-galleria ox-galleria-{{ thumbnailsPosition() }} {{ containerClass() }}"
+    [style]="containerStyle()"
+    (mouseenter)="onMouseEnter()"
+    (mouseleave)="onMouseLeave()">
+    <ng-container *ngTemplateOutlet="galleriaContent"></ng-container>
+  </div>
+}
+
+<!-- Reusable Galleria Content Template -->
+<ng-template #galleriaContent>
+  <!-- Header -->
+  @if (headerTemplate()) {
+    <div class="ox-galleria-header">
+      <ng-container *ngTemplateOutlet="headerTemplate()!"></ng-container>
+    </div>
+  }
+
+  <!-- Main Active Item Container -->
+  <div class="ox-galleria-item-wrapper">
+    <div class="ox-galleria-item-container">
+
+      <!-- Item Prev Navigator -->
+      @if (showItemNavigators()) {
+        <button 
+          type="button" 
+          class="ox-galleria-item-prev" 
+          [class.ox-galleria-item-nav-onhover]="showItemNavigatorsOnHover()"
+          [disabled]="isPrevItemDisabled()" 
+          (click)="prevItem()"
+          [attr.aria-label]="'Anterior'">
+          <ox-icon name="chevron-left" size="1.5rem"></ox-icon>
+        </button>
+      }
+
+      <!-- Item Display -->
+      <div class="ox-galleria-item">
+        @if (itemTemplate()) {
+          <ng-container *ngTemplateOutlet="itemTemplate()!; context: { $implicit: activeItem() }"></ng-container>
+        } @else if (activeItem()) {
+          <img 
+            [src]="activeItem().itemImageSrc || activeItem().src" 
+            [alt]="activeItem().alt || activeItem().title || ''" />
+        }
+      </div>
+
+      <!-- Item Next Navigator -->
+      @if (showItemNavigators()) {
+        <button 
+          type="button" 
+          class="ox-galleria-item-next" 
+          [class.ox-galleria-item-nav-onhover]="showItemNavigatorsOnHover()"
+          [disabled]="isNextItemDisabled()" 
+          (click)="nextItem()"
+          [attr.aria-label]="'Siguiente'">
+          <ox-icon name="chevron-right" size="1.5rem"></ox-icon>
+        </button>
+      }
+
+      <!-- Caption -->
+      @if (showCaption()) {
+        <div class="ox-galleria-caption">
+          @if (captionTemplate()) {
+            <ng-container *ngTemplateOutlet="captionTemplate()!; context: { $implicit: activeItem() }"></ng-container>
+          } @else if (activeItem()) {
+            @if (activeItem().title) {
+              <h4 class="ox-galleria-caption-title">{{ activeItem().title }}</h4>
+            }
+            @if (activeItem().alt || activeItem().caption) {
+              <p class="ox-galleria-caption-text">{{ activeItem().alt || activeItem().caption }}</p>
+            }
+          }
+        </div>
+      }
+
+      <!-- Indicators on Item -->
+      @if (showIndicators() && showIndicatorsOnItem()) {
+        <ul class="ox-galleria-indicators ox-galleria-indicators-on-item">
+          @for (it of value(); track $index) {
+            <li>
+              <button 
+                type="button" 
+                class="ox-galleria-indicator-btn"
+                [class.ox-galleria-indicator-active]="$index === activeIndex()" 
+                (click)="setActiveIndex($index)"
+                [attr.aria-label]="'Item ' + ($index + 1)">
+              </button>
+            </li>
+          }
+        </ul>
+      }
+
+    </div>
+  </div>
+
+  <!-- Indicators outside Item -->
+  @if (showIndicators() && !showIndicatorsOnItem()) {
+    <ul class="ox-galleria-indicators">
+      @for (it of value(); track $index) {
+        <li>
+          <button 
+            type="button" 
+            class="ox-galleria-indicator-btn"
+            [class.ox-galleria-indicator-active]="$index === activeIndex()" 
+            (click)="setActiveIndex($index)"
+            [attr.aria-label]="'Item ' + ($index + 1)">
+          </button>
+        </li>
+      }
+    </ul>
+  }
+
+  <!-- Thumbnails Strip -->
+  @if (showThumbnails()) {
+    <div 
+      class="ox-galleria-thumbnail-wrapper"
+      [class.ox-galleria-thumbnail-vertical]="thumbnailsPosition() === 'left' || thumbnailsPosition() === 'right'">
+
+      @if (showThumbnailNavigators()) {
+        <button 
+          type="button" 
+          class="ox-galleria-thumb-prev" 
+          (click)="prevItem()" 
+          [disabled]="isPrevItemDisabled()"
+          [attr.aria-label]="'Miniatura anterior'">
+          <ox-icon [name]="(thumbnailsPosition() === 'left' || thumbnailsPosition() === 'right') ? 'chevron-up' : 'chevron-left'" size="1rem"></ox-icon>
+        </button>
+      }
+
+      <div class="ox-galleria-thumbnail-viewport">
+        <div 
+          class="ox-galleria-thumbnail-items-container" 
+          [style.transform]="thumbnailTranslate()">
+
+          @for (item of value(); track $index) {
+            <div 
+              class="ox-galleria-thumbnail-item"
+              [class.ox-galleria-thumbnail-active]="$index === activeIndex()"
+              [style.width]="(thumbnailsPosition() === 'left' || thumbnailsPosition() === 'right') ? '64px' : '72px'"
+              [style.height]="(thumbnailsPosition() === 'left' || thumbnailsPosition() === 'right') ? '64px' : '52px'"
+              (click)="setActiveIndex($index)">
+              
+              @if (thumbnailTemplate()) {
+                <ng-container *ngTemplateOutlet="thumbnailTemplate()!; context: { $implicit: item }"></ng-container>
+              } @else {
+                <img 
+                  [src]="item.thumbnailImageSrc || item.itemImageSrc || item.src" 
+                  [alt]="item.alt || ''" />
+              }
+
+            </div>
+          }
+
+        </div>
+      </div>
+
+      @if (showThumbnailNavigators()) {
+        <button 
+          type="button" 
+          class="ox-galleria-thumb-next" 
+          (click)="nextItem()" 
+          [disabled]="isNextItemDisabled()"
+          [attr.aria-label]="'Miniatura siguiente'">
+          <ox-icon [name]="(thumbnailsPosition() === 'left' || thumbnailsPosition() === 'right') ? 'chevron-down' : 'chevron-right'" size="1rem"></ox-icon>
+        </button>
+      }
+
+    </div>
+  }
+
+  <!-- Footer -->
+  @if (footerTemplate()) {
+    <div class="ox-galleria-footer">
+      <ng-container *ngTemplateOutlet="footerTemplate()!"></ng-container>
+    </div>
+  }
+</ng-template>

@@ -53,6 +53,8 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
           <div class="nav-section">Media & Actions</div>
           <a routerLink="image" routerLinkActive="active" class="nav-item">Image (Zoom/Preview)</a>
+          <a routerLink="carousel" routerLinkActive="active" class="nav-item">Carousel</a>
+          <a routerLink="galleria" routerLinkActive="active" class="nav-item">Galleria</a>
           <a routerLink="speed-dial" routerLinkActive="active" class="nav-item">SpeedDial (FAB)</a>
           
           <div class="nav-section">Feedback</div>
