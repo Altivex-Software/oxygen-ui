@@ -11,32 +11,32 @@ import {
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IconComponent } from '../icon/icon.component';
-import { OxIconName } from '../icon/icon.types';
+import { ValIconName } from '../icon/icon.types';
 
 @Component({
-  selector: 'ox-toggle-button',
+  selector: 'val-toggle-button',
   standalone: true,
   imports: [CommonModule, IconComponent],
   template: `
     <button
       type="button"
-      class="ox-toggle-button"
-      [class.ox-toggle-button-checked]="checked()"
-      [class.ox-toggle-button-disabled]="disabled()"
+      class="val-toggle-button"
+      [class.val-toggle-button-checked]="checked()"
+      [class.val-toggle-button-disabled]="disabled()"
       [disabled]="disabled()"
       (click)="toggle()">
       @if (currentIcon()) {
-        <span class="ox-toggle-button-icon">
-          <ox-icon [name]="$any(currentIcon())" size="1rem"></ox-icon>
+        <span class="val-toggle-button-icon">
+          <val-icon [name]="$any(currentIcon())" size="1rem"></val-icon>
         </span>
       }
       @if (currentLabel()) {
-        <span class="ox-toggle-button-label">{{ currentLabel() }}</span>
+        <span class="val-toggle-button-label">{{ currentLabel() }}</span>
       }
     </button>
   `,
   styles: [`
-    .ox-toggle-button {
+    .val-toggle-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -54,29 +54,29 @@ import { OxIconName } from '../icon/icon.types';
       outline: none;
     }
 
-    .ox-toggle-button:hover:not(.ox-toggle-button-disabled):not(.ox-toggle-button-checked) {
+    .val-toggle-button:hover:not(.val-toggle-button-disabled):not(.val-toggle-button-checked) {
       background: var(--bg-surface-subtle, #f8fafc);
       border-color: var(--primary-300, #a5b4fc);
     }
 
-    .ox-toggle-button-checked {
+    .val-toggle-button-checked {
       color: #ffffff;
       background: var(--primary-color, #4f46e5);
       border-color: var(--primary-color, #4f46e5);
       box-shadow: 0 2px 4px rgba(79, 70, 229, 0.25);
     }
 
-    .ox-toggle-button-checked:hover:not(.ox-toggle-button-disabled) {
+    .val-toggle-button-checked:hover:not(.val-toggle-button-disabled) {
       background: var(--primary-600, #4338ca);
       border-color: var(--primary-600, #4338ca);
     }
 
-    .ox-toggle-button-disabled {
+    .val-toggle-button-disabled {
       cursor: not-allowed;
       opacity: 0.6;
     }
 
-    .ox-toggle-button-icon {
+    .val-toggle-button-icon {
       font-size: 1rem;
       display: inline-flex;
       align-items: center;

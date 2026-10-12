@@ -12,43 +12,43 @@ export interface MultiSelectOption<T = unknown> {
 }
 
 @Component({
-  selector: 'ox-multi-select',
+  selector: 'val-multi-select',
   standalone: true,
   imports: [CommonModule, OverlayModule, FormsModule, NgClass, IconComponent],
   template: `
     <div 
       #container
-      class="ox-multi-select" 
-      [class.ox-multi-select-open]="isOpen()" 
-      [class.ox-multi-select-disabled]="disabled()"
+      class="val-multi-select" 
+      [class.val-multi-select-open]="isOpen()" 
+      [class.val-multi-select-disabled]="disabled()"
       [ngClass]="[
-        'ox-multi-select-' + size(),
-        'ox-multi-select-' + variant(),
-        'ox-multi-select-' + severity()
+        'val-multi-select-' + size(),
+        'val-multi-select-' + variant(),
+        'val-multi-select-' + severity()
       ]"
       (click)="toggle()">
       
       @if (variant() === 'fieldset' && label()) {
-        <label class="ox-multi-select-fieldset-label">{{ label() }}</label>
+        <label class="val-multi-select-fieldset-label">{{ label() }}</label>
       }
 
-      <div class="ox-multi-select-label-container">
+      <div class="val-multi-select-label-container">
         @if (selectedOptions().length > 0) {
-          <div class="ox-multi-select-chips">
+          <div class="val-multi-select-chips">
             @for (opt of selectedOptions(); track opt.value) {
-              <div class="ox-chip" (click)="removeOption(opt, $event)">
-                <span class="ox-chip-text">{{ opt.label }}</span>
-                <ox-icon name="x" size="0.75rem" class="ox-chip-remove"></ox-icon>
+              <div class="val-chip" (click)="removeOption(opt, $event)">
+                <span class="val-chip-text">{{ opt.label }}</span>
+                <val-icon name="x" size="0.75rem" class="val-chip-remove"></val-icon>
               </div>
             }
           </div>
         } @else {
-          <span class="ox-multi-select-placeholder">{{ placeholder() }}</span>
+          <span class="val-multi-select-placeholder">{{ placeholder() }}</span>
         }
       </div>
       
-      <div class="ox-multi-select-trigger">
-        <ox-icon name="chevron-down" size="1rem" class="ox-multi-select-trigger-icon"></ox-icon>
+      <div class="val-multi-select-trigger">
+        <val-icon name="chevron-down" size="1rem" class="val-multi-select-trigger-icon"></val-icon>
       </div>
 
       <ng-template 
@@ -59,34 +59,34 @@ export interface MultiSelectOption<T = unknown> {
         [cdkConnectedOverlayOffsetY]="4"
         (overlayOutsideClick)="close($event)">
         
-        <div class="ox-multi-select-panel ox-elevation-2">
+        <div class="val-multi-select-panel val-elevation-2">
           @if (filter()) {
-            <div class="ox-multi-select-filter-container" (click)="$event.stopPropagation()">
+            <div class="val-multi-select-filter-container" (click)="$event.stopPropagation()">
               <input 
                 type="text" 
-                class="ox-multi-select-filter-input" 
+                class="val-multi-select-filter-input" 
                 [placeholder]="filterPlaceholder()"
                 [(ngModel)]="filterValue"
                 (input)="onFilterChange()">
             </div>
           }
-          <ul class="ox-multi-select-items">
+          <ul class="val-multi-select-items">
             @for (option of filteredOptions(); track option.value) {
               <li 
-                class="ox-multi-select-item" 
-                [class.ox-multi-select-item-selected]="isSelected(option)"
-                [class.ox-multi-select-item-disabled]="option.disabled"
+                class="val-multi-select-item" 
+                [class.val-multi-select-item-selected]="isSelected(option)"
+                [class.val-multi-select-item-disabled]="option.disabled"
                 (click)="selectOption(option, $event)">
                 
-                <div class="ox-multi-select-checkbox" [class.ox-multi-select-checkbox-selected]="isSelected(option)">
+                <div class="val-multi-select-checkbox" [class.val-multi-select-checkbox-selected]="isSelected(option)">
                   @if (isSelected(option)) {
-                    <ox-icon name="check" size="0.875rem"></ox-icon>
+                    <val-icon name="check" size="0.875rem"></val-icon>
                   }
                 </div>
                 {{ option.label }}
               </li>
             } @empty {
-              <li class="ox-multi-select-empty-message">{{ emptyMessage() }}</li>
+              <li class="val-multi-select-empty-message">{{ emptyMessage() }}</li>
             }
           </ul>
         </div>

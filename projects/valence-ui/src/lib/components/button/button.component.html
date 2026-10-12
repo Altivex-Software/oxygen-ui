@@ -1,22 +1,22 @@
 @if (icon() && iconPos() === 'left') {
-  <ox-icon [name]="icon()!" [size]="size() === 'lg' ? '1.25rem' : size() === 'sm' ? '0.875rem' : '1rem'"></ox-icon>
+  <val-icon [name]="icon()!" [size]="size() === 'lg' ? '1.25rem' : size() === 'sm' ? '0.875rem' : '1rem'"></val-icon>
 }
 <ng-content></ng-content>
 @if (label()) {
   <span>{{ label() }}</span>
 }
 @if (icon() && iconPos() === 'right') {
-  <ox-icon [name]="icon()!" [size]="size() === 'lg' ? '1.25rem' : size() === 'sm' ? '0.875rem' : '1rem'"></ox-icon>
+  <val-icon [name]="icon()!" [size]="size() === 'lg' ? '1.25rem' : size() === 'sm' ? '0.875rem' : '1rem'"></val-icon>
 }
 
 @if (badge() !== undefined) {
-<ox-badge
+<val-badge
   [value]="badge()"
   [severity]="badgeSeverity()"
   [overlay]="badgeOverlay()"
   aria-hidden="true"
   size="sm"
 >
-</ox-badge>
+</val-badge>
 }
 

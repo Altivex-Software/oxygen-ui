@@ -1,6 +1,6 @@
-export type OxIconVariant = 'outline' | 'fill';
+export type ValIconVariant = 'outline' | 'fill';
 
-export type OxIconName =
+export type ValIconName =
   // UI & General
   | 'search' | 'search-fill'
   | 'home' | 'home-fill'
@@ -314,9 +314,9 @@ export type OxIconName =
   | 'umbrella' | 'umbrella-fill'
   | 'feather';
 
-export type OxIconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | number | string;
+export type ValIconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | number | string;
 
-export type OxIconColor =
+export type ValIconColor =
   | 'primary'
   | 'secondary'
   | 'success'

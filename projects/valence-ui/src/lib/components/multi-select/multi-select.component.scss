@@ -1,17 +1,17 @@
-.ox-multi-select {
+.val-multi-select {
   position: relative;
   display: flex;
   align-items: center;
   width: 100%;
   min-height: 2.5rem;
   background: white;
-  border: 1px solid var(--oxy-surface-200, #e2e8f0);
+  border: 1px solid var(--val-surface-200, #e2e8f0);
   border-radius: var(--radius-md, 0.375rem);
   cursor: pointer;
   transition: all 0.2s ease;
 
   &-open, &:focus-within {
-    border-color: var(--oxy-primary);
+    border-color: var(--val-primary);
     box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
   }
 
@@ -23,41 +23,41 @@
   }
 
   /* Tamaños */
-  &.ox-multi-select-sm {
+  &.val-multi-select-sm {
     min-height: 32px;
     font-size: 0.75rem;
-    .ox-multi-select-placeholder { font-size: 0.75rem; }
-    .ox-multi-select-trigger-icon { width: 14px; height: 14px; }
+    .val-multi-select-placeholder { font-size: 0.75rem; }
+    .val-multi-select-trigger-icon { width: 14px; height: 14px; }
   }
 
-  &.ox-multi-select-md {
+  &.val-multi-select-md {
     min-height: 40px;
   }
 
-  &.ox-multi-select-lg {
+  &.val-multi-select-lg {
     min-height: 48px;
     font-size: 1.125rem;
-    .ox-multi-select-placeholder { font-size: 1.125rem; }
-    .ox-multi-select-trigger-icon { width: 20px; height: 20px; }
+    .val-multi-select-placeholder { font-size: 1.125rem; }
+    .val-multi-select-trigger-icon { width: 20px; height: 20px; }
   }
 
   /* Variantes */
-  &.ox-multi-select-filled {
+  &.val-multi-select-filled {
     background: #f1f5f9;
     border-color: transparent;
-    &:hover:not(.ox-multi-select-disabled) {
+    &:hover:not(.val-multi-select-disabled) {
       background: #e2e8f0;
     }
   }
 
-  &.ox-multi-select-outlined {
+  &.val-multi-select-outlined {
     background: transparent;
     border-width: 1px;
     border-style: solid;
     border-color: #d1d5db;
   }
 
-  &.ox-multi-select-oneLine {
+  &.val-multi-select-oneLine {
     background: transparent;
     border-top: none;
     border-left: none;
@@ -68,18 +68,18 @@
     padding-left: 4px;
     padding-right: 4px;
     
-    &.ox-multi-select-open {
+    &.val-multi-select-open {
       box-shadow: none;
       border-bottom-width: 2px;
     }
   }
 
-  &.ox-multi-select-fieldset {
+  &.val-multi-select-fieldset {
     margin-top: 8px;
     position: relative;
     background: transparent;
 
-    .ox-multi-select-fieldset-label {
+    .val-multi-select-fieldset-label {
       position: absolute;
       top: -10px;
       left: 10px;
@@ -93,8 +93,8 @@
       transition: color 0.2s;
     }
 
-    &.ox-multi-select-open, &:hover:not(.ox-multi-select-disabled) {
-      .ox-multi-select-fieldset-label {
+    &.val-multi-select-open, &:hover:not(.val-multi-select-disabled) {
+      .val-multi-select-fieldset-label {
         color: inherit;
       }
     }
@@ -111,15 +111,15 @@
   );
 
   @each $name, $color in $severities {
-    &.ox-multi-select-#{$name} {
-      &.ox-multi-select-open, &:hover:not(.ox-multi-select-disabled) {
+    &.val-multi-select-#{$name} {
+      &.val-multi-select-open, &:hover:not(.val-multi-select-disabled) {
         border-color: $color;
       }
-      &.ox-multi-select-open {
+      &.val-multi-select-open {
         box-shadow: 0 0 0 3px rgba($color, 0.1);
       }
       
-      &.ox-multi-select-filled.ox-multi-select-open {
+      &.val-multi-select-filled.val-multi-select-open {
         background: white;
         border-color: $color;
       }
@@ -127,7 +127,7 @@
   }
 }
 
-.ox-multi-select-label-container {
+.val-multi-select-label-container {
   flex: 1;
   display: flex;
   align-items: center;
@@ -136,24 +136,24 @@
   overflow: hidden;
 }
 
-.ox-multi-select-placeholder {
-  color: var(--oxy-surface-400, #94a3b8);
+.val-multi-select-placeholder {
+  color: var(--val-surface-400, #94a3b8);
   padding-left: 0.25rem;
   font-size: 0.875rem;
 }
 
-.ox-multi-select-chips {
+.val-multi-select-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem;
 }
 
-.ox-chip {
+.val-chip {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  background: var(--oxy-primary-50, #f0fdf4);
-  color: var(--oxy-primary);
+  background: var(--val-primary-50, #f0fdf4);
+  color: var(--val-primary);
   padding: 0.125rem 0.5rem;
   border-radius: 9999px;
   font-size: 0.75rem;
@@ -171,11 +171,11 @@
   }
 }
 
-.ox-multi-select-trigger {
+.val-multi-select-trigger {
   display: flex;
   align-items: center;
   padding: 0 0.75rem;
-  color: var(--oxy-surface-400, #94a3b8);
+  color: var(--val-surface-400, #94a3b8);
   
   &-icon {
     width: 1.25rem;
@@ -183,74 +183,74 @@
   }
 }
 
-.ox-multi-select-panel {
+.val-multi-select-panel {
   background: white;
   border-radius: var(--radius-md, 0.375rem);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  border: 1px solid var(--oxy-surface-200, #e2e8f0);
+  border: 1px solid var(--val-surface-200, #e2e8f0);
   max-height: 250px;
   overflow-y: auto;
   z-index: 1000;
   margin-top: 4px;
 }
 
-.ox-multi-select-items {
+.val-multi-select-items {
   list-style: none;
   margin: 0;
   padding: 0.25rem 0;
 }
 
-.ox-multi-select-item {
+.val-multi-select-item {
   padding: 0.5rem 1rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--oxy-surface-700, #334155);
+  color: var(--val-surface-700, #334155);
   font-size: 0.875rem;
   transition: background-color 0.2s;
 
   &:hover {
-    background-color: var(--oxy-surface-50, #f8fafc);
+    background-color: var(--val-surface-50, #f8fafc);
   }
 
   &-selected {
-    background-color: var(--oxy-primary-50, #f0fdf4);
-    color: var(--oxy-primary);
+    background-color: var(--val-primary-50, #f0fdf4);
+    color: var(--val-primary);
     font-weight: 600;
   }
 }
 
-.ox-multi-select-checkbox {
+.val-multi-select-checkbox {
   width: 1.25rem;
   height: 1.25rem;
-  border: 1px solid var(--oxy-surface-300, #cbd5e1);
+  border: 1px solid var(--val-surface-300, #cbd5e1);
   border-radius: 0.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   
   &-selected {
-    background-color: var(--oxy-primary);
-    border-color: var(--oxy-primary);
+    background-color: var(--val-primary);
+    border-color: var(--val-primary);
     color: white;
   }
 }
 
-.ox-multi-select-filter-container {
+.val-multi-select-filter-container {
   padding: 0.5rem;
-  border-bottom: 1px solid var(--oxy-surface-200, #e2e8f0);
+  border-bottom: 1px solid var(--val-surface-200, #e2e8f0);
 }
 
-.ox-multi-select-filter-input {
+.val-multi-select-filter-input {
   width: 100%;
   padding: 0.375rem 0.5rem;
-  border: 1px solid var(--oxy-surface-300, #cbd5e1);
+  border: 1px solid var(--val-surface-300, #cbd5e1);
   border-radius: 0.25rem;
   font-size: 0.875rem;
   outline: none;
   
   &:focus {
-    border-color: var(--oxy-primary);
+    border-color: var(--val-primary);
   }
 }

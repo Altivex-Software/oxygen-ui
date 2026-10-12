@@ -1,7 +1,7 @@
 @use 'sass:map';
 @use '../../styles/tokens' as t;
 
-.ox-breadcrumb {
+.val-breadcrumb {
   display: flex;
   flex-wrap: wrap;
   padding: 0;
@@ -12,11 +12,11 @@
   font-family: inherit;
   font-size: map.get(t.$font-sizes, 'sm');
 
-  .ox-breadcrumb-item {
+  .val-breadcrumb-item {
     display: flex;
     align-items: center;
     gap: map.get(t.$spacings, '2');
-    color: var(--oxy-muted, #6c757d);
+    color: var(--val-muted, #6c757d);
 
     &--disabled {
       opacity: 0.5;
@@ -24,41 +24,41 @@
     }
   }
 
-  .ox-breadcrumb-link {
+  .val-breadcrumb-link {
     display: flex;
     align-items: center;
     gap: map.get(t.$spacings, '1');
-    color: var(--oxy-primary, #0d6efd);
+    color: var(--val-primary, #0d6efd);
     text-decoration: none;
     transition: color 0.15s ease-in-out;
 
     &:hover {
-      color: color-mix(in srgb, var(--oxy-primary, #0d6efd), black 20%);
+      color: color-mix(in srgb, var(--val-primary, #0d6efd), black 20%);
       text-decoration: underline;
     }
   }
 
-  .ox-breadcrumb-text {
+  .val-breadcrumb-text {
     display: flex;
     align-items: center;
     gap: map.get(t.$spacings, '1');
-    color: var(--oxy-text, #212529);
+    color: var(--val-text, #212529);
     font-weight: map.get(t.$font-weights, 'medium');
 
     &[aria-current="page"] {
-      color: var(--oxy-text-muted, #6c757d);
+      color: var(--val-text-muted, #6c757d);
       font-weight: map.get(t.$font-weights, 'normal');
     }
   }
 
-  .ox-breadcrumb-icon {
+  .val-breadcrumb-icon {
     font-size: 1.1em;
   }
 
-  .ox-breadcrumb-separator {
+  .val-breadcrumb-separator {
     display: flex;
     align-items: center;
-    color: var(--oxy-muted, #6c757d);
+    color: var(--val-muted, #6c757d);
     user-select: none;
     padding: 0 map.get(t.$spacings, '1');
   }
@@ -66,21 +66,21 @@
 
 // Color Severities
 @each $severity in ('primary', 'secondary', 'success', 'warning', 'danger', 'info') {
-  .ox-breadcrumb--#{$severity} {
-    .ox-breadcrumb-link {
-        color: var(--oxy-#{$severity});
+  .val-breadcrumb--#{$severity} {
+    .val-breadcrumb-link {
+        color: var(--val-#{$severity});
         
         &:hover {
-            color: color-mix(in srgb, var(--oxy-#{$severity}), black 20%);
+            color: color-mix(in srgb, var(--val-#{$severity}), black 20%);
         }
     }
     
-    .ox-breadcrumb-text {
-        color: var(--oxy-#{$severity});
+    .val-breadcrumb-text {
+        color: var(--val-#{$severity});
     }
 
-    .ox-breadcrumb-icon {
-        color: var(--oxy-#{$severity});
+    .val-breadcrumb-icon {
+        color: var(--val-#{$severity});
     }
   }
 }

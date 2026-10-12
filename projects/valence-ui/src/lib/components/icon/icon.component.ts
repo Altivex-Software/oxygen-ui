@@ -8,15 +8,15 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { OxIconName, OxIconSize, OxIconColor, OxIconVariant } from './icon.types';
-import { OX_ICONS, IconDefinition } from './icons';
+import { ValIconName, ValIconSize, ValIconColor, ValIconVariant } from './icon.types';
+import { VAL_ICONS, IconDefinition } from './icons';
 
 @Component({
-  selector: 'ox-icon',
+  selector: 'val-icon',
   standalone: true,
   imports: [CommonModule],
   template: `
-    <span class="ox-icon-wrapper" [innerHTML]="sanitizedFullSvg()"></span>
+    <span class="val-icon-wrapper" [innerHTML]="sanitizedFullSvg()"></span>
   `,
   styles: [`
     :host {
@@ -28,23 +28,23 @@ import { OX_ICONS, IconDefinition } from './icons';
       flex-shrink: 0;
     }
 
-    .ox-icon-wrapper {
+    .val-icon-wrapper {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       line-height: 0;
     }
 
-    .ox-icon-svg {
+    .val-icon-svg {
       display: block;
       transition: color 0.15s ease, transform 0.15s ease;
     }
 
-    .ox-icon-spin {
-      animation: oxIconSpin 1s linear infinite;
+    .val-icon-spin {
+      animation: valIconSpin 1s linear infinite;
     }
 
-    @keyframes oxIconSpin {
+    @keyframes valIconSpin {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
@@ -56,13 +56,13 @@ export class IconComponent {
   private sanitizer = inject(DomSanitizer);
 
   /** Nombre del icono (ej: 'search', 'check', 'heart', 'heart-fill', etc.) */
-  name = input<OxIconName>('info');
+  name = input<ValIconName>('info');
 
   /** Tamaño del icono: 'xs' (14px), 'sm' (16px), 'md' (20px), 'lg' (24px), 'xl' (32px), '2xl' (40px), o número/string personalizado */
-  size = input<OxIconSize>('md');
+  size = input<ValIconSize>('md');
 
   /** Color del icono: 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'muted', 'white', 'inherit' o código hex/rgb */
-  color = input<OxIconColor>('inherit');
+  color = input<ValIconColor>('inherit');
 
   /** Grosor del trazo SVG (por defecto: 2) */
   strokeWidth = input<number>(2);
@@ -71,7 +71,7 @@ export class IconComponent {
   fill = input<boolean>(false);
 
   /** Variante de estilo: 'outline' (predeterminado) o 'fill' (relleno) */
-  variant = input<OxIconVariant>('outline');
+  variant = input<ValIconVariant>('outline');
 
   /** Activa la animación continua de giro 360° (ideal para loaders o spinners) */
   spin = input<boolean>(false);
@@ -88,19 +88,19 @@ export class IconComponent {
   activeIconDef = computed<IconDefinition>(() => {
     const rawName = this.name() as string;
     const filled = this.isFilled();
-    const baseName = rawName.endsWith('-fill') ? rawName.replace(/-fill$/, '') as OxIconName : rawName as OxIconName;
-    const fillName = (baseName + '-fill') as OxIconName;
+    const baseName = rawName.endsWith('-fill') ? rawName.replace(/-fill$/, '') as ValIconName : rawName as ValIconName;
+    const fillName = (baseName + '-fill') as ValIconName;
 
-    if (filled && OX_ICONS[fillName]) {
-      return OX_ICONS[fillName];
+    if (filled && VAL_ICONS[fillName]) {
+      return VAL_ICONS[fillName];
     }
-    if (OX_ICONS[rawName as OxIconName]) {
-      return OX_ICONS[rawName as OxIconName];
+    if (VAL_ICONS[rawName as ValIconName]) {
+      return VAL_ICONS[rawName as ValIconName];
     }
-    if (OX_ICONS[baseName]) {
-      return OX_ICONS[baseName];
+    if (VAL_ICONS[baseName]) {
+      return VAL_ICONS[baseName];
     }
-    return OX_ICONS['info'];
+    return VAL_ICONS['info'];
   });
 
   /** Contenido SVG completo saneado compatible con SSR */
@@ -115,10 +115,10 @@ export class IconComponent {
     const height = this.dimension();
     const color = this.resolvedColor();
     const transform = this.transformStyle();
-    const spinClass = this.spin() ? ' ox-icon-spin' : '';
+    const spinClass = this.spin() ? ' val-icon-spin' : '';
 
     const styleStr = `width:${width};height:${height};color:${color};${transform ? `transform:${transform};` : ''}`;
-    const svgString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round" style="${styleStr}" class="ox-icon-svg${spinClass}">${rawPaths}</svg>`;
+    const svgString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round" style="${styleStr}" class="val-icon-svg${spinClass}">${rawPaths}</svg>`;
 
     return this.sanitizer.bypassSecurityTrustHtml(svgString);
   });
@@ -169,12 +169,12 @@ export class IconComponent {
   resolvedColor = computed<string>(() => {
     const c = this.color();
     switch (c) {
-      case 'primary': return 'var(--oxy-primary, #0066ff)';
-      case 'secondary': return 'var(--oxy-secondary, #64748b)';
-      case 'success': return 'var(--oxy-success, #28a745)';
-      case 'danger': return 'var(--oxy-danger, #e74c3c)';
-      case 'warning': return 'var(--oxy-warning, #f1c40f)';
-      case 'info': return 'var(--oxy-info, #3498db)';
+      case 'primary': return 'var(--val-primary, #0066ff)';
+      case 'secondary': return 'var(--val-secondary, #64748b)';
+      case 'success': return 'var(--val-success, #28a745)';
+      case 'danger': return 'var(--val-danger, #e74c3c)';
+      case 'warning': return 'var(--val-warning, #f1c40f)';
+      case 'info': return 'var(--val-info, #3498db)';
       case 'muted': return '#94a3b8';
       case 'light': return '#f8fafc';
       case 'dark': return '#0f172a';

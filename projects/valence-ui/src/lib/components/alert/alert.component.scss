@@ -7,7 +7,7 @@
   border-radius: var(--radius-md, 8px);
 }
 
-:host(.ox-alert--hidden) {
+:host(.val-alert--hidden) {
   opacity: 0;
   transform: scale(0.95);
   height: 0;
@@ -16,7 +16,7 @@
   transition: opacity 0.3s ease, transform 0.3s ease, height 0.3s ease, margin 0.3s ease;
 }
 
-.ox-alert__container {
+.val-alert__container {
   display: flex;
   padding: 1rem;
   gap: 0.75rem;
@@ -24,22 +24,22 @@
   position: relative;
 }
 
-.ox-alert__content {
+.val-alert__content {
   flex: 1;
 }
 
-.ox-alert__title {
+.val-alert__title {
   font-weight: 600;
   margin-bottom: 0.25rem;
   font-size: 0.9375rem;
 }
 
-.ox-alert__message {
+.val-alert__message {
   font-size: 0.875rem;
   line-height: 1.5;
 }
 
-.ox-alert__close-button {
+.val-alert__close-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,44 +67,44 @@
 
 // Variables based on severity (using CSS variables)
 :host {
-  &.ox-alert--success {
-    --alert-color: var(--oxy-success);
+  &.val-alert--success {
+    --alert-color: var(--val-success);
     --alert-bg-flat: rgba(34, 197, 94, 0.1);
     --alert-text-flat: #15803d;
   }
-  &.ox-alert--info {
-    --alert-color: var(--oxy-info);
+  &.val-alert--info {
+    --alert-color: var(--val-info);
     --alert-bg-flat: rgba(59, 130, 246, 0.1);
     --alert-text-flat: #1d4ed8;
   }
-  &.ox-alert--warning {
-    --alert-color: var(--oxy-warning);
+  &.val-alert--warning {
+    --alert-color: var(--val-warning);
     --alert-bg-flat: rgba(245, 158, 11, 0.1);
     --alert-text-flat: #a16207;
   }
-  &.ox-alert--danger {
-    --alert-color: var(--oxy-danger);
+  &.val-alert--danger {
+    --alert-color: var(--val-danger);
     --alert-bg-flat: rgba(239, 68, 68, 0.1);
     --alert-text-flat: #b91c1c;
   }
 
-  &.ox-alert--filled {
+  &.val-alert--filled {
     background-color: var(--alert-color);
     color: white;
   }
 
-  &.ox-alert--outlined {
+  &.val-alert--outlined {
     background-color: transparent;
     border: 1px solid var(--alert-color);
     color: var(--alert-color);
   }
 
-  &.ox-alert--flat {
+  &.val-alert--flat {
     background-color: var(--alert-bg-flat);
     color: var(--alert-text-flat);
   }
 
-  &.ox-alert--glass {
+  &.val-alert--glass {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);

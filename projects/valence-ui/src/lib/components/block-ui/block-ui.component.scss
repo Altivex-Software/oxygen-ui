@@ -1,9 +1,9 @@
-.ox-block-ui-container {
+.val-block-ui-container {
   position: relative;
   width: 100%;
 }
 
-.ox-block-ui-overlay {
+.val-block-ui-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -16,10 +16,10 @@
   justify-content: center;
   z-index: 999;
   border-radius: inherit;
-  animation: ox-block-ui-fade 0.2s ease-in-out;
+  animation: val-block-ui-fade 0.2s ease-in-out;
 }
 
-.ox-block-ui-message {
+.val-block-ui-message {
   font-size: 0.9375rem;
   font-weight: 600;
   color: #1e293b;
@@ -30,7 +30,7 @@
   border: 1px solid #e2e8f0;
 }
 
-@keyframes ox-block-ui-fade {
+@keyframes val-block-ui-fade {
   from { opacity: 0; }
   to { opacity: 1; }
 }

@@ -1,17 +1,17 @@
-<div class="ox-alert__container">
+<div class="val-alert__container">
   @if (showIcon()) {
-    <div class="ox-alert__icon-container">
-      <ox-icon [name]="effectiveIcon()" size="1.25rem"></ox-icon>
+    <div class="val-alert__icon-container">
+      <val-icon [name]="effectiveIcon()" size="1.25rem"></val-icon>
     </div>
   }
 
-  <div class="ox-alert__content">
+  <div class="val-alert__content">
     @if (title()) {
-      <div class="ox-alert__title">
+      <div class="val-alert__title">
         {{ title() }}
       </div>
     }
-    <div class="ox-alert__message">
+    <div class="val-alert__message">
       <ng-content></ng-content>
     </div>
   </div>
@@ -19,11 +19,11 @@
   @if (closable()) {
     <button
       type="button"
-      class="ox-alert__close-button"
+      class="val-alert__close-button"
       (click)="close()"
       aria-label="Close alert"
     >
-      <ox-icon name="x" size="1.125rem"></ox-icon>
+      <val-icon name="x" size="1.125rem"></val-icon>
     </button>
   }
 </div>

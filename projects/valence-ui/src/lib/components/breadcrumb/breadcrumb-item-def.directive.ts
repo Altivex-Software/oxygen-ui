@@ -1,9 +1,9 @@
 import { Directive, TemplateRef } from '@angular/core';
 
 @Directive({
-  selector: '[oxBreadcrumbItem]',
+  selector: '[valBreadcrumbItem]',
   standalone: true
 })
-export class OxBreadcrumbItemDef {
+export class ValBreadcrumbItemDef {
   constructor(public template: TemplateRef<any>) {}
 }

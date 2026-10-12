@@ -1,4 +1,4 @@
-.ox-splitter {
+.val-splitter {
   display: flex;
   width: 100%;
   height: 100%;
@@ -11,7 +11,7 @@
   &-horizontal {
     flex-direction: row;
 
-    .ox-splitter-gutter {
+    .val-splitter-gutter {
       width: 8px;
       cursor: col-resize;
     }
@@ -20,7 +20,7 @@
   &-vertical {
     flex-direction: column;
 
-    .ox-splitter-gutter {
+    .val-splitter-gutter {
       height: 8px;
       cursor: row-resize;
     }

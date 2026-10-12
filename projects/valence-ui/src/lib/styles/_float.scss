@@ -7,12 +7,12 @@
     $prefix: '-#{$breakpoint}';
   }
 
-  .ox-float#{$prefix}-start { float: left !important; }
-  .ox-float#{$prefix}-end { float: right !important; }
-  .ox-float#{$prefix}-none { float: none !important; }
+  .val-float#{$prefix}-start { float: left !important; }
+  .val-float#{$prefix}-end { float: right !important; }
+  .val-float#{$prefix}-none { float: none !important; }
 
   // Clearfix utility for the parent
-  .ox-clearfix#{$prefix}::after {
+  .val-clearfix#{$prefix}::after {
     display: block;
     clear: both;
     content: "";

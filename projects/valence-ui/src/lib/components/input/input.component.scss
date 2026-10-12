@@ -1,4 +1,4 @@
-.oxy-input-wrapper {
+.val-input-wrapper {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -6,41 +6,41 @@
   font-family: inherit;
 
   &--sm {
-    --oxy-input-height: 2rem;
-    --oxy-input-font-size: 0.875rem;
-    --oxy-input-padding: 0 0.5rem;
+    --val-input-height: 2rem;
+    --val-input-font-size: 0.875rem;
+    --val-input-padding: 0 0.5rem;
   }
 
   &--md {
-    --oxy-input-height: 2.5rem;
-    --oxy-input-font-size: 1rem;
-    --oxy-input-padding: 0 0.75rem;
+    --val-input-height: 2.5rem;
+    --val-input-font-size: 1rem;
+    --val-input-padding: 0 0.75rem;
   }
 
   &--lg {
-    --oxy-input-height: 3rem;
-    --oxy-input-font-size: 1.125rem;
-    --oxy-input-padding: 0 1rem;
+    --val-input-height: 3rem;
+    --val-input-font-size: 1.125rem;
+    --val-input-padding: 0 1rem;
   }
 }
 
-.oxy-input-label {
+.val-input-label {
   font-weight: 500;
-  color: var(--oxy-text-color, #374151);
+  color: var(--val-text-color, #374151);
   font-size: 0.875rem;
 
-  .oxy-input-required {
-    color: var(--oxy-danger-color, #ef4444);
+  .val-input-required {
+    color: var(--val-danger-color, #ef4444);
     margin-left: 0.125rem;
   }
 }
 
-.oxy-input-container {
+.val-input-container {
   position: relative;
   width: 100%;
 }
 
-.oxy-input-icon {
+.val-input-icon {
   position: absolute;
   left: 0.75rem;
   top: 50%;
@@ -48,7 +48,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--oxy-placeholder-color, #9ca3af);
+  color: var(--val-placeholder-color, #9ca3af);
   pointer-events: none;
   z-index: 1;
 
@@ -58,14 +58,14 @@
   }
 }
 
-.oxy-input-field {
+.val-input-field {
   width: 100%;
-  height: var(--oxy-input-height);
-  padding: var(--oxy-input-padding);
-  font-size: var(--oxy-input-font-size);
-  color: var(--oxy-text-color, #111827);
-  background-color: var(--oxy-bg-color, #ffffff);
-  border: 1px solid var(--oxy-border-color, #d1d5db);
+  height: var(--val-input-height);
+  padding: var(--val-input-padding);
+  font-size: var(--val-input-font-size);
+  color: var(--val-text-color, #111827);
+  background-color: var(--val-bg-color, #ffffff);
+  border: 1px solid var(--val-border-color, #d1d5db);
   border-radius: 0.375rem;
   transition: all 0.2s ease-in-out;
   outline: none;
@@ -75,115 +75,115 @@
   }
 
   &::placeholder {
-    color: var(--oxy-placeholder-color, #9ca3af);
+    color: var(--val-placeholder-color, #9ca3af);
   }
 
   &:hover:not(:disabled):not([readonly]) {
-    border-color: var(--oxy-input-focus-color, var(--oxy-primary-color));
+    border-color: var(--val-input-focus-color, var(--val-primary-color));
   }
 
   &:focus:not(:disabled):not([readonly]) {
-    border-color: var(--oxy-input-focus-color, var(--oxy-primary-color));
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--oxy-input-focus-color, var(--oxy-primary-color)) 20%, transparent);
+    border-color: var(--val-input-focus-color, var(--val-primary-color));
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--val-input-focus-color, var(--val-primary-color)) 20%, transparent);
   }
 
   &:disabled {
-    background-color: var(--oxy-disabled-bg, #f3f4f6);
-    color: var(--oxy-disabled-text, #9ca3af);
+    background-color: var(--val-disabled-bg, #f3f4f6);
+    color: var(--val-disabled-text, #9ca3af);
     cursor: not-allowed;
   }
 
   &[readonly] {
-    background-color: var(--oxy-readonly-bg, #f9fafb);
+    background-color: var(--val-readonly-bg, #f9fafb);
     cursor: default;
   }
 }
 
-.oxy-input-wrapper--error {
-  .oxy-input-field {
-    border-color: var(--oxy-danger-color, #ef4444);
+.val-input-wrapper--error {
+  .val-input-field {
+    border-color: var(--val-danger-color, #ef4444);
 
     &:focus {
       box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
     }
   }
 
-  .oxy-input-label {
-    color: var(--oxy-danger-color, #ef4444);
+  .val-input-label {
+    color: var(--val-danger-color, #ef4444);
   }
 }
 
-.oxy-input-hint, .oxy-input-error {
+.val-input-hint, .val-input-error {
   font-size: 0.75rem;
   margin-top: 0.25rem;
 }
 
-.oxy-input-hint {
-  color: var(--oxy-text-hint, #6b7280);
+.val-input-hint {
+  color: var(--val-text-hint, #6b7280);
 }
 
-.oxy-input-error {
-  color: var(--oxy-danger-color, #ef4444);
+.val-input-error {
+  color: var(--val-danger-color, #ef4444);
 }
 
 // Fieldset variant
-.oxy-input-wrapper--fieldset {
+.val-input-wrapper--fieldset {
   position: relative;
   padding-top: 0.5rem;
 
-  .oxy-input-label {
+  .val-input-label {
     position: absolute;
     top: 0;
     left: 0.75rem;
-    background-color: var(--oxy-bg-color, #ffffff);
+    background-color: var(--val-bg-color, #ffffff);
     padding: 0 0.375rem;
     font-size: 0.75rem;
     font-weight: 600;
     z-index: 2;
     line-height: 1;
-    color: var(--oxy-text-color, #374151);
+    color: var(--val-text-color, #374151);
     transition: color 0.2s ease-in-out;
   }
 
-  .oxy-input-container {
+  .val-input-container {
     position: relative;
   }
 
-  .oxy-input-field {
-    border: 1px solid var(--oxy-border-color, #d1d5db);
+  .val-input-field {
+    border: 1px solid var(--val-border-color, #d1d5db);
     border-radius: 0.375rem;
-    background: var(--oxy-bg-color, #ffffff);
+    background: var(--val-bg-color, #ffffff);
 
     &:hover:not(:disabled):not([readonly]) {
-      border-color: var(--oxy-input-focus-color, var(--oxy-primary-color, #3b82f6));
+      border-color: var(--val-input-focus-color, var(--val-primary-color, #3b82f6));
     }
 
     &:focus:not(:disabled):not([readonly]) {
-      border-color: var(--oxy-input-focus-color, var(--oxy-primary-color, #3b82f6));
-      box-shadow: 0 0 0 3px color-mix(in srgb, var(--oxy-input-focus-color, var(--oxy-primary-color, #3b82f6)) 10%, transparent);
+      border-color: var(--val-input-focus-color, var(--val-primary-color, #3b82f6));
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--val-input-focus-color, var(--val-primary-color, #3b82f6)) 10%, transparent);
     }
 
     &:disabled {
-      background-color: var(--oxy-disabled-bg, #f3f4f6);
+      background-color: var(--val-disabled-bg, #f3f4f6);
     }
 
     &[readonly] {
-      background-color: var(--oxy-readonly-bg, #f9fafb);
+      background-color: var(--val-readonly-bg, #f9fafb);
     }
   }
 
   // Cambiar color del label cuando el input tiene focus
-  &:has(.oxy-input-field:focus) .oxy-input-label {
-    color: var(--oxy-input-focus-color, var(--oxy-primary-color, #3b82f6));
+  &:has(.val-input-field:focus) .val-input-label {
+    color: var(--val-input-focus-color, var(--val-primary-color, #3b82f6));
   }
 
-  &.oxy-input-wrapper--error {
-    .oxy-input-label {
-      color: var(--oxy-danger-color, #ef4444);
+  &.val-input-wrapper--error {
+    .val-input-label {
+      color: var(--val-danger-color, #ef4444);
     }
 
-    .oxy-input-field {
-      border-color: var(--oxy-danger-color, #ef4444);
+    .val-input-field {
+      border-color: var(--val-danger-color, #ef4444);
 
       &:focus {
         box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
@@ -193,31 +193,31 @@
 }
 
 // OneLine variant
-.oxy-input-wrapper--oneLine {
-  .oxy-input-field {
+.val-input-wrapper--oneLine {
+  .val-input-field {
     border-radius: 0;
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid var(--oxy-border-color, #d1d5db);
+    border-bottom: 1px solid var(--val-border-color, #d1d5db);
     padding-left: 0;
     padding-right: 0;
     background: transparent;
 
     &:hover:not(:disabled):not([readonly]) {
-      border-bottom-color: var(--oxy-input-focus-color, var(--oxy-primary-color, #3b82f6));
+      border-bottom-color: var(--val-input-focus-color, var(--val-primary-color, #3b82f6));
     }
 
     &:focus:not(:disabled):not([readonly]) {
-      border-bottom-color: var(--oxy-input-focus-color, var(--oxy-primary-color, #3b82f6));
+      border-bottom-color: var(--val-input-focus-color, var(--val-primary-color, #3b82f6));
       box-shadow: none;
       border-bottom-width: 2px;
     }
   }
 
-  &.oxy-input-wrapper--error {
-    .oxy-input-field {
-      border-bottom-color: var(--oxy-danger-color, #ef4444);
+  &.val-input-wrapper--error {
+    .val-input-field {
+      border-bottom-color: var(--val-danger-color, #ef4444);
 
       &:focus {
         box-shadow: none;
@@ -228,13 +228,13 @@
 }
 
 // Float Label styles
-.oxy-input-wrapper--float {
+.val-input-wrapper--float {
   // Default variant with float label
-  &.oxy-input-wrapper--default {
+  &.val-input-wrapper--default {
     position: relative;
     padding-top: 0;
 
-    .oxy-input-label {
+    .val-input-label {
       position: absolute;
       top: 50%;
       left: 0.75rem;
@@ -247,39 +247,39 @@
       z-index: 2;
       font-weight: 400;
       font-size: 1rem;
-      color: var(--oxy-placeholder-color, #9ca3af);
+      color: var(--val-placeholder-color, #9ca3af);
     }
 
-    .oxy-input-container {
+    .val-input-container {
       position: relative;
     }
 
-    .oxy-input-field {
+    .val-input-field {
       position: relative;
     }
 
     // When input has focus or has value
-    &.oxy-input-wrapper--has-value .oxy-input-label,
-    &:has(.oxy-input-field:focus) .oxy-input-label {
+    &.val-input-wrapper--has-value .val-input-label,
+    &:has(.val-input-field:focus) .val-input-label {
       top: 0;
       transform: translateY(-50%);
       font-size: 0.75rem;
       font-weight: 600;
-      background-color: var(--oxy-bg-color, #ffffff);
+      background-color: var(--val-bg-color, #ffffff);
       left: 0.75rem;
-      color: var(--oxy-input-focus-color, var(--oxy-primary-color, #3b82f6));
+      color: var(--val-input-focus-color, var(--val-primary-color, #3b82f6));
     }
 
-    &.oxy-input-wrapper--has-value:not(:has(.oxy-input-field:focus)) .oxy-input-label {
-      color: var(--oxy-text-hint, #6b7280);
+    &.val-input-wrapper--has-value:not(:has(.val-input-field:focus)) .val-input-label {
+      color: var(--val-text-hint, #6b7280);
     }
   }
 
-  &.oxy-input-wrapper--fieldset {
+  &.val-input-wrapper--fieldset {
     padding-top: 0;
     position: relative;
 
-    .oxy-input-label {
+    .val-input-label {
       position: absolute;
       top: 50%;
       left: 0.75rem;
@@ -292,50 +292,50 @@
       z-index: 2;
       font-weight: 400;
       font-size: 1rem;
-      color: var(--oxy-placeholder-color, #9ca3af);
+      color: var(--val-placeholder-color, #9ca3af);
       line-height: 1;
     }
 
-    .oxy-input-container {
+    .val-input-container {
       position: relative;
     }
 
-    .oxy-input-field {
+    .val-input-field {
       position: relative;
     }
 
     // When input has focus or has value
-    &.oxy-input-wrapper--has-value .oxy-input-label,
-    &:has(.oxy-input-field:focus) .oxy-input-label {
+    &.val-input-wrapper--has-value .val-input-label,
+    &:has(.val-input-field:focus) .val-input-label {
       top: 0;
       transform: translateY(-50%);
       font-size: 0.75rem;
-      background-color: var(--oxy-bg-color, #ffffff);
+      background-color: var(--val-bg-color, #ffffff);
       padding: 0 0.25rem;
       left: 0.75rem;
     }
 
-    &:has(.oxy-input-field:focus) .oxy-input-label {
-      color: var(--oxy-input-focus-color, var(--oxy-primary-color, #3b82f6));
+    &:has(.val-input-field:focus) .val-input-label {
+      color: var(--val-input-focus-color, var(--val-primary-color, #3b82f6));
     }
 
-    &.oxy-input-wrapper--error {
-      .oxy-input-label {
-        color: var(--oxy-danger-color, #ef4444);
+    &.val-input-wrapper--error {
+      .val-input-label {
+        color: var(--val-danger-color, #ef4444);
       }
 
-      &.oxy-input-wrapper--has-value .oxy-input-label,
-      &:has(.oxy-input-field:focus) .oxy-input-label {
-        color: var(--oxy-danger-color, #ef4444);
+      &.val-input-wrapper--has-value .val-input-label,
+      &:has(.val-input-field:focus) .val-input-label {
+        color: var(--val-danger-color, #ef4444);
       }
     }
   }
 
-  &.oxy-input-wrapper--oneLine {
+  &.val-input-wrapper--oneLine {
     position: relative;
     padding-top: 0;
 
-    .oxy-input-label {
+    .val-input-label {
       position: absolute;
       top: 50%;
       left: 0;
@@ -345,44 +345,44 @@
       margin: 0;
       font-weight: 400;
       font-size: 1rem;
-      color: var(--oxy-placeholder-color, #9ca3af);
+      color: var(--val-placeholder-color, #9ca3af);
       z-index: 2;
     }
 
-    .oxy-input-container {
+    .val-input-container {
       position: relative;
     }
 
-    .oxy-input-field {
+    .val-input-field {
       position: relative;
     }
 
     // When input has focus or has value
-    &.oxy-input-wrapper--has-value .oxy-input-label,
-    &:has(.oxy-input-field:focus) .oxy-input-label {
+    &.val-input-wrapper--has-value .val-input-label,
+    &:has(.val-input-field:focus) .val-input-label {
       top: 0;
       transform: translateY(-100%);
       font-size: 0.75rem;
       font-weight: 600;
-      color: var(--oxy-input-focus-color, var(--oxy-primary-color, #3b82f6));
+      color: var(--val-input-focus-color, var(--val-primary-color, #3b82f6));
     }
 
-    &.oxy-input-wrapper--has-value:not(:has(.oxy-input-field:focus)) .oxy-input-label {
-      color: var(--oxy-text-hint, #6b7280);
+    &.val-input-wrapper--has-value:not(:has(.val-input-field:focus)) .val-input-label {
+      color: var(--val-text-hint, #6b7280);
     }
 
-    &:has(.oxy-input-field:focus) .oxy-input-label {
-      color: var(--oxy-input-focus-color, var(--oxy-primary-color, #3b82f6));
+    &:has(.val-input-field:focus) .val-input-label {
+      color: var(--val-input-focus-color, var(--val-primary-color, #3b82f6));
     }
 
-    &.oxy-input-wrapper--error {
-      .oxy-input-label {
-        color: var(--oxy-danger-color, #ef4444);
+    &.val-input-wrapper--error {
+      .val-input-label {
+        color: var(--val-danger-color, #ef4444);
       }
 
-      &.oxy-input-wrapper--has-value .oxy-input-label,
-      &:has(.oxy-input-field:focus) .oxy-input-label {
-        color: var(--oxy-danger-color, #ef4444);
+      &.val-input-wrapper--has-value .val-input-label,
+      &:has(.val-input-field:focus) .val-input-label {
+        color: var(--val-danger-color, #ef4444);
       }
     }
   }

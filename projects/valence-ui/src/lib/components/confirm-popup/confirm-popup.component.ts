@@ -14,15 +14,15 @@ import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ButtonComponent } from '../button/button.component';
 import { IconComponent } from '../icon/icon.component';
-import { OxIconName } from '../icon/icon.types';
+import { ValIconName } from '../icon/icon.types';
 
 @Component({
-  selector: 'ox-confirm-popup',
+  selector: 'val-confirm-popup',
   standalone: true,
   imports: [CommonModule, OverlayModule, ButtonComponent, IconComponent],
   template: `
-    <div #targetOrigin class="ox-confirm-popup-target" (click)="toggle()">
-      <ng-content select="[oxTarget]"></ng-content>
+    <div #targetOrigin class="val-confirm-popup-target" (click)="toggle()">
+      <ng-content select="[valTarget]"></ng-content>
     </div>
 
     <ng-template 
@@ -31,20 +31,20 @@ import { OxIconName } from '../icon/icon.types';
       [cdkConnectedOverlayOpen]="isOpen()"
       [cdkConnectedOverlayOffsetY]="8"
       (overlayOutsideClick)="reject()">
-      <div class="ox-confirm-popup-panel ox-elevation-3">
-        <div class="ox-confirm-popup-header">
-          <span class="ox-confirm-popup-icon">
-            <ox-icon [name]="$any(icon())" size="md" color="warning"></ox-icon>
+      <div class="val-confirm-popup-panel val-elevation-3">
+        <div class="val-confirm-popup-header">
+          <span class="val-confirm-popup-icon">
+            <val-icon [name]="$any(icon())" size="md" color="warning"></val-icon>
           </span>
-          <span class="ox-confirm-popup-message">{{ message() }}</span>
+          <span class="val-confirm-popup-message">{{ message() }}</span>
         </div>
-        <div class="ox-confirm-popup-footer">
-          <ox-button size="sm" variant="ghost-secondary" (click)="reject()">
+        <div class="val-confirm-popup-footer">
+          <val-button size="sm" variant="ghost-secondary" (click)="reject()">
             {{ rejectLabel() }}
-          </ox-button>
-          <ox-button size="sm" [variant]="acceptVariant()" (click)="accept()">
+          </val-button>
+          <val-button size="sm" [variant]="acceptVariant()" (click)="accept()">
             {{ acceptLabel() }}
-          </ox-button>
+          </val-button>
         </div>
       </div>
     </ng-template>
@@ -57,7 +57,7 @@ export class ConfirmPopupComponent {
   @ViewChild('targetOrigin') targetOrigin!: ElementRef;
 
   message = input<string>('Are you sure you want to proceed?');
-  icon = input<OxIconName | string>('alert-triangle');
+  icon = input<ValIconName | string>('alert-triangle');
   acceptLabel = input<string>('Yes');
   rejectLabel = input<string>('No');
   acceptVariant = input<any>('primary');

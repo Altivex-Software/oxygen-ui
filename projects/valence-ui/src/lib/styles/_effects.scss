@@ -23,17 +23,17 @@ $shadows: (
   }
 
   @each $name, $value in $radii {
-    .ox-rounded#{$prefix}-#{$name} {
+    .val-rounded#{$prefix}-#{$name} {
       border-radius: #{$value} !important;
     }
   }
 
-  .ox-rounded#{$prefix} {
+  .val-rounded#{$prefix} {
     border-radius: var(--radius-md) !important;
   }
 
   @each $name, $value in $shadows {
-    .ox-shadow#{$prefix}-#{$name} {
+    .val-shadow#{$prefix}-#{$name} {
       box-shadow: #{$value} !important;
     }
   }

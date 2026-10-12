@@ -6,41 +6,41 @@
   transition: all 0.2s ease;
   box-sizing: border-box;
 
-  &.ox-toolbar--sticky {
+  &.val-toolbar--sticky {
     position: sticky;
     top: 0;
   }
 
-  &.ox-toolbar--shadow {
+  &.val-toolbar--shadow {
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
 
   // Color Variants
-  &.ox-toolbar--surface {
+  &.val-toolbar--surface {
     background-color: white;
     color: #1e293b;
     border: 1px solid #e2e8f0;
     border-radius: 6px;
   }
 
-  &.ox-toolbar--primary {
+  &.val-toolbar--primary {
     background-color: #3b82f6;
     color: white;
   }
 
-  &.ox-toolbar--secondary {
+  &.val-toolbar--secondary {
     background-color: #64748b;
     color: white;
   }
 
-  &.ox-toolbar--transparent {
+  &.val-toolbar--transparent {
     background-color: transparent;
     color: inherit;
     box-shadow: none !important;
   }
 }
 
-.ox-toolbar {
+.val-toolbar {
   &__container {
     display: flex;
     align-items: center;

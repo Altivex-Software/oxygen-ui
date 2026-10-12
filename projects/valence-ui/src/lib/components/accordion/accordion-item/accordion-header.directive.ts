@@ -1,9 +1,9 @@
 import { Directive, TemplateRef } from '@angular/core';
 
 @Directive({
-  selector: '[oxAccordionHeader]',
+  selector: '[valAccordionHeader]',
   standalone: true
 })
-export class OxAccordionHeaderDirective {
+export class ValAccordionHeaderDirective {
   constructor(public templateRef: TemplateRef<unknown>) {}
 }

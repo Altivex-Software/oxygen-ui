@@ -1,65 +1,65 @@
 import { Component, Directive, input, model, computed, contentChild, ElementRef, effect, viewChild, signal, untracked } from "@angular/core";
-import { OxygenSize } from "../../lib-core";
+import { ValenceSize } from "../../lib-core";
 import { CommonModule } from "@angular/common";
 
 @Directive({
-  selector: "[oxCardHeader]",
+  selector: "[valCardHeader]",
   standalone: true
 })
-export class OxCardHeaderDirective {}
+export class ValCardHeaderDirective {}
 
 @Directive({
-  selector: "[oxCardBody]",
+  selector: "[valCardBody]",
   standalone: true
 })
-export class OxCardBodyDirective {}
+export class ValCardBodyDirective {}
 
 @Directive({
-  selector: "[oxCardFooter]",
+  selector: "[valCardFooter]",
   standalone: true
 })
-export class OxCardFooterDirective {}
+export class ValCardFooterDirective {}
 
 @Directive({
-  selector: "[oxCardBack]",
+  selector: "[valCardBack]",
   standalone: true
 })
-export class OxCardBackDirective {}
+export class ValCardBackDirective {}
 
 @Directive({
-  selector: "[oxCardBackHeader]",
+  selector: "[valCardBackHeader]",
   standalone: true
 })
-export class OxCardBackHeaderDirective {}
+export class ValCardBackHeaderDirective {}
 
 @Directive({
-  selector: "[oxCardBackBody]",
+  selector: "[valCardBackBody]",
   standalone: true
 })
-export class OxCardBackBodyDirective {}
+export class ValCardBackBodyDirective {}
 
 @Directive({
-  selector: "[oxCardBackFooter]",
+  selector: "[valCardBackFooter]",
   standalone: true
 })
-export class OxCardBackFooterDirective {}
+export class ValCardBackFooterDirective {}
 
 @Component({
-  selector: "ox-card",
+  selector: "val-card",
   standalone: true,
   imports: [CommonModule],
   templateUrl: "./card.component.html",
   styleUrl: "./card.component.scss",
   host: {
     "[class]": "hostClasses()",
-    "[style.--ox-card-shadow]": "shadowValue()",
-    "[class.ox-card--flipped]": "flipped()",
-    "[class.ox-card--animating]": "isAnimating()",
+    "[style.--val-card-shadow]": "shadowValue()",
+    "[class.val-card--flipped]": "flipped()",
+    "[class.val-card--animating]": "isAnimating()",
     "role": "article"
   }
 })
 export class CardComponent {
-  boxShadow = input<OxygenSize | "none">("sm");
+  boxShadow = input<ValenceSize | "none">("sm");
   bordered = input<boolean>(true);
   hoverable = input<boolean>(false);
   liftOnHover = input<boolean>(false);
@@ -67,14 +67,14 @@ export class CardComponent {
   
   isAnimating = signal<boolean>(false);
 
-  header = contentChild(OxCardHeaderDirective);
-  body = contentChild(OxCardBodyDirective);
-  footer = contentChild(OxCardFooterDirective);
+  header = contentChild(ValCardHeaderDirective);
+  body = contentChild(ValCardBodyDirective);
+  footer = contentChild(ValCardFooterDirective);
   
-  back = contentChild(OxCardBackDirective);
-  backHeader = contentChild(OxCardBackHeaderDirective);
-  backBody = contentChild(OxCardBackBodyDirective);
-  backFooter = contentChild(OxCardBackFooterDirective);
+  back = contentChild(ValCardBackDirective);
+  backHeader = contentChild(ValCardBackHeaderDirective);
+  backBody = contentChild(ValCardBackBodyDirective);
+  backFooter = contentChild(ValCardBackFooterDirective);
 
   hasBack = computed(() => !!this.back() || !!this.backHeader() || !!this.backBody() || !!this.backFooter());
 
@@ -112,10 +112,10 @@ export class CardComponent {
   }
 
   hostClasses = computed(() => {
-    const classes = ["ox-card"];
-    if (this.bordered()) classes.push("ox-card--bordered");
-    if (this.hoverable()) classes.push("ox-card--hoverable");
-    if (this.liftOnHover()) classes.push("ox-card--lift");
+    const classes = ["val-card"];
+    if (this.bordered()) classes.push("val-card--bordered");
+    if (this.hoverable()) classes.push("val-card--hoverable");
+    if (this.liftOnHover()) classes.push("val-card--lift");
     return classes.join(" ");
   });
 

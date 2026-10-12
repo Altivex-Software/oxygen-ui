@@ -1,5 +1,5 @@
-import { OxIconName } from './icon.types';
-import { OX_FILL_ICONS } from './icons-fill';
+import { ValIconName } from './icon.types';
+import { VAL_FILL_ICONS } from './icons-fill';
 
 export interface IconDefinition {
   paths: string; // Inner SVG contents (paths, circles, rects, lines, polylines, etc.)
@@ -8,7 +8,7 @@ export interface IconDefinition {
   category: string;
 }
 
-const OX_OUTLINE_ICONS: Partial<Record<OxIconName, IconDefinition>> = {
+const VAL_OUTLINE_ICONS: Partial<Record<ValIconName, IconDefinition>> = {
   // --- UI & GENERAL ---
   'search': {
     category: 'UI & General',
@@ -1172,8 +1172,8 @@ const OX_OUTLINE_ICONS: Partial<Record<OxIconName, IconDefinition>> = {
   }
 };
 
-export const OX_ICONS: Record<OxIconName, IconDefinition> = {
-  ...OX_OUTLINE_ICONS,
-  ...OX_FILL_ICONS
-} as Record<OxIconName, IconDefinition>;
+export const VAL_ICONS: Record<ValIconName, IconDefinition> = {
+  ...VAL_OUTLINE_ICONS,
+  ...VAL_FILL_ICONS
+} as Record<ValIconName, IconDefinition>;
 

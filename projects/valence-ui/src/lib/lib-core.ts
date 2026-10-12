@@ -1,31 +1,31 @@
 /**
- * Oxygen UI Core Types
+ * Valence UI Core Types
  */
 
 /**
  * Common Sizes used across components
  */
-export type OxygenSize = 'sm' | 'md' | 'lg';
+export type ValenceSize = 'sm' | 'md' | 'lg';
 
 /**
  * Semantic Severities for alerts, toasts, and feedback
  */
-export type OxygenSeverity = 'success' | 'info' | 'warn' | 'error' | 'secondary' | 'primary';
+export type ValenceSeverity = 'success' | 'info' | 'warn' | 'error' | 'secondary' | 'primary';
 
 /**
  * Visual Variants for buttons and containers
  */
-export type OxygenColor = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
+export type ValenceColor = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
 
 /**
  * Positioning for overlays and sidebars
  */
-export type OxygenPosition = 'left' | 'right' | 'top' | 'bottom';
+export type ValencePosition = 'left' | 'right' | 'top' | 'bottom';
 
 /**
  * Common state interfaces
  */
-export interface OxygenChangeEvent<T = any> {
+export interface ValenceChangeEvent<T = any> {
   value: T;
   originalEvent?: Event;
 }
@@ -33,9 +33,9 @@ export interface OxygenChangeEvent<T = any> {
 /**
  * Constants for internal use
  */
-export const OXYGEN_DEFAULTS = {
+export const VALENCE_DEFAULTS = {
   ripple: true,
   toastLife: 3000,
-  position: 'top' as OxygenPosition,
-  size: 'md' as OxygenSize
+  position: 'top' as ValencePosition,
+  size: 'md' as ValenceSize
 };

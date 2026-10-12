@@ -1,9 +1,9 @@
 // Estilos de borde
-.ox-border-solid { border-style: solid !important; }
-.ox-border-dashed { border-style: dashed !important; }
-.ox-border-dotted { border-style: dotted !important; }
-.ox-border-double { border-style: double !important; }
-.ox-border-none { border-style: none !important; border-width: 0 !important; }
+.val-border-solid { border-style: solid !important; }
+.val-border-dashed { border-style: dashed !important; }
+.val-border-dotted { border-style: dotted !important; }
+.val-border-double { border-style: double !important; }
+.val-border-none { border-style: none !important; border-width: 0 !important; }
 
 // Grosores Direccionales
 $border-widths: (
@@ -15,34 +15,34 @@ $border-widths: (
 );
 
 @each $name, $value in $border-widths {
-  .ox-border-#{$name} {
+  .val-border-#{$name} {
     border-width: #{$value} !important;
   }
-  .ox-border-t-#{$name} {
+  .val-border-t-#{$name} {
     border-top-width: #{$value} !important;
   }
-  .ox-border-r-#{$name} {
+  .val-border-r-#{$name} {
     border-right-width: #{$value} !important;
   }
-  .ox-border-b-#{$name} {
+  .val-border-b-#{$name} {
     border-bottom-width: #{$value} !important;
   }
-  .ox-border-l-#{$name} {
+  .val-border-l-#{$name} {
     border-left-width: #{$value} !important;
   }
-  .ox-border-x-#{$name} {
+  .val-border-x-#{$name} {
     border-left-width: #{$value} !important;
     border-right-width: #{$value} !important;
   }
-  .ox-border-y-#{$name} {
+  .val-border-y-#{$name} {
     border-top-width: #{$value} !important;
     border-bottom-width: #{$value} !important;
   }
 }
 
-.ox-border-t { border-top-width: 1px !important; }
-.ox-border-r { border-right-width: 1px !important; }
-.ox-border-b { border-bottom-width: 1px !important; }
-.ox-border-l { border-left-width: 1px !important; }
-.ox-border-x { border-left-width: 1px !important; border-right-width: 1px !important; }
-.ox-border-y { border-top-width: 1px !important; border-bottom-width: 1px !important; }
+.val-border-t { border-top-width: 1px !important; }
+.val-border-r { border-right-width: 1px !important; }
+.val-border-b { border-bottom-width: 1px !important; }
+.val-border-l { border-left-width: 1px !important; }
+.val-border-x { border-left-width: 1px !important; border-right-width: 1px !important; }
+.val-border-y { border-top-width: 1px !important; border-bottom-width: 1px !important; }

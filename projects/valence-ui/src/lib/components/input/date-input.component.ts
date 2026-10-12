@@ -3,31 +3,31 @@ import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'ox-date-input',
+  selector: 'val-date-input',
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="oxy-input-wrapper" 
-         [class.oxy-input-wrapper--disabled]="disabled()"
-         [class.oxy-input-wrapper--error]="!!error()"
-         [class.oxy-input-wrapper--float]="floatLabel()"
-         [class.oxy-input-wrapper--has-value]="!!value()"
+    <div class="val-input-wrapper" 
+         [class.val-input-wrapper--disabled]="disabled()"
+         [class.val-input-wrapper--error]="!!error()"
+         [class.val-input-wrapper--float]="floatLabel()"
+         [class.val-input-wrapper--has-value]="!!value()"
          [ngClass]="[
-           'oxy-input-wrapper--' + size(),
-           variant() === 'fieldset' ? 'oxy-input-wrapper--fieldset' : '',
-           variant() === 'oneLine' ? 'oxy-input-wrapper--oneLine' : ''
+           'val-input-wrapper--' + size(),
+           variant() === 'fieldset' ? 'val-input-wrapper--fieldset' : '',
+           variant() === 'oneLine' ? 'val-input-wrapper--oneLine' : ''
          ]">
       
       @if (label()) {
-        <label [for]="id()" class="oxy-input-label">
+        <label [for]="id()" class="val-input-label">
           {{ label() }}
           @if (required()) {
-            <span class="oxy-input-required">*</span>
+            <span class="val-input-required">*</span>
           }
         </label>
       }
 
-      <div class="oxy-input-container">
+      <div class="val-input-container">
         <input
           [id]="id()"
           type="date"
@@ -36,16 +36,16 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/f
           [required]="required()"
           [min]="min()"
           [max]="max()"
-          class="oxy-input-field"
+          class="val-input-field"
           (input)="onInput($event)"
           (blur)="onBlur()"
         />
       </div>
 
       @if (error()) {
-        <div class="oxy-input-error" role="alert">{{ error() }}</div>
+        <div class="val-input-error" role="alert">{{ error() }}</div>
       } @else if (hint()) {
-        <div class="oxy-input-hint">{{ hint() }}</div>
+        <div class="val-input-hint">{{ hint() }}</div>
       }
     </div>
   `,
@@ -60,7 +60,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/f
   ]
 })
 export class DateInputComponent implements ControlValueAccessor {
-  id = input<string>(`oxy-date-${Math.random().toString(36).substr(2, 9)}`);
+  id = input<string>(`val-date-${Math.random().toString(36).substr(2, 9)}`);
   label = input<string>();
   disabled = input<boolean>(false);
   required = input<boolean>(false);

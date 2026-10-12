@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AccordionItemComponent } from './accordion-item/accordion-item.component';
 
 @Component({
-  selector: 'ox-accordion',
+  selector: 'val-accordion',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './accordion.component.html',
@@ -11,8 +11,8 @@ import { AccordionItemComponent } from './accordion-item/accordion-item.componen
   host: {
     '[class]': 'hostClasses()',
     '[style.border-radius]': 'borderRadius()',
-    '[style.--ox-accordion-border-radius]': 'borderRadius() || "var(--ox-border-radius, 8px)"',
-    '[style.--ox-accordion-border-width]': 'borderWidth()'
+    '[style.--val-accordion-border-radius]': 'borderRadius() || "var(--val-border-radius, 8px)"',
+    '[style.--val-accordion-border-width]': 'borderWidth()'
   }
 })
 export class AccordionComponent {
@@ -24,8 +24,8 @@ export class AccordionComponent {
 
   hostClasses = computed(() => {
     return [
-      'ox-accordion-host',
-      this.bordered() ? 'ox-accordion--bordered' : 'ox-accordion--no-border'
+      'val-accordion-host',
+      this.bordered() ? 'val-accordion--bordered' : 'val-accordion--no-border'
     ].filter(Boolean).join(' ');
   });
 

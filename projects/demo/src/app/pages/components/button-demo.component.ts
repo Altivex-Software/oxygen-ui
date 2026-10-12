@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent } from 'oxygen-ui';
+import { ButtonComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, ButtonComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Button</h1>
-      <p class="ox-description">
+      <p class="val-description">
         El componente Button se utiliza para disparar acciones o eventos con soporte de múltiples variantes, tamaños, iconos y estados de carga.
       </p>
 
@@ -22,12 +22,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="basicHtml"
         [ts]="basicTs">
         <div class="demo-row">
-          <ox-button>Primary</ox-button>
-          <ox-button variant="secondary">Secondary</ox-button>
-          <ox-button variant="success">Success</ox-button>
-          <ox-button variant="info">Info</ox-button>
-          <ox-button variant="warning">Warning</ox-button>
-          <ox-button variant="danger">Danger</ox-button>
+          <val-button>Primary</val-button>
+          <val-button variant="secondary">Secondary</val-button>
+          <val-button variant="success">Success</val-button>
+          <val-button variant="info">Info</val-button>
+          <val-button variant="warning">Warning</val-button>
+          <val-button variant="danger">Danger</val-button>
         </div>
       </app-doc-code>
 
@@ -38,12 +38,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="outlinedHtml"
         [ts]="basicTs">
         <div class="demo-row">
-          <ox-button variant="outline-primary">Primary</ox-button>
-          <ox-button variant="outline-secondary">Secondary</ox-button>
-          <ox-button variant="outline-success">Success</ox-button>
-          <ox-button variant="outline-warning">Warning</ox-button>
-          <ox-button variant="outline-danger">Danger</ox-button>
-          <ox-button variant="outline-info">Info</ox-button>
+          <val-button variant="outline-primary">Primary</val-button>
+          <val-button variant="outline-secondary">Secondary</val-button>
+          <val-button variant="outline-success">Success</val-button>
+          <val-button variant="outline-warning">Warning</val-button>
+          <val-button variant="outline-danger">Danger</val-button>
+          <val-button variant="outline-info">Info</val-button>
         </div>
       </app-doc-code>
 
@@ -54,12 +54,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="ghostHtml"
         [ts]="basicTs">
         <div class="demo-row">
-          <ox-button variant="ghost-primary">Primary</ox-button>
-          <ox-button variant="ghost-secondary">Secondary</ox-button>
-          <ox-button variant="ghost-success">Success</ox-button>
-          <ox-button variant="ghost-warning">Warning</ox-button>
-          <ox-button variant="ghost-danger">Danger</ox-button>
-          <ox-button variant="ghost-info">Info</ox-button>
+          <val-button variant="ghost-primary">Primary</val-button>
+          <val-button variant="ghost-secondary">Secondary</val-button>
+          <val-button variant="ghost-success">Success</val-button>
+          <val-button variant="ghost-warning">Warning</val-button>
+          <val-button variant="ghost-danger">Danger</val-button>
+          <val-button variant="ghost-info">Info</val-button>
         </div>
       </app-doc-code>
 
@@ -69,10 +69,10 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Opciones de escala compacta, mediana y amplia."
         [html]="sizesHtml"
         [ts]="basicTs">
-        <div class="demo-row ox-align-items-center">
-          <ox-button size="sm">Small (sm)</ox-button>
-          <ox-button size="md">Medium (md)</ox-button>
-          <ox-button size="lg">Large (lg)</ox-button>
+        <div class="demo-row val-align-items-center">
+          <val-button size="sm">Small (sm)</val-button>
+          <val-button size="md">Medium (md)</val-button>
+          <val-button size="lg">Large (lg)</val-button>
         </div>
       </app-doc-code>
 
@@ -94,33 +94,33 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   `]
 })
 export class ButtonDemoComponent {
-  basicHtml = `<ox-button>Primary</ox-button>
-<ox-button variant="secondary">Secondary</ox-button>
-<ox-button variant="success">Success</ox-button>
-<ox-button variant="info">Info</ox-button>
-<ox-button variant="warning">Warning</ox-button>
-<ox-button variant="danger">Danger</ox-button>`;
+  basicHtml = `<val-button>Primary</val-button>
+<val-button variant="secondary">Secondary</val-button>
+<val-button variant="success">Success</val-button>
+<val-button variant="info">Info</val-button>
+<val-button variant="warning">Warning</val-button>
+<val-button variant="danger">Danger</val-button>`;
 
-  outlinedHtml = `<ox-button variant="outline-primary">Primary</ox-button>
-<ox-button variant="outline-secondary">Secondary</ox-button>
-<ox-button variant="outline-success">Success</ox-button>
-<ox-button variant="outline-warning">Warning</ox-button>
-<ox-button variant="outline-danger">Danger</ox-button>
-<ox-button variant="outline-info">Info</ox-button>`;
+  outlinedHtml = `<val-button variant="outline-primary">Primary</val-button>
+<val-button variant="outline-secondary">Secondary</val-button>
+<val-button variant="outline-success">Success</val-button>
+<val-button variant="outline-warning">Warning</val-button>
+<val-button variant="outline-danger">Danger</val-button>
+<val-button variant="outline-info">Info</val-button>`;
 
-  ghostHtml = `<ox-button variant="ghost-primary">Primary</ox-button>
-<ox-button variant="ghost-secondary">Secondary</ox-button>
-<ox-button variant="ghost-success">Success</ox-button>
-<ox-button variant="ghost-warning">Warning</ox-button>
-<ox-button variant="ghost-danger">Danger</ox-button>
-<ox-button variant="ghost-info">Info</ox-button>`;
+  ghostHtml = `<val-button variant="ghost-primary">Primary</val-button>
+<val-button variant="ghost-secondary">Secondary</val-button>
+<val-button variant="ghost-success">Success</val-button>
+<val-button variant="ghost-warning">Warning</val-button>
+<val-button variant="ghost-danger">Danger</val-button>
+<val-button variant="ghost-info">Info</val-button>`;
 
-  sizesHtml = `<ox-button size="sm">Small</ox-button>
-<ox-button size="md">Medium</ox-button>
-<ox-button size="lg">Large</ox-button>`;
+  sizesHtml = `<val-button size="sm">Small</val-button>
+<val-button size="md">Medium</val-button>
+<val-button size="lg">Large</val-button>`;
 
   basicTs = `import { Component } from '@angular/core';
-import { ButtonComponent } from 'oxygen-ui';
+import { ButtonComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-button-demo',

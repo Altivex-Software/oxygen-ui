@@ -1,14 +1,14 @@
 // Color Logic via CSS Variables
 :host {
-  --ox-tabs-color: var(--oxy-primary);
-  &.ox-tabs--secondary { --ox-tabs-color: var(--oxy-secondary); }
-  &.ox-tabs--success { --ox-tabs-color: var(--oxy-success); }
-  &.ox-tabs--warning, &.ox-tabs--warn { --ox-tabs-color: var(--oxy-warning); }
-  &.ox-tabs--danger, &.ox-tabs--error { --ox-tabs-color: var(--oxy-danger); }
-  &.ox-tabs--info { --ox-tabs-color: var(--oxy-info); }
+  --val-tabs-color: var(--val-primary);
+  &.val-tabs--secondary { --val-tabs-color: var(--val-secondary); }
+  &.val-tabs--success { --val-tabs-color: var(--val-success); }
+  &.val-tabs--warning, &.val-tabs--warn { --val-tabs-color: var(--val-warning); }
+  &.val-tabs--danger, &.val-tabs--error { --val-tabs-color: var(--val-danger); }
+  &.val-tabs--info { --val-tabs-color: var(--val-info); }
 }
 
-.ox-tabs {
+.val-tabs {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -70,7 +70,7 @@
     position: absolute;
     bottom: 0;
     height: 2px;
-    background-color: var(--ox-tabs-color); // Use variable
+    background-color: var(--val-tabs-color); // Use variable
     transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
   }
@@ -87,7 +87,7 @@
     padding: 0.75rem 1rem;
     cursor: pointer;
     font-weight: 500;
-    color: var(--ox-tabs-color); // Use variable
+    color: var(--val-tabs-color); // Use variable
     border-bottom: 2px solid transparent; 
     transition: all 0.2s ease;
     white-space: nowrap;
@@ -95,7 +95,7 @@
     
     &:hover:not(&--disabled) {
       opacity: 0.8;
-      background-color: color-mix(in srgb, var(--ox-tabs-color), transparent 95%); // Subtle hover using mix
+      background-color: color-mix(in srgb, var(--val-tabs-color), transparent 95%); // Subtle hover using mix
     }
 
     &--active {

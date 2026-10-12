@@ -1,37 +1,37 @@
 import { Component, input, output, signal, computed } from '@angular/core';
-import { OxygenSeverity } from '../../lib-core';
+import { ValenceSeverity } from '../../lib-core';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from '../icon/icon.component';
-import { OxIconName } from '../icon/icon.types';
+import { ValIconName } from '../icon/icon.types';
 
 export type AlertVariant = 'filled' | 'outlined' | 'flat' | 'glass';
 
 @Component({
-  selector: 'ox-alert',
+  selector: 'val-alert',
   standalone: true,
   imports: [CommonModule, IconComponent],
   templateUrl: './alert.component.html',
   styleUrl: './alert.component.scss',
   host: {
-    '[class.ox-alert]': 'true',
-    '[class.ox-alert--success]': 'severity() === "success"',
-    '[class.ox-alert--info]': 'severity() === "info"',
-    '[class.ox-alert--warning]': 'severity() === "warn"',
-    '[class.ox-alert--danger]': 'severity() === "error"',
-    '[class.ox-alert--filled]': 'variant() === "filled"',
-    '[class.ox-alert--outlined]': 'variant() === "outlined"',
-    '[class.ox-alert--flat]': 'variant() === "flat"',
-    '[class.ox-alert--glass]': 'variant() === "glass"',
-    '[class.ox-alert--hidden]': '!isVisible()',
+    '[class.val-alert]': 'true',
+    '[class.val-alert--success]': 'severity() === "success"',
+    '[class.val-alert--info]': 'severity() === "info"',
+    '[class.val-alert--warning]': 'severity() === "warn"',
+    '[class.val-alert--danger]': 'severity() === "error"',
+    '[class.val-alert--filled]': 'variant() === "filled"',
+    '[class.val-alert--outlined]': 'variant() === "outlined"',
+    '[class.val-alert--flat]': 'variant() === "flat"',
+    '[class.val-alert--glass]': 'variant() === "glass"',
+    '[class.val-alert--hidden]': '!isVisible()',
     '[attr.role]': 'severity() === "error" ? "alert" : "status"',
     '[attr.aria-live]': 'severity() === "error" ? "assertive" : "polite"'
   }
 })
 export class AlertComponent {
-  severity = input<OxygenSeverity>('info');
+  severity = input<ValenceSeverity>('info');
   variant = input<AlertVariant>('flat');
   title = input<string>();
-  icon = input<OxIconName>();
+  icon = input<ValIconName>();
   showIcon = input<boolean>(true);
   closable = input<boolean>(false);
   
@@ -39,7 +39,7 @@ export class AlertComponent {
   
   isVisible = signal<boolean>(true);
 
-  effectiveIcon = computed<OxIconName>(() => {
+  effectiveIcon = computed<ValIconName>(() => {
     if (this.icon()) return this.icon()!;
     switch (this.severity()) {
       case 'success': return 'check-circle';

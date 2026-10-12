@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MultiSelectComponent, MultiSelectOption } from 'oxygen-ui';
+import { MultiSelectComponent, MultiSelectOption } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FormsModule, MultiSelectComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>MultiSelect</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Selector múltiple avanzado con búsqueda en vivo, chips visuales y soporte para estilos y severidades.
       </p>
 
@@ -23,12 +23,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [htmlCode]="basicHtml"
         [tsCode]="basicTs">
         <div style="max-width: 400px; width: 100%;">
-          <ox-multi-select 
+          <val-multi-select 
             [options]="cities" 
             [(value)]="selectedCities"
             placeholder="Seleccione ciudades">
-          </ox-multi-select>
-          <p class="ox-mt-4" style="font-size: 0.875rem; color: #64748b; margin-top: 0.75rem;">
+          </val-multi-select>
+          <p class="val-mt-4" style="font-size: 0.875rem; color: #64748b; margin-top: 0.75rem;">
             Valor seleccionado: <code>{{ selectedCities | json }}</code>
           </p>
         </div>
@@ -41,13 +41,13 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [htmlCode]="filterHtml"
         [tsCode]="filterTs">
         <div style="max-width: 400px; width: 100%;">
-          <ox-multi-select 
+          <val-multi-select 
             [options]="frameworks" 
             [(value)]="selectedFrameworks"
             [filter]="true"
             filterPlaceholder="Buscar framework..."
             placeholder="Frameworks favoritos">
-          </ox-multi-select>
+          </val-multi-select>
         </div>
       </app-doc-code>
 
@@ -57,11 +57,11 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Variantes visuales y estados de color."
         [htmlCode]="filterHtml"
         [tsCode]="filterTs">
-        <div class="ox-flex ox-flex-column ox-gap-4" style="max-width: 400px; width: 100%;">
-          <ox-multi-select [options]="cities" placeholder="Default"></ox-multi-select>
-          <ox-multi-select [options]="cities" placeholder="Filled" variant="filled"></ox-multi-select>
-          <ox-multi-select [options]="cities" placeholder="Outlined" variant="outlined"></ox-multi-select>
-          <ox-multi-select [options]="cities" placeholder="Success Color" severity="success"></ox-multi-select>
+        <div class="val-flex val-flex-column val-gap-4" style="max-width: 400px; width: 100%;">
+          <val-multi-select [options]="cities" placeholder="Default"></val-multi-select>
+          <val-multi-select [options]="cities" placeholder="Filled" variant="filled"></val-multi-select>
+          <val-multi-select [options]="cities" placeholder="Outlined" variant="outlined"></val-multi-select>
+          <val-multi-select [options]="cities" placeholder="Success Color" severity="success"></val-multi-select>
         </div>
       </app-doc-code>
 
@@ -94,14 +94,14 @@ export class MultiSelectDemoComponent {
   ];
   selectedFrameworks = ['angular'];
 
-  basicHtml = `<ox-multi-select 
+  basicHtml = `<val-multi-select 
   [options]="cities" 
   [(value)]="selectedCities"
   placeholder="Seleccione ciudades">
-</ox-multi-select>`;
+</val-multi-select>`;
 
   basicTs = `import { Component } from '@angular/core';
-import { MultiSelectComponent, MultiSelectOption } from 'oxygen-ui';
+import { MultiSelectComponent, MultiSelectOption } from 'valence-ui';
 
 @Component({
   standalone: true,
@@ -117,16 +117,16 @@ export class MyComponent {
   selectedCities = ['NY'];
 }`;
 
-  filterHtml = `<ox-multi-select 
+  filterHtml = `<val-multi-select 
   [options]="frameworks" 
   [(value)]="selectedFrameworks"
   [filter]="true"
   filterPlaceholder="Buscar..."
   placeholder="Seleccione opciones">
-</ox-multi-select>`;
+</val-multi-select>`;
 
   filterTs = `import { Component } from '@angular/core';
-import { MultiSelectComponent, MultiSelectOption } from 'oxygen-ui';
+import { MultiSelectComponent, MultiSelectOption } from 'valence-ui';
 
 @Component({
   standalone: true,

@@ -4,21 +4,21 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
-  selector: 'ox-rating',
+  selector: 'val-rating',
   standalone: true,
   imports: [CommonModule, IconComponent],
   template: `
-    <div class="oxy-rating" [class.oxy-rating--disabled]="disabled()">
+    <div class="val-rating" [class.val-rating--disabled]="disabled()">
       @for (star of [1, 2, 3, 4, 5].slice(0, max()); track star) {
         <button 
           type="button" 
-          class="oxy-star" 
-          [class.oxy-star--active]="star <= (hoverValue() || value())"
+          class="val-star" 
+          [class.val-star--active]="star <= (hoverValue() || value())"
           [disabled]="disabled()"
           (mouseenter)="onMouseEnter(star)"
           (mouseleave)="onMouseLeave()"
           (click)="onSelect(star)">
-          <ox-icon name="star" size="1.5rem"></ox-icon>
+          <val-icon name="star" size="1.5rem"></val-icon>
         </button>
       }
     </div>

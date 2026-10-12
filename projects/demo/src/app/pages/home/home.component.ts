@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { ButtonComponent, IconComponent } from 'oxygen-ui';
+import { ButtonComponent, IconComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-home',
@@ -10,36 +10,36 @@ import { ButtonComponent, IconComponent } from 'oxygen-ui';
   template: `
     <div class="hero">
       <div class="hero-content">
-        <h1 class="hero-title">Oxygen UI</h1>
+        <h1 class="hero-title">Valence UI</h1>
         <p class="hero-subtitle">Modern Design System for Angular 21+</p>
         <p class="hero-description">
           A high-performance, lightweight, and professional UI library built from the ground up 
           using <strong>Signals</strong> and <strong>Angular CDK</strong>.
         </p>
         <div class="hero-actions">
-          <ox-button routerLink="/components" size="lg" icon="zap">Get Started</ox-button>
-          <ox-button variant="outline-primary" size="lg" icon="external-link" (click)="goToGithub()">GitHub</ox-button>
+          <val-button routerLink="/components" size="lg" icon="zap">Get Started</val-button>
+          <val-button variant="outline-primary" size="lg" icon="external-link" (click)="goToGithub()">GitHub</val-button>
         </div>
       </div>
       
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-icon-wrapper feature-icon-wrapper--primary">
-            <ox-icon name="zap" size="2rem"></ox-icon>
+            <val-icon name="zap" size="2rem"></val-icon>
           </div>
           <h3>Modern APIs</h3>
           <p>Built exclusively with Angular Signals and the latest template syntax.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon-wrapper feature-icon-wrapper--purple">
-            <ox-icon name="layers" size="2rem"></ox-icon>
+            <val-icon name="layers" size="2rem"></val-icon>
           </div>
           <h3>Design System</h3>
           <p>Strictly typed and powered by CSS variables for easy theming.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon-wrapper feature-icon-wrapper--indigo">
-            <ox-icon name="package" size="2rem"></ox-icon>
+            <val-icon name="package" size="2rem"></val-icon>
           </div>
           <h3>Professional Components</h3>
           <p>From simple Buttons to complex Tables and Dialogs with overlays.</p>
@@ -64,13 +64,13 @@ import { ButtonComponent, IconComponent } from 'oxygen-ui';
       font-size: 4rem;
       font-weight: 800;
       margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--oxy-primary) 0%, #a855f7 100%);
+      background: linear-gradient(135deg, var(--val-primary) 0%, #a855f7 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .hero-subtitle {
       font-size: 1.5rem;
-      color: var(--oxy-primary);
+      color: var(--val-primary);
       margin-bottom: 1.5rem;
       font-weight: 600;
     }
@@ -122,7 +122,7 @@ import { ButtonComponent, IconComponent } from 'oxygen-ui';
 
       &--primary {
         background: rgba(0, 102, 255, 0.1);
-        color: var(--oxy-primary, #0066ff);
+        color: var(--val-primary, #0066ff);
         border: 1px solid rgba(0, 102, 255, 0.2);
       }
 

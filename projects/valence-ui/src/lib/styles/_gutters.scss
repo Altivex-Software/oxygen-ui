@@ -17,14 +17,14 @@ $gutters: (
   }
 
   @each $key, $val in $gutters {
-    .ox-g#{$prefix}-#{$key},
-    .ox-gx#{$prefix}-#{$key} {
-      --ox-gutter-x: #{$val};
+    .val-g#{$prefix}-#{$key},
+    .val-gx#{$prefix}-#{$key} {
+      --val-gutter-x: #{$val};
     }
 
-    .ox-g#{$prefix}-#{$key},
-    .ox-gy#{$prefix}-#{$key} {
-      --ox-gutter-y: #{$val};
+    .val-g#{$prefix}-#{$key},
+    .val-gy#{$prefix}-#{$key} {
+      --val-gutter-y: #{$val};
     }
   }
 }

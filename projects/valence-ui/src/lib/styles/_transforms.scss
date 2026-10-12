@@ -15,13 +15,13 @@ $scales: (
 );
 
 @each $name, $value in $scales {
-  .ox-scale-#{$name} {
+  .val-scale-#{$name} {
     transform: scale(#{$value}) !important;
   }
-  .ox-scale-x-#{$name} {
+  .val-scale-x-#{$name} {
     transform: scaleX(#{$value}) !important;
   }
-  .ox-scale-y-#{$name} {
+  .val-scale-y-#{$name} {
     transform: scaleY(#{$value}) !important;
   }
 }
@@ -48,18 +48,18 @@ $rotates: (
 );
 
 @each $name, $value in $rotates {
-  .ox-rotate-#{$name} {
+  .val-rotate-#{$name} {
     transform: rotate(#{$value}) !important;
   }
 }
 
 // Origen de transformación (Transform Origin)
-.ox-origin-center { transform-origin: center !important; }
-.ox-origin-top { transform-origin: top !important; }
-.ox-origin-top-right { transform-origin: top right !important; }
-.ox-origin-right { transform-origin: right !important; }
-.ox-origin-bottom-right { transform-origin: bottom right !important; }
-.ox-origin-bottom { transform-origin: bottom !important; }
-.ox-origin-bottom-left { transform-origin: bottom left !important; }
-.ox-origin-left { transform-origin: left !important; }
-.ox-origin-top-left { transform-origin: top left !important; }
+.val-origin-center { transform-origin: center !important; }
+.val-origin-top { transform-origin: top !important; }
+.val-origin-top-right { transform-origin: top right !important; }
+.val-origin-right { transform-origin: right !important; }
+.val-origin-bottom-right { transform-origin: bottom right !important; }
+.val-origin-bottom { transform-origin: bottom !important; }
+.val-origin-bottom-left { transform-origin: bottom left !important; }
+.val-origin-left { transform-origin: left !important; }
+.val-origin-top-left { transform-origin: top left !important; }

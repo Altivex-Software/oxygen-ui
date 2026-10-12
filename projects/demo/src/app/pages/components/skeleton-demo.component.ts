@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SkeletonComponent } from 'oxygen-ui';
+import { SkeletonComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,45 +9,45 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, SkeletonComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Skeleton</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Marcador de posición visual (placeholder) con animaciones de carga para mejorar la experiencia percibida mientras se obtienen datos.
       </p>
 
       <!-- 1. FORMAS Y ANIMACIONES -->
-      <section class="ox-section">
+      <section class="val-section">
         <h2>Formas y Animaciones</h2>
-        <div class="ox-flex ox-flex-column ox-gap-4">
-          <div class="ox-card ox-p-4">
-            <h3 class="ox-fw-bold ox-mb-2">Animación por defecto (Wave)</h3>
-            <div class="ox-flex ox-align-items-center ox-gap-4">
-              <ox-skeleton shape="circle" width="4rem" height="4rem"></ox-skeleton>
-              <div class="ox-flex ox-flex-column ox-gap-2 ox-w-100" style="width: 200px;">
-                <ox-skeleton width="100%" height="1.5rem"></ox-skeleton>
-                <ox-skeleton width="70%" height="1rem"></ox-skeleton>
+        <div class="val-flex val-flex-column val-gap-4">
+          <div class="val-card val-p-4">
+            <h3 class="val-fw-bold val-mb-2">Animación por defecto (Wave)</h3>
+            <div class="val-flex val-align-items-center val-gap-4">
+              <val-skeleton shape="circle" width="4rem" height="4rem"></val-skeleton>
+              <div class="val-flex val-flex-column val-gap-2 val-w-100" style="width: 200px;">
+                <val-skeleton width="100%" height="1.5rem"></val-skeleton>
+                <val-skeleton width="70%" height="1rem"></val-skeleton>
               </div>
             </div>
           </div>
           
-          <div class="ox-card ox-p-4">
-            <h3 class="ox-fw-bold ox-mb-2">Animación de latido (Pulse)</h3>
-            <div class="ox-flex ox-align-items-center ox-gap-4">
-              <ox-skeleton shape="circle" width="4rem" height="4rem" animation="pulse"></ox-skeleton>
-              <div class="ox-flex ox-flex-column ox-gap-2 ox-w-100" style="width: 200px;">
-                <ox-skeleton width="100%" height="1.5rem" animation="pulse"></ox-skeleton>
-                <ox-skeleton width="70%" height="1rem" animation="pulse"></ox-skeleton>
+          <div class="val-card val-p-4">
+            <h3 class="val-fw-bold val-mb-2">Animación de latido (Pulse)</h3>
+            <div class="val-flex val-align-items-center val-gap-4">
+              <val-skeleton shape="circle" width="4rem" height="4rem" animation="pulse"></val-skeleton>
+              <div class="val-flex val-flex-column val-gap-2 val-w-100" style="width: 200px;">
+                <val-skeleton width="100%" height="1.5rem" animation="pulse"></val-skeleton>
+                <val-skeleton width="70%" height="1rem" animation="pulse"></val-skeleton>
               </div>
             </div>
           </div>
           
-          <div class="ox-card ox-p-4">
-            <h3 class="ox-fw-bold ox-mb-2">Sin Animación</h3>
-            <div class="ox-flex ox-align-items-center ox-gap-4">
-              <ox-skeleton shape="circle" width="4rem" height="4rem" animation="none"></ox-skeleton>
-              <div class="ox-flex ox-flex-column ox-gap-2 ox-w-100" style="width: 200px;">
-                <ox-skeleton width="100%" height="1.5rem" animation="none"></ox-skeleton>
-                <ox-skeleton width="70%" height="1rem" animation="none"></ox-skeleton>
+          <div class="val-card val-p-4">
+            <h3 class="val-fw-bold val-mb-2">Sin Animación</h3>
+            <div class="val-flex val-align-items-center val-gap-4">
+              <val-skeleton shape="circle" width="4rem" height="4rem" animation="none"></val-skeleton>
+              <div class="val-flex val-flex-column val-gap-2 val-w-100" style="width: 200px;">
+                <val-skeleton width="100%" height="1.5rem" animation="none"></val-skeleton>
+                <val-skeleton width="70%" height="1rem" animation="none"></val-skeleton>
               </div>
             </div>
           </div>
@@ -61,24 +61,24 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
       </section>
       
       <!-- 2. EJEMPLO PRÁCTICO -->
-      <section class="ox-section">
+      <section class="val-section">
         <h2>Ejemplo Práctico &mdash; Tarjeta de Perfil en Carga</h2>
-        <div class="ox-card ox-p-4">
-          <div class="ox-flex ox-flex-column ox-gap-4">
+        <div class="val-card val-p-4">
+          <div class="val-flex val-flex-column val-gap-4">
             <!-- Header falso -->
-            <div class="ox-flex ox-align-items-center ox-gap-4 ox-mb-2">
-              <ox-skeleton shape="circle" width="3rem" height="3rem"></ox-skeleton>
-              <div class="ox-flex ox-flex-column ox-gap-2" style="flex: 1;">
-                <ox-skeleton width="150px" height="1.2rem"></ox-skeleton>
-                <ox-skeleton width="100px" height="0.8rem"></ox-skeleton>
+            <div class="val-flex val-align-items-center val-gap-4 val-mb-2">
+              <val-skeleton shape="circle" width="3rem" height="3rem"></val-skeleton>
+              <div class="val-flex val-flex-column val-gap-2" style="flex: 1;">
+                <val-skeleton width="150px" height="1.2rem"></val-skeleton>
+                <val-skeleton width="100px" height="0.8rem"></val-skeleton>
               </div>
             </div>
             
             <!-- Contenido falso -->
-            <ox-skeleton width="100%" height="1rem" class="ox-mb-2"></ox-skeleton>
-            <ox-skeleton width="100%" height="1rem" class="ox-mb-2"></ox-skeleton>
-            <ox-skeleton width="80%" height="1rem" class="ox-mb-2"></ox-skeleton>
-            <ox-skeleton width="100%" height="120px" borderRadius="12px" class="ox-mt-4"></ox-skeleton>
+            <val-skeleton width="100%" height="1rem" class="val-mb-2"></val-skeleton>
+            <val-skeleton width="100%" height="1rem" class="val-mb-2"></val-skeleton>
+            <val-skeleton width="80%" height="1rem" class="val-mb-2"></val-skeleton>
+            <val-skeleton width="100%" height="120px" borderRadius="12px" class="val-mt-4"></val-skeleton>
           </div>
         </div>
 
@@ -90,8 +90,8 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
       </section>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
-        <h2>API Reference &mdash; &lt;ox-skeleton&gt;</h2>
+      <section class="val-section">
+        <h2>API Reference &mdash; &lt;val-skeleton&gt;</h2>
         <app-doc-api-table [properties]="skeletonProperties"></app-doc-api-table>
       </section>
     </div>
@@ -99,27 +99,27 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
 })
 export class SkeletonDemoComponent {
   shapesHtml = `<!-- Avatar y líneas -->
-<ox-skeleton shape="circle" width="4rem" height="4rem"></ox-skeleton>
-<ox-skeleton width="100%" height="1.5rem"></ox-skeleton>
-<ox-skeleton width="70%" height="1rem"></ox-skeleton>
+<val-skeleton shape="circle" width="4rem" height="4rem"></val-skeleton>
+<val-skeleton width="100%" height="1.5rem"></val-skeleton>
+<val-skeleton width="70%" height="1rem"></val-skeleton>
 
 <!-- Variantes de animación -->
-<ox-skeleton animation="wave" width="100%" height="2rem"></ox-skeleton>
-<ox-skeleton animation="pulse" width="100%" height="2rem"></ox-skeleton>
-<ox-skeleton animation="none" width="100%" height="2rem"></ox-skeleton>`;
+<val-skeleton animation="wave" width="100%" height="2rem"></val-skeleton>
+<val-skeleton animation="pulse" width="100%" height="2rem"></val-skeleton>
+<val-skeleton animation="none" width="100%" height="2rem"></val-skeleton>`;
 
-  cardHtml = `<div class="ox-flex ox-align-items-center ox-gap-4 ox-mb-2">
-  <ox-skeleton shape="circle" width="3rem" height="3rem"></ox-skeleton>
-  <div class="ox-flex ox-flex-column ox-gap-2" style="flex: 1;">
-    <ox-skeleton width="150px" height="1.2rem"></ox-skeleton>
-    <ox-skeleton width="100px" height="0.8rem"></ox-skeleton>
+  cardHtml = `<div class="val-flex val-align-items-center val-gap-4 val-mb-2">
+  <val-skeleton shape="circle" width="3rem" height="3rem"></val-skeleton>
+  <div class="val-flex val-flex-column val-gap-2" style="flex: 1;">
+    <val-skeleton width="150px" height="1.2rem"></val-skeleton>
+    <val-skeleton width="100px" height="0.8rem"></val-skeleton>
   </div>
 </div>
-<ox-skeleton width="100%" height="1rem"></ox-skeleton>
-<ox-skeleton width="100%" height="120px" borderRadius="12px"></ox-skeleton>`;
+<val-skeleton width="100%" height="1rem"></val-skeleton>
+<val-skeleton width="100%" height="120px" borderRadius="12px"></val-skeleton>`;
 
   shapesTs = `import { Component } from '@angular/core';
-import { SkeletonComponent } from 'oxygen-ui';
+import { SkeletonComponent } from 'valence-ui';
 
 @Component({
   standalone: true,

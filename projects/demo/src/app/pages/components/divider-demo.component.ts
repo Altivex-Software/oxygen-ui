@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DividerComponent } from 'oxygen-ui';
+import { DividerComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
   standalone: true,
   imports: [CommonModule, DividerComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Divider (Separador de Contenido)</h1>
-      <p class="ox-description">El componente Divider se utiliza para separar contenido con líneas horizontales, verticales y etiquetas intermedias.</p>
+      <p class="val-description">El componente Divider se utiliza para separar contenido con líneas horizontales, verticales y etiquetas intermedias.</p>
 
       <!-- 1. BÁSICO HORIZONTAL -->
       <app-doc-code
@@ -21,7 +21,7 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [ts]="dividerTs">
         <div>
           <p style="margin: 0; color: #475569;">Bloque de contenido superior</p>
-          <ox-divider></ox-divider>
+          <val-divider></val-divider>
           <p style="margin: 0; color: #475569;">Bloque de contenido inferior</p>
         </div>
       </app-doc-code>
@@ -34,7 +34,7 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [ts]="dividerTs">
         <div>
           <p style="margin: 0; color: #475569;">Inicio de sesión con credenciales</p>
-          <ox-divider label="O CONTINÚA CON" labelPosition="center"></ox-divider>
+          <val-divider label="O CONTINÚA CON" labelPosition="center"></val-divider>
           <p style="margin: 0; color: #475569;">Inicio de sesión con redes sociales</p>
         </div>
       </app-doc-code>
@@ -47,9 +47,9 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [ts]="dividerTs">
         <div style="display: flex; align-items: center; gap: 1rem; height: 40px;">
           <span>Inicio</span>
-          <ox-divider orientation="vertical"></ox-divider>
+          <val-divider orientation="vertical"></val-divider>
           <span>Productos</span>
-          <ox-divider orientation="vertical"></ox-divider>
+          <val-divider orientation="vertical"></val-divider>
           <span>Contacto</span>
         </div>
       </app-doc-code>
@@ -64,21 +64,21 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
 })
 export class DividerDemoComponent {
   basicHtml = `<p>Contenido superior</p>
-<ox-divider></ox-divider>
+<val-divider></val-divider>
 <p>Contenido inferior</p>`;
 
   labelHtml = `<p>Login estándar</p>
-<ox-divider label="O CONTINÚA CON" labelPosition="center"></ox-divider>
+<val-divider label="O CONTINÚA CON" labelPosition="center"></val-divider>
 <p>Login social</p>`;
 
   verticalHtml = `<div style="display: flex; align-items: center; height: 40px;">
   <span>Opción 1</span>
-  <ox-divider orientation="vertical"></ox-divider>
+  <val-divider orientation="vertical"></val-divider>
   <span>Opción 2</span>
 </div>`;
 
   dividerTs = `import { Component } from '@angular/core';
-import { DividerComponent } from 'oxygen-ui';
+import { DividerComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-divider',

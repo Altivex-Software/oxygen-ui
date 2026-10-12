@@ -1,17 +1,17 @@
 import { Component, contentChildren, signal, computed, viewChildren, viewChild, ElementRef, effect, input, model } from '@angular/core';
-import { OxygenColor, OxygenSeverity } from '../../lib-core';
+import { ValenceColor, ValenceSeverity } from '../../lib-core';
 import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import { TabComponent } from './tab.component';
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
-  selector: 'ox-tabs',
+  selector: 'val-tabs',
   standalone: true,
   imports: [CommonModule, NgTemplateOutlet, IconComponent],
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.scss',
   host: {
-    '[class]': '"ox-tabs--" + color()'
+    '[class]': '"val-tabs--" + color()'
   }
 })
 export class TabsComponent {
@@ -19,7 +19,7 @@ export class TabsComponent {
   tabButtons = viewChildren<ElementRef>('tabButton');
   headerContainer = viewChild.required<ElementRef>('headerContainer');
   
-  color = input<OxygenSeverity | OxygenColor>('primary');
+  color = input<ValenceSeverity | ValenceColor>('primary');
   
   // Two-way binding for active index
   activeIndex = model(0);

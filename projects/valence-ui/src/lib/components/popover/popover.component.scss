@@ -1,8 +1,8 @@
-.ox-popover-target {
+.val-popover-target {
   display: inline-block;
 }
 
-.ox-popover-panel {
+.val-popover-panel {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
@@ -11,10 +11,10 @@
   min-width: 200px;
   max-width: 360px;
   z-index: 1000;
-  animation: ox-popover-fade-in 0.15s cubic-bezier(0, 0, 0.2, 1);
+  animation: val-popover-fade-in 0.15s cubic-bezier(0, 0, 0.2, 1);
 }
 
-@keyframes ox-popover-fade-in {
+@keyframes val-popover-fade-in {
   from {
     opacity: 0;
     transform: scale(0.95);

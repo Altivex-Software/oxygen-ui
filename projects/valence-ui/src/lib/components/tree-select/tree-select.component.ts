@@ -16,29 +16,29 @@ import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { IconComponent } from '../icon/icon.component';
-import { OxIconName } from '../icon/icon.types';
+import { ValIconName } from '../icon/icon.types';
 
 import { TreeNode } from '../tree/tree.types';
 export type { TreeNode };
 
 @Component({
-  selector: 'ox-tree-select',
+  selector: 'val-tree-select',
   standalone: true,
   imports: [CommonModule, OverlayModule, FormsModule, IconComponent],
   template: `
     <div 
       #container
-      class="ox-tree-select" 
-      [class.ox-tree-select-open]="isOpen()" 
-      [class.ox-tree-select-disabled]="disabled()"
+      class="val-tree-select" 
+      [class.val-tree-select-open]="isOpen()" 
+      [class.val-tree-select-disabled]="disabled()"
       (click)="toggle()">
       
-      <div class="ox-tree-select-label">
+      <div class="val-tree-select-label">
         {{ selectedLabel() || placeholder() }}
       </div>
       
-      <div class="ox-tree-select-trigger">
-        <ox-icon name="chevron-down" size="1rem" class="ox-tree-select-trigger-icon"></ox-icon>
+      <div class="val-tree-select-trigger">
+        <val-icon name="chevron-down" size="1rem" class="val-tree-select-trigger-icon"></val-icon>
       </div>
 
       <ng-template 
@@ -49,18 +49,18 @@ export type { TreeNode };
         [cdkConnectedOverlayOffsetY]="4"
         (overlayOutsideClick)="close($event)">
         
-        <div class="ox-tree-select-panel ox-elevation-2">
+        <div class="val-tree-select-panel val-elevation-2">
           @if (filter()) {
-            <div class="ox-tree-select-filter-container" (click)="$event.stopPropagation()">
+            <div class="val-tree-select-filter-container" (click)="$event.stopPropagation()">
               <input 
                 type="text" 
-                class="ox-tree-select-filter-input" 
+                class="val-tree-select-filter-input" 
                 [placeholder]="filterPlaceholder()"
                 [(ngModel)]="filterValue">
             </div>
           }
           
-          <div class="ox-tree-select-tree">
+          <div class="val-tree-select-tree">
             <ng-container *ngTemplateOutlet="nodeListTemplate; context: { $implicit: options(), level: 0 }"></ng-container>
           </div>
         </div>
@@ -68,29 +68,29 @@ export type { TreeNode };
     </div>
 
     <ng-template #nodeListTemplate let-nodes let-level="level">
-      <ul class="ox-tree-select-nodes" [style.padding-left.px]="level * 16">
+      <ul class="val-tree-select-nodes" [style.padding-left.px]="level * 16">
         @for (node of nodes; track node.key || node.label) {
           @if (isNodeVisible(node)) {
-            <li class="ox-tree-select-node">
+            <li class="val-tree-select-node">
               <div 
-                class="ox-tree-select-node-content"
-                [class.ox-tree-select-node-selected]="isSelected(node)"
-                [class.ox-tree-select-node-disabled]="node.disabled"
+                class="val-tree-select-node-content"
+                [class.val-tree-select-node-selected]="isSelected(node)"
+                [class.val-tree-select-node-disabled]="node.disabled"
                 (click)="selectNode(node, $event)">
                 
                 @if (node.children && node.children.length > 0) {
-                  <span class="ox-tree-select-toggler" (click)="toggleNode(node, $event)">
-                    <ox-icon [name]="node.expanded ? 'chevron-down' : 'chevron-right'" size="0.75rem"></ox-icon>
+                  <span class="val-tree-select-toggler" (click)="toggleNode(node, $event)">
+                    <val-icon [name]="node.expanded ? 'chevron-down' : 'chevron-right'" size="0.75rem"></val-icon>
                   </span>
                 } @else {
-                  <span class="ox-tree-select-toggler-placeholder"></span>
+                  <span class="val-tree-select-toggler-placeholder"></span>
                 }
 
                 @if (node.icon) {
-                  <ox-icon [name]="$any(node.icon)" size="0.875rem" class="ox-tree-select-node-icon"></ox-icon>
+                  <val-icon [name]="$any(node.icon)" size="0.875rem" class="val-tree-select-node-icon"></val-icon>
                 }
                 
-                <span class="ox-tree-select-node-label">{{ node.label }}</span>
+                <span class="val-tree-select-node-label">{{ node.label }}</span>
               </div>
 
               @if (node.children && node.children.length > 0 && (node.expanded || filterValue().length > 0)) {

@@ -2,7 +2,7 @@ import { InjectionToken } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-export interface OxFormFieldControl<T = any> {
+export interface ValFormFieldControl<T = any> {
   value: T | null;
   readonly stateChanges?: Observable<void>;
   readonly id: string;
@@ -17,4 +17,4 @@ export interface OxFormFieldControl<T = any> {
   onContainerClick?(event: MouseEvent): void;
 }
 
-export const OX_FORM_FIELD_CONTROL = new InjectionToken<OxFormFieldControl>('OX_FORM_FIELD_CONTROL');
+export const VAL_FORM_FIELD_CONTROL = new InjectionToken<ValFormFieldControl>('VAL_FORM_FIELD_CONTROL');

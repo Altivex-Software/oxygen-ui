@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TextareaComponent } from 'oxygen-ui';
+import { TextareaComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
   standalone: true,
   imports: [CommonModule, FormsModule, TextareaComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Textarea (Texto Multilínea)</h1>
-      <p class="ox-description">Campo de texto multilínea para comentarios, descripciones y contenido extenso.</p>
+      <p class="val-description">Campo de texto multilínea para comentarios, descripciones y contenido extenso.</p>
 
       <!-- 1. BÁSICO -->
       <app-doc-code
@@ -21,7 +21,7 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="basicHtml"
         [ts]="textareaTs">
         <div style="max-width: 450px;">
-          <ox-textarea label="Comentarios" placeholder="Escribe tus comentarios aquí..."></ox-textarea>
+          <val-textarea label="Comentarios" placeholder="Escribe tus comentarios aquí..."></val-textarea>
         </div>
       </app-doc-code>
 
@@ -32,7 +32,7 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="rowsHtml"
         [ts]="textareaTs">
         <div style="max-width: 450px;">
-          <ox-textarea label="Descripción Detallada" [rows]="6" placeholder="Área de texto de 6 filas..."></ox-textarea>
+          <val-textarea label="Descripción Detallada" [rows]="6" placeholder="Área de texto de 6 filas..."></val-textarea>
         </div>
       </app-doc-code>
 
@@ -45,11 +45,11 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
   `
 })
 export class TextareaDemoComponent {
-  basicHtml = `<ox-textarea label="Comentarios" placeholder="Escribe aquí..."></ox-textarea>`;
-  rowsHtml = `<ox-textarea label="Descripción" [rows]="6"></ox-textarea>`;
+  basicHtml = `<val-textarea label="Comentarios" placeholder="Escribe aquí..."></val-textarea>`;
+  rowsHtml = `<val-textarea label="Descripción" [rows]="6"></val-textarea>`;
 
   textareaTs = `import { Component } from '@angular/core';
-import { TextareaComponent } from 'oxygen-ui';
+import { TextareaComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-textarea',

@@ -3,36 +3,36 @@ import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { DialogComponent } from '../dialog/dialog.component';
 import { ButtonComponent } from '../button/button.component';
-import { Confirmation, OxConfirmService } from '../../services/confirm.service';
+import { Confirmation, ValConfirmService } from '../../services/confirm.service';
 
 @Component({
-  selector: 'ox-confirm-dialog',
+  selector: 'val-confirm-dialog',
   standalone: true,
   imports: [CommonModule, DialogComponent, ButtonComponent],
   template: `
-    <ox-dialog 
+    <val-dialog 
       [(visible)]="visible" 
       [header]="confirmation?.header || 'Confirmar'" 
       [width]="width()">
       
-      <div class="ox-flex ox-align-items-center ox-gap-4 ox-py-4">
-        <span class="ox-text-center">{{ confirmation?.message || '¿Está seguro de continuar?' }}</span>
+      <div class="val-flex val-align-items-center val-gap-4 val-py-4">
+        <span class="val-text-center">{{ confirmation?.message || '¿Está seguro de continuar?' }}</span>
       </div>
 
       <ng-template #footer>
-        <div class="ox-flex ox-justify-content-end ox-gap-2">
-          <ox-button 
+        <div class="val-flex val-justify-content-end val-gap-2">
+          <val-button 
             variant="outline-primary" 
             [label]="confirmation?.rejectLabel || 'No'" 
             (onClick)="reject()">
-          </ox-button>
-          <ox-button 
+          </val-button>
+          <val-button 
             [label]="confirmation?.acceptLabel || 'Sí'" 
             (onClick)="accept()">
-          </ox-button>
+          </val-button>
         </div>
       </ng-template>
-    </ox-dialog>
+    </val-dialog>
   `
 })
 export class ConfirmDialogComponent implements OnInit, OnDestroy {
@@ -50,7 +50,7 @@ export class ConfirmDialogComponent implements OnInit, OnDestroy {
   confirmation: Confirmation | null = null;
   private subscription?: Subscription;
 
-  constructor(private confirmService: OxConfirmService) {}
+  constructor(private confirmService: ValConfirmService) {}
 
   ngOnInit() {
     this.subscription = this.confirmService.requireConfirmation$.subscribe(conf => {

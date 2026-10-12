@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'ox-slider',
+  selector: 'val-slider',
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="oxy-slider-wrapper" [class.oxy-slider--disabled]="disabled()">
+    <div class="val-slider-wrapper" [class.val-slider--disabled]="disabled()">
       <input 
         type="range" 
         [min]="min()" 
@@ -16,14 +16,14 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
         [value]="value()"
         [disabled]="disabled()"
         (input)="onInput($event)"
-        class="oxy-slider-input"
+        class="val-slider-input"
         [style.--progress]="progress() + '%'">
       
       @if (showValues()) {
-        <div class="oxy-slider-values">
-          <span class="oxy-slider-min">{{ min() }}</span>
-          <span class="oxy-slider-current">{{ value() }}</span>
-          <span class="oxy-slider-max">{{ max() }}</span>
+        <div class="val-slider-values">
+          <span class="val-slider-min">{{ min() }}</span>
+          <span class="val-slider-current">{{ value() }}</span>
+          <span class="val-slider-max">{{ max() }}</span>
         </div>
       }
     </div>

@@ -27,11 +27,11 @@
 
   // Font Sizes
   @each $name, $size in t.$font-sizes {
-    .ox-fs#{$prefix}-#{$name} { font-size: #{$size} !important; }
+    .val-fs#{$prefix}-#{$name} { font-size: #{$size} !important; }
   }
 
   // Headings (Fluid)
-  .ox-h1#{$prefix} {
+  .val-h1#{$prefix} {
     @if $breakpoint {
       font-size: map.get(t.$font-sizes, '4xl') !important;
     } @else {
@@ -40,7 +40,7 @@
     font-weight: map.get(t.$font-weights, 'bold') !important;
     line-height: 1.2 !important;
   }
-  .ox-h2#{$prefix} {
+  .val-h2#{$prefix} {
     @if $breakpoint {
       font-size: map.get(t.$font-sizes, '3xl') !important;
     } @else {
@@ -49,7 +49,7 @@
     font-weight: map.get(t.$font-weights, 'semibold') !important;
     line-height: 1.3 !important;
   }
-  .ox-h3#{$prefix} {
+  .val-h3#{$prefix} {
     @if $breakpoint {
       font-size: map.get(t.$font-sizes, '2xl') !important;
     } @else {
@@ -60,7 +60,7 @@
   }
 
   // Subtitles (Fluid-ish)
-  .ox-subtitle1#{$prefix} {
+  .val-subtitle1#{$prefix} {
     @if $breakpoint {
       font-size: map.get(t.$font-sizes, 'xl') !important;
     } @else {
@@ -69,7 +69,7 @@
     font-weight: map.get(t.$font-weights, 'medium') !important;
     line-height: 1.5 !important;
   }
-  .ox-subtitle2#{$prefix} {
+  .val-subtitle2#{$prefix} {
     @if $breakpoint {
       font-size: map.get(t.$font-sizes, 'lg') !important;
     } @else {
@@ -78,14 +78,14 @@
     font-weight: map.get(t.$font-weights, 'medium') !important;
     line-height: 1.5 !important;
   }
-  .ox-subtitle3#{$prefix} {
+  .val-subtitle3#{$prefix} {
     font-size: map.get(t.$font-sizes, 'base') !important;
     font-weight: map.get(t.$font-weights, 'medium') !important;
     line-height: 1.5 !important;
   }
 
   // Paragraphs
-  .ox-p#{$prefix} {
+  .val-p#{$prefix} {
     @if $breakpoint {
       font-size: map.get(t.$font-sizes, 'base') !important;
     } @else {
@@ -94,7 +94,7 @@
     font-weight: map.get(t.$font-weights, 'normal') !important;
     line-height: 1.6 !important;
   }
-  .ox-p-sm#{$prefix} {
+  .val-p-sm#{$prefix} {
     font-size: map.get(t.$font-sizes, 'sm') !important;
     font-weight: map.get(t.$font-weights, 'normal') !important;
     line-height: 1.6 !important;
@@ -102,17 +102,17 @@
 
   // Font Weights
   @each $name, $weight in t.$font-weights {
-    .ox-fw#{$prefix}-#{$name} { font-weight: #{$weight} !important; }
+    .val-fw#{$prefix}-#{$name} { font-weight: #{$weight} !important; }
   }
 
   // Text Alignment
-  .ox-text#{$prefix}-italic { font-style: italic !important; }
-  .ox-text#{$prefix}-normal { font-style: normal !important; }
-  .ox-text-decoration-none#{$prefix} { text-decoration: none !important; }
-  .ox-text-decoration-underline#{$prefix} { text-decoration: underline !important; }
-  .ox-text-transform-uppercase#{$prefix} { text-transform: uppercase !important; }
-  .ox-text-transform-lowercase#{$prefix} { text-transform: lowercase !important; }
-  .ox-text-transform-capitalize#{$prefix} { text-transform: capitalize !important; }
+  .val-text#{$prefix}-italic { font-style: italic !important; }
+  .val-text#{$prefix}-normal { font-style: normal !important; }
+  .val-text-decoration-none#{$prefix} { text-decoration: none !important; }
+  .val-text-decoration-underline#{$prefix} { text-decoration: underline !important; }
+  .val-text-transform-uppercase#{$prefix} { text-transform: uppercase !important; }
+  .val-text-transform-lowercase#{$prefix} { text-transform: lowercase !important; }
+  .val-text-transform-capitalize#{$prefix} { text-transform: capitalize !important; }
 }
 
 // Base

@@ -1,12 +1,12 @@
-<div class="ox-panel__container" 
-     [class.ox-panel--collapsed]="collapsed()"
+<div class="val-panel__container" 
+     [class.val-panel--collapsed]="collapsed()"
      role="region" 
      [attr.aria-labelledby]="headerId()">
   @if (header() || headerTemplate()) {
-    <div class="ox-panel__header">
-      <span class="ox-panel__header-content"
+    <div class="val-panel__header">
+      <span class="val-panel__header-content"
             [id]="headerId()"
-            [class.ox-panel__header-content--toggleable]="toggleable()"
+            [class.val-panel__header-content--toggleable]="toggleable()"
             (click)="toggle()"
             (keydown.enter)="toggle()"
             (keydown.space)="toggle()"
@@ -19,7 +19,7 @@
            @if (iconTemplate()) {
              <ng-container *ngTemplateOutlet="iconTemplate() || null; context: { $implicit: collapsed() }"></ng-container>
            } @else {
-             <ox-icon name="chevron-down" size="1rem" class="ox-panel__icon" [class.ox-panel__icon--collapsed]="collapsed()"></ox-icon>
+             <val-icon name="chevron-down" size="1rem" class="val-panel__icon" [class.val-panel__icon--collapsed]="collapsed()"></val-icon>
            }
         }
         
@@ -32,10 +32,10 @@
     </div>
   }
   
-  <div class="ox-panel__wrapper" 
+  <div class="val-panel__wrapper" 
        [id]="contentId()"
-       [class.ox-panel__wrapper--collapsed]="collapsed()">
-    <div class="ox-panel__content"
+       [class.val-panel__wrapper--collapsed]="collapsed()">
+    <div class="val-panel__content"
          [style.max-height]="scrollable() && (scrollDirection() === 'y' || scrollDirection() === 'both') ? scrollHeight() : null"
          [style.max-width]="scrollable() && (scrollDirection() === 'x' || scrollDirection() === 'both') ? scrollWidth() : null"
          [style.overflow-y]="scrollable() && (scrollDirection() === 'y' || scrollDirection() === 'both') ? 'auto' : null"

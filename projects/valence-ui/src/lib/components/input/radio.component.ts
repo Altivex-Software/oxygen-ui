@@ -9,13 +9,13 @@ export interface RadioOption<T = any> {
 }
 
 @Component({
-  selector: 'ox-radio-group',
+  selector: 'val-radio-group',
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="oxy-radio-group" [class.oxy-radio-group--vertical]="vertical()">
+    <div class="val-radio-group" [class.val-radio-group--vertical]="vertical()">
       @for (option of options(); track option.value) {
-        <label class="oxy-radio-item" [class.oxy-radio-item--disabled]="disabled() || option.disabled">
+        <label class="val-radio-item" [class.val-radio-item--disabled]="disabled() || option.disabled">
           <input 
             type="radio" 
             [name]="name()" 
@@ -23,9 +23,9 @@ export interface RadioOption<T = any> {
             [checked]="value() === option.value"
             [disabled]="disabled() || option.disabled"
             (change)="onSelect(option.value)"
-            class="oxy-radio-input">
-          <span class="oxy-radio-circle"></span>
-          <span class="oxy-radio-label">{{ option.label }}</span>
+            class="val-radio-input">
+          <span class="val-radio-circle"></span>
+          <span class="val-radio-label">{{ option.label }}</span>
         </label>
       }
     </div>
@@ -42,7 +42,7 @@ export interface RadioOption<T = any> {
 })
 export class RadioGroupComponent implements ControlValueAccessor {
   options = input<RadioOption[]>([]);
-  name = input<string>(`oxy-radio-${Math.random().toString(36).substr(2, 9)}`);
+  name = input<string>(`val-radio-${Math.random().toString(36).substr(2, 9)}`);
   disabled = input<boolean>(false);
   vertical = input<boolean>(false);
   

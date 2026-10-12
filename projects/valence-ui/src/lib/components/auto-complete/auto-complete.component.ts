@@ -10,30 +10,30 @@ export interface AutoCompleteCompleteEvent {
 }
 
 @Component({
-  selector: 'ox-autocomplete',
+  selector: 'val-autocomplete',
   standalone: true,
   imports: [CommonModule, OverlayModule, FormsModule, NgClass, IconComponent],
   template: `
     <div 
       #container
-      class="ox-autocomplete" 
-      [class.ox-autocomplete-open]="isOpen()" 
-      [class.ox-autocomplete-disabled]="disabled()"
+      class="val-autocomplete" 
+      [class.val-autocomplete-open]="isOpen()" 
+      [class.val-autocomplete-disabled]="disabled()"
       [ngClass]="[
-        'ox-autocomplete-' + size(),
-        'ox-autocomplete-' + variant(),
-        'ox-autocomplete-' + severity()
+        'val-autocomplete-' + size(),
+        'val-autocomplete-' + variant(),
+        'val-autocomplete-' + severity()
       ]">
       
       @if (variant() === 'fieldset' && label()) {
-        <label class="ox-autocomplete-fieldset-label">{{ label() }}</label>
+        <label class="val-autocomplete-fieldset-label">{{ label() }}</label>
       }
 
-      <div class="ox-autocomplete-input-container">
+      <div class="val-autocomplete-input-container">
         <input 
           #inputEl
           type="text" 
-          class="ox-autocomplete-input" 
+          class="val-autocomplete-input" 
           [placeholder]="placeholder()"
           [disabled]="disabled()"
           [ngModel]="inputValue()"
@@ -44,8 +44,8 @@ export interface AutoCompleteCompleteEvent {
           (keydown)="onKeydown($event)">
           
         @if (dropdown()) {
-          <button type="button" class="ox-autocomplete-dropdown-btn" (click)="toggleDropdown($event)" tabindex="-1">
-            <ox-icon name="chevron-down" size="0.875rem"></ox-icon>
+          <button type="button" class="val-autocomplete-dropdown-btn" (click)="toggleDropdown($event)" tabindex="-1">
+            <val-icon name="chevron-down" size="0.875rem"></val-icon>
           </button>
         }
       </div>
@@ -58,16 +58,16 @@ export interface AutoCompleteCompleteEvent {
         [cdkConnectedOverlayOffsetY]="4"
         (overlayOutsideClick)="close($event)">
         
-        <div class="ox-autocomplete-panel ox-elevation-2">
-          <ul class="ox-autocomplete-items">
+        <div class="val-autocomplete-panel val-elevation-2">
+          <ul class="val-autocomplete-items">
             @for (option of suggestions(); track $index) {
               <li 
-                class="ox-autocomplete-item" 
+                class="val-autocomplete-item" 
                 (click)="selectOption(option, $event)">
                 {{ resolveFieldData(option) }}
               </li>
             } @empty {
-              <li class="ox-autocomplete-empty-message">{{ emptyMessage() }}</li>
+              <li class="val-autocomplete-empty-message">{{ emptyMessage() }}</li>
             }
           </ul>
         </div>

@@ -14,7 +14,7 @@ export interface Confirmation {
 @Injectable({
   providedIn: 'root'
 })
-export class OxConfirmService {
+export class ValConfirmService {
   private requireConfirmationSource = new Subject<Confirmation>();
   private acceptConfirmationSource = new Subject<Confirmation>();
 

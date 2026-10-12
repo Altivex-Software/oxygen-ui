@@ -12,34 +12,34 @@ import { CommonModule } from '@angular/common';
 export type SplitterLayout = 'horizontal' | 'vertical';
 
 @Component({
-  selector: 'ox-splitter',
+  selector: 'val-splitter',
   standalone: true,
   imports: [CommonModule],
   template: `
     <div 
       #container
-      class="ox-splitter"
-      [class.ox-splitter-horizontal]="layout() === 'horizontal'"
-      [class.ox-splitter-vertical]="layout() === 'vertical'">
+      class="val-splitter"
+      [class.val-splitter-horizontal]="layout() === 'horizontal'"
+      [class.val-splitter-vertical]="layout() === 'vertical'">
       
       <div 
-        class="ox-splitter-panel" 
+        class="val-splitter-panel" 
         [style.flex-basis.%]="panel1Size()"
         style="overflow: auto;">
-        <ng-content select="[oxPanel1]"></ng-content>
+        <ng-content select="[valPanel1]"></ng-content>
       </div>
 
       <div 
-        class="ox-splitter-gutter" 
+        class="val-splitter-gutter" 
         (mousedown)="onMouseDown($event)">
-        <div class="ox-splitter-gutter-handle"></div>
+        <div class="val-splitter-gutter-handle"></div>
       </div>
 
       <div 
-        class="ox-splitter-panel" 
+        class="val-splitter-panel" 
         [style.flex-basis.%]="100 - panel1Size()"
         style="overflow: auto;">
-        <ng-content select="[oxPanel2]"></ng-content>
+        <ng-content select="[valPanel2]"></ng-content>
       </div>
     </div>
   `,

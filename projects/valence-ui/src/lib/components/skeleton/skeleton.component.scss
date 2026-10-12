@@ -1,11 +1,11 @@
-.oxy-skeleton {
+.val-skeleton {
   display: block;
-  background-color: var(--oxy-surface-200, #e2e8f0);
+  background-color: var(--val-surface-200, #e2e8f0);
   position: relative;
   overflow: hidden;
 }
 
-.oxy-skeleton-animation-wave {
+.val-skeleton-animation-wave {
   &::after {
     content: '';
     position: absolute;
@@ -20,21 +20,21 @@
       rgba(255, 255, 255, 0.4) 50%,
       rgba(255, 255, 255, 0) 100%
     );
-    animation: oxy-skeleton-wave 1.5s infinite;
+    animation: val-skeleton-wave 1.5s infinite;
   }
 }
 
-.oxy-skeleton-animation-pulse {
-  animation: oxy-skeleton-pulse 1.5s ease-in-out 0.5s infinite;
+.val-skeleton-animation-pulse {
+  animation: val-skeleton-pulse 1.5s ease-in-out 0.5s infinite;
 }
 
-@keyframes oxy-skeleton-wave {
+@keyframes val-skeleton-wave {
   100% {
     transform: translateX(100%);
   }
 }
 
-@keyframes oxy-skeleton-pulse {
+@keyframes val-skeleton-pulse {
   0% { opacity: 1; }
   50% { opacity: 0.4; }
   100% { opacity: 1; }

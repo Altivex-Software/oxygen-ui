@@ -1,40 +1,40 @@
-.ox-file-upload {
+.val-file-upload {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   width: 100%;
 }
 
-.ox-file-upload-input {
+.val-file-upload-input {
   display: none;
 }
 
-.ox-file-upload-dropzone {
+.val-file-upload-dropzone {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  border: 2px dashed var(--oxy-surface-300, #cbd5e1);
+  border: 2px dashed var(--val-surface-300, #cbd5e1);
   border-radius: var(--radius-lg, 0.5rem);
-  background-color: var(--oxy-surface-50, #f8fafc);
+  background-color: var(--val-surface-50, #f8fafc);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: var(--oxy-surface-100, #f1f5f9);
-    border-color: var(--oxy-primary-400, #60a5fa);
+    background-color: var(--val-surface-100, #f1f5f9);
+    border-color: var(--val-primary-400, #60a5fa);
   }
 
-  .ox-file-upload-dragover & {
+  .val-file-upload-dragover & {
     background-color: rgba(59, 130, 246, 0.05);
-    border-color: var(--oxy-primary, #3b82f6);
+    border-color: var(--val-primary, #3b82f6);
     box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
   }
 }
 
-.ox-file-upload-icon {
-  color: var(--oxy-surface-400, #94a3b8);
+.val-file-upload-icon {
+  color: var(--val-surface-400, #94a3b8);
   margin-bottom: 0.5rem;
   
   svg {
@@ -43,75 +43,75 @@
   }
 }
 
-.ox-file-upload-text {
+.val-file-upload-text {
   font-weight: 500;
-  color: var(--oxy-surface-700, #334155);
+  color: var(--val-surface-700, #334155);
   font-size: 1rem;
   margin: 0;
 }
 
-.ox-file-upload-subtext {
-  color: var(--oxy-surface-500, #64748b);
+.val-file-upload-subtext {
+  color: var(--val-surface-500, #64748b);
   font-size: 0.875rem;
   margin: 0.25rem 0 0 0;
 }
 
 /* Lista de archivos */
-.ox-file-upload-list {
+.val-file-upload-list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.ox-file-upload-item {
+.val-file-upload-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1rem;
   background: white;
-  border: 1px solid var(--oxy-surface-200, #e2e8f0);
+  border: 1px solid var(--val-surface-200, #e2e8f0);
   border-radius: var(--radius-md, 0.375rem);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-.ox-file-upload-item-info {
+.val-file-upload-item-info {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   overflow: hidden;
 
-  .ox-file-icon {
+  .val-file-icon {
     width: 20px;
     height: 20px;
-    color: var(--oxy-primary, #3b82f6);
+    color: var(--val-primary, #3b82f6);
     flex-shrink: 0;
   }
 }
 
-.ox-file-details {
+.val-file-details {
   display: flex;
   flex-direction: column;
   overflow: hidden;
 
-  .ox-file-name {
+  .val-file-name {
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--oxy-surface-900, #0f172a);
+    color: var(--val-surface-900, #0f172a);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .ox-file-size {
+  .val-file-size {
     font-size: 0.75rem;
-    color: var(--oxy-surface-500, #64748b);
+    color: var(--val-surface-500, #64748b);
   }
 }
 
-.ox-file-remove-btn {
+.val-file-remove-btn {
   background: transparent;
   border: none;
-  color: var(--oxy-surface-400, #94a3b8);
+  color: var(--val-surface-400, #94a3b8);
   cursor: pointer;
   padding: 0.25rem;
   border-radius: 9999px;
@@ -121,8 +121,8 @@
   transition: all 0.2s;
 
   &:hover:not(:disabled) {
-    background: var(--oxy-surface-100, #f1f5f9);
-    color: var(--oxy-danger, #ef4444);
+    background: var(--val-surface-100, #f1f5f9);
+    color: var(--val-danger, #ef4444);
   }
 
   svg {
@@ -132,17 +132,17 @@
 }
 
 /* Deshabilitado */
-.ox-file-upload-disabled {
-  .ox-file-upload-dropzone {
+.val-file-upload-disabled {
+  .val-file-upload-dropzone {
     opacity: 0.6;
     cursor: not-allowed;
     &:hover {
-      background-color: var(--oxy-surface-50, #f8fafc);
-      border-color: var(--oxy-surface-300, #cbd5e1);
+      background-color: var(--val-surface-50, #f8fafc);
+      border-color: var(--val-surface-300, #cbd5e1);
     }
   }
   
-  .ox-file-upload-item {
+  .val-file-upload-item {
     opacity: 0.6;
   }
 }

@@ -1,24 +1,24 @@
 @if (hasLabel() && !floatLabel()) {
-  <label [for]="id()" class="oxy-input-label">
+  <label [for]="id()" class="val-input-label">
     {{ label() }}
     @if (required()) {
-      <span class="oxy-input-required">*</span>
+      <span class="val-input-required">*</span>
     }
   </label>
 }
 
-<div class="oxy-input-container">
+<div class="val-input-container">
   @if (hasLabel() && floatLabel()) {
-    <label [for]="id()" class="oxy-input-label">
+    <label [for]="id()" class="val-input-label">
       {{ label() }}
       @if (required()) {
-        <span class="oxy-input-required">*</span>
+        <span class="val-input-required">*</span>
       }
     </label>
   }
   @if (icon()) {
-    <span class="oxy-input-icon">
-      <ox-icon [name]="$any(icon()!)" size="1.125rem"></ox-icon>
+    <span class="val-input-icon">
+      <val-icon [name]="$any(icon()!)" size="1.125rem"></val-icon>
     </span>
   }
   <input
@@ -29,8 +29,8 @@
     [disabled]="disabled()"
     [readOnly]="readonly()"
     [required]="required()"
-    class="oxy-input-field"
-    [class.oxy-input-field--has-icon]="!!icon()"
+    class="val-input-field"
+    [class.val-input-field--has-icon]="!!icon()"
     [attr.aria-describedby]="
       error() ? id() + '-error' : hint() ? id() + '-hint' : null
     "
@@ -41,11 +41,11 @@
 </div>
 
 @if (error()) {
-  <div [id]="id() + '-error'" class="oxy-input-error" role="alert">
+  <div [id]="id() + '-error'" class="val-input-error" role="alert">
     {{ error() }}
   </div>
 } @else if (hint()) {
-  <div [id]="id() + '-hint'" class="oxy-input-hint">
+  <div [id]="id() + '-hint'" class="val-input-hint">
     {{ hint() }}
   </div>
 }

@@ -17,7 +17,7 @@ $vertical-alignments: (
   }
 
   @each $name, $value in $vertical-alignments {
-    .ox-align#{$prefix}-#{$name} {
+    .val-align#{$prefix}-#{$name} {
       vertical-align: $value !important;
     }
   }

@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
     <footer class="main-footer">
       <div class="footer-container">
         <div class="footer-left">
-          <p>© 2026 Oxygen UI Team. Built with Angular 21.</p>
+          <p>© 2026 Valence UI Team. Built with Angular 21.</p>
         </div>
         <div class="footer-right">
           <a href="#">Twitter</a>
@@ -44,7 +44,7 @@ import { CommonModule } from '@angular/common';
       transition: color 0.3s;
       
       &:hover {
-        color: var(--oxy-primary);
+        color: var(--val-primary);
       }
     }
   `]

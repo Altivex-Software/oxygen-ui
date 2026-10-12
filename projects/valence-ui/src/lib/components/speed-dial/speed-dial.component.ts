@@ -13,12 +13,12 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from '../icon/icon.component';
-import { OxIconName } from '../icon/icon.types';
+import { ValIconName } from '../icon/icon.types';
 
 export type SpeedDialTooltipPosition = 'top' | 'bottom' | 'left' | 'right' | 'auto';
 
 export interface SpeedDialItem {
-  icon?: OxIconName | string;
+  icon?: ValIconName | string;
   label?: string;
   tooltip?: string;
   tooltipPosition?: 'top' | 'bottom' | 'left' | 'right';
@@ -31,7 +31,7 @@ export type SpeedDialType = 'linear' | 'circle' | 'semi-circle' | 'quarter-circl
 export type SpeedDialDirection = 'up' | 'down' | 'left' | 'right' | 'up-left' | 'up-right' | 'down-left' | 'down-right';
 
 @Component({
-  selector: 'ox-speed-dial',
+  selector: 'val-speed-dial',
   standalone: true,
   imports: [CommonModule, IconComponent],
   host: {
@@ -41,8 +41,8 @@ export type SpeedDialDirection = 'up' | 'down' | 'left' | 'right' | 'up-left' | 
     <!-- Primary Floating Action Button (FAB) -->
     <button 
       type="button" 
-      class="ox-speed-dial-button"
-      [class.ox-speed-dial-button-opened]="visible()"
+      class="val-speed-dial-button"
+      [class.val-speed-dial-button-opened]="visible()"
       [class]="buttonClass()"
       [ngStyle]="buttonStyle()"
       [disabled]="disabled()"
@@ -50,14 +50,14 @@ export type SpeedDialDirection = 'up' | 'down' | 'left' | 'right' | 'up-left' | 
       [attr.aria-expanded]="visible()"
       [attr.aria-label]="ariaLabel()">
       <span 
-        class="ox-speed-dial-icon" 
-        [class.ox-speed-dial-icon-rotate]="rotateAnimation() && visible()">
+        class="val-speed-dial-icon" 
+        [class.val-speed-dial-icon-rotate]="rotateAnimation() && visible()">
         @if (visible() && activeIcon()) {
-          <ox-icon [name]="$any(activeIcon())" size="1.25rem"></ox-icon>
+          <val-icon [name]="$any(activeIcon())" size="1.25rem"></val-icon>
         } @else if (icon()) {
-          <ox-icon [name]="$any(icon())" size="1.25rem"></ox-icon>
+          <val-icon [name]="$any(icon())" size="1.25rem"></val-icon>
         } @else {
-          <ox-icon name="plus" size="1.25rem"></ox-icon>
+          <val-icon name="plus" size="1.25rem"></val-icon>
         }
       </span>
     </button>
@@ -65,38 +65,38 @@ export type SpeedDialDirection = 'up' | 'down' | 'left' | 'right' | 'up-left' | 
     <!-- Action Items List -->
     @if (visible()) {
       <ul 
-        class="ox-speed-dial-list ox-speed-dial-list-visible" 
+        class="val-speed-dial-list val-speed-dial-list-visible" 
         role="menu">
         @for (item of model(); track $index) {
           <li 
-            class="ox-speed-dial-action-item"
+            class="val-speed-dial-action-item"
             role="none"
             [style.transform]="getItemTransform($index)"
             [style.transition-delay]="getItemTransitionDelay($index)">
             
             <!-- Floating Label (if enabled) -->
             @if (showLabels() && item.label) {
-              <span class="ox-speed-dial-action-label" (click)="onItemClick(item, $event)">
+              <span class="val-speed-dial-action-label" (click)="onItemClick(item, $event)">
                 {{ item.label }}
               </span>
             }
 
             <button 
               type="button" 
-              class="ox-speed-dial-action"
-              [class.ox-speed-dial-action-disabled]="item.disabled"
+              class="val-speed-dial-action"
+              [class.val-speed-dial-action-disabled]="item.disabled"
               [class]="item.styleClass || ''"
               [disabled]="item.disabled"
               [attr.aria-label]="item.tooltip || item.label || ''"
               (click)="onItemClick(item, $event)">
               @if (item.icon) {
-                <ox-icon [name]="$any(item.icon)" size="1.125rem" class="ox-speed-dial-action-icon"></ox-icon>
+                <val-icon [name]="$any(item.icon)" size="1.125rem" class="val-speed-dial-action-icon"></val-icon>
               }
 
               <!-- Tooltip on hover if labels are not shown -->
               @if (!showLabels() && (item.tooltip || item.label)) {
                 <span 
-                  class="ox-speed-dial-tooltip ox-speed-dial-tooltip-{{ getTooltipPosition(item) }}">
+                  class="val-speed-dial-tooltip val-speed-dial-tooltip-{{ getTooltipPosition(item) }}">
                   {{ item.tooltip || item.label }}
                 </span>
               }
@@ -108,7 +108,7 @@ export type SpeedDialDirection = 'up' | 'down' | 'left' | 'right' | 'up-left' | 
 
     <!-- Optional Backdrop Mask Overlay -->
     @if (mask() && visible()) {
-      <div class="ox-speed-dial-mask" (click)="close()"></div>
+      <div class="val-speed-dial-mask" (click)="close()"></div>
     }
   `,
   styleUrl: './speed-dial.component.scss',
@@ -142,11 +142,11 @@ export class SpeedDialComponent {
 
   hostClasses = computed(() => {
     return [
-      'ox-speed-dial',
-      `ox-speed-dial-${this.type()}`,
-      `ox-speed-dial-${this.direction()}`,
-      this.visible() ? 'ox-speed-dial-opened' : '',
-      this.disabled() ? 'ox-speed-dial-disabled' : '',
+      'val-speed-dial',
+      `val-speed-dial-${this.type()}`,
+      `val-speed-dial-${this.direction()}`,
+      this.visible() ? 'val-speed-dial-opened' : '',
+      this.disabled() ? 'val-speed-dial-disabled' : '',
       this.styleClass()
     ].filter(Boolean).join(' ');
   });

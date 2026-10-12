@@ -3,18 +3,18 @@
 :host {
   display: block;
   width: 100%;
-  border: var(--ox-accordion-border-width, 1px) solid var(--ox-border-color, #e0e0e0);
-  border-radius: var(--ox-accordion-border-radius, 8px);
+  border: var(--val-accordion-border-width, 1px) solid var(--val-border-color, #e0e0e0);
+  border-radius: var(--val-accordion-border-radius, 8px);
   overflow: visible; // Allow item shadows to be visible
   transition: all 0.2s ease;
 
-  &.ox-accordion--no-border {
+  &.val-accordion--no-border {
     border-width: 0 !important;
     box-shadow: none !important;
   }
 }
 
-.ox-accordion {
+.val-accordion {
   display: flex;
   flex-direction: column;
   width: 100%;

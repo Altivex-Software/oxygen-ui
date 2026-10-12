@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { InputSwitchComponent } from 'oxygen-ui';
+import { InputSwitchComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FormsModule, InputSwitchComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Input Switch (Interruptor)</h1>
-      <p class="ox-description">Interruptor binario para alternar estados activado/desactivado con animación suave.</p>
+      <p class="val-description">Interruptor binario para alternar estados activado/desactivado con animación suave.</p>
 
       <!-- 1. BÁSICO -->
       <app-doc-code
@@ -21,7 +21,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="basicHtml"
         [ts]="switchTs">
         <div style="display: flex; align-items: center; gap: 1rem;">
-          <ox-input-switch [(ngModel)]="checked"></ox-input-switch>
+          <val-input-switch [(ngModel)]="checked"></val-input-switch>
           <span style="font-size: 0.875rem; font-weight: 500; color: #334155;">{{ checked ? 'Activado' : 'Desactivado' }}</span>
         </div>
       </app-doc-code>
@@ -34,15 +34,15 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [ts]="switchTs">
         <div style="display: flex; flex-direction: column; gap: 0.75rem;">
           <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <ox-input-switch color="primary" [(ngModel)]="checked1"></ox-input-switch>
+            <val-input-switch color="primary" [(ngModel)]="checked1"></val-input-switch>
             <span style="font-size: 0.875rem;">Primario</span>
           </div>
           <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <ox-input-switch color="success" [(ngModel)]="checked2"></ox-input-switch>
+            <val-input-switch color="success" [(ngModel)]="checked2"></val-input-switch>
             <span style="font-size: 0.875rem;">Éxito</span>
           </div>
           <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <ox-input-switch color="danger" [(ngModel)]="checked3"></ox-input-switch>
+            <val-input-switch color="danger" [(ngModel)]="checked3"></val-input-switch>
             <span style="font-size: 0.875rem;">Peligro</span>
           </div>
         </div>
@@ -63,11 +63,11 @@ export class InputSwitchDemoComponent {
   checked2 = true;
   checked3 = true;
 
-  basicHtml = `<ox-input-switch [(ngModel)]="checked"></ox-input-switch>`;
-  colorsHtml = `<ox-input-switch color="success" [(ngModel)]="checked"></ox-input-switch>`;
+  basicHtml = `<val-input-switch [(ngModel)]="checked"></val-input-switch>`;
+  colorsHtml = `<val-input-switch color="success" [(ngModel)]="checked"></val-input-switch>`;
 
   switchTs = `import { Component } from '@angular/core';
-import { InputSwitchComponent } from 'oxygen-ui';
+import { InputSwitchComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-switch',
@@ -97,7 +97,7 @@ export class MySwitchComponent {
   switchEvents: ApiEvent[] = [
     {
       name: 'onChange',
-      parameters: 'OxygenChangeEvent',
+      parameters: 'ValenceChangeEvent',
       description: 'Emitido cuando el estado del switch cambia.'
     }
   ];

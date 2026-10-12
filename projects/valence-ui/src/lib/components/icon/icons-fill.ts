@@ -1,7 +1,7 @@
-import { OxIconName } from './icon.types';
+import { ValIconName } from './icon.types';
 import { IconDefinition } from './icons';
 
-export const OX_FILL_ICONS: Partial<Record<OxIconName, IconDefinition>> = {
+export const VAL_FILL_ICONS: Partial<Record<ValIconName, IconDefinition>> = {
   // --- UI & GENERAL (FILL) ---
   'search-fill': {
     category: 'UI & General (Fill)',

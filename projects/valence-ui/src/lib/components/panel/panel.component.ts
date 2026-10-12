@@ -6,23 +6,23 @@ export type PanelVariant = 'outlined' | 'flat' | 'seamless';
 export type PanelHeaderPosition = 'start' | 'center' | 'end';
 
 @Component({
-  selector: 'ox-panel',
+  selector: 'val-panel',
   standalone: true,
   imports: [CommonModule, NgTemplateOutlet, IconComponent],
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss',
   host: {
-    '[class.ox-panel]': 'true',
-    '[class.ox-panel--outlined]': 'variant() === "outlined"',
-    '[class.ox-panel--flat]': 'variant() === "flat"',
-    '[class.ox-panel--seamless]': 'variant() === "seamless"',
-    '[class.ox-panel--disabled]': 'disabled()',
+    '[class.val-panel]': 'true',
+    '[class.val-panel--outlined]': 'variant() === "outlined"',
+    '[class.val-panel--flat]': 'variant() === "flat"',
+    '[class.val-panel--seamless]': 'variant() === "seamless"',
+    '[class.val-panel--disabled]': 'disabled()',
     '[attr.aria-disabled]': 'disabled()',
-    '[class.ox-panel--header-start]': 'headerPosition() === "start"',
-    '[class.ox-panel--header-center]': 'headerPosition() === "center"',
-    '[class.ox-panel--header-end]': 'headerPosition() === "end"',
-    '[style.--ox-panel-border-style]': 'borderStyle()',
-    '[style.--ox-panel-box-shadow]': 'shadowValue()'
+    '[class.val-panel--header-start]': 'headerPosition() === "start"',
+    '[class.val-panel--header-center]': 'headerPosition() === "center"',
+    '[class.val-panel--header-end]': 'headerPosition() === "end"',
+    '[style.--val-panel-border-style]': 'borderStyle()',
+    '[style.--val-panel-box-shadow]': 'shadowValue()'
   }
 })
 export class PanelComponent {
@@ -48,7 +48,7 @@ export class PanelComponent {
   });
 
   private static nextId = 0;
-  private readonly uniqueId = `ox-panel-${PanelComponent.nextId++}`;
+  private readonly uniqueId = `val-panel-${PanelComponent.nextId++}`;
 
   protected headerId = computed(() => `${this.uniqueId}-header`);
   protected contentId = computed(() => `${this.uniqueId}-content`);

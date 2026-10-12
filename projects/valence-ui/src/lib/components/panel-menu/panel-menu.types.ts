@@ -1,9 +1,9 @@
-import { OxIconName } from '../icon/icon.types';
-import { OxygenSeverity, OxygenColor } from '../../lib-core';
+import { ValIconName } from '../icon/icon.types';
+import { ValenceSeverity, ValenceColor } from '../../lib-core';
 
 export interface PanelMenuItem {
   label?: string;
-  icon?: OxIconName | string;
+  icon?: ValIconName | string;
   routerLink?: any;
   url?: string;
   target?: string;
@@ -11,7 +11,7 @@ export interface PanelMenuItem {
   expanded?: boolean;
   disabled?: boolean;
   badge?: string;
-  badgeSeverity?: OxygenSeverity | OxygenColor;
+  badgeSeverity?: ValenceSeverity | ValenceColor;
   command?: (event: { originalEvent: Event; item: PanelMenuItem }) => void;
   styleClass?: string;
   separator?: boolean;

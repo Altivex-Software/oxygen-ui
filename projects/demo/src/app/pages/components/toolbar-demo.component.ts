@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ToolbarComponent, ButtonComponent } from 'oxygen-ui';
+import { ToolbarComponent, ButtonComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
   standalone: true,
   imports: [CommonModule, ToolbarComponent, ButtonComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Toolbar (Barra de Herramientas)</h1>
-      <p class="ox-description">Agrupa y organiza controles y botones de acción horizontalmente con secciones izquierda y derecha.</p>
+      <p class="val-description">Agrupa y organiza controles y botones de acción horizontalmente con secciones izquierda y derecha.</p>
 
       <!-- 1. BÁSICO -->
       <app-doc-code
@@ -19,17 +19,17 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         description="Agrupación de botones principales y acciones de exportación."
         [html]="basicHtml"
         [ts]="toolbarTs">
-        <ox-toolbar>
+        <val-toolbar>
           <div left style="display: flex; gap: 0.5rem;">
-            <ox-button variant="success" icon="plus">Nuevo</ox-button>
-            <ox-button variant="secondary" icon="folder">Abrir</ox-button>
-            <ox-button variant="danger" icon="trash-2">Eliminar</ox-button>
+            <val-button variant="success" icon="plus">Nuevo</val-button>
+            <val-button variant="secondary" icon="folder">Abrir</val-button>
+            <val-button variant="danger" icon="trash-2">Eliminar</val-button>
           </div>
           
           <div right>
-            <ox-button variant="outline-primary" icon="download">Exportar</ox-button>
+            <val-button variant="outline-primary" icon="download">Exportar</val-button>
           </div>
-        </ox-toolbar>
+        </val-toolbar>
       </app-doc-code>
 
       <!-- API REFERENCE -->
@@ -41,18 +41,18 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
   `
 })
 export class ToolbarDemoComponent {
-  basicHtml = `<ox-toolbar>
+  basicHtml = `<val-toolbar>
   <div left>
-    <ox-button variant="success">Nuevo</ox-button>
-    <ox-button variant="secondary">Abrir</ox-button>
+    <val-button variant="success">Nuevo</val-button>
+    <val-button variant="secondary">Abrir</val-button>
   </div>
   <div right>
-    <ox-button variant="outline-primary">Exportar</ox-button>
+    <val-button variant="outline-primary">Exportar</val-button>
   </div>
-</ox-toolbar>`;
+</val-toolbar>`;
 
   toolbarTs = `import { Component } from '@angular/core';
-import { ToolbarComponent, ButtonComponent } from 'oxygen-ui';
+import { ToolbarComponent, ButtonComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-toolbar',

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ToastService, ButtonComponent, ToastComponent, ToastPosition } from 'oxygen-ui';
+import { ToastService, ButtonComponent, ToastComponent, ToastPosition } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,11 +9,11 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, ButtonComponent, ToastComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
-      <ox-toast></ox-toast>
+    <div class="val-page-container">
+      <val-toast></val-toast>
 
       <h1>Toast (Notificaciones Emergentes)</h1>
-      <p class="ox-description">Servicio y componente para mensajes de notificación temporales o persistentes en pantalla.</p>
+      <p class="val-description">Servicio y componente para mensajes de notificación temporales o persistentes en pantalla.</p>
 
       <!-- 1. SEVERIDADES Y ESTILOS -->
       <app-doc-code
@@ -25,17 +25,17 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
           <div>
             <span style="display: block; font-size: 0.8125rem; font-weight: 600; margin-bottom: 0.5rem; color: #64748b;">Standard</span>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <ox-button label="Success" variant="success" (onClick)="show('success', 'Completado', 'La tarea se guardó con éxito')"></ox-button>
-              <ox-button label="Info" variant="info" (onClick)="show('info', 'Información', 'Tienes un mensaje nuevo')"></ox-button>
+              <val-button label="Success" variant="success" (onClick)="show('success', 'Completado', 'La tarea se guardó con éxito')"></val-button>
+              <val-button label="Info" variant="info" (onClick)="show('info', 'Información', 'Tienes un mensaje nuevo')"></val-button>
             </div>
           </div>
 
           <div>
             <span style="display: block; font-size: 0.8125rem; font-weight: 600; margin-bottom: 0.5rem; color: #64748b;">Filled</span>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <ox-button label="Success Filled" variant="success" (onClick)="show('success', 'Completado', 'La tarea se guardó con éxito', 'filled')"></ox-button>
-              <ox-button label="Warning Filled" variant="warning" (onClick)="show('warn', 'Aviso', 'Cuidado con esta acción', 'filled')"></ox-button>
-              <ox-button label="Error Filled" variant="danger" (onClick)="show('error', 'Error', 'Algo salió mal', 'filled')"></ox-button>
+              <val-button label="Success Filled" variant="success" (onClick)="show('success', 'Completado', 'La tarea se guardó con éxito', 'filled')"></val-button>
+              <val-button label="Warning Filled" variant="warning" (onClick)="show('warn', 'Aviso', 'Cuidado con esta acción', 'filled')"></val-button>
+              <val-button label="Error Filled" variant="danger" (onClick)="show('error', 'Error', 'Algo salió mal', 'filled')"></val-button>
             </div>
           </div>
         </div>
@@ -48,12 +48,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="posHtml"
         [ts]="toastTs">
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <ox-button label="Top Left" variant="secondary" (onClick)="changePos('top-left')"></ox-button>
-          <ox-button label="Top Center" variant="secondary" (onClick)="changePos('top-center')"></ox-button>
-          <ox-button label="Top Right" variant="secondary" (onClick)="changePos('top-right')"></ox-button>
-          <ox-button label="Bottom Left" variant="secondary" (onClick)="changePos('bottom-left')"></ox-button>
-          <ox-button label="Bottom Center" variant="secondary" (onClick)="changePos('bottom-center')"></ox-button>
-          <ox-button label="Bottom Right" variant="secondary" (onClick)="changePos('bottom-right')"></ox-button>
+          <val-button label="Top Left" variant="secondary" (onClick)="changePos('top-left')"></val-button>
+          <val-button label="Top Center" variant="secondary" (onClick)="changePos('top-center')"></val-button>
+          <val-button label="Top Right" variant="secondary" (onClick)="changePos('top-right')"></val-button>
+          <val-button label="Bottom Left" variant="secondary" (onClick)="changePos('bottom-left')"></val-button>
+          <val-button label="Bottom Center" variant="secondary" (onClick)="changePos('bottom-center')"></val-button>
+          <val-button label="Bottom Right" variant="secondary" (onClick)="changePos('bottom-right')"></val-button>
         </div>
       </app-doc-code>
 
@@ -83,11 +83,11 @@ export class ToastDemoComponent {
     this.show('info', 'Posición Actualizada', `Toasts ahora en ${pos}`);
   }
 
-  toastHtml = `<ox-toast></ox-toast>
-<ox-button label="Guardar" (onClick)="showToast()"></ox-button>`;
+  toastHtml = `<val-toast></val-toast>
+<val-button label="Guardar" (onClick)="showToast()"></val-button>`;
 
   toastTs = `import { Component, inject } from '@angular/core';
-import { ToastService, ToastComponent, ButtonComponent } from 'oxygen-ui';
+import { ToastService, ToastComponent, ButtonComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-toast',

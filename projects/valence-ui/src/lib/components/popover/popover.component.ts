@@ -14,12 +14,12 @@ import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
 
 @Component({
-  selector: 'ox-popover',
+  selector: 'val-popover',
   standalone: true,
   imports: [CommonModule, OverlayModule],
   template: `
-    <div #targetOrigin class="ox-popover-target" (click)="toggle()">
-      <ng-content select="[oxTarget]"></ng-content>
+    <div #targetOrigin class="val-popover-target" (click)="toggle()">
+      <ng-content select="[valTarget]"></ng-content>
     </div>
 
     <ng-template 
@@ -29,7 +29,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
       [cdkConnectedOverlayOffsetY]="offsetY()"
       [cdkConnectedOverlayOffsetX]="offsetX()"
       (overlayOutsideClick)="close($event)">
-      <div class="ox-popover-panel ox-elevation-3">
+      <div class="val-popover-panel val-elevation-3">
         <ng-content></ng-content>
       </div>
     </ng-template>

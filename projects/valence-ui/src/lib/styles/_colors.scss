@@ -9,13 +9,13 @@
   }
 
   @each $name, $value in t.$text-colors {
-    .ox-text#{$prefix}-#{$name} {
+    .val-text#{$prefix}-#{$name} {
       color: #{$value} !important;
     }
-    .ox-border#{$prefix}-#{$name} {
+    .val-border#{$prefix}-#{$name} {
       border-color: #{$value} !important;
     }
-    .ox-bg#{$prefix}-#{$name} {
+    .val-bg#{$prefix}-#{$name} {
       background-color: #{$value} !important;
     }
   }

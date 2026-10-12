@@ -3,28 +3,28 @@ import { CommonModule, NgClass } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'ox-input-mask',
+  selector: 'val-input-mask',
   standalone: true,
   imports: [CommonModule, FormsModule, NgClass],
   template: `
     <div 
-      class="ox-input-mask" 
-      [class.ox-input-mask-disabled]="disabled()"
+      class="val-input-mask" 
+      [class.val-input-mask-disabled]="disabled()"
       [ngClass]="[
-        'ox-input-mask-' + size(),
-        'ox-input-mask-' + variant(),
-        'ox-input-mask-' + severity()
+        'val-input-mask-' + size(),
+        'val-input-mask-' + variant(),
+        'val-input-mask-' + severity()
       ]">
       
       @if (variant() === 'fieldset' && label()) {
-        <label class="ox-input-mask-fieldset-label">{{ label() }}</label>
+        <label class="val-input-mask-fieldset-label">{{ label() }}</label>
       }
 
-      <div class="ox-input-mask-container">
+      <div class="val-input-mask-container">
         <input 
           #inputEl
           type="text" 
-          class="ox-input-mask-field" 
+          class="val-input-mask-field" 
           [placeholder]="placeholder()"
           [disabled]="disabled()"
           [value]="displayValue()"

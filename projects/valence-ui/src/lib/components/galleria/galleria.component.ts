@@ -21,7 +21,7 @@ import { IconComponent } from '../icon/icon.component';
 import { GalleriaResponsiveOption, GalleriaItem } from './galleria.types';
 
 @Component({
-  selector: 'ox-galleria',
+  selector: 'val-galleria',
   standalone: true,
   imports: [CommonModule, IconComponent],
   templateUrl: './galleria.component.html',

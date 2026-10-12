@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BreadcrumbComponent } from 'oxygen-ui';
+import { BreadcrumbComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, BreadcrumbComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Breadcrumb</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Componente de navegación contextual que muestra la jerarquía y ubicación actual de la página dentro de la aplicación.
       </p>
 
@@ -22,7 +22,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [htmlCode]="basicHtml"
         [tsCode]="basicTs">
         <div style="width: 100%;">
-          <ox-breadcrumb [items]="items"></ox-breadcrumb>
+          <val-breadcrumb [items]="items"></val-breadcrumb>
         </div>
       </app-doc-code>
 
@@ -33,7 +33,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [htmlCode]="customSepHtml"
         [tsCode]="basicTs">
         <div style="width: 100%;">
-          <ox-breadcrumb [items]="items" separator=">"></ox-breadcrumb>
+          <val-breadcrumb [items]="items" separator=">"></val-breadcrumb>
         </div>
       </app-doc-code>
 
@@ -53,12 +53,12 @@ export class BreadcrumbDemoComponent {
     { label: 'Breadcrumb', current: true }
   ];
 
-  basicHtml = `<ox-breadcrumb [items]="items"></ox-breadcrumb>`;
+  basicHtml = `<val-breadcrumb [items]="items"></val-breadcrumb>`;
 
-  customSepHtml = `<ox-breadcrumb [items]="items" separator=">"></ox-breadcrumb>`;
+  customSepHtml = `<val-breadcrumb [items]="items" separator=">"></val-breadcrumb>`;
 
   basicTs = `import { Component } from '@angular/core';
-import { BreadcrumbComponent } from 'oxygen-ui';
+import { BreadcrumbComponent } from 'valence-ui';
 
 @Component({
   standalone: true,

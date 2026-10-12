@@ -15,32 +15,32 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Directive({
-  selector: '[oxTemplate]',
+  selector: '[valTemplate]',
   standalone: true
 })
-export class OxygenTemplateDirective {
-  @Input('oxTemplate') name: string = '';
+export class ValenceTemplateDirective {
+  @Input('valTemplate') name: string = '';
   constructor(public template: TemplateRef<any>) {}
 }
 
 export type SelectionMode = 'single' | 'multiple';
 
 @Component({
-  selector: 'ox-table',
+  selector: 'val-table',
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="ox-table-container ox-elevation-1">
-      <table class="ox-table">
-        <thead class="ox-table-thead">
+    <div class="val-table-container val-elevation-1">
+      <table class="val-table">
+        <thead class="val-table-thead">
           <ng-container *ngTemplateOutlet="headerTemplate()"></ng-container>
         </thead>
-        <tbody class="ox-table-tbody">
+        <tbody class="val-table-tbody">
           @for (rowData of processedData(); track getRowKey(rowData, $index)) {
             <ng-container *ngTemplateOutlet="bodyTemplate(); context: { $implicit: rowData, selected: isRowSelected(rowData) }"></ng-container>
           } @empty {
             <tr>
-              <td class="ox-table-empty" [attr.colspan]="columns().length || 10">
+              <td class="val-table-empty" [attr.colspan]="columns().length || 10">
                 No data available
               </td>
             </tr>
@@ -87,7 +87,7 @@ export class TableComponent {
     this.globalFilterSignal.set(filter || '');
   }
 
-  templates = contentChildren(OxygenTemplateDirective);
+  templates = contentChildren(ValenceTemplateDirective);
 
   headerTemplate = computed(() => {
     return this.templates().find(t => t.name === 'header')?.template || null;

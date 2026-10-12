@@ -14,7 +14,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IconComponent } from '../icon/icon.component';
-import { OxIconName } from '../icon/icon.types';
+import { ValIconName } from '../icon/icon.types';
 import {
   TreeNode,
   TreeSelectionMode,
@@ -25,52 +25,52 @@ import {
 } from './tree.types';
 
 @Component({
-  selector: 'ox-tree-node',
+  selector: 'val-tree-node',
   standalone: true,
   imports: [CommonModule, IconComponent, forwardRef(() => TreeNodeComponent)],
   template: `
-    <li class="ox-treenode" [class.ox-treenode-leaf]="isLeaf()">
+    <li class="val-treenode" [class.val-treenode-leaf]="isLeaf()">
       <div 
-        class="ox-treenode-content"
-        [class.ox-treenode-selected]="isSelected()"
-        [class.ox-treenode-disabled]="node().disabled"
+        class="val-treenode-content"
+        [class.val-treenode-selected]="isSelected()"
+        [class.val-treenode-disabled]="node().disabled"
         (click)="onNodeClick($event)">
         
         <!-- Toggler Icon -->
         <span 
-          class="ox-treenode-toggler"
-          [class.ox-treenode-toggler-expanded]="node().expanded"
-          [class.ox-treenode-toggler-empty]="isLeaf()"
+          class="val-treenode-toggler"
+          [class.val-treenode-toggler-expanded]="node().expanded"
+          [class.val-treenode-toggler-empty]="isLeaf()"
           (click)="onTogglerClick($event)">
           @if (!isLeaf()) {
-            <ox-icon name="chevron-right" size="0.875rem"></ox-icon>
+            <val-icon name="chevron-right" size="0.875rem"></val-icon>
           }
         </span>
 
         <!-- Checkbox if selectionMode === 'checkbox' -->
         @if (tree().selectionMode() === 'checkbox') {
           <div 
-            class="ox-treenode-checkbox"
-            [class.ox-treenode-checkbox-checked]="isCheckboxChecked()"
-            [class.ox-treenode-checkbox-partial]="isCheckboxPartial()"
+            class="val-treenode-checkbox"
+            [class.val-treenode-checkbox-checked]="isCheckboxChecked()"
+            [class.val-treenode-checkbox-partial]="isCheckboxPartial()"
             (click)="onCheckboxClick($event)">
             @if (isCheckboxChecked()) {
-              <ox-icon name="check" size="0.75rem"></ox-icon>
+              <val-icon name="check" size="0.75rem"></val-icon>
             } @else if (isCheckboxPartial()) {
-              <span class="ox-treenode-checkbox-indeterminate"></span>
+              <span class="val-treenode-checkbox-indeterminate"></span>
             }
           </div>
         }
 
         <!-- Node Icon -->
         @if (nodeIcon()) {
-          <span class="ox-treenode-icon">
-            <ox-icon [name]="$any(nodeIcon()!)" size="1.125rem"></ox-icon>
+          <span class="val-treenode-icon">
+            <val-icon [name]="$any(nodeIcon()!)" size="1.125rem"></val-icon>
           </span>
         }
 
         <!-- Node Label or Custom Template -->
-        <div class="ox-treenode-label">
+        <div class="val-treenode-label">
           @if (tree().nodeTemplate) {
             <ng-container *ngTemplateOutlet="tree().nodeTemplate!; context: { $implicit: node() }"></ng-container>
           } @else {
@@ -81,14 +81,14 @@ import {
 
       <!-- Children -->
       @if (!isLeaf() && node().expanded && node().children && node().children!.length > 0) {
-        <ul class="ox-tree-children" [class.ox-tree-lines]="tree().showLines()">
+        <ul class="val-tree-children" [class.val-tree-lines]="tree().showLines()">
           @for (child of node().children; track child.key || child.label) {
             @if (tree().isNodeVisible(child)) {
-              <ox-tree-node 
+              <val-tree-node 
                 [node]="child" 
                 [tree]="tree()"
                 [parent]="node()">
-              </ox-tree-node>
+              </val-tree-node>
             }
           }
         </ul>
@@ -109,7 +109,7 @@ export class TreeNodeComponent {
     return !n.children || n.children.length === 0;
   });
 
-  nodeIcon = computed<OxIconName | string | undefined>(() => {
+  nodeIcon = computed<ValIconName | string | undefined>(() => {
     const n = this.node();
     if (n.expanded && n.expandedIcon) return n.expandedIcon;
     if (!n.expanded && n.collapsedIcon) return n.collapsedIcon;
@@ -173,49 +173,49 @@ export class TreeNodeComponent {
 }
 
 @Component({
-  selector: 'ox-tree',
+  selector: 'val-tree',
   standalone: true,
   imports: [CommonModule, FormsModule, IconComponent, TreeNodeComponent],
   template: `
     <div 
-      class="ox-tree" 
-      [class.ox-tree-bordered]="bordered()"
-      [class.ox-tree-scrollable]="scrollHeight() !== null"
+      class="val-tree" 
+      [class.val-tree-bordered]="bordered()"
+      [class.val-tree-scrollable]="scrollHeight() !== null"
       [style.maxHeight]="scrollHeight()">
       
       <!-- Filter Header -->
       @if (filter()) {
-        <div class="ox-tree-header">
-          <div class="ox-tree-filter-wrapper">
-            <ox-icon name="search" size="1rem" class="ox-tree-filter-icon"></ox-icon>
+        <div class="val-tree-header">
+          <div class="val-tree-filter-wrapper">
+            <val-icon name="search" size="1rem" class="val-tree-filter-icon"></val-icon>
             <input 
               type="text" 
-              class="ox-tree-filter-input"
+              class="val-tree-filter-input"
               [placeholder]="filterPlaceholder()"
               [ngModel]="filterQuery()"
               (ngModelChange)="onFilterChange($event)">
             
             @if (filterQuery()) {
-              <button type="button" class="ox-tree-filter-clear" (click)="clearFilter()">
-                <ox-icon name="x" size="0.875rem"></ox-icon>
+              <button type="button" class="val-tree-filter-clear" (click)="clearFilter()">
+                <val-icon name="x" size="0.875rem"></val-icon>
               </button>
             }
           </div>
 
-          <div class="ox-tree-actions">
+          <div class="val-tree-actions">
             <button 
               type="button" 
-              class="ox-tree-filter-clear" 
+              class="val-tree-filter-clear" 
               title="Expandir todo"
               (click)="expandAll()">
-              <ox-icon name="chevron-down" size="1rem"></ox-icon>
+              <val-icon name="chevron-down" size="1rem"></val-icon>
             </button>
             <button 
               type="button" 
-              class="ox-tree-filter-clear" 
+              class="val-tree-filter-clear" 
               title="Colapsar todo"
               (click)="collapseAll()">
-              <ox-icon name="chevron-up" size="1rem"></ox-icon>
+              <val-icon name="chevron-up" size="1rem"></val-icon>
             </button>
           </div>
         </div>
@@ -223,19 +223,19 @@ export class TreeNodeComponent {
 
       <!-- Tree Content -->
       @if (hasVisibleNodes()) {
-        <ul class="ox-tree-container" [class.ox-tree-lines]="showLines()">
+        <ul class="val-tree-container" [class.val-tree-lines]="showLines()">
           @for (node of value(); track node.key || node.label) {
             @if (isNodeVisible(node)) {
-              <ox-tree-node 
+              <val-tree-node 
                 [node]="node" 
                 [tree]="this">
-              </ox-tree-node>
+              </val-tree-node>
             }
           }
         </ul>
       } @else {
-        <div class="ox-tree-empty">
-          <ox-icon name="folder" size="2rem"></ox-icon>
+        <div class="val-tree-empty">
+          <val-icon name="folder" size="2rem"></val-icon>
           <span>{{ emptyMessage() }}</span>
         </div>
       }

@@ -11,21 +11,21 @@
   // Z-Index
   $z-indices: (0, 10, 20, 30, 40, 50, 100, 1000);
   @each $z in $z-indices {
-    .ox-z#{$prefix}-#{$z} { z-index: $z !important; }
+    .val-z#{$prefix}-#{$z} { z-index: $z !important; }
   }
 
   // Opacity
   $opacities: (0, 25, 50, 75, 100);
   @each $op in $opacities {
-    .ox-opacity#{$prefix}-#{$op} { opacity: math.div($op, 100) !important; }
+    .val-opacity#{$prefix}-#{$op} { opacity: math.div($op, 100) !important; }
   }
 
   // Object Fit
-  .ox-object#{$prefix}-contain { object-fit: contain !important; }
-  .ox-object#{$prefix}-cover   { object-fit: cover !important; }
-  .ox-object#{$prefix}-fill    { object-fit: fill !important; }
-  .ox-object#{$prefix}-none    { object-fit: none !important; }
-  .ox-object#{$prefix}-scale   { object-fit: scale-down !important; }
+  .val-object#{$prefix}-contain { object-fit: contain !important; }
+  .val-object#{$prefix}-cover   { object-fit: cover !important; }
+  .val-object#{$prefix}-fill    { object-fit: fill !important; }
+  .val-object#{$prefix}-none    { object-fit: none !important; }
+  .val-object#{$prefix}-scale   { object-fit: scale-down !important; }
 }
 
 // Base

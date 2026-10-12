@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StepperComponent, StepComponent, IconComponent } from 'oxygen-ui';
+import { StepperComponent, StepComponent, IconComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, StepperComponent, StepComponent, IconComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Stepper</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Guía a los usuarios paso a paso a través de flujos lineales de procesos, asistentes (wizards) o registros.
       </p>
 
@@ -22,29 +22,29 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [htmlCode]="stepperHtml"
         [tsCode]="stepperTs">
         <div style="width: 100%;">
-          <ox-stepper [headerNavigation]="true">
-            <ox-step label="Cuenta">
+          <val-stepper [headerNavigation]="true">
+            <val-step label="Cuenta">
               <div style="padding: 1.5rem; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 1rem;">
                 <h3 style="margin-top: 0;">Paso 1: Datos de Usuario</h3>
                 <p style="color: #64748b; font-size: 0.875rem;">Ingresa tu correo y define tus credenciales de acceso.</p>
               </div>
-            </ox-step>
-            <ox-step label="Perfil">
+            </val-step>
+            <val-step label="Perfil">
               <div style="padding: 1.5rem; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 1rem;">
                 <h3 style="margin-top: 0;">Paso 2: Información Personal</h3>
                 <p style="color: #64748b; font-size: 0.875rem;">Completa tus datos profesionales y preferencias de cuenta.</p>
               </div>
-            </ox-step>
-            <ox-step label="Finalizar">
+            </val-step>
+            <val-step label="Finalizar">
               <div style="padding: 1.5rem; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 1rem; text-align: center;">
                 <div style="margin-bottom: 0.5rem;">
-                  <ox-icon name="check-circle" size="3xl" color="success"></ox-icon>
+                  <val-icon name="check-circle" size="3xl" color="success"></val-icon>
                 </div>
                 <h3 style="margin-top: 0;">¡Todo listo!</h3>
                 <p style="color: #64748b; font-size: 0.875rem;">Tu proceso de configuración se ha completado con éxito.</p>
               </div>
-            </ox-step>
-          </ox-stepper>
+            </val-step>
+          </val-stepper>
         </div>
       </app-doc-code>
 
@@ -57,20 +57,20 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   `
 })
 export class StepperDemoComponent {
-  stepperHtml = `<ox-stepper [headerNavigation]="true">
-  <ox-step label="Cuenta">
+  stepperHtml = `<val-stepper [headerNavigation]="true">
+  <val-step label="Cuenta">
     <p>Contenido del paso 1.</p>
-  </ox-step>
-  <ox-step label="Perfil">
+  </val-step>
+  <val-step label="Perfil">
     <p>Contenido del paso 2.</p>
-  </ox-step>
-  <ox-step label="Confirmación">
+  </val-step>
+  <val-step label="Confirmación">
     <p>Contenido del paso 3.</p>
-  </ox-step>
-</ox-stepper>`;
+  </val-step>
+</val-stepper>`;
 
   stepperTs = `import { Component } from '@angular/core';
-import { StepperComponent, StepComponent } from 'oxygen-ui';
+import { StepperComponent, StepComponent } from 'valence-ui';
 
 @Component({
   standalone: true,

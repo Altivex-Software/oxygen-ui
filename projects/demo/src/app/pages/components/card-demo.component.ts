@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { 
   CardComponent, 
   ButtonComponent, 
-  OxCardBackDirective 
-} from 'oxygen-ui';
+  ValCardBackDirective 
+} from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api-table.component';
 
@@ -15,14 +15,14 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
     CommonModule, 
     CardComponent, 
     ButtonComponent, 
-    OxCardBackDirective,
+    ValCardBackDirective,
     DocCodeComponent,
     DocApiTableComponent
   ],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Card (Contenedor Flexible)</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Contenedor flexible y extensible con múltiples variantes de elevación, efectos hover interactivos y soporte para tarjetas reversibles (*flippable*).
       </p>
 
@@ -33,13 +33,13 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="basicHtml"
         [ts]="cardTs">
         <div class="demo-row">
-          <ox-card style="width: 350px">
+          <val-card style="width: 350px">
             <h3 style="margin-top: 0; font-size: 1.125rem;">Título de la Tarjeta</h3>
             <p style="color: #64748b; margin-bottom: 1.25rem; font-size: 0.875rem; line-height: 1.5;">
               Este es el contenido de una tarjeta básica. Puedes colocar cualquier componente o estructura HTML adentro.
             </p>
-            <ox-button size="sm" label="Acción"></ox-button>
-          </ox-card>
+            <val-button size="sm" label="Acción"></val-button>
+          </val-card>
         </div>
       </app-doc-code>
 
@@ -50,15 +50,15 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="hoverHtml"
         [ts]="cardTs">
         <div class="demo-row">
-          <ox-card [hoverable]="true" [liftOnHover]="true" style="width: 300px">
+          <val-card [hoverable]="true" [liftOnHover]="true" style="width: 300px">
             <h3 style="margin-top: 0; font-size: 1.125rem;">Tarjeta Interactiva</h3>
             <p style="color: #64748b; font-size: 0.875rem;">Pasa el cursor por encima para ver la animación de elevación.</p>
-          </ox-card>
+          </val-card>
           
-          <ox-card boxShadow="lg" style="width: 300px">
+          <val-card boxShadow="lg" style="width: 300px">
             <h3 style="margin-top: 0; font-size: 1.125rem;">Sombra Elevada</h3>
             <p style="color: #64748b; font-size: 0.875rem;">Esta tarjeta cuenta con mayor profundidad visual con sombra de nivel lg.</p>
-          </ox-card>
+          </val-card>
         </div>
       </app-doc-code>
 
@@ -69,22 +69,22 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="flipHtml"
         [ts]="cardTs">
         <div class="demo-row">
-          <ox-card [(flipped)]="isFlipped" style="width: 320px; height: 190px">
+          <val-card [(flipped)]="isFlipped" style="width: 320px; height: 190px">
             <div>
               <h3 style="margin-top: 0; font-size: 1.125rem;">Frente</h3>
               <p style="color: #64748b; margin-bottom: 1rem; font-size: 0.875rem;">Haz clic para ver el reverso de la tarjeta.</p>
-              <ox-button size="sm" label="Girar" icon="refresh-cw" (onClick)="isFlipped = !isFlipped"></ox-button>
+              <val-button size="sm" label="Girar" icon="refresh-cw" (onClick)="isFlipped = !isFlipped"></val-button>
             </div>
-            <div oxCardBack style="padding: 1.5rem; background: #ffffff; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+            <div valCardBack style="padding: 1.5rem; background: #ffffff; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
                 <h3 style="margin-top: 0; font-size: 1.125rem; color: #1e293b;">Reverso</h3>
                 <p style="color: #64748b; font-size: 0.875rem;">Contenido posterior con soporte 3D.</p>
               </div>
               <div>
-                <ox-button size="sm" severity="secondary" label="Volver al Frente" (onClick)="isFlipped = !isFlipped"></ox-button>
+                <val-button size="sm" severity="secondary" label="Volver al Frente" (onClick)="isFlipped = !isFlipped"></val-button>
               </div>
             </div>
-          </ox-card>
+          </val-card>
         </div>
       </app-doc-code>
 
@@ -107,40 +107,40 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
 export class CardDemoComponent {
   isFlipped = false;
 
-  basicHtml = `<ox-card style="width: 350px">
+  basicHtml = `<val-card style="width: 350px">
   <h3>Título de la Tarjeta</h3>
   <p>Este es el contenido de una tarjeta básica.</p>
-  <ox-button size="sm" label="Acción"></ox-button>
-</ox-card>`;
+  <val-button size="sm" label="Acción"></val-button>
+</val-card>`;
 
-  hoverHtml = `<ox-card [hoverable]="true" [liftOnHover]="true" style="width: 300px">
+  hoverHtml = `<val-card [hoverable]="true" [liftOnHover]="true" style="width: 300px">
   <h3>Tarjeta Interactiva</h3>
   <p>Pasa el cursor por encima para ver la animación.</p>
-</ox-card>
+</val-card>
 
-<ox-card boxShadow="lg" style="width: 300px">
+<val-card boxShadow="lg" style="width: 300px">
   <h3>Sombra Elevada</h3>
   <p>Mayor profundidad visual.</p>
-</ox-card>`;
+</val-card>`;
 
-  flipHtml = `<ox-card [(flipped)]="isFlipped" style="width: 320px; height: 190px">
+  flipHtml = `<val-card [(flipped)]="isFlipped" style="width: 320px; height: 190px">
   <div>
     <h3>Frente</h3>
-    <ox-button size="sm" label="Girar" (onClick)="isFlipped = !isFlipped"></ox-button>
+    <val-button size="sm" label="Girar" (onClick)="isFlipped = !isFlipped"></val-button>
   </div>
-  <div oxCardBack>
+  <div valCardBack>
     <h3>Reverso</h3>
-    <ox-button size="sm" severity="secondary" label="Volver" (onClick)="isFlipped = !isFlipped"></ox-button>
+    <val-button size="sm" severity="secondary" label="Volver" (onClick)="isFlipped = !isFlipped"></val-button>
   </div>
-</ox-card>`;
+</val-card>`;
 
   cardTs = `import { Component } from '@angular/core';
-import { CardComponent, OxCardBackDirective, ButtonComponent } from 'oxygen-ui';
+import { CardComponent, ValCardBackDirective, ButtonComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-card',
   standalone: true,
-  imports: [CardComponent, OxCardBackDirective, ButtonComponent],
+  imports: [CardComponent, ValCardBackDirective, ButtonComponent],
   templateUrl: './my-card.component.html'
 })
 export class MyCardComponent {

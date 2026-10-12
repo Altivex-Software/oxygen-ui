@@ -28,22 +28,22 @@ describe('FormFieldComponent', () => {
   });
 
   it('should apply outline appearance by default', () => {
-    expect(fixture.nativeElement.classList.contains('ox-form-field--outline')).toBeTrue();
+    expect(fixture.nativeElement.classList.contains('val-form-field--outline')).toBeTrue();
   });
 
   it('should support filled and standard appearances', () => {
     fixture.componentRef.setInput('appearance', 'filled');
     fixture.detectChanges();
-    expect(fixture.nativeElement.classList.contains('ox-form-field--filled')).toBeTrue();
+    expect(fixture.nativeElement.classList.contains('val-form-field--filled')).toBeTrue();
 
     fixture.componentRef.setInput('appearance', 'standard');
     fixture.detectChanges();
-    expect(fixture.nativeElement.classList.contains('ox-form-field--standard')).toBeTrue();
+    expect(fixture.nativeElement.classList.contains('val-form-field--standard')).toBeTrue();
   });
 
   it('should apply invalid class when invalid is true', () => {
     fixture.componentRef.setInput('invalid', true);
     fixture.detectChanges();
-    expect(fixture.nativeElement.classList.contains('ox-form-field--invalid')).toBeTrue();
+    expect(fixture.nativeElement.classList.contains('val-form-field--invalid')).toBeTrue();
   });
 });

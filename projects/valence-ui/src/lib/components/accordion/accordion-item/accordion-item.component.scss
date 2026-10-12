@@ -5,10 +5,10 @@
   display: block;
 }
 
-.ox-accordion-item {
-  background-color: var(--ox-bg-secondary, #ffffff);
+.val-accordion-item {
+  background-color: var(--val-bg-secondary, #ffffff);
   transition: all 0.3s ease;
-  border-bottom: 1px solid var(--ox-border-color, #e0e0e0);
+  border-bottom: 1px solid var(--val-border-color, #e0e0e0);
 
   &__header {
     width: 100%;
@@ -22,17 +22,17 @@
     text-align: left;
     font-size: 1rem;
     font-weight: 500;
-    color: var(--ox-text-primary, #333);
+    color: var(--val-text-primary, #333);
     transition: all 0.2s ease;
 
     &:hover {
-      background-color: var(--ox-hover-bg, rgba(0, 0, 0, 0.05));
+      background-color: var(--val-hover-bg, rgba(0, 0, 0, 0.05));
     }
 
     &:focus-visible {
-      outline: 2px solid var(--ox-primary-color, #4f46e5);
+      outline: 2px solid var(--val-primary-color, #4f46e5);
       outline-offset: -2px;
-      background-color: var(--ox-hover-bg, rgba(0, 0, 0, 0.05));
+      background-color: var(--val-hover-bg, rgba(0, 0, 0, 0.05));
     }
 
     // Color and Variant variants
@@ -97,15 +97,15 @@
 
   &__content-inner {
     padding: 1rem 1.5rem;
-    color: var(--ox-text-secondary, #666);
+    color: var(--val-text-secondary, #666);
     line-height: 1.5;
   }
 
   &--expanded {
-    .ox-accordion-item__header {
+    .val-accordion-item__header {
       // Default expanded border if not a solid color
       &:not([class*="--primary"]):not([class*="--secondary"]):not([class*="--success"]):not([class*="--danger"]):not([class*="--warning"]):not([class*="--info"]) {
-        border-bottom: 1px solid var(--ox-border-color, #e0e0e0);
+        border-bottom: 1px solid var(--val-border-color, #e0e0e0);
       }
     }
   }
@@ -122,33 +122,33 @@
 }
 
 // Reset divider for the last item in contiguous mode
-:host(:last-child) .ox-accordion-item {
+:host(:last-child) .val-accordion-item {
   border-bottom-width: 0;
 }
 
 // Border radius for contiguous mode (corners)
-:host(:first-child) .ox-accordion-item {
-  border-top-left-radius: var(--ox-accordion-border-radius, 8px);
-  border-top-right-radius: var(--ox-accordion-border-radius, 8px);
+:host(:first-child) .val-accordion-item {
+  border-top-left-radius: var(--val-accordion-border-radius, 8px);
+  border-top-right-radius: var(--val-accordion-border-radius, 8px);
 }
 
-:host(:last-child) .ox-accordion-item {
-  border-bottom-left-radius: var(--ox-accordion-border-radius, 8px);
-  border-bottom-right-radius: var(--ox-accordion-border-radius, 8px);
+:host(:last-child) .val-accordion-item {
+  border-bottom-left-radius: var(--val-accordion-border-radius, 8px);
+  border-bottom-right-radius: var(--val-accordion-border-radius, 8px);
 }
 
 // Card style overrides
-:host-context(.ox-accordion--no-border) {
+:host-context(.val-accordion--no-border) {
   margin-bottom: 0.75rem;
 
   &:last-child {
     margin-bottom: 0;
   }
 
-  .ox-accordion-item {
-    border: 1px solid var(--ox-border-color, #e0e0e0);
-    border-radius: var(--ox-accordion-border-radius, 8px);
-    box-shadow: var(--ox-accordion-item-shadow, none);
+  .val-accordion-item {
+    border: 1px solid var(--val-border-color, #e0e0e0);
+    border-radius: var(--val-accordion-border-radius, 8px);
+    box-shadow: var(--val-accordion-item-shadow, none);
     overflow: hidden;
   }
 }

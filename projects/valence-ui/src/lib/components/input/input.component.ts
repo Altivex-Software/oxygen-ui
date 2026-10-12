@@ -2,28 +2,28 @@ import { Component, input, computed, ViewEncapsulation, forwardRef, signal } fro
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IconComponent } from '../icon/icon.component';
-import { OxIconName } from '../icon/icon.types';
+import { ValIconName } from '../icon/icon.types';
 
 export type InputFocusColor = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
 
 let nextId = 0;
 
 @Component({
-  selector: 'ox-input',
+  selector: 'val-input',
   standalone: true,
   imports: [CommonModule, IconComponent],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
   encapsulation: ViewEncapsulation.None,
   host: {
-    'class': 'oxy-input-wrapper',
-    '[class.oxy-input-wrapper--disabled]': 'disabled()',
-    '[class.oxy-input-wrapper--readonly]': 'readonly()',
-    '[class.oxy-input-wrapper--error]': '!!error()',
-    '[class.oxy-input-wrapper--float]': 'floatLabel()',
-    '[class.oxy-input-wrapper--has-value]': 'hasValue()',
-    '[class]': '"oxy-input-wrapper--" + size() + " oxy-input-wrapper--" + variant()',
-    '[style.--oxy-input-focus-color]': 'computedFocusColor()',
+    'class': 'val-input-wrapper',
+    '[class.val-input-wrapper--disabled]': 'disabled()',
+    '[class.val-input-wrapper--readonly]': 'readonly()',
+    '[class.val-input-wrapper--error]': '!!error()',
+    '[class.val-input-wrapper--float]': 'floatLabel()',
+    '[class.val-input-wrapper--has-value]': 'hasValue()',
+    '[class]': '"val-input-wrapper--" + size() + " val-input-wrapper--" + variant()',
+    '[style.--val-input-focus-color]': 'computedFocusColor()',
   },
   providers: [
     {
@@ -34,7 +34,7 @@ let nextId = 0;
   ]
 })
 export class InputComponent implements ControlValueAccessor {
-  id = input<string>(`oxy-input-${nextId++}`);
+  id = input<string>(`val-input-${nextId++}`);
   label = input<string>();
   type = input<'text' | 'password' | 'email' | 'number' | 'tel' | 'url'>('text');
   placeholder = input<string>('');
@@ -47,7 +47,7 @@ export class InputComponent implements ControlValueAccessor {
   variant = input<'default' | 'fieldset' | 'oneLine'>('default');
   floatLabel = input<boolean>(false);
   focusColor = input<InputFocusColor>();
-  icon = input<OxIconName | string>();
+  icon = input<ValIconName | string>();
 
   hasLabel = computed(() => !!this.label());
   hasValue = computed(() => !!this.value());
@@ -58,12 +58,12 @@ export class InputComponent implements ControlValueAccessor {
     if (!color) return undefined;
     
     const colorMap: Record<InputFocusColor, string> = {
-      primary: 'var(--oxy-primary)',
-      secondary: 'var(--oxy-secondary)',
-      success: 'var(--oxy-success)',
-      danger: 'var(--oxy-danger)',
-      warning: 'var(--oxy-warning)',
-      info: 'var(--oxy-info)'
+      primary: 'var(--val-primary)',
+      secondary: 'var(--val-secondary)',
+      success: 'var(--val-success)',
+      danger: 'var(--val-danger)',
+      warning: 'var(--val-warning)',
+      info: 'var(--val-info)'
     };
     
     return colorMap[color];

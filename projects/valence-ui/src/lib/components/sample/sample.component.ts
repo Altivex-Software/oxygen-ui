@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ox-sample',
+  selector: 'val-sample',
   standalone: true,
   imports: [],
   template: `

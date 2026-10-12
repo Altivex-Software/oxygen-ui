@@ -3,31 +3,31 @@ import { CommonModule } from '@angular/common';
 import { DropdownComponent, DropdownOption } from '../dropdown/dropdown.component';
 
 @Component({
-  selector: 'ox-paginator',
+  selector: 'val-paginator',
   standalone: true,
   imports: [CommonModule, DropdownComponent],
   template: `
-    <div class="ox-paginator">
+    <div class="val-paginator">
       <button 
-        class="ox-paginator-button" 
+        class="val-paginator-button" 
         [disabled]="isFirstPage()" 
         (click)="changePage(0)"
         title="First Page">
-        <span class="ox-paginator-icon">«</span>
+        <span class="val-paginator-icon">«</span>
       </button>
       <button 
-        class="ox-paginator-button" 
+        class="val-paginator-button" 
         [disabled]="isFirstPage()" 
         (click)="changePage(currentPage() - 1)"
         title="Previous Page">
-        <span class="ox-paginator-icon">‹</span>
+        <span class="val-paginator-icon">‹</span>
       </button>
 
-      <div class="ox-paginator-pages">
+      <div class="val-paginator-pages">
         @for (p of visiblePages(); track p) {
           <button 
-            class="ox-paginator-page" 
-            [class.ox-paginator-page-active]="p === currentPage()"
+            class="val-paginator-page" 
+            [class.val-paginator-page-active]="p === currentPage()"
             (click)="changePage(p)">
             {{ p + 1 }}
           </button>
@@ -35,32 +35,32 @@ import { DropdownComponent, DropdownOption } from '../dropdown/dropdown.componen
       </div>
 
       <button 
-        class="ox-paginator-button" 
+        class="val-paginator-button" 
         [disabled]="isLastPage()" 
         (click)="changePage(currentPage() + 1)"
         title="Next Page">
-        <span class="ox-paginator-icon">›</span>
+        <span class="val-paginator-icon">›</span>
       </button>
       <button 
-        class="ox-paginator-button" 
+        class="val-paginator-button" 
         [disabled]="isLastPage()" 
         (click)="changePage(pageCount() - 1)"
         title="Last Page">
-        <span class="ox-paginator-icon">»</span>
+        <span class="val-paginator-icon">»</span>
       </button>
 
       @if (rowsPerPageOptions().length > 0) {
-        <div class="ox-paginator-rpp-wrapper">
-          <ox-dropdown
+        <div class="val-paginator-rpp-wrapper">
+          <val-dropdown
             size="sm"
             [options]="dropdownOptions()"
             [value]="rows()"
             (valueChange)="onRowsPerPageSelect($event)">
-          </ox-dropdown>
+          </val-dropdown>
         </div>
       }
 
-      <span class="ox-paginator-current">
+      <span class="val-paginator-current">
         Showing {{ totalRecords() === 0 ? 0 : currentFirst() + 1 }} to {{ currentLast() }} of {{ totalRecords() }}
       </span>
     </div>

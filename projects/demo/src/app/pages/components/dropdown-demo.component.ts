@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { DropdownComponent, DropdownOption } from 'oxygen-ui';
+import { DropdownComponent, DropdownOption } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FormsModule, DropdownComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Dropdown (Selector Desplegable)</h1>
-      <p class="ox-description">Componente para seleccionar una opción de una lista desplegable con soporte de búsqueda, variantes y plantillas.</p>
+      <p class="val-description">Componente para seleccionar una opción de una lista desplegable con soporte de búsqueda, variantes y plantillas.</p>
 
       <!-- 1. BÁSICO -->
       <app-doc-code
@@ -21,11 +21,11 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="basicHtml"
         [ts]="basicTs">
         <div style="max-width: 320px;">
-          <ox-dropdown 
+          <val-dropdown 
             [options]="cities" 
             [(value)]="selectedCity" 
             placeholder="Selecciona una ciudad">
-          </ox-dropdown>
+          </val-dropdown>
           <p style="margin-top: 0.75rem; font-size: 0.875rem; color: #475569;">
             Ciudad seleccionada: <b>{{ selectedCity || 'Ninguna' }}</b>
           </p>
@@ -39,12 +39,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="filterHtml"
         [ts]="basicTs">
         <div style="max-width: 320px;">
-          <ox-dropdown 
+          <val-dropdown 
             [options]="cities" 
             [(value)]="filteredCity" 
             [filter]="true"
             placeholder="Busca una ciudad">
-          </ox-dropdown>
+          </val-dropdown>
           <p style="margin-top: 0.75rem; font-size: 0.875rem; color: #475569;">
             Ciudad filtrada: <b>{{ filteredCity || 'Ninguna' }}</b>
           </p>
@@ -60,15 +60,15 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
           <div>
             <span style="display: block; font-size: 0.8125rem; font-weight: 600; margin-bottom: 0.35rem; color: #64748b;">Default</span>
-            <ox-dropdown [options]="cities" placeholder="Default"></ox-dropdown>
+            <val-dropdown [options]="cities" placeholder="Default"></val-dropdown>
           </div>
           <div>
             <span style="display: block; font-size: 0.8125rem; font-weight: 600; margin-bottom: 0.35rem; color: #64748b;">Filled</span>
-            <ox-dropdown [options]="cities" variant="filled" placeholder="Filled variant"></ox-dropdown>
+            <val-dropdown [options]="cities" variant="filled" placeholder="Filled variant"></val-dropdown>
           </div>
           <div>
             <span style="display: block; font-size: 0.8125rem; font-weight: 600; margin-bottom: 0.35rem; color: #64748b;">Fieldset</span>
-            <ox-dropdown [options]="cities" variant="fieldset" label="Ciudad" placeholder="Fieldset variant"></ox-dropdown>
+            <val-dropdown [options]="cities" variant="fieldset" label="Ciudad" placeholder="Fieldset variant"></val-dropdown>
           </div>
         </div>
       </app-doc-code>
@@ -97,21 +97,21 @@ export class DropdownDemoComponent {
     { label: 'Madrid', value: 'MAD' }
   ];
 
-  basicHtml = `<ox-dropdown 
+  basicHtml = `<val-dropdown 
   [options]="cities" 
   [(value)]="selectedCity" 
   placeholder="Selecciona una ciudad">
-</ox-dropdown>`;
+</val-dropdown>`;
 
-  filterHtml = `<ox-dropdown 
+  filterHtml = `<val-dropdown 
   [options]="cities" 
   [(value)]="filteredCity" 
   [filter]="true"
   placeholder="Busca una ciudad">
-</ox-dropdown>`;
+</val-dropdown>`;
 
-  variantsHtml = `<ox-dropdown [options]="cities" variant="filled"></ox-dropdown>
-<ox-dropdown [options]="cities" variant="fieldset" label="Ciudad"></ox-dropdown>`;
+  variantsHtml = `<val-dropdown [options]="cities" variant="filled"></val-dropdown>
+<val-dropdown [options]="cities" variant="fieldset" label="Ciudad"></val-dropdown>`;
 
   basicTs = `cities = [
   { name: 'New York', code: 'NY' },
@@ -156,7 +156,7 @@ selectedCity = null;`;
   dropdownEvents: ApiEvent[] = [
     {
       name: 'onChange',
-      parameters: 'OxygenChangeEvent',
+      parameters: 'ValenceChangeEvent',
       description: 'Emitido cuando el valor seleccionado cambia.'
     },
     {

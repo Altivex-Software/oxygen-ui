@@ -19,20 +19,20 @@ export interface FileUploadErrorEvent {
 }
 
 @Component({
-  selector: 'ox-file-upload',
+  selector: 'val-file-upload',
   standalone: true,
   imports: [CommonModule, IconComponent],
   template: `
     <div 
-      class="ox-file-upload" 
-      [class.ox-file-upload-disabled]="disabled()" 
-      [class.ox-file-upload-dragover]="isDragOver()">
+      class="val-file-upload" 
+      [class.val-file-upload-disabled]="disabled()" 
+      [class.val-file-upload-dragover]="isDragOver()">
       
       <!-- Hidden file input -->
       <input 
         #fileInput
         type="file" 
-        class="ox-file-upload-input" 
+        class="val-file-upload-input" 
         [accept]="accept()"
         [multiple]="multiple()"
         [disabled]="disabled()"
@@ -41,17 +41,17 @@ export interface FileUploadErrorEvent {
       <!-- Drag & Drop Area / Button -->
       @if (!customUpload()) {
         <div 
-          class="ox-file-upload-dropzone" 
+          class="val-file-upload-dropzone" 
           (dragover)="onDragOver($event)" 
           (dragleave)="onDragLeave($event)" 
           (drop)="onDrop($event)"
           (click)="fileInput.click()">
           
-          <div class="ox-file-upload-icon">
-            <ox-icon name="upload-cloud" size="2.5rem"></ox-icon>
+          <div class="val-file-upload-icon">
+            <val-icon name="upload-cloud" size="2.5rem"></val-icon>
           </div>
-          <p class="ox-file-upload-text">{{ chooseLabel() }}</p>
-          <p class="ox-file-upload-subtext">o arrastra y suelta aquí</p>
+          <p class="val-file-upload-text">{{ chooseLabel() }}</p>
+          <p class="val-file-upload-subtext">o arrastra y suelta aquí</p>
         </div>
       } @else {
         <ng-content></ng-content>
@@ -59,22 +59,22 @@ export interface FileUploadErrorEvent {
 
       <!-- File List -->
       @if (showFileList() && files().length > 0) {
-        <div class="ox-file-upload-list">
+        <div class="val-file-upload-list">
           @for (file of files(); track file.name + file.size) {
-            <div class="ox-file-upload-item">
-              <div class="ox-file-upload-item-info">
-                <ox-icon name="file-text" size="1.25rem" class="ox-file-icon"></ox-icon>
-                <div class="ox-file-details">
-                  <span class="ox-file-name" [title]="file.name">{{ file.name }}</span>
-                  <span class="ox-file-size">{{ formatSize(file.size) }}</span>
+            <div class="val-file-upload-item">
+              <div class="val-file-upload-item-info">
+                <val-icon name="file-text" size="1.25rem" class="val-file-icon"></val-icon>
+                <div class="val-file-details">
+                  <span class="val-file-name" [title]="file.name">{{ file.name }}</span>
+                  <span class="val-file-size">{{ formatSize(file.size) }}</span>
                 </div>
               </div>
               <button 
                 type="button" 
-                class="ox-file-remove-btn" 
+                class="val-file-remove-btn" 
                 (click)="removeFile(file, $event)"
                 [disabled]="disabled()">
-                <ox-icon name="x" size="1rem"></ox-icon>
+                <val-icon name="x" size="1rem"></val-icon>
               </button>
             </div>
           }

@@ -5,22 +5,22 @@ import { IconComponent } from '../icon/icon.component';
 export type FieldsetVariant = 'outlined' | 'flat' | 'seamless';
 
 @Component({
-  selector: 'ox-fieldset',
+  selector: 'val-fieldset',
   standalone: true,
   imports: [CommonModule, NgTemplateOutlet, IconComponent],
   templateUrl: './fieldset.component.html',
   styleUrl: './fieldset.component.scss',
   host: {
-    '[class.ox-fieldset]': 'true',
-    '[class.ox-fieldset--outlined]': 'variant() === "outlined"',
-    '[class.ox-fieldset--flat]': 'variant() === "flat"',
-    '[class.ox-fieldset--seamless]': 'variant() === "seamless"',
-    '[class.ox-fieldset--disabled]': 'disabled()',
+    '[class.val-fieldset]': 'true',
+    '[class.val-fieldset--outlined]': 'variant() === "outlined"',
+    '[class.val-fieldset--flat]': 'variant() === "flat"',
+    '[class.val-fieldset--seamless]': 'variant() === "seamless"',
+    '[class.val-fieldset--disabled]': 'disabled()',
     '[attr.aria-disabled]': 'disabled()',
-    '[class.ox-fieldset--legend-start]': 'legendPosition() === "start"',
-    '[class.ox-fieldset--legend-center]': 'legendPosition() === "center"',
-    '[class.ox-fieldset--legend-end]': 'legendPosition() === "end"',
-    '[style.--ox-fieldset-border-style]': 'borderStyle()'
+    '[class.val-fieldset--legend-start]': 'legendPosition() === "start"',
+    '[class.val-fieldset--legend-center]': 'legendPosition() === "center"',
+    '[class.val-fieldset--legend-end]': 'legendPosition() === "end"',
+    '[style.--val-fieldset-border-style]': 'borderStyle()'
   }
 })
 export class FieldsetComponent {

@@ -48,8 +48,8 @@ $flex-properties: (
 
 // Helper to generate utilities
 @mixin generate-flex-utils($breakpoint: null) {
-  $prefix: if($breakpoint, 'ox-flex-#{$breakpoint}-', 'ox-flex-');
-  $disp-prefix: if($breakpoint, 'ox-d-#{$breakpoint}-', 'ox-d-');
+  $prefix: if($breakpoint, 'val-flex-#{$breakpoint}-', 'val-flex-');
+  $disp-prefix: if($breakpoint, 'val-d-#{$breakpoint}-', 'val-d-');
 
   // Display
   .#{$disp-prefix}flex { display: flex !important; }
@@ -61,9 +61,9 @@ $flex-properties: (
       $class-name: '';
       @if $prop == 'flex-direction' { $class-name: '#{$prefix}#{$key}'; }
       @else if $prop == 'flex-wrap' { $class-name: '#{$prefix}#{$key}'; }
-      @else if $prop == 'justify-content' { $class-name: '#{if($breakpoint, "ox-justify-content-#{$breakpoint}-", "ox-justify-content-")}#{$key}'; }
-      @else if $prop == 'align-items' { $class-name: '#{if($breakpoint, "ox-align-items-#{$breakpoint}-", "ox-align-items-")}#{$key}'; }
-      @else if $prop == 'align-content' { $class-name: '#{if($breakpoint, "ox-align-content-#{$breakpoint}-", "ox-align-content-")}#{$key}'; }
+      @else if $prop == 'justify-content' { $class-name: '#{if($breakpoint, "val-justify-content-#{$breakpoint}-", "val-justify-content-")}#{$key}'; }
+      @else if $prop == 'align-items' { $class-name: '#{if($breakpoint, "val-align-items-#{$breakpoint}-", "val-align-items-")}#{$key}'; }
+      @else if $prop == 'align-content' { $class-name: '#{if($breakpoint, "val-align-content-#{$breakpoint}-", "val-align-content-")}#{$key}'; }
       @else { $class-name: '#{$prefix}#{str-slice($prop, 6)}-#{$key}'; }
 
       .#{$class-name} {

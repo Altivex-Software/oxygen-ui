@@ -10,7 +10,7 @@
   line-height: 1;
   transition: all 0.2s ease;
 
-  &.ox-badge--overlay {
+  &.val-badge--overlay {
     position: absolute;
     top: 0;
     right: 0;
@@ -23,21 +23,21 @@
 }
 
 // Sizes
-:host(.ox-badge--sm) {
+:host(.val-badge--sm) {
   font-size: 10px;
   padding: 2px 4px;
   min-width: 16px;
   height: 16px;
 }
 
-:host(.ox-badge--md) {
+:host(.val-badge--md) {
   font-size: 12px;
   padding: 2px 6px;
   min-width: 20px;
   height: 20px;
 }
 
-:host(.ox-badge--lg) {
+:host(.val-badge--lg) {
   font-size: 14px;
   padding: 4px 8px;
   min-width: 24px;
@@ -45,43 +45,43 @@
 }
 
 // Variations
-:host(.ox-badge--pill) {
+:host(.val-badge--pill) {
   border-radius: 100px;
 }
 
-:host(.ox-badge--dot) {
+:host(.val-badge--dot) {
   padding: 0;
   min-width: 8px;
   height: 8px;
   border-radius: 50%;
   
-  &.ox-badge--sm { width: 6px; height: 6px; min-width: 6px; }
-  &.ox-badge--md { width: 8px; height: 8px; min-width: 8px; }
-  &.ox-badge--lg { width: 10px; height: 10px; min-width: 10px; }
+  &.val-badge--sm { width: 6px; height: 6px; min-width: 6px; }
+  &.val-badge--md { width: 8px; height: 8px; min-width: 8px; }
+  &.val-badge--lg { width: 10px; height: 10px; min-width: 10px; }
 }
 
 // Severity Classes (using CSS variables)
 :host {
-  &.ox-badge--primary { --badge-color: var(--oxy-primary); }
-  &.ox-badge--secondary { --badge-color: var(--oxy-secondary); }
-  &.ox-badge--success { --badge-color: var(--oxy-success); --badge-text-color: white; }
-  &.ox-badge--warning, &.ox-badge--warn { --badge-color: var(--oxy-warning); --badge-text-color: #212529; }
-  &.ox-badge--error, &.ox-badge--danger { --badge-color: var(--oxy-danger); --badge-text-color: white; }
-  &.ox-badge--info { --badge-color: var(--oxy-info); --badge-text-color: #212529; }
+  &.val-badge--primary { --badge-color: var(--val-primary); }
+  &.val-badge--secondary { --badge-color: var(--val-secondary); }
+  &.val-badge--success { --badge-color: var(--val-success); --badge-text-color: white; }
+  &.val-badge--warning, &.val-badge--warn { --badge-color: var(--val-warning); --badge-text-color: #212529; }
+  &.val-badge--error, &.val-badge--danger { --badge-color: var(--val-danger); --badge-text-color: white; }
+  &.val-badge--info { --badge-color: var(--val-info); --badge-text-color: #212529; }
 
-  &.ox-badge--filled {
+  &.val-badge--filled {
     background-color: var(--badge-color);
     color: var(--badge-text-color, white);
     border: 1px solid transparent;
   }
   
-  &.ox-badge--outlined {
+  &.val-badge--outlined {
     background-color: transparent;
     color: var(--badge-color);
     border: 1px solid var(--badge-color);
   }
   
-  &.ox-badge--flat {
+  &.val-badge--flat {
     background-color: color-mix(in srgb, var(--badge-color), transparent 85%);
     color: var(--badge-color);
     border: 1px solid transparent;

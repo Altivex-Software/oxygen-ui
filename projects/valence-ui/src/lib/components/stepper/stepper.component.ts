@@ -5,15 +5,15 @@ import { StepComponent } from './step.component';
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
-  selector: 'ox-stepper',
+  selector: 'val-stepper',
   standalone: true,
   imports: [CommonModule, NgTemplateOutlet, IconComponent],
   templateUrl: './stepper.component.html',
   styleUrl: './stepper.component.scss',
   host: {
-    '[class.ox-stepper]': 'true',
-    '[class.ox-stepper--vertical]': 'orientation() === "vertical"',
-    '[class.ox-stepper--horizontal]': 'orientation() === "horizontal"'
+    '[class.val-stepper]': 'true',
+    '[class.val-stepper--vertical]': 'orientation() === "vertical"',
+    '[class.val-stepper--horizontal]': 'orientation() === "horizontal"'
   },
   animations: [
     trigger('stepAnimation', [

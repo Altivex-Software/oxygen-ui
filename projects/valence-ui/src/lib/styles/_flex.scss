@@ -58,19 +58,19 @@ $flex-properties: (
       $class-name: '';
       
       @if $prop == 'flex-direction' {
-        $class-name: 'ox-flex#{$prefix-base}-#{$key}';
+        $class-name: 'val-flex#{$prefix-base}-#{$key}';
       } @else if $prop == 'flex-wrap' {
-        $class-name: 'ox-flex#{$prefix-base}-#{$key}';
+        $class-name: 'val-flex#{$prefix-base}-#{$key}';
       } @else if $prop == 'justify-content' {
-        $class-name: 'ox-justify-content#{$prefix-base}-#{$key}';
+        $class-name: 'val-justify-content#{$prefix-base}-#{$key}';
       } @else if $prop == 'align-items' {
-        $class-name: 'ox-align-items#{$prefix-base}-#{$key}';
+        $class-name: 'val-align-items#{$prefix-base}-#{$key}';
       } @else if $prop == 'align-content' {
-        $class-name: 'ox-align-content#{$prefix-base}-#{$key}';
+        $class-name: 'val-align-content#{$prefix-base}-#{$key}';
       } @else if $prop == 'flex-grow' {
-        $class-name: 'ox-flex#{$prefix-base}-grow-#{$key}';
+        $class-name: 'val-flex#{$prefix-base}-grow-#{$key}';
       } @else if $prop == 'flex-shrink' {
-        $class-name: 'ox-flex#{$prefix-base}-shrink-#{$key}';
+        $class-name: 'val-flex#{$prefix-base}-shrink-#{$key}';
       }
 
       .#{$class-name} {
@@ -80,16 +80,16 @@ $flex-properties: (
   }
 
   // Flex fill
-  .ox-flex#{$prefix-base}-fill {
+  .val-flex#{$prefix-base}-fill {
     flex: 1 1 auto !important;
   }
   
   // Display flex shortcuts
-  .ox-flex#{$prefix-base} {
+  .val-flex#{$prefix-base} {
     display: flex !important;
   }
   
-  .ox-inline-flex#{$prefix-base} {
+  .val-inline-flex#{$prefix-base} {
     display: inline-flex !important;
   }
 }

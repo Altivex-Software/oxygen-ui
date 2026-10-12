@@ -4,18 +4,18 @@ import { CommonModule } from '@angular/common';
 export type ProgressSpinnerSeverity = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
 
 @Component({
-  selector: 'ox-progress-spinner',
+  selector: 'val-progress-spinner',
   standalone: true,
   imports: [CommonModule],
   template: `
     <div 
-      class="ox-progress-spinner"
-      [class]="'ox-progress-spinner-' + severity()"
+      class="val-progress-spinner"
+      [class]="'val-progress-spinner-' + severity()"
       [style.width]="size()"
       [style.height]="size()">
-      <svg class="ox-progress-spinner-svg" viewBox="25 25 50 50">
+      <svg class="val-progress-spinner-svg" viewBox="25 25 50 50">
         <circle 
-          class="ox-progress-spinner-circle" 
+          class="val-progress-spinner-circle" 
           cx="50" 
           cy="50" 
           r="20" 

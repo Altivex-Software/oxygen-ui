@@ -1,18 +1,18 @@
 import { Component, input, computed, ViewEncapsulation, output } from '@angular/core';
-import { OxygenColor, OxygenSize, OxygenSeverity } from '../../lib-core';
+import { ValenceColor, ValenceSize, ValenceSeverity } from '../../lib-core';
 import { BadgeComponent } from '../badge/badge.component';
 import { IconComponent } from '../icon/icon.component';
-import { OxIconName } from '../icon/icon.types';
+import { ValIconName } from '../icon/icon.types';
 
 export type ButtonVariantPrefix = 'outline' | 'ghost';
-export type ButtonVariant = OxygenColor | `${ButtonVariantPrefix}-${OxygenColor}`;
+export type ButtonVariant = ValenceColor | `${ButtonVariantPrefix}-${ValenceColor}`;
 
 export interface TypesButton {
   variant: ButtonVariant;
 }
 
 @Component({
-  selector: 'ox-button, button[ox-button], button[oxy-button]',
+  selector: 'val-button, button[val-button], button[val-button]',
   imports: [BadgeComponent, IconComponent],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
@@ -37,11 +37,11 @@ export interface TypesButton {
 })
 export class ButtonComponent {
   label = input<string>();
-  icon = input<OxIconName>();
+  icon = input<ValIconName>();
   iconPos = input<'left' | 'right'>('left');
   variant = input<ButtonVariant>('primary');
-  size = input<OxygenSize>('sm');
-  boxShadow = input<OxygenSize | 'none'>('none');
+  size = input<ValenceSize>('sm');
+  boxShadow = input<ValenceSize | 'none'>('none');
   disabled = input<boolean>(false);
   borderRadius = input<string>();
 
@@ -50,7 +50,7 @@ export class ButtonComponent {
 
   // Badge inputs
   badge = input<string | number>();
-  badgeSeverity = input<OxygenSeverity | OxygenColor>('danger');
+  badgeSeverity = input<ValenceSeverity | ValenceColor>('danger');
   badgeOverlay = input<boolean>(true);
 
   // Accessibility inputs
@@ -74,11 +74,11 @@ export class ButtonComponent {
 
   hostClasses = computed(() => {
     return [
-      'oxy-button',
-      `oxy-button--${this.variant()}`,
-      `oxy-button--${this.size()}`,
-      `oxy-button--shadow-${this.boxShadow()}`,
-      this.disabled() ? 'oxy-button--disabled' : ''
+      'val-button',
+      `val-button--${this.variant()}`,
+      `val-button--${this.size()}`,
+      `val-button--shadow-${this.boxShadow()}`,
+      this.disabled() ? 'val-button--disabled' : ''
     ].filter(Boolean).join(' ');
   });
 
@@ -98,7 +98,7 @@ export class ButtonComponent {
     if (!isNavigationKey) return;
 
     // If it's a native button, the browser already handles Enter/Space clicks.
-    // We only need this for custom elements <ox-button>.
+    // We only need this for custom elements <val-button>.
     const isNativeButton = event.target instanceof HTMLButtonElement;
     
     if (event.key === ' ') {

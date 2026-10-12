@@ -22,7 +22,7 @@ $display-values: (
   }
 
   @each $key, $val in $display-values {
-    .ox-d#{$prefix}-#{$key} {
+    .val-d#{$prefix}-#{$key} {
       display: $val !important;
     }
   }

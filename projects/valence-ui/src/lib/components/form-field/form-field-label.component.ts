@@ -2,19 +2,19 @@ import { Component, Directive, input, booleanAttribute, ViewEncapsulation } from
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'ox-label, [oxLabel]',
+  selector: 'val-label, [valLabel]',
   standalone: true,
   imports: [CommonModule],
   template: `
     <ng-content></ng-content>
     @if (required()) {
-      <span class="ox-form-field-required-marker" aria-hidden="true">*</span>
+      <span class="val-form-field-required-marker" aria-hidden="true">*</span>
     }
   `,
   encapsulation: ViewEncapsulation.None,
   host: {
-    'class': 'ox-form-field-label',
-    '[class.ox-form-field-label--required]': 'required()'
+    'class': 'val-form-field-label',
+    '[class.val-form-field-label--required]': 'required()'
   }
 })
 export class FormFieldLabelComponent {

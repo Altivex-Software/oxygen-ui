@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FieldsetComponent } from 'oxygen-ui';
+import { FieldsetComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FieldsetComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Fieldset</h1>
-      <p class="ox-description">Componente agrupador de campos con leyenda integrada y soporte para alternancia colapsable.</p>
+      <p class="val-description">Componente agrupador de campos con leyenda integrada y soporte para alternancia colapsable.</p>
 
       <!-- 1. BÁSICO -->
       <app-doc-code
@@ -19,11 +19,11 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Agrupador estático con leyenda superior."
         [html]="basicHtml"
         [ts]="fieldsetTs">
-        <ox-fieldset legend="Datos de Contacto">
+        <val-fieldset legend="Datos de Contacto">
           <p style="margin: 0; color: #475569;">
             Agrupación estándar para organizar entradas relacionadas dentro de un formulario.
           </p>
-        </ox-fieldset>
+        </val-fieldset>
       </app-doc-code>
 
       <!-- 2. TOGGLEABLE -->
@@ -32,11 +32,11 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Permite al usuario contraer o expandir la sección haciendo clic en la leyenda."
         [html]="toggleHtml"
         [ts]="fieldsetTs">
-        <ox-fieldset legend="Ajustes Avanzados" [toggleable]="true">
+        <val-fieldset legend="Ajustes Avanzados" [toggleable]="true">
           <p style="margin: 0; color: #475569;">
             Esta sección puede colapsarse para mantener limpia la interfaz principal.
           </p>
-        </ox-fieldset>
+        </val-fieldset>
       </app-doc-code>
 
       <!-- API REFERENCE -->
@@ -49,16 +49,16 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   `
 })
 export class FieldsetDemoComponent {
-  basicHtml = `<ox-fieldset legend="Datos de Contacto">
+  basicHtml = `<val-fieldset legend="Datos de Contacto">
   <p>Contenido agrupado del formulario.</p>
-</ox-fieldset>`;
+</val-fieldset>`;
 
-  toggleHtml = `<ox-fieldset legend="Ajustes Avanzados" [toggleable]="true">
+  toggleHtml = `<val-fieldset legend="Ajustes Avanzados" [toggleable]="true">
   <p>Contenido colapsable del fieldset.</p>
-</ox-fieldset>`;
+</val-fieldset>`;
 
   fieldsetTs = `import { Component } from '@angular/core';
-import { FieldsetComponent } from 'oxygen-ui';
+import { FieldsetComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-fieldset',

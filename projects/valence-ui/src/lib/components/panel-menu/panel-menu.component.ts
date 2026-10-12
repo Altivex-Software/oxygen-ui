@@ -12,45 +12,45 @@ import { BadgeComponent } from '../badge/badge.component';
 import { PanelMenuItem } from './panel-menu.types';
 
 @Component({
-  selector: 'ox-panel-menu-sub',
+  selector: 'val-panel-menu-sub',
   standalone: true,
   imports: [CommonModule, RouterModule, IconComponent, BadgeComponent, forwardRef(() => PanelMenuSubComponent)],
   template: `
-    <ul class="ox-panelmenu-sublist" [class.ox-panelmenu-nested-list]="level() > 0">
+    <ul class="val-panelmenu-sublist" [class.val-panelmenu-nested-list]="level() > 0">
       @for (item of items(); track item.label || $index) {
         @if (item.separator) {
-          <li class="ox-panelmenu-separator"></li>
+          <li class="val-panelmenu-separator"></li>
         } @else {
-          <li class="ox-panelmenu-item" [class.ox-panelmenu-item-expanded]="item.expanded">
+          <li class="val-panelmenu-item" [class.val-panelmenu-item-expanded]="item.expanded">
             <a 
               [routerLink]="item.routerLink"
               [href]="item.url || null"
               [attr.target]="item.target || null"
-              class="ox-panelmenu-item-link"
-              [class.ox-panelmenu-disabled]="item.disabled"
+              class="val-panelmenu-item-link"
+              [class.val-panelmenu-disabled]="item.disabled"
               (click)="onItemClick($event, item)">
               
               @if (item.icon) {
-                <span class="ox-panelmenu-item-icon">
-                  <ox-icon [name]="$any(item.icon)" size="1rem"></ox-icon>
+                <span class="val-panelmenu-item-icon">
+                  <val-icon [name]="$any(item.icon)" size="1rem"></val-icon>
                 </span>
               }
 
-              <span class="ox-panelmenu-item-label">{{ item.label }}</span>
+              <span class="val-panelmenu-item-label">{{ item.label }}</span>
 
               @if (item.badge) {
-                <ox-badge [value]="item.badge" [severity]="item.badgeSeverity || 'info'"></ox-badge>
+                <val-badge [value]="item.badge" [severity]="item.badgeSeverity || 'info'"></val-badge>
               }
 
               @if (item.items && item.items.length > 0) {
-                <span class="ox-panelmenu-toggler" [class.ox-panelmenu-toggler-expanded]="item.expanded">
-                  <ox-icon name="chevron-right" size="0.75rem"></ox-icon>
+                <span class="val-panelmenu-toggler" [class.val-panelmenu-toggler-expanded]="item.expanded">
+                  <val-icon name="chevron-right" size="0.75rem"></val-icon>
                 </span>
               }
             </a>
 
             @if (item.items && item.items.length > 0 && item.expanded) {
-              <ox-panel-menu-sub [items]="item.items" [level]="level() + 1"></ox-panel-menu-sub>
+              <val-panel-menu-sub [items]="item.items" [level]="level() + 1"></val-panel-menu-sub>
             }
           </li>
         }
@@ -82,49 +82,49 @@ export class PanelMenuSubComponent {
 }
 
 @Component({
-  selector: 'ox-panel-menu',
+  selector: 'val-panel-menu',
   standalone: true,
   imports: [CommonModule, RouterModule, IconComponent, BadgeComponent, PanelMenuSubComponent],
   template: `
-    <div class="ox-panelmenu">
+    <div class="val-panelmenu">
       @for (panel of model(); track panel.label || $index) {
         <div 
-          class="ox-panelmenu-panel" 
-          [class.ox-panelmenu-panel-expanded]="panel.expanded"
+          class="val-panelmenu-panel" 
+          [class.val-panelmenu-panel-expanded]="panel.expanded"
           [class]="panel.styleClass || ''">
           
-          <div class="ox-panelmenu-header">
+          <div class="val-panelmenu-header">
             <a 
               [routerLink]="panel.routerLink"
               [href]="panel.url || null"
               [attr.target]="panel.target || null"
-              class="ox-panelmenu-header-link"
-              [class.ox-panelmenu-disabled]="panel.disabled"
+              class="val-panelmenu-header-link"
+              [class.val-panelmenu-disabled]="panel.disabled"
               (click)="onHeaderClick($event, panel)">
               
               @if (panel.icon) {
-                <span class="ox-panelmenu-header-icon">
-                  <ox-icon [name]="$any(panel.icon)" size="1.125rem"></ox-icon>
+                <span class="val-panelmenu-header-icon">
+                  <val-icon [name]="$any(panel.icon)" size="1.125rem"></val-icon>
                 </span>
               }
 
-              <span class="ox-panelmenu-header-label">{{ panel.label }}</span>
+              <span class="val-panelmenu-header-label">{{ panel.label }}</span>
 
               @if (panel.badge) {
-                <ox-badge [value]="panel.badge" [severity]="panel.badgeSeverity || 'info'"></ox-badge>
+                <val-badge [value]="panel.badge" [severity]="panel.badgeSeverity || 'info'"></val-badge>
               }
 
               @if (panel.items && panel.items.length > 0) {
-                <span class="ox-panelmenu-toggler" [class.ox-panelmenu-toggler-expanded]="panel.expanded">
-                  <ox-icon name="chevron-right" size="0.875rem"></ox-icon>
+                <span class="val-panelmenu-toggler" [class.val-panelmenu-toggler-expanded]="panel.expanded">
+                  <val-icon name="chevron-right" size="0.875rem"></val-icon>
                 </span>
               }
             </a>
           </div>
 
           @if (panel.items && panel.items.length > 0 && panel.expanded) {
-            <div class="ox-panelmenu-content">
-              <ox-panel-menu-sub [items]="panel.items" [level]="0"></ox-panel-menu-sub>
+            <div class="val-panelmenu-content">
+              <val-panel-menu-sub [items]="panel.items" [level]="0"></val-panel-menu-sub>
             </div>
           }
         </div>

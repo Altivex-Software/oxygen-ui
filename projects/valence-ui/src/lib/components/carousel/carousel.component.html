@@ -1,24 +1,24 @@
 <div 
-  class="ox-carousel"
+  class="val-carousel"
   (mouseenter)="onMouseEnter()"
   (mouseleave)="onMouseLeave()"
   tabindex="0">
 
   <!-- Header Template -->
   @if (headerTemplate()) {
-    <div class="ox-carousel-header">
+    <div class="val-carousel-header">
       <ng-container *ngTemplateOutlet="headerTemplate()!"></ng-container>
     </div>
   }
 
   <!-- Indicators Top -->
   @if (showIndicators() && indicatorsContentPosition() === 'top') {
-    <ul class="ox-carousel-indicators ox-carousel-indicators-top">
+    <ul class="val-carousel-indicators val-carousel-indicators-top">
       @for (ind of indicatorPages(); track ind) {
-        <li class="ox-carousel-indicator">
+        <li class="val-carousel-indicator">
           <button 
             type="button" 
-            [class.ox-carousel-indicator-active]="ind === page()" 
+            [class.val-carousel-indicator-active]="ind === page()" 
             (click)="setPage(ind)"
             [attr.aria-label]="'Página ' + (ind + 1)">
           </button>
@@ -29,44 +29,44 @@
 
   <!-- Content Container (Navigators + Viewport) -->
   <div 
-    class="ox-carousel-content" 
-    [class.ox-carousel-vertical]="orientation() === 'vertical'"
+    class="val-carousel-content" 
+    [class.val-carousel-vertical]="orientation() === 'vertical'"
     [style.height]="orientation() === 'vertical' || isCustomEffect() ? verticalViewPortHeight() : 'auto'">
 
     <!-- Prev Navigator -->
     @if (showNavigators()) {
       <button 
         type="button" 
-        class="ox-carousel-prev" 
+        class="val-carousel-prev" 
         [disabled]="isBackwardDisabled()" 
         (click)="stepBackward()"
         [attr.aria-label]="'Anterior'">
-        <ox-icon [name]="orientation() === 'vertical' ? 'chevron-up' : 'chevron-left'" size="1.25rem"></ox-icon>
+        <val-icon [name]="orientation() === 'vertical' ? 'chevron-up' : 'chevron-left'" size="1.25rem"></val-icon>
       </button>
     }
 
     <!-- Viewport -->
     <div 
       #viewport
-      class="ox-carousel-viewport"
-      [class.ox-carousel-3d-viewport]="is3DEffect()"
-      [class.ox-carousel-fade-viewport]="effect() === 'fade'"
+      class="val-carousel-viewport"
+      [class.val-carousel-3d-viewport]="is3DEffect()"
+      [class.val-carousel-fade-viewport]="effect() === 'fade'"
       [style.height]="isCustomEffect() ? verticalViewPortHeight() : 'auto'"
       (touchstart)="onTouchStart($event)"
       (touchend)="onTouchEnd($event)">
 
       <div 
-        class="ox-carousel-items-container" 
-        [class.ox-carousel-custom-container]="isCustomEffect()"
+        class="val-carousel-items-container" 
+        [class.val-carousel-custom-container]="isCustomEffect()"
         [style]="itemsContainerStyle()"
         (transitionend)="onTransitionEnd()">
 
         @for (item of renderedItems(); track $index) {
           <div 
-            class="ox-carousel-item" 
-            [class.ox-carousel-item-3d]="is3DEffect()"
-            [class.ox-carousel-item-fade]="effect() === 'fade'"
-            [class.ox-carousel-item-active]="item.index === page()"
+            class="val-carousel-item" 
+            [class.val-carousel-item-3d]="is3DEffect()"
+            [class.val-carousel-item-fade]="effect() === 'fade'"
+            [class.val-carousel-item-active]="item.index === page()"
             [style.flex-basis]="!isCustomEffect() ? itemFlexBasis() : 'auto'"
             [style.max-width]="!isCustomEffect() && orientation() === 'horizontal' ? itemFlexBasis() : '100%'"
             [style]="getItemStyle(item.index)"
@@ -86,11 +86,11 @@
     @if (showNavigators()) {
       <button 
         type="button" 
-        class="ox-carousel-next" 
+        class="val-carousel-next" 
         [disabled]="isForwardDisabled()" 
         (click)="stepForward()"
         [attr.aria-label]="'Siguiente'">
-        <ox-icon [name]="orientation() === 'vertical' ? 'chevron-down' : 'chevron-right'" size="1.25rem"></ox-icon>
+        <val-icon [name]="orientation() === 'vertical' ? 'chevron-down' : 'chevron-right'" size="1.25rem"></val-icon>
       </button>
     }
 
@@ -98,12 +98,12 @@
 
   <!-- Indicators Bottom -->
   @if (showIndicators() && indicatorsContentPosition() === 'bottom') {
-    <ul class="ox-carousel-indicators ox-carousel-indicators-bottom">
+    <ul class="val-carousel-indicators val-carousel-indicators-bottom">
       @for (ind of indicatorPages(); track ind) {
-        <li class="ox-carousel-indicator">
+        <li class="val-carousel-indicator">
           <button 
             type="button" 
-            [class.ox-carousel-indicator-active]="ind === page()" 
+            [class.val-carousel-indicator-active]="ind === page()" 
             (click)="setPage(ind)"
             [attr.aria-label]="'Página ' + (ind + 1)">
           </button>
@@ -114,7 +114,7 @@
 
   <!-- Footer Template -->
   @if (footerTemplate()) {
-    <div class="ox-carousel-footer">
+    <div class="val-carousel-footer">
       <ng-container *ngTemplateOutlet="footerTemplate()!"></ng-container>
     </div>
   }

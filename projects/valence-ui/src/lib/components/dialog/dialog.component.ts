@@ -6,14 +6,14 @@ import { IconComponent } from '../icon/icon.component';
 let dialogId = 0;
 
 @Component({
-  selector: 'ox-dialog',
+  selector: 'val-dialog',
   standalone: true,
   imports: [CommonModule, IconComponent],
   template: `
     @if (visible()) {
-      <div class="ox-dialog-mask" (click)="onMaskClick($event)">
+      <div class="val-dialog-mask" (click)="onMaskClick($event)">
         <div 
-          class="ox-dialog ox-elevation-4" 
+          class="val-dialog val-elevation-4" 
           role="dialog"
           aria-modal="true"
           [attr.aria-labelledby]="header ? titleId : null"
@@ -21,20 +21,20 @@ let dialogId = 0;
           [@dialogAnim]
           (click)="$event.stopPropagation()">
           
-          <div class="ox-dialog-header">
-            <span class="ox-dialog-title" [id]="titleId">{{ header }}</span>
-            <button class="ox-dialog-close" type="button" (click)="close()" aria-label="Cerrar diálogo">
-              <ox-icon name="x" size="1.125rem"></ox-icon>
+          <div class="val-dialog-header">
+            <span class="val-dialog-title" [id]="titleId">{{ header }}</span>
+            <button class="val-dialog-close" type="button" (click)="close()" aria-label="Cerrar diálogo">
+              <val-icon name="x" size="1.125rem"></val-icon>
             </button>
           </div>
           
-          <div class="ox-dialog-content">
+          <div class="val-dialog-content">
             <ng-content></ng-content>
           </div>
           
           @if (hasFooter) {
-            <div class="ox-dialog-footer">
-              <ng-content select="ox-footer"></ng-content>
+            <div class="val-dialog-footer">
+              <ng-content select="val-footer"></ng-content>
             </div>
           }
         </div>
@@ -64,7 +64,7 @@ export class DialogComponent {
   @Input() closeOnEscape: boolean = true;
   @Input() hasFooter: boolean = false;
 
-  titleId = `ox-dialog-title-${dialogId++}`;
+  titleId = `val-dialog-title-${dialogId++}`;
 
   @Output() onHide = new EventEmitter<void>();
 

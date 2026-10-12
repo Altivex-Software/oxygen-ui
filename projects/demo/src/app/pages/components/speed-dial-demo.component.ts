@@ -6,7 +6,7 @@ import {
   ToastService, 
   ToastComponent,
   BadgeComponent
-} from 'oxygen-ui';
+} from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -22,19 +22,19 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
     DocApiTableComponent
   ],
   template: `
-    <div class="ox-page-container">
-      <ox-toast></ox-toast>
+    <div class="val-page-container">
+      <val-toast></val-toast>
 
-      <div class="ox-flex ox-items-center ox-justify-between ox-flex-wrap ox-gap-4 ox-mb-8">
+      <div class="val-flex val-items-center val-justify-between val-flex-wrap val-gap-4 val-mb-8">
         <div>
-          <h1 class="ox-text-3xl ox-font-bold ox-text-slate-900 dark:ox-text-white ox-mb-2">Speed Dial (Botón de Acción Flotante)</h1>
-          <p class="ox-text-slate-600 dark:ox-text-slate-400">
+          <h1 class="val-text-3xl val-font-bold val-text-slate-900 dark:val-text-white val-mb-2">Speed Dial (Botón de Acción Flotante)</h1>
+          <p class="val-text-slate-600 dark:val-text-slate-400">
             SpeedDial muestra acciones contextuales agrupadas en un único botón flotante con animaciones escalonadas, despliegue lineal y radial (círculo 360°, semicírculo 180°, cuarto de círculo 90°), tooltips interactivos, etiquetas fijas y máscara backdrop.
           </p>
         </div>
-        <div class="ox-flex ox-gap-2">
-          <ox-badge value="Linear & Radial 360°" severity="primary"></ox-badge>
-          <ox-badge value="Interactive FAB" severity="success"></ox-badge>
+        <div class="val-flex val-gap-2">
+          <val-badge value="Linear & Radial 360°" severity="primary"></val-badge>
+          <val-badge value="Interactive FAB" severity="success"></val-badge>
         </div>
       </div>
 
@@ -45,11 +45,11 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="basicHtml"
         [ts]="speedDialTs">
         <div style="position: relative; height: 480px; min-height: 480px; width: 100%; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #f8fafc; background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px); background-size: 24px 24px;">
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="linearItems" 
             direction="up"
             [style]="{ position: 'absolute', bottom: '32px', right: '32px' }">
-          </ox-speed-dial>
+          </val-speed-dial>
         </div>
       </app-doc-code>
 
@@ -61,32 +61,32 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [ts]="speedDialTs">
         <div style="position: relative; height: 540px; min-height: 540px; width: 100%; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #f8fafc; background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px); background-size: 24px 24px;">
           <!-- Top: Despliegue Down -->
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="linearItems" 
             direction="down"
             [style]="{ position: 'absolute', top: '32px', left: 'calc(50% - 25px)' }">
-          </ox-speed-dial>
+          </val-speed-dial>
 
           <!-- Bottom: Despliegue Up -->
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="linearItems" 
             direction="up"
             [style]="{ position: 'absolute', bottom: '32px', left: 'calc(50% - 25px)' }">
-          </ox-speed-dial>
+          </val-speed-dial>
 
           <!-- Left: Despliegue Right -->
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="linearItems" 
             direction="right"
             [style]="{ position: 'absolute', left: '32px', top: 'calc(50% - 25px)' }">
-          </ox-speed-dial>
+          </val-speed-dial>
 
           <!-- Right: Despliegue Left -->
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="linearItems" 
             direction="left"
             [style]="{ position: 'absolute', right: '32px', top: 'calc(50% - 25px)' }">
-          </ox-speed-dial>
+          </val-speed-dial>
         </div>
       </app-doc-code>
 
@@ -97,12 +97,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="circleHtml"
         [ts]="speedDialTs">
         <div style="position: relative; height: 520px; min-height: 520px; width: 100%; display: flex; align-items: center; justify-content: center; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #f8fafc; background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px); background-size: 24px 24px;">
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="circleItems" 
             type="circle"
             [radius]="125"
-            buttonClass="ox-speed-dial-orange">
-          </ox-speed-dial>
+            buttonClass="val-speed-dial-orange">
+          </val-speed-dial>
         </div>
       </app-doc-code>
 
@@ -114,44 +114,44 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [ts]="speedDialTs">
         <div style="position: relative; height: 560px; min-height: 560px; width: 100%; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #f8fafc; background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px); background-size: 24px 24px;">
           <!-- Top: Semicírculo Down -->
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="linearItems" 
             type="semi-circle"
             direction="down"
             [radius]="115"
-            buttonClass="ox-speed-dial-success"
+            buttonClass="val-speed-dial-success"
             [style]="{ position: 'absolute', top: '32px', left: 'calc(50% - 25px)' }">
-          </ox-speed-dial>
+          </val-speed-dial>
 
           <!-- Bottom: Semicírculo Up -->
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="linearItems" 
             type="semi-circle"
             direction="up"
             [radius]="115"
-            buttonClass="ox-speed-dial-success"
+            buttonClass="val-speed-dial-success"
             [style]="{ position: 'absolute', bottom: '32px', left: 'calc(50% - 25px)' }">
-          </ox-speed-dial>
+          </val-speed-dial>
 
           <!-- Left: Semicírculo Right -->
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="linearItems" 
             type="semi-circle"
             direction="right"
             [radius]="115"
-            buttonClass="ox-speed-dial-success"
+            buttonClass="val-speed-dial-success"
             [style]="{ position: 'absolute', left: '32px', top: 'calc(50% - 25px)' }">
-          </ox-speed-dial>
+          </val-speed-dial>
 
           <!-- Right: Semicírculo Left -->
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="linearItems" 
             type="semi-circle"
             direction="left"
             [radius]="115"
-            buttonClass="ox-speed-dial-success"
+            buttonClass="val-speed-dial-success"
             [style]="{ position: 'absolute', right: '32px', top: 'calc(50% - 25px)' }">
-          </ox-speed-dial>
+          </val-speed-dial>
         </div>
       </app-doc-code>
 
@@ -163,40 +163,40 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [ts]="speedDialTs">
         <div style="position: relative; height: 540px; min-height: 540px; width: 100%; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #f8fafc; background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px); background-size: 24px 24px;">
           <!-- Top-Left -->
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="linearItems" 
             type="quarter-circle"
             direction="down-right"
             [radius]="130"
             [style]="{ position: 'absolute', top: '32px', left: '32px' }">
-          </ox-speed-dial>
+          </val-speed-dial>
 
           <!-- Top-Right -->
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="linearItems" 
             type="quarter-circle"
             direction="down-left"
             [radius]="130"
             [style]="{ position: 'absolute', top: '32px', right: '32px' }">
-          </ox-speed-dial>
+          </val-speed-dial>
 
           <!-- Bottom-Left -->
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="linearItems" 
             type="quarter-circle"
             direction="up-right"
             [radius]="130"
             [style]="{ position: 'absolute', bottom: '32px', left: '32px' }">
-          </ox-speed-dial>
+          </val-speed-dial>
 
           <!-- Bottom-Right -->
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="linearItems" 
             type="quarter-circle"
             direction="up-left"
             [radius]="130"
             [style]="{ position: 'absolute', bottom: '32px', right: '32px' }">
-          </ox-speed-dial>
+          </val-speed-dial>
         </div>
       </app-doc-code>
 
@@ -207,12 +207,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="labelsHtml"
         [ts]="speedDialTs">
         <div style="position: relative; height: 500px; min-height: 500px; width: 100%; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 40px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #f8fafc; background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px); background-size: 24px 24px;">
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="crudItems" 
             direction="up" 
             [showLabels]="true"
-            buttonClass="ox-speed-dial-primary">
-          </ox-speed-dial>
+            buttonClass="val-speed-dial-primary">
+          </val-speed-dial>
         </div>
       </app-doc-code>
 
@@ -223,13 +223,13 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="maskHtml"
         [ts]="speedDialTs">
         <div style="position: relative; height: 480px; min-height: 480px; width: 100%; display: flex; align-items: center; justify-content: center; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #f8fafc; background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px); background-size: 24px 24px;">
-          <ox-speed-dial 
+          <val-speed-dial 
             [model]="mediaItems" 
             type="circle"
             [radius]="110"
             [mask]="true"
-            buttonClass="ox-speed-dial-danger">
-          </ox-speed-dial>
+            buttonClass="val-speed-dial-danger">
+          </val-speed-dial>
         </div>
       </app-doc-code>
 
@@ -242,7 +242,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
     </div>
   `,
   styles: [`
-    .ox-page-container {
+    .val-page-container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 1.5rem;
@@ -329,49 +329,49 @@ export class SpeedDialDemoComponent {
   ];
 
   basicHtml = `<div style="position: relative; height: 480px;">
-  <ox-speed-dial 
+  <val-speed-dial 
     [model]="items" 
     direction="up" 
     [style]="{ position: 'absolute', bottom: '32px', right: '32px' }">
-  </ox-speed-dial>
+  </val-speed-dial>
 </div>`;
 
-  linearHtml = `<ox-speed-dial [model]="items" direction="down" [style]="{ position: 'absolute', top: '32px', left: 'calc(50% - 25px)' }"></ox-speed-dial>
-<ox-speed-dial [model]="items" direction="up" [style]="{ position: 'absolute', bottom: '32px', left: 'calc(50% - 25px)' }"></ox-speed-dial>
-<ox-speed-dial [model]="items" direction="right" [style]="{ position: 'absolute', left: '32px', top: 'calc(50% - 25px)' }"></ox-speed-dial>
-<ox-speed-dial [model]="items" direction="left" [style]="{ position: 'absolute', right: '32px', top: 'calc(50% - 25px)' }"></ox-speed-dial>`;
+  linearHtml = `<val-speed-dial [model]="items" direction="down" [style]="{ position: 'absolute', top: '32px', left: 'calc(50% - 25px)' }"></val-speed-dial>
+<val-speed-dial [model]="items" direction="up" [style]="{ position: 'absolute', bottom: '32px', left: 'calc(50% - 25px)' }"></val-speed-dial>
+<val-speed-dial [model]="items" direction="right" [style]="{ position: 'absolute', left: '32px', top: 'calc(50% - 25px)' }"></val-speed-dial>
+<val-speed-dial [model]="items" direction="left" [style]="{ position: 'absolute', right: '32px', top: 'calc(50% - 25px)' }"></val-speed-dial>`;
 
-  circleHtml = `<ox-speed-dial 
+  circleHtml = `<val-speed-dial 
   [model]="circleItems" 
   type="circle" 
   [radius]="125"
-  buttonClass="ox-speed-dial-orange">
-</ox-speed-dial>`;
+  buttonClass="val-speed-dial-orange">
+</val-speed-dial>`;
 
-  semiCircleHtml = `<ox-speed-dial [model]="items" type="semi-circle" direction="down" [radius]="115" buttonClass="ox-speed-dial-success" [style]="{ position: 'absolute', top: '32px', left: 'calc(50% - 25px)' }"></ox-speed-dial>
-<ox-speed-dial [model]="items" type="semi-circle" direction="left" [radius]="115" buttonClass="ox-speed-dial-success" [style]="{ position: 'absolute', right: '32px', top: 'calc(50% - 25px)' }"></ox-speed-dial>
-<ox-speed-dial [model]="items" type="semi-circle" direction="up" [radius]="115" buttonClass="ox-speed-dial-success" [style]="{ position: 'absolute', bottom: '32px', left: 'calc(50% - 25px)' }"></ox-speed-dial>
-<ox-speed-dial [model]="items" type="semi-circle" direction="right" [radius]="115" buttonClass="ox-speed-dial-success" [style]="{ position: 'absolute', left: '32px', top: 'calc(50% - 25px)' }"></ox-speed-dial>`;
+  semiCircleHtml = `<val-speed-dial [model]="items" type="semi-circle" direction="down" [radius]="115" buttonClass="val-speed-dial-success" [style]="{ position: 'absolute', top: '32px', left: 'calc(50% - 25px)' }"></val-speed-dial>
+<val-speed-dial [model]="items" type="semi-circle" direction="left" [radius]="115" buttonClass="val-speed-dial-success" [style]="{ position: 'absolute', right: '32px', top: 'calc(50% - 25px)' }"></val-speed-dial>
+<val-speed-dial [model]="items" type="semi-circle" direction="up" [radius]="115" buttonClass="val-speed-dial-success" [style]="{ position: 'absolute', bottom: '32px', left: 'calc(50% - 25px)' }"></val-speed-dial>
+<val-speed-dial [model]="items" type="semi-circle" direction="right" [radius]="115" buttonClass="val-speed-dial-success" [style]="{ position: 'absolute', left: '32px', top: 'calc(50% - 25px)' }"></val-speed-dial>`;
 
-  quarterCircleHtml = `<ox-speed-dial [model]="items" type="quarter-circle" direction="down-right" [radius]="130" [style]="{ position: 'absolute', top: '32px', left: '32px' }"></ox-speed-dial>
-<ox-speed-dial [model]="items" type="quarter-circle" direction="down-left" [radius]="130" [style]="{ position: 'absolute', top: '32px', right: '32px' }"></ox-speed-dial>
-<ox-speed-dial [model]="items" type="quarter-circle" direction="up-right" [radius]="130" [style]="{ position: 'absolute', bottom: '32px', left: '32px' }"></ox-speed-dial>
-<ox-speed-dial [model]="items" type="quarter-circle" direction="up-left" [radius]="130" [style]="{ position: 'absolute', bottom: '32px', right: '32px' }"></ox-speed-dial>`;
+  quarterCircleHtml = `<val-speed-dial [model]="items" type="quarter-circle" direction="down-right" [radius]="130" [style]="{ position: 'absolute', top: '32px', left: '32px' }"></val-speed-dial>
+<val-speed-dial [model]="items" type="quarter-circle" direction="down-left" [radius]="130" [style]="{ position: 'absolute', top: '32px', right: '32px' }"></val-speed-dial>
+<val-speed-dial [model]="items" type="quarter-circle" direction="up-right" [radius]="130" [style]="{ position: 'absolute', bottom: '32px', left: '32px' }"></val-speed-dial>
+<val-speed-dial [model]="items" type="quarter-circle" direction="up-left" [radius]="130" [style]="{ position: 'absolute', bottom: '32px', right: '32px' }"></val-speed-dial>`;
 
-  labelsHtml = `<ox-speed-dial 
+  labelsHtml = `<val-speed-dial 
   [model]="crudItems" 
   direction="up" 
   [showLabels]="true"
-  buttonClass="ox-speed-dial-primary">
-</ox-speed-dial>`;
+  buttonClass="val-speed-dial-primary">
+</val-speed-dial>`;
 
-  maskHtml = `<ox-speed-dial 
+  maskHtml = `<val-speed-dial 
   [model]="items" 
   type="circle"
   [radius]="110"
   [mask]="true"
-  buttonClass="ox-speed-dial-danger">
-</ox-speed-dial>`;
+  buttonClass="val-speed-dial-danger">
+</val-speed-dial>`;
 
   speedDialTs = `items: SpeedDialItem[] = [
   { icon: 'share-2', tooltip: 'Compartir', command: () => this.toast.add(...) },
@@ -422,7 +422,7 @@ export class SpeedDialDemoComponent {
       name: 'buttonClass',
       type: 'string',
       default: `''`,
-      description: 'Clase CSS adicional para el botón FAB principal (ej. ox-speed-dial-orange, ox-speed-dial-success, ox-speed-dial-primary).'
+      description: 'Clase CSS adicional para el botón FAB principal (ej. val-speed-dial-orange, val-speed-dial-success, val-speed-dial-primary).'
     },
     {
       name: 'style',

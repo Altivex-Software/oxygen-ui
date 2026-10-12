@@ -1,4 +1,4 @@
-.ox-dialog-mask {
+.val-dialog-mask {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@
   backdrop-filter: blur(2px);
 }
 
-.ox-dialog {
+.val-dialog {
   background: white;
   border-radius: 8px;
   display: flex;

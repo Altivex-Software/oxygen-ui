@@ -22,7 +22,7 @@ $container-max-widths: (
 }
 
 // Fixed-width container (fluid until the respective breakpoint)
-.ox-container {
+.val-container {
   @extend %container-base;
 
   @each $name, $width in $container-max-widths {
@@ -33,14 +33,14 @@ $container-max-widths: (
 }
 
 // Fluid container (always 100% width)
-.ox-container-fluid {
+.val-container-fluid {
   @extend %container-base;
 }
 
 // Responsive containers (fluid until specified breakpoint, then fixed)
-// Example: .ox-container-md is 100% wide until 'md' breakpoint
+// Example: .val-container-md is 100% wide until 'md' breakpoint
 @each $name, $width in $container-max-widths {
-  .ox-container-#{$name} {
+  .val-container-#{$name} {
     @extend %container-base;
 
     $apply-max-width: false;

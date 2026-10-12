@@ -2,7 +2,7 @@ import { Injectable, signal, effect } from '@angular/core';
 
 export type ThemeMode = 'light' | 'dark' | 'system';
 
-export interface OxygenConfig {
+export interface ValenceConfig {
   ripple: boolean;
   inputStyle: 'filled' | 'outlined';
   theme: ThemeMode;
@@ -11,8 +11,8 @@ export interface OxygenConfig {
 @Injectable({
   providedIn: 'root'
 })
-export class OxygenConfigService {
-  config = signal<OxygenConfig>({
+export class ValenceConfigService {
+  config = signal<ValenceConfig>({
     ripple: true,
     inputStyle: 'outlined',
     theme: 'light'
@@ -26,7 +26,7 @@ export class OxygenConfigService {
     });
   }
 
-  updateConfig(newConfig: Partial<OxygenConfig>) {
+  updateConfig(newConfig: Partial<ValenceConfig>) {
     this.config.update(current => ({ ...current, ...newConfig }));
   }
 
@@ -34,11 +34,11 @@ export class OxygenConfigService {
     if (typeof document === 'undefined') return;
     
     const root = document.documentElement;
-    root.classList.remove('ox-dark', 'ox-light');
+    root.classList.remove('val-dark', 'val-light');
     
     if (theme === 'system') {
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      root.classList.add(prefersDark ? 'ox-dark' : 'ox-light');
+      root.classList.add(prefersDark ? 'val-dark' : 'val-light');
     } else {
       root.classList.add(`ox-${theme}`);
     }

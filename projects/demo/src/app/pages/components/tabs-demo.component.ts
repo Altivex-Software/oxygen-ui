@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TabsComponent, TabComponent } from 'oxygen-ui';
+import { TabsComponent, TabComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, TabsComponent, TabComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Tabs (Pestañas de Navegación)</h1>
-      <p class="ox-description">Organiza y segmenta el contenido en paneles con pestañas interactivas.</p>
+      <p class="val-description">Organiza y segmenta el contenido en paneles con pestañas interactivas.</p>
 
       <!-- 1. BÁSICO -->
       <app-doc-code
@@ -19,20 +19,20 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Pestañas estándar con etiquetas y contenido dinámico."
         [html]="basicHtml"
         [ts]="tabsTs">
-        <ox-tabs>
-          <ox-tab label="Perfil" icon="user">
+        <val-tabs>
+          <val-tab label="Perfil" icon="user">
             <div style="padding: 1rem; color: #334155;">
               <h3 style="margin-top: 0;">Información de Perfil</h3>
               <p>Contenido relacionado con el perfil y datos del usuario.</p>
             </div>
-          </ox-tab>
-          <ox-tab label="Seguridad" icon="lock">
+          </val-tab>
+          <val-tab label="Seguridad" icon="lock">
             <div style="padding: 1rem; color: #334155;">
               <h3 style="margin-top: 0;">Ajustes de Seguridad</h3>
               <p>Cambio de contraseña y autenticación en dos factores.</p>
             </div>
-          </ox-tab>
-        </ox-tabs>
+          </val-tab>
+        </val-tabs>
       </app-doc-code>
 
       <!-- 2. VARIANTES DE COLOR -->
@@ -41,10 +41,10 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Colores temáticos success, danger y warning."
         [html]="colorHtml"
         [ts]="tabsTs">
-        <ox-tabs color="success">
-          <ox-tab label="Ventas" icon="activity"><div style="padding: 1rem;">Métricas de ventas en tiempo real.</div></ox-tab>
-          <ox-tab label="Ingresos" icon="dollar-sign"><div style="padding: 1rem;">Reporte financiero consolidado.</div></ox-tab>
-        </ox-tabs>
+        <val-tabs color="success">
+          <val-tab label="Ventas" icon="activity"><div style="padding: 1rem;">Métricas de ventas en tiempo real.</div></val-tab>
+          <val-tab label="Ingresos" icon="dollar-sign"><div style="padding: 1rem;">Reporte financiero consolidado.</div></val-tab>
+        </val-tabs>
       </app-doc-code>
 
       <!-- API REFERENCE -->
@@ -57,22 +57,22 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   `
 })
 export class TabsDemoComponent {
-  basicHtml = `<ox-tabs>
-  <ox-tab label="Perfil" icon="user">
+  basicHtml = `<val-tabs>
+  <val-tab label="Perfil" icon="user">
     <p>Contenido de perfil</p>
-  </ox-tab>
-  <ox-tab label="Seguridad" icon="lock">
+  </val-tab>
+  <val-tab label="Seguridad" icon="lock">
     <p>Ajustes de seguridad</p>
-  </ox-tab>
-</ox-tabs>`;
+  </val-tab>
+</val-tabs>`;
 
-  colorHtml = `<ox-tabs color="success">
-  <ox-tab label="Ventas" icon="activity">Contenido de ventas</ox-tab>
-  <ox-tab label="Ingresos" icon="dollar-sign">Contenido de ingresos</ox-tab>
-</ox-tabs>`;
+  colorHtml = `<val-tabs color="success">
+  <val-tab label="Ventas" icon="activity">Contenido de ventas</val-tab>
+  <val-tab label="Ingresos" icon="dollar-sign">Contenido de ingresos</val-tab>
+</val-tabs>`;
 
   tabsTs = `import { Component } from '@angular/core';
-import { TabsComponent, TabComponent } from 'oxygen-ui';
+import { TabsComponent, TabComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-tabs',

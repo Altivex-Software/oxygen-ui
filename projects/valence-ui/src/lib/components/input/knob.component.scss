@@ -1,4 +1,4 @@
-.oxy-knob-container {
+.val-knob-container {
   display: inline-flex;
   flex-direction: column;
   alignment-items: center;
@@ -12,59 +12,59 @@
   }
 }
 
-.oxy-knob-svg {
+.val-knob-svg {
   width: 100%;
   height: 100px;
   transform: rotate(-90deg);
   cursor: ns-resize;
 }
 
-.oxy-knob-track {
+.val-knob-track {
   fill: none;
-  stroke: var(--oxy-border-color, #e5e7eb);
+  stroke: var(--val-border-color, #e5e7eb);
 }
 
-.oxy-knob-progress {
+.val-knob-progress {
   fill: none;
-  stroke: var(--oxy-primary-color, #3b82f6);
+  stroke: var(--val-primary-color, #3b82f6);
   stroke-linecap: round;
   transition: stroke-dashoffset 0.1s ease-out;
 }
 
-.oxy-knob-center {
+.val-knob-center {
   fill: white;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
-.oxy-knob-indicator {
-  fill: var(--oxy-primary-color, #3b82f6);
+.val-knob-indicator {
+  fill: var(--val-primary-color, #3b82f6);
 }
 
 /* Variantes */
-.oxy-knob--flat {
-  .oxy-knob-track {
+.val-knob--flat {
+  .val-knob-track {
     stroke-opacity: 0.2;
   }
 }
 
-.oxy-knob--outline {
-  .oxy-knob-track {
+.val-knob--outline {
+  .val-knob-track {
     stroke-dasharray: 2, 2;
   }
 }
 
-.oxy-knob-text {
+.val-knob-text {
   transform: rotate(90deg);
   transform-origin: center;
   font-size: 16px;
   font-weight: 700;
-  fill: var(--oxy-text-color, #1f2937);
+  fill: var(--val-text-color, #1f2937);
   font-family: inherit;
 }
 
-.oxy-knob-label {
+.val-knob-label {
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--oxy-text-muted, #6b7280);
+  color: var(--val-text-muted, #6b7280);
   text-align: center;
 }

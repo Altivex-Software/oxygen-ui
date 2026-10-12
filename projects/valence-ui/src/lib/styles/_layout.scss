@@ -4,25 +4,25 @@
 @use './breakpoints' as b;
 
 // Page Containers
-.ox-page-container {
+.val-page-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   width: 100%;
 }
 
-.ox-section {
+.val-section {
   margin-bottom: 4rem;
 }
 
-.ox-description {
+.val-description {
   font-size: 1.125rem;
   color: #64748b; // Muted text
   margin-bottom: 3rem;
 }
 
 // Hero
-.ox-hero {
+.val-hero {
   padding: 6rem 2rem;
   text-align: center;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -30,12 +30,12 @@
   margin-bottom: 4rem;
 }
 
-.ox-hero-content {
+.val-hero-content {
   max-width: 800px;
   margin: 0 auto;
 }
 
 // Structural classes
-.ox-content {
+.val-content {
   padding: 1rem;
 }

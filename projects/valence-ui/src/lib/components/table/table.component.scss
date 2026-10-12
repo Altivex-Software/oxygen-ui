@@ -1,4 +1,4 @@
-.ox-table-container {
+.val-table-container {
   width: 100%;
   background: white;
   border-radius: 8px;
@@ -6,7 +6,7 @@
   overflow: hidden;
 }
 
-.ox-table {
+.val-table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
@@ -44,7 +44,7 @@
 
     // Support internal <tr> within templates
     // But we are already using <tr> in templates, let's make sure
-    // the styles apply to <tr> tags inside .ox-table
+    // the styles apply to <tr> tags inside .val-table
   }
 
   tr {
@@ -55,7 +55,7 @@
       background: #f8fafc;
     }
 
-    &.ox-table-row-selected {
+    &.val-table-row-selected {
       background-color: #eff6ff !important;
       color: #1d4ed8;
 
@@ -73,7 +73,7 @@
     text-align: left;
     border-bottom: 2px solid #e2e8f0;
 
-    &.ox-sortable-column {
+    &.val-sortable-column {
       cursor: pointer;
       user-select: none;
       transition: background 0.2s, color 0.2s;
@@ -85,7 +85,7 @@
     }
   }
 
-  .ox-sort-icon {
+  .val-sort-icon {
     display: inline-block;
     margin-left: 0.5rem;
     font-size: 0.75rem;

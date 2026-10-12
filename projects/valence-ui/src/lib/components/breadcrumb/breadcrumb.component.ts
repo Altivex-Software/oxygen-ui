@@ -1,6 +1,6 @@
 import { Component, input, computed, ViewEncapsulation, contentChild, TemplateRef } from '@angular/core';
 import { CommonModule, NgTemplateOutlet } from '@angular/common';
-import { OxBreadcrumbItemDef } from './breadcrumb-item-def.directive';
+import { ValBreadcrumbItemDef } from './breadcrumb-item-def.directive';
 
 export interface BreadcrumbItem {
   label: string;
@@ -12,7 +12,7 @@ export interface BreadcrumbItem {
 }
 
 @Component({
-  selector: 'ox-breadcrumb',
+  selector: 'val-breadcrumb',
   standalone: true,
   imports: [CommonModule, NgTemplateOutlet],
   templateUrl: './breadcrumb.component.html',
@@ -30,13 +30,13 @@ export class BreadcrumbComponent {
   homeIcon = input<string>();
   severity = input<'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info'>();
 
-  itemTemplate = contentChild(OxBreadcrumbItemDef);
+  itemTemplate = contentChild(ValBreadcrumbItemDef);
 
   hostClasses = computed(() => {
     const severity = this.severity();
     return [
-      'ox-breadcrumb-container',
-      severity ? `ox-breadcrumb--${severity}` : ''
+      'val-breadcrumb-container',
+      severity ? `val-breadcrumb--${severity}` : ''
     ].filter(Boolean).join(' ');
   });
 

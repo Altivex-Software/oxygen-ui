@@ -2,7 +2,7 @@
 @use 'sass:math';
 @use '../../styles/tokens' as t;
 
-.oxy-button {
+.val-button {
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
@@ -19,58 +19,58 @@
   text-decoration: none;
   position: relative; // Added for badge overlay support
 
-  &.oxy-button--disabled {
+  &.val-button--disabled {
     cursor: not-allowed !important;
     opacity: 0.5 !important;
     pointer-events: none !important;
   }
 
   // Sizes
-  &.oxy-button--sm {
+  &.val-button--sm {
     padding: var(--spacing-xs) var(--spacing-sm);
     font-size: 12px;
     height: 32px;
   }
 
-  &.oxy-button--md {
+  &.val-button--md {
     padding: var(--spacing-sm) var(--spacing-md);
     font-size: var(--font-size-base);
     height: 40px;
   }
 
-  &.oxy-button--lg {
+  &.val-button--lg {
     padding: var(--spacing-md) var(--spacing-lg);
     font-size: 16px;
     height: 48px;
   }
 
   // Solid Variants
-  &.oxy-button--primary { background: var(--oxy-primary); color: white; &:hover { background: var(--oxy-primary-hover); } }
-  &.oxy-button--secondary { background: var(--oxy-secondary); color: white; &:hover { background: var(--oxy-secondary-hover); } }
-  &.oxy-button--success { background: var(--oxy-success); color: white; &:hover { background: var(--oxy-success-hover); } }
-  &.oxy-button--warning { background: var(--oxy-warning); color: white; &:hover { background: var(--oxy-warning-hover); } }
-  &.oxy-button--danger { background: var(--oxy-danger); color: white; &:hover { background: var(--oxy-danger-hover); } }
-  &.oxy-button--info { background: var(--oxy-info); color: white; &:hover { background: var(--oxy-info-hover); } }
+  &.val-button--primary { background: var(--val-primary); color: white; &:hover { background: var(--val-primary-hover); } }
+  &.val-button--secondary { background: var(--val-secondary); color: white; &:hover { background: var(--val-secondary-hover); } }
+  &.val-button--success { background: var(--val-success); color: white; &:hover { background: var(--val-success-hover); } }
+  &.val-button--warning { background: var(--val-warning); color: white; &:hover { background: var(--val-warning-hover); } }
+  &.val-button--danger { background: var(--val-danger); color: white; &:hover { background: var(--val-danger-hover); } }
+  &.val-button--info { background: var(--val-info); color: white; &:hover { background: var(--val-info-hover); } }
 
   // Outline Variants
-  &.oxy-button--outline-primary { border-color: var(--oxy-primary); color: var(--oxy-primary); background: transparent; &:hover { background: rgba(0, 102, 255, 0.05); } }
-  &.oxy-button--outline-secondary { border-color: var(--oxy-secondary); color: var(--oxy-secondary); background: transparent; &:hover { background: rgba(108, 117, 125, 0.05); } }
-  &.oxy-button--outline-success { border-color: var(--oxy-success); color: var(--oxy-success); background: transparent; &:hover { background: rgba(40, 167, 69, 0.05); } }
-  &.oxy-button--outline-warning { border-color: var(--oxy-warning); color: var(--oxy-warning); background: transparent; &:hover { background: rgba(255, 193, 7, 0.15); } }
-  &.oxy-button--outline-danger { border-color: var(--oxy-danger); color: var(--oxy-danger); background: transparent; &:hover { background: rgba(220, 53, 69, 0.05); } }
-  &.oxy-button--outline-info { border-color: var(--oxy-info); color: var(--oxy-info); background: transparent; &:hover { background: rgba(13, 202, 240, 0.05); } }
+  &.val-button--outline-primary { border-color: var(--val-primary); color: var(--val-primary); background: transparent; &:hover { background: rgba(0, 102, 255, 0.05); } }
+  &.val-button--outline-secondary { border-color: var(--val-secondary); color: var(--val-secondary); background: transparent; &:hover { background: rgba(108, 117, 125, 0.05); } }
+  &.val-button--outline-success { border-color: var(--val-success); color: var(--val-success); background: transparent; &:hover { background: rgba(40, 167, 69, 0.05); } }
+  &.val-button--outline-warning { border-color: var(--val-warning); color: var(--val-warning); background: transparent; &:hover { background: rgba(255, 193, 7, 0.15); } }
+  &.val-button--outline-danger { border-color: var(--val-danger); color: var(--val-danger); background: transparent; &:hover { background: rgba(220, 53, 69, 0.05); } }
+  &.val-button--outline-info { border-color: var(--val-info); color: var(--val-info); background: transparent; &:hover { background: rgba(13, 202, 240, 0.05); } }
 
   // Ghost Variants
-  &.oxy-button--ghost-primary { border-color: transparent; color: var(--oxy-primary); background: transparent; &:hover { background: rgba(0, 102, 255, 0.05); } }
-  &.oxy-button--ghost-secondary { border-color: transparent; color: var(--oxy-secondary); background: transparent; &:hover { background: rgba(108, 117, 125, 0.05); } }
-  &.oxy-button--ghost-success { border-color: transparent; color: var(--oxy-success); background: transparent; &:hover { background: rgba(40, 167, 69, 0.05); } }
-  &.oxy-button--ghost-warning { border-color: transparent; color: var(--oxy-warning); background: transparent; &:hover { background: rgba(255, 193, 7, 0.15); } }
-  &.oxy-button--ghost-danger { border-color: transparent; color: var(--oxy-danger); background: transparent; &:hover { background: rgba(220, 53, 69, 0.05); } }
-  &.oxy-button--ghost-info { border-color: transparent; color: var(--oxy-info); background: transparent; &:hover { background: rgba(13, 202, 240, 0.05); } }
+  &.val-button--ghost-primary { border-color: transparent; color: var(--val-primary); background: transparent; &:hover { background: rgba(0, 102, 255, 0.05); } }
+  &.val-button--ghost-secondary { border-color: transparent; color: var(--val-secondary); background: transparent; &:hover { background: rgba(108, 117, 125, 0.05); } }
+  &.val-button--ghost-success { border-color: transparent; color: var(--val-success); background: transparent; &:hover { background: rgba(40, 167, 69, 0.05); } }
+  &.val-button--ghost-warning { border-color: transparent; color: var(--val-warning); background: transparent; &:hover { background: rgba(255, 193, 7, 0.15); } }
+  &.val-button--ghost-danger { border-color: transparent; color: var(--val-danger); background: transparent; &:hover { background: rgba(220, 53, 69, 0.05); } }
+  &.val-button--ghost-info { border-color: transparent; color: var(--val-info); background: transparent; &:hover { background: rgba(13, 202, 240, 0.05); } }
 
   // Shadows
-  &.oxy-button--shadow-sm { box-shadow: var(--shadow-sm); }
-  &.oxy-button--shadow-md { box-shadow: var(--shadow-md); }
+  &.val-button--shadow-sm { box-shadow: var(--shadow-sm); }
+  &.val-button--shadow-md { box-shadow: var(--shadow-md); }
 }
 
 // End of button styles

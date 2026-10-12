@@ -6,24 +6,24 @@ export type DividerLabelPosition = 'start' | 'center' | 'end';
 export type DividerBorderStyle = 'solid' | 'dashed' | 'dotted' | 'double';
 
 @Component({
-  selector: 'ox-divider',
+  selector: 'val-divider',
   standalone: true,
   imports: [CommonModule],
   template: `
     @if (label()) {
-      <span class="ox-divider__label" [style.font-weight]="labelFontWeight()">{{ label() }}</span>
+      <span class="val-divider__label" [style.font-weight]="labelFontWeight()">{{ label() }}</span>
     }
   `,
   styleUrl: './divider.component.scss',
   host: {
-    '[class.ox-divider--horizontal]': 'isHorizontal()',
-    '[class.ox-divider--vertical]': '!isHorizontal()',
-    '[class.ox-divider--resizable]': 'resizable()',
-    '[class.ox-divider--has-label]': 'hasLabel()',
-    '[class.ox-divider--label-start]': 'labelPosition() === "start"',
-    '[class.ox-divider--label-center]': 'labelPosition() === "center"',
-    '[class.ox-divider--label-end]': 'labelPosition() === "end"',
-    '[style.--ox-divider-style]': 'borderStyle()',
+    '[class.val-divider--horizontal]': 'isHorizontal()',
+    '[class.val-divider--vertical]': '!isHorizontal()',
+    '[class.val-divider--resizable]': 'resizable()',
+    '[class.val-divider--has-label]': 'hasLabel()',
+    '[class.val-divider--label-start]': 'labelPosition() === "start"',
+    '[class.val-divider--label-center]': 'labelPosition() === "center"',
+    '[class.val-divider--label-end]': 'labelPosition() === "end"',
+    '[style.--val-divider-style]': 'borderStyle()',
     'role': 'separator',
     '[attr.aria-orientation]': 'orientation()'
   }
@@ -36,7 +36,7 @@ export class DividerComponent {
   borderStyle = input<DividerBorderStyle>('solid');
   resizable = input<boolean>(false);
   thickness = input<string>('1px');
-  color = input<string>('var(--ox-border-color, #e0e0e0)');
+  color = input<string>('var(--val-border-color, #e0e0e0)');
 
   isHorizontal = computed(() => this.orientation() === 'horizontal');
   hasLabel = computed(() => !!this.label());

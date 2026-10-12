@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent, OxConfirmService, ToastService } from 'oxygen-ui';
+import { ButtonComponent, ValConfirmService, ToastService } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, ButtonComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>ConfirmDialog & ConfirmService</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Servicio global programático para lanzar modales de confirmación asíncronos desde TypeScript sin declarar modales repetitivos en cada template HTML.
       </p>
 
@@ -21,15 +21,15 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Llamadas programáticas asíncronas para confirmar o cancelar acciones críticas."
         [htmlCode]="confirmHtml"
         [tsCode]="confirmTs">
-        <div class="ox-flex ox-gap-4 ox-flex-wrap">
-          <ox-button label="Borrar Registro" severity="danger" (onClick)="confirmDelete()"></ox-button>
-          <ox-button label="Guardar Cambios" severity="success" (onClick)="confirmSave()"></ox-button>
+        <div class="val-flex val-gap-4 val-flex-wrap">
+          <val-button label="Borrar Registro" severity="danger" (onClick)="confirmDelete()"></val-button>
+          <val-button label="Guardar Cambios" severity="success" (onClick)="confirmSave()"></val-button>
         </div>
       </app-doc-code>
 
       <!-- API REFERENCE -->
       <app-doc-api-table 
-        title="API Reference: OxConfirmService"
+        title="API Reference: ValConfirmService"
         [properties]="confirmProperties">
       </app-doc-api-table>
     </div>
@@ -37,7 +37,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
 })
 export class ConfirmDemoComponent {
   constructor(
-    private confirmService: OxConfirmService,
+    private confirmService: ValConfirmService,
     private toastService: ToastService
   ) {}
 
@@ -80,18 +80,18 @@ export class ConfirmDemoComponent {
     });
   }
 
-  confirmHtml = `<ox-button label="Borrar Registro" severity="danger" (onClick)="confirmDelete()"></ox-button>
-<ox-button label="Guardar Cambios" severity="success" (onClick)="confirmSave()"></ox-button>`;
+  confirmHtml = `<val-button label="Borrar Registro" severity="danger" (onClick)="confirmDelete()"></val-button>
+<val-button label="Guardar Cambios" severity="success" (onClick)="confirmSave()"></val-button>`;
 
   confirmTs = `import { Component, inject } from '@angular/core';
-import { OxConfirmService, ToastService } from 'oxygen-ui';
+import { ValConfirmService, ToastService } from 'valence-ui';
 
 @Component({
   standalone: true,
   templateUrl: './my-component.html'
 })
 export class MyComponent {
-  private confirmService = inject(OxConfirmService);
+  private confirmService = inject(ValConfirmService);
   private toastService = inject(ToastService);
 
   confirmDelete() {

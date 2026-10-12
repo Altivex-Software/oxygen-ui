@@ -124,11 +124,11 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
       
       &:hover {
         background-color: #f8fafc;
-        color: var(--oxy-primary);
+        color: var(--val-primary);
       }
       &.active {
-        background-color: color-mix(in srgb, var(--oxy-primary), transparent 90%);
-        color: var(--oxy-primary);
+        background-color: color-mix(in srgb, var(--val-primary), transparent 90%);
+        color: var(--val-primary);
         font-weight: 600;
       }
     }

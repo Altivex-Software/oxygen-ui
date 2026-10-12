@@ -11,33 +11,33 @@ export interface DropdownOption<T = unknown> {
 }
 
 @Component({
-  selector: 'ox-dropdown',
+  selector: 'val-dropdown',
   standalone: true,
   imports: [CommonModule, OverlayModule, FormsModule, NgClass, IconComponent],
   template: `
     <div 
       #container
-      class="ox-dropdown" 
-      [class.ox-dropdown-open]="isOpen()" 
-      [class.ox-dropdown-disabled]="disabled()"
-      [class.ox-dropdown-has-label]="!!label()"
+      class="val-dropdown" 
+      [class.val-dropdown-open]="isOpen()" 
+      [class.val-dropdown-disabled]="disabled()"
+      [class.val-dropdown-has-label]="!!label()"
       [ngClass]="[
-        'ox-dropdown-' + size(),
-        'ox-dropdown-' + variant(),
-        'ox-dropdown-' + severity()
+        'val-dropdown-' + size(),
+        'val-dropdown-' + variant(),
+        'val-dropdown-' + severity()
       ]"
       (click)="toggle()">
       
       @if (variant() === 'fieldset' && label()) {
-        <label class="ox-dropdown-fieldset-label">{{ label() }}</label>
+        <label class="val-dropdown-fieldset-label">{{ label() }}</label>
       }
 
-      <div class="ox-dropdown-label">
+      <div class="val-dropdown-label">
         {{ selectedLabel() || placeholder() }}
       </div>
       
-      <div class="ox-dropdown-trigger">
-        <ox-icon name="chevron-down" size="1rem" class="ox-dropdown-trigger-icon"></ox-icon>
+      <div class="val-dropdown-trigger">
+        <val-icon name="chevron-down" size="1rem" class="val-dropdown-trigger-icon"></val-icon>
       </div>
 
       <ng-template 
@@ -48,35 +48,35 @@ export interface DropdownOption<T = unknown> {
         [cdkConnectedOverlayOffsetY]="4"
         (overlayOutsideClick)="close($event)">
         
-        <div class="ox-dropdown-panel ox-elevation-2">
+        <div class="val-dropdown-panel val-elevation-2">
           @if (filter()) {
-            <div class="ox-dropdown-filter-container" (click)="$event.stopPropagation()">
+            <div class="val-dropdown-filter-container" (click)="$event.stopPropagation()">
               <input 
                 type="text" 
-                class="ox-dropdown-filter-input" 
+                class="val-dropdown-filter-input" 
                 [placeholder]="filterPlaceholder()"
                 [(ngModel)]="filterValue"
                 (input)="onFilterChange()">
             </div>
           }
-          <ul class="ox-dropdown-items">
+          <ul class="val-dropdown-items">
             @for (option of filteredOptions(); track option.value) {
               <li 
-                class="ox-dropdown-item" 
-                [class.ox-dropdown-item-selected]="isSelected(option)"
-                [class.ox-dropdown-item-disabled]="option.disabled"
+                class="val-dropdown-item" 
+                [class.val-dropdown-item-selected]="isSelected(option)"
+                [class.val-dropdown-item-disabled]="option.disabled"
                 (click)="selectOption(option, $event)">
                 @if (multiple()) {
-                  <div class="ox-dropdown-checkbox" [class.ox-dropdown-checkbox-selected]="isSelected(option)">
+                  <div class="val-dropdown-checkbox" [class.val-dropdown-checkbox-selected]="isSelected(option)">
                     @if (isSelected(option)) {
-                      <ox-icon name="check" size="0.875rem"></ox-icon>
+                      <val-icon name="check" size="0.875rem"></val-icon>
                     }
                   </div>
                 }
                 {{ option.label }}
               </li>
             } @empty {
-              <li class="ox-dropdown-empty-message">{{ emptyMessage() }}</li>
+              <li class="val-dropdown-empty-message">{{ emptyMessage() }}</li>
             }
           </ul>
         </div>

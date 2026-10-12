@@ -1,11 +1,11 @@
 import { Injectable, signal } from '@angular/core';
-import { OxygenSeverity, OXYGEN_DEFAULTS } from '../lib-core';
+import { ValenceSeverity, VALENCE_DEFAULTS } from '../lib-core';
 
 export type ToastPosition = 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right' | 'center';
 
 export interface ToastMessage {
   id?: number;
-  severity?: OxygenSeverity;
+  severity?: ValenceSeverity;
   summary?: string;
   detail?: string;
   life?: number;
@@ -35,7 +35,7 @@ export class ToastService {
     const newMessage = { 
       ...message, 
       id, 
-      life: message.life ?? OXYGEN_DEFAULTS.toastLife,
+      life: message.life ?? VALENCE_DEFAULTS.toastLife,
       closable: message.closable ?? true,
       variant: message.variant ?? 'standard'
     };

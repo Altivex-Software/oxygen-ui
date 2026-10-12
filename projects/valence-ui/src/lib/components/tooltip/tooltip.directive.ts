@@ -4,15 +4,15 @@ import { ComponentPortal } from '@angular/cdk/portal';
 import { Component, Input as ComponentInput } from '@angular/core';
 
 @Component({
-  selector: 'ox-tooltip-view',
+  selector: 'val-tooltip-view',
   standalone: true,
   template: `
-    <div class="ox-tooltip ox-elevation-2">
+    <div class="val-tooltip val-elevation-2">
       {{ text }}
     </div>
   `,
   styles: [`
-    .ox-tooltip {
+    .val-tooltip {
       background: #1e293b;
       color: white;
       padding: 6px 10px;
@@ -20,9 +20,9 @@ import { Component, Input as ComponentInput } from '@angular/core';
       font-size: 0.75rem;
       max-width: 250px;
       word-wrap: break-word;
-      animation: ox-tooltip-in 0.15s ease-out;
+      animation: val-tooltip-in 0.15s ease-out;
     }
-    @keyframes ox-tooltip-in {
+    @keyframes val-tooltip-in {
       from { opacity: 0; transform: scale(0.95); }
       to { opacity: 1; transform: scale(1); }
     }
@@ -33,11 +33,11 @@ export class TooltipViewComponent {
 }
 
 @Directive({
-  selector: '[oxTooltip]',
+  selector: '[valTooltip]',
   standalone: true
 })
 export class TooltipDirective implements OnInit, OnDestroy {
-  @Input('oxTooltip') text: string = '';
+  @Input('valTooltip') text: string = '';
   @Input() tooltipPosition: 'top' | 'bottom' | 'left' | 'right' = 'top';
 
   private overlay = inject(Overlay);

@@ -15,39 +15,39 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/f
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
-  selector: 'ox-chips',
+  selector: 'val-chips',
   standalone: true,
   imports: [CommonModule, FormsModule, IconComponent],
   template: `
     <div 
-      class="ox-chips"
-      [class.ox-chips-focused]="isFocused()"
-      [class.ox-chips-disabled]="disabled()"
+      class="val-chips"
+      [class.val-chips-focused]="isFocused()"
+      [class.val-chips-disabled]="disabled()"
       (click)="focusInput()">
       
-      <ul class="ox-chips-list">
+      <ul class="val-chips-list">
         @for (chip of value(); track $index) {
-          <li class="ox-chip-item">
-            <span class="ox-chip-label" (click)="onChipClick(chip, $index, $event)">
+          <li class="val-chip-item">
+            <span class="val-chip-label" (click)="onChipClick(chip, $index, $event)">
               {{ chip }}
             </span>
             @if (!disabled()) {
               <button 
                 type="button" 
-                class="ox-chip-remove" 
+                class="val-chip-remove" 
                 (click)="removeChip($index, $event)"
                 aria-label="Remove chip">
-                <ox-icon name="x" size="0.75rem"></ox-icon>
+                <val-icon name="x" size="0.75rem"></val-icon>
               </button>
             }
           </li>
         }
 
-        <li class="ox-chips-input-token">
+        <li class="val-chips-input-token">
           <input 
             #inputEl
             type="text" 
-            class="ox-chips-input"
+            class="val-chips-input"
             [placeholder]="value().length === 0 ? placeholder() : ''"
             [disabled]="disabled()"
             [(ngModel)]="inputValue"
@@ -59,7 +59,7 @@ import { IconComponent } from '../icon/icon.component';
     </div>
   `,
   styles: [`
-    .ox-chips {
+    .val-chips {
       display: inline-block;
       width: 100%;
       min-height: 40px;
@@ -72,22 +72,22 @@ import { IconComponent } from '../icon/icon.component';
       box-sizing: border-box;
     }
 
-    .ox-chips:hover:not(.ox-chips-disabled) {
+    .val-chips:hover:not(.val-chips-disabled) {
       border-color: var(--primary-400, #818cf8);
     }
 
-    .ox-chips-focused {
+    .val-chips-focused {
       border-color: var(--primary-color, #4f46e5);
       box-shadow: 0 0 0 3px var(--primary-100, rgba(79, 70, 229, 0.15));
     }
 
-    .ox-chips-disabled {
+    .val-chips-disabled {
       background-color: var(--bg-disabled, #f1f5f9);
       cursor: not-allowed;
       opacity: 0.7;
     }
 
-    .ox-chips-list {
+    .val-chips-list {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -97,7 +97,7 @@ import { IconComponent } from '../icon/icon.component';
       list-style: none;
     }
 
-    .ox-chip-item {
+    .val-chip-item {
       display: inline-flex;
       align-items: center;
       gap: 4px;
@@ -111,16 +111,16 @@ import { IconComponent } from '../icon/icon.component';
       transition: background-color 0.15s;
     }
 
-    .ox-chip-item:hover {
+    .val-chip-item:hover {
       background: var(--primary-100, #e0e7ff);
     }
 
-    .ox-chip-label {
+    .val-chip-label {
       cursor: default;
       user-select: none;
     }
 
-    .ox-chip-remove {
+    .val-chip-remove {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -136,23 +136,23 @@ import { IconComponent } from '../icon/icon.component';
       transition: color 0.15s, background-color 0.15s;
     }
 
-    .ox-chip-remove:hover {
+    .val-chip-remove:hover {
       color: var(--danger-color, #ef4444);
       background-color: rgba(239, 68, 68, 0.1);
     }
 
-    .ox-chip-remove-icon {
+    .val-chip-remove-icon {
       width: 14px;
       height: 14px;
     }
 
-    .ox-chips-input-token {
+    .val-chips-input-token {
       flex: 1 1 auto;
       display: inline-flex;
       min-width: 80px;
     }
 
-    .ox-chips-input {
+    .val-chips-input {
       width: 100%;
       border: none;
       outline: none;
@@ -163,7 +163,7 @@ import { IconComponent } from '../icon/icon.component';
       font-family: inherit;
     }
 
-    .ox-chips-input::placeholder {
+    .val-chips-input::placeholder {
       color: var(--text-muted, #94a3b8);
     }
   `],

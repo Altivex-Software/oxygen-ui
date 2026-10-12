@@ -1,4 +1,4 @@
-.ox-input-switch {
+.val-input-switch {
   display: inline-block;
   width: 42px;
   height: 24px;
@@ -22,30 +22,30 @@
   }
 
   &-checked {
-    background-color: var(--oxy-primary, #3b82f6);
+    background-color: var(--val-primary, #3b82f6);
 
-    &.ox-input-switch--primary {
-      background-color: var(--oxy-primary, #3b82f6);
+    &.val-input-switch--primary {
+      background-color: var(--val-primary, #3b82f6);
     }
-    &.ox-input-switch--secondary {
-      background-color: var(--oxy-secondary, #64748b);
+    &.val-input-switch--secondary {
+      background-color: var(--val-secondary, #64748b);
     }
-    &.ox-input-switch--success {
-      background-color: var(--oxy-success, #22c55e);
+    &.val-input-switch--success {
+      background-color: var(--val-success, #22c55e);
     }
-    &.ox-input-switch--danger,
-    &.ox-input-switch--error {
-      background-color: var(--oxy-danger, #ef4444);
+    &.val-input-switch--danger,
+    &.val-input-switch--error {
+      background-color: var(--val-danger, #ef4444);
     }
-    &.ox-input-switch--warning,
-    &.ox-input-switch--warn {
-      background-color: var(--oxy-warning, #f59e0b);
+    &.val-input-switch--warning,
+    &.val-input-switch--warn {
+      background-color: var(--val-warning, #f59e0b);
     }
-    &.ox-input-switch--info {
-      background-color: var(--oxy-info, #06b6d4);
+    &.val-input-switch--info {
+      background-color: var(--val-info, #06b6d4);
     }
 
-    .ox-input-switch-slider {
+    .val-input-switch-slider {
       transform: translateX(18px);
     }
   }
@@ -55,7 +55,7 @@
     opacity: 0.55;
   }
 
-  &:hover:not(.ox-input-switch-disabled) {
+  &:hover:not(.val-input-switch-disabled) {
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
   }
 }

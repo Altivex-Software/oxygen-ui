@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'ox-input-switch',
+  selector: 'val-input-switch',
   standalone: true,
   imports: [CommonModule],
   template: `
     <div 
-      class="ox-input-switch" 
-      [class.ox-input-switch-checked]="checked()" 
-      [class.ox-input-switch-disabled]="disabled()"
+      class="val-input-switch" 
+      [class.val-input-switch-checked]="checked()" 
+      [class.val-input-switch-disabled]="disabled()"
       [ngClass]="colorClass()"
       (click)="toggle($event)">
-      <div class="ox-input-switch-slider"></div>
+      <div class="val-input-switch-slider"></div>
     </div>
   `,
   styleUrl: './input-switch.component.scss',
@@ -34,7 +34,7 @@ export class InputSwitchComponent implements ControlValueAccessor {
   severity = input<string>('');
 
   effectiveColor = computed(() => this.severity() || this.color() || 'primary');
-  colorClass = computed(() => 'ox-input-switch--' + this.effectiveColor());
+  colorClass = computed(() => 'val-input-switch--' + this.effectiveColor());
 
   private onChange: (value: boolean) => void = () => {};
   private onTouched: () => void = () => {};

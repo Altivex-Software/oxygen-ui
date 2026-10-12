@@ -11,12 +11,12 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from '../icon/icon.component';
-import { OxIconName } from '../icon/icon.types';
+import { ValIconName } from '../icon/icon.types';
 
 export interface TreeTableNode<T = any> {
   key?: string;
   data: T;
-  icon?: OxIconName | string;
+  icon?: ValIconName | string;
   children?: TreeTableNode<T>[];
   expanded?: boolean;
   leaf?: boolean;
@@ -39,17 +39,17 @@ interface FlattenedRow {
 }
 
 @Component({
-  selector: 'ox-tree-table',
+  selector: 'val-tree-table',
   standalone: true,
   imports: [CommonModule, IconComponent],
   template: `
-    <div class="ox-tree-table-wrapper" [class.ox-tree-table-striped]="striped()">
-      <table class="ox-tree-table">
-        <thead class="ox-tree-table-thead">
+    <div class="val-tree-table-wrapper" [class.val-tree-table-striped]="striped()">
+      <table class="val-tree-table">
+        <thead class="val-tree-table-thead">
           <tr>
             @for (col of columns(); track col.field; let first = $first) {
               <th 
-                class="ox-tree-table-th" 
+                class="val-tree-table-th" 
                 [style.width]="col.width"
                 [style.text-align]="col.align || 'left'">
                 {{ col.header }}
@@ -57,44 +57,44 @@ interface FlattenedRow {
             }
           </tr>
         </thead>
-        <tbody class="ox-tree-table-tbody">
+        <tbody class="val-tree-table-tbody">
           @if (flattenedRows().length === 0) {
             <tr>
-              <td [attr.colspan]="columns().length" class="ox-tree-table-empty">
+              <td [attr.colspan]="columns().length" class="val-tree-table-empty">
                 {{ emptyMessage() }}
               </td>
             </tr>
           } @else {
             @for (row of flattenedRows(); track (row.node.key || $index)) {
               <tr 
-                class="ox-tree-table-tr"
-                [class.ox-tree-table-tr-selected]="isSelected(row.node)"
+                class="val-tree-table-tr"
+                [class.val-tree-table-tr-selected]="isSelected(row.node)"
                 (click)="onRowClick(row.node)">
                 
                 @for (col of columns(); track col.field; let first = $first) {
                   <td 
-                    class="ox-tree-table-td" 
+                    class="val-tree-table-td" 
                     [style.text-align]="col.align || 'left'">
                     
                     @if (first) {
                       <!-- Tree hierarchy toggler & indentation -->
-                      <div class="ox-tree-cell-container" [style.padding-left.px]="row.level * 24">
+                      <div class="val-tree-cell-container" [style.padding-left.px]="row.level * 24">
                         @if (row.hasChildren) {
                           <button 
                             type="button" 
-                            class="ox-tree-toggler"
-                            [class.ox-tree-toggler-expanded]="row.expanded"
+                            class="val-tree-toggler"
+                            [class.val-tree-toggler-expanded]="row.expanded"
                             (click)="toggleNode(row.node, $event)"
                             aria-label="Toggle node">
-                            <ox-icon name="chevron-right" size="0.875rem" class="ox-tree-toggler-icon"></ox-icon>
+                            <val-icon name="chevron-right" size="0.875rem" class="val-tree-toggler-icon"></val-icon>
                           </button>
                         } @else {
-                          <span class="ox-tree-toggler-spacer"></span>
+                          <span class="val-tree-toggler-spacer"></span>
                         }
                         @if (row.node.icon) {
-                          <ox-icon [name]="$any(row.node.icon)" size="sm" style="margin-right: 6px; color: var(--oxy-primary, #0066ff);"></ox-icon>
+                          <val-icon [name]="$any(row.node.icon)" size="sm" style="margin-right: 6px; color: var(--val-primary, #0066ff);"></val-icon>
                         }
-                        <span class="ox-tree-cell-value">{{ getCellValue(row.node, col.field) }}</span>
+                        <span class="val-tree-cell-value">{{ getCellValue(row.node, col.field) }}</span>
                       </div>
                     } @else {
                       {{ getCellValue(row.node, col.field) }}
@@ -109,7 +109,7 @@ interface FlattenedRow {
     </div>
   `,
   styles: [`
-    .ox-tree-table-wrapper {
+    .val-tree-table-wrapper {
       width: 100%;
       overflow-x: auto;
       border: 1px solid var(--border-color, #e2e8f0);
@@ -117,61 +117,61 @@ interface FlattenedRow {
       background: var(--bg-surface, #ffffff);
     }
 
-    .ox-tree-table {
+    .val-tree-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.875rem;
       text-align: left;
     }
 
-    .ox-tree-table-thead {
+    .val-tree-table-thead {
       background: var(--bg-surface-subtle, #f8fafc);
       border-bottom: 1px solid var(--border-color, #e2e8f0);
     }
 
-    .ox-tree-table-th {
+    .val-tree-table-th {
       padding: 12px 16px;
       font-weight: 600;
       color: var(--text-secondary, #475569);
       user-select: none;
     }
 
-    .ox-tree-table-tbody {
+    .val-tree-table-tbody {
       divide-y: 1px solid var(--border-color, #f1f5f9);
     }
 
-    .ox-tree-table-tr {
+    .val-tree-table-tr {
       border-bottom: 1px solid var(--border-color, #f1f5f9);
       transition: background-color 0.15s ease-in-out;
       cursor: pointer;
     }
 
-    .ox-tree-table-tr:hover {
+    .val-tree-table-tr:hover {
       background-color: var(--bg-surface-hover, #f8fafc);
     }
 
-    .ox-tree-table-tr-selected {
+    .val-tree-table-tr-selected {
       background-color: var(--primary-50, #eef2ff) !important;
       color: var(--primary-color, #4f46e5);
     }
 
-    .ox-tree-table-striped .ox-tree-table-tbody .ox-tree-table-tr:nth-child(even):not(.ox-tree-table-tr-selected) {
+    .val-tree-table-striped .val-tree-table-tbody .val-tree-table-tr:nth-child(even):not(.val-tree-table-tr-selected) {
       background-color: var(--bg-surface-alt, #fafafa);
     }
 
-    .ox-tree-table-td {
+    .val-tree-table-td {
       padding: 10px 16px;
       color: var(--text-primary, #1e293b);
       vertical-align: middle;
     }
 
-    .ox-tree-cell-container {
+    .val-tree-cell-container {
       display: inline-flex;
       align-items: center;
       gap: 6px;
     }
 
-    .ox-tree-toggler {
+    .val-tree-toggler {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -186,31 +186,31 @@ interface FlattenedRow {
       transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s;
     }
 
-    .ox-tree-toggler:hover {
+    .val-tree-toggler:hover {
       background: rgba(0, 0, 0, 0.05);
       color: var(--text-primary, #1e293b);
     }
 
-    .ox-tree-toggler-expanded {
+    .val-tree-toggler-expanded {
       transform: rotate(90deg);
     }
 
-    .ox-tree-toggler-icon {
+    .val-tree-toggler-icon {
       width: 16px;
       height: 16px;
     }
 
-    .ox-tree-toggler-spacer {
+    .val-tree-toggler-spacer {
       width: 22px;
       height: 22px;
       display: inline-block;
     }
 
-    .ox-tree-cell-value {
+    .val-tree-cell-value {
       font-weight: 500;
     }
 
-    .ox-tree-table-empty {
+    .val-tree-table-empty {
       padding: 2rem;
       text-align: center;
       color: var(--text-muted, #94a3b8);

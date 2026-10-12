@@ -5,20 +5,20 @@ export type ProgressBarMode = 'determinate' | 'indeterminate';
 export type ProgressBarSeverity = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
 
 @Component({
-  selector: 'ox-progress-bar',
+  selector: 'val-progress-bar',
   standalone: true,
   imports: [CommonModule],
   template: `
     <div 
-      class="ox-progress-bar"
-      [class.ox-progress-bar-indeterminate]="mode() === 'indeterminate'"
-      [class]="'ox-progress-bar-' + severity()">
+      class="val-progress-bar"
+      [class.val-progress-bar-indeterminate]="mode() === 'indeterminate'"
+      [class]="'val-progress-bar-' + severity()">
       
       <div 
-        class="ox-progress-bar-value"
+        class="val-progress-bar-value"
         [style.width.%]="mode() === 'determinate' ? value() : null">
         @if (showValue() && mode() === 'determinate') {
-          <span class="ox-progress-bar-label">{{ value() }}%</span>
+          <span class="val-progress-bar-label">{{ value() }}%</span>
         }
       </div>
     </div>

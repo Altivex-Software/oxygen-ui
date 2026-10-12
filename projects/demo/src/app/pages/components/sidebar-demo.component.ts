@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SidebarComponent, ButtonComponent } from 'oxygen-ui';
+import { SidebarComponent, ButtonComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, SidebarComponent, ButtonComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Sidebar</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Panel lateral superpuesto deslizable que aparece desde cualquiera de los 4 bordes de la pantalla (left, right, top, bottom).
       </p>
 
@@ -21,37 +21,37 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Apertura interactiva desde izquierda, derecha, arriba y abajo."
         [htmlCode]="sidebarHtml"
         [tsCode]="sidebarTs">
-        <div class="ox-flex ox-gap-2 ox-flex-wrap">
-          <ox-button label="Izquierda" (onClick)="left = true"></ox-button>
-          <ox-button label="Derecha" severity="secondary" (onClick)="right = true"></ox-button>
-          <ox-button label="Arriba" severity="info" (onClick)="top = true"></ox-button>
-          <ox-button label="Abajo" severity="warn" (onClick)="bottom = true"></ox-button>
+        <div class="val-flex val-gap-2 val-flex-wrap">
+          <val-button label="Izquierda" (onClick)="left = true"></val-button>
+          <val-button label="Derecha" severity="secondary" (onClick)="right = true"></val-button>
+          <val-button label="Arriba" severity="info" (onClick)="top = true"></val-button>
+          <val-button label="Abajo" severity="warn" (onClick)="bottom = true"></val-button>
         </div>
       </app-doc-code>
 
-      <ox-sidebar [(visible)]="left" position="left" header="Menú Lateral">
+      <val-sidebar [(visible)]="left" position="left" header="Menú Lateral">
         <div style="padding: 1rem 0;">
           <p style="color: #64748b; font-size: 0.875rem;">Panel desplegado desde la izquierda.</p>
         </div>
-      </ox-sidebar>
+      </val-sidebar>
 
-      <ox-sidebar [(visible)]="right" position="right" header="Notificaciones">
+      <val-sidebar [(visible)]="right" position="right" header="Notificaciones">
         <div style="padding: 1rem 0;">
           <p style="color: #64748b; font-size: 0.875rem;">Panel de notificaciones desde la derecha.</p>
         </div>
-      </ox-sidebar>
+      </val-sidebar>
 
-      <ox-sidebar [(visible)]="top" position="top" header="Banner Superior">
+      <val-sidebar [(visible)]="top" position="top" header="Banner Superior">
         <div style="padding: 1rem 0;">
           <p style="color: #64748b; font-size: 0.875rem;">Contenido emergente desde la parte superior.</p>
         </div>
-      </ox-sidebar>
+      </val-sidebar>
 
-      <ox-sidebar [(visible)]="bottom" position="bottom" header="Panel Inferior">
+      <val-sidebar [(visible)]="bottom" position="bottom" header="Panel Inferior">
         <div style="padding: 1rem 0;">
           <p style="color: #64748b; font-size: 0.875rem;">Panel modal deslizable desde abajo.</p>
         </div>
-      </ox-sidebar>
+      </val-sidebar>
 
       <!-- API REFERENCE -->
       <app-doc-api-table 
@@ -68,14 +68,14 @@ export class SidebarDemoComponent {
   top = false;
   bottom = false;
 
-  sidebarHtml = `<ox-button label="Abrir Menú" (onClick)="left = true"></ox-button>
+  sidebarHtml = `<val-button label="Abrir Menú" (onClick)="left = true"></val-button>
 
-<ox-sidebar [(visible)]="left" position="left" header="Menú Principal">
+<val-sidebar [(visible)]="left" position="left" header="Menú Principal">
   <p>Contenido del menú lateral.</p>
-</ox-sidebar>`;
+</val-sidebar>`;
 
   sidebarTs = `import { Component } from '@angular/core';
-import { SidebarComponent, ButtonComponent } from 'oxygen-ui';
+import { SidebarComponent, ButtonComponent } from 'valence-ui';
 
 @Component({
   standalone: true,

@@ -36,26 +36,26 @@ body {
 }
 
 /* Clases utilitarias */
-.oxygen-ui-shadow-sm {
+.valence-ui-shadow-sm {
   @include mixins.shadow-sm;
 }
 
-.oxygen-ui-shadow-md {
+.valence-ui-shadow-md {
   @include mixins.shadow-md;
 }
 
-.oxygen-ui-flex-center {
+.valence-ui-flex-center {
   @include mixins.flex-center;
 }
 
 /* Responsive utilities */
-.ox-hide-up-md {
+.val-hide-up-md {
   @include breakpoints.up('md') {
     display: none !important;
   }
 }
 
-.ox-show-only-sm {
+.val-show-only-sm {
   display: none !important;
   @include breakpoints.only('sm') {
     display: block !important;

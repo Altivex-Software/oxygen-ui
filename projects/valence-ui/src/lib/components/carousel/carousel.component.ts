@@ -29,7 +29,7 @@ export interface CarouselRenderItem {
 }
 
 @Component({
-  selector: 'ox-carousel',
+  selector: 'val-carousel',
   standalone: true,
   imports: [CommonModule, IconComponent],
   templateUrl: './carousel.component.html',

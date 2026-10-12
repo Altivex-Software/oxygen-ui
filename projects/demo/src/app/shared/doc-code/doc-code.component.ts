@@ -7,7 +7,7 @@ import {
   ViewEncapsulation 
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IconComponent } from 'oxygen-ui';
+import { IconComponent } from 'valence-ui';
 
 export interface CodeTab {
   label: string;
@@ -20,47 +20,47 @@ export interface CodeTab {
   standalone: true,
   imports: [CommonModule, IconComponent],
   template: `
-    <div class="ox-doc-code-card">
+    <div class="val-doc-code-card">
       <!-- Preview Header & Actions -->
-      <div class="ox-doc-preview-bar">
-        <div class="ox-doc-preview-info">
+      <div class="val-doc-preview-bar">
+        <div class="val-doc-preview-info">
           @if (title()) {
-            <span class="ox-doc-title">{{ title() }}</span>
+            <span class="val-doc-title">{{ title() }}</span>
           }
           @if (description()) {
-            <span class="ox-doc-subtitle">{{ description() }}</span>
+            <span class="val-doc-subtitle">{{ description() }}</span>
           }
         </div>
 
-        <div class="ox-doc-preview-actions">
+        <div class="val-doc-preview-actions">
           <button 
             type="button" 
-            class="ox-doc-action-btn"
-            [class.ox-doc-action-btn-active]="isCodeVisible()"
+            class="val-doc-action-btn"
+            [class.val-doc-action-btn-active]="isCodeVisible()"
             (click)="toggleCode()"
             title="Ver código fuente">
-            <ox-icon name="code" size="1rem"></ox-icon>
+            <val-icon name="code" size="1rem"></val-icon>
             <span>{{ isCodeVisible() ? 'Ocultar Código' : 'Ver Código' }}</span>
           </button>
         </div>
       </div>
 
       <!-- Live Interactive Preview Slot -->
-      <div class="ox-doc-preview-content">
+      <div class="val-doc-preview-content">
         <ng-content></ng-content>
       </div>
 
       <!-- Collapsible Code Section -->
       @if (isCodeVisible()) {
-        <div class="ox-doc-code-wrapper">
+        <div class="val-doc-code-wrapper">
           <!-- Tab Bar & Copy Action -->
-          <div class="ox-doc-tabs-bar">
-            <div class="ox-doc-tabs">
+          <div class="val-doc-tabs-bar">
+            <div class="val-doc-tabs">
               @for (tab of activeTabs(); track tab.label; let i = $index) {
                 <button 
                   type="button" 
-                  class="ox-doc-tab-btn"
-                  [class.ox-doc-tab-btn-active]="selectedTabIndex() === i"
+                  class="val-doc-tab-btn"
+                  [class.val-doc-tab-btn-active]="selectedTabIndex() === i"
                   (click)="selectedTabIndex.set(i)">
                   {{ tab.label }}
                 </button>
@@ -69,17 +69,17 @@ export interface CodeTab {
 
             <button 
               type="button" 
-              class="ox-doc-copy-btn"
+              class="val-doc-copy-btn"
               (click)="copyActiveCode()"
               title="Copiar al portapapeles">
               @if (isCopied()) {
-                <span class="ox-doc-copied-text">
-                  <ox-icon name="check" size="0.875rem"></ox-icon>
+                <span class="val-doc-copied-text">
+                  <val-icon name="check" size="0.875rem"></val-icon>
                   ¡Copiado!
                 </span>
               } @else {
-                <span class="ox-doc-copy-text">
-                  <ox-icon name="copy" size="0.875rem"></ox-icon>
+                <span class="val-doc-copy-text">
+                  <val-icon name="copy" size="0.875rem"></val-icon>
                   Copiar
                 </span>
               }
@@ -87,7 +87,7 @@ export interface CodeTab {
           </div>
 
           <!-- Code View -->
-          <div class="ox-doc-code-block">
+          <div class="val-doc-code-block">
             <pre><code>{{ currentCode() }}</code></pre>
           </div>
         </div>
@@ -95,7 +95,7 @@ export interface CodeTab {
     </div>
   `,
   styles: [`
-    .ox-doc-code-card {
+    .val-doc-code-card {
       border: 1px solid var(--border-color, #e2e8f0);
       border-radius: var(--radius-lg, 12px);
       background: var(--bg-surface, #ffffff);
@@ -105,7 +105,7 @@ export interface CodeTab {
       transition: border-color 0.2s;
     }
 
-    .ox-doc-preview-bar {
+    .val-doc-preview-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -114,30 +114,30 @@ export interface CodeTab {
       border-bottom: 1px solid var(--border-color, #f1f5f9);
     }
 
-    .ox-doc-preview-info {
+    .val-doc-preview-info {
       display: flex;
       flex-direction: column;
       gap: 2px;
     }
 
-    .ox-doc-title {
+    .val-doc-title {
       font-size: 1rem;
       font-weight: 600;
       color: var(--text-primary, #0f172a);
     }
 
-    .ox-doc-subtitle {
+    .val-doc-subtitle {
       font-size: 0.8125rem;
       color: var(--text-secondary, #64748b);
     }
 
-    .ox-doc-preview-actions {
+    .val-doc-preview-actions {
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .ox-doc-action-btn {
+    .val-doc-action-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -152,19 +152,19 @@ export interface CodeTab {
       transition: all 0.15s ease-in-out;
     }
 
-    .ox-doc-action-btn:hover {
+    .val-doc-action-btn:hover {
       background: var(--primary-50, #eef2ff);
       color: var(--primary-color, #4f46e5);
       border-color: var(--primary-200, #c7d2fe);
     }
 
-    .ox-doc-action-btn-active {
+    .val-doc-action-btn-active {
       background: var(--primary-100, #e0e7ff) !important;
       color: var(--primary-color, #4f46e5) !important;
       border-color: var(--primary-400, #818cf8) !important;
     }
 
-    .ox-doc-preview-content {
+    .val-doc-preview-content {
       padding: 2rem;
       background-color: #f8fafc;
       background-image: radial-gradient(#e2e8f0 1.2px, transparent 1.2px);
@@ -176,13 +176,13 @@ export interface CodeTab {
     }
 
     /* Code View Section */
-    .ox-doc-code-wrapper {
+    .val-doc-code-wrapper {
       border-top: 1px solid #1e293b;
       background: #0f172a;
-      animation: oxDocFadeDown 0.2s ease-out;
+      animation: valDocFadeDown 0.2s ease-out;
     }
 
-    .ox-doc-tabs-bar {
+    .val-doc-tabs-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -191,12 +191,12 @@ export interface CodeTab {
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .ox-doc-tabs {
+    .val-doc-tabs {
       display: flex;
       gap: 4px;
     }
 
-    .ox-doc-tab-btn {
+    .val-doc-tab-btn {
       padding: 8px 14px;
       font-size: 0.8125rem;
       font-weight: 500;
@@ -208,17 +208,17 @@ export interface CodeTab {
       transition: all 0.15s;
     }
 
-    .ox-doc-tab-btn:hover {
+    .val-doc-tab-btn:hover {
       color: #f8fafc;
     }
 
-    .ox-doc-tab-btn-active {
+    .val-doc-tab-btn-active {
       color: #60a5fa !important;
       border-bottom-color: #60a5fa !important;
       background: rgba(255, 255, 255, 0.03);
     }
 
-    .ox-doc-copy-btn {
+    .val-doc-copy-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -233,12 +233,12 @@ export interface CodeTab {
       transition: all 0.15s;
     }
 
-    .ox-doc-copy-btn:hover {
+    .val-doc-copy-btn:hover {
       color: #ffffff;
       background: rgba(255, 255, 255, 0.15);
     }
 
-    .ox-doc-copied-text {
+    .val-doc-copied-text {
       color: #34d399;
       display: inline-flex;
       align-items: center;
@@ -246,19 +246,19 @@ export interface CodeTab {
       font-weight: 600;
     }
 
-    .ox-doc-copy-text {
+    .val-doc-copy-text {
       display: inline-flex;
       align-items: center;
       gap: 4px;
     }
 
-    .ox-doc-code-block {
+    .val-doc-code-block {
       padding: 1.25rem 1.5rem;
       overflow-x: auto;
       max-height: 450px;
     }
 
-    .ox-doc-code-block pre {
+    .val-doc-code-block pre {
       margin: 0;
       font-family: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, monospace;
       font-size: 0.8125rem;
@@ -267,7 +267,7 @@ export interface CodeTab {
       white-space: pre;
     }
 
-    @keyframes oxDocFadeDown {
+    @keyframes valDocFadeDown {
       from { opacity: 0; transform: translateY(-4px); }
       to { opacity: 1; transform: translateY(0); }
     }

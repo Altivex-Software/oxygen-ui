@@ -1,4 +1,4 @@
-.ox-checkbox {
+.val-checkbox {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
@@ -19,46 +19,46 @@
   }
 
   &-checked {
-    .ox-checkbox-box {
-      background: var(--oxy-primary, #3b82f6);
-      border-color: var(--oxy-primary, #3b82f6);
+    .val-checkbox-box {
+      background: var(--val-primary, #3b82f6);
+      border-color: var(--val-primary, #3b82f6);
     }
-    .ox-checkbox-icon {
+    .val-checkbox-icon {
       color: white;
     }
 
-    &.ox-checkbox--primary .ox-checkbox-box {
-      background: var(--oxy-primary, #3b82f6);
-      border-color: var(--oxy-primary, #3b82f6);
+    &.val-checkbox--primary .val-checkbox-box {
+      background: var(--val-primary, #3b82f6);
+      border-color: var(--val-primary, #3b82f6);
     }
-    &.ox-checkbox--secondary .ox-checkbox-box {
-      background: var(--oxy-secondary, #64748b);
-      border-color: var(--oxy-secondary, #64748b);
+    &.val-checkbox--secondary .val-checkbox-box {
+      background: var(--val-secondary, #64748b);
+      border-color: var(--val-secondary, #64748b);
     }
-    &.ox-checkbox--success .ox-checkbox-box {
-      background: var(--oxy-success, #22c55e);
-      border-color: var(--oxy-success, #22c55e);
+    &.val-checkbox--success .val-checkbox-box {
+      background: var(--val-success, #22c55e);
+      border-color: var(--val-success, #22c55e);
     }
-    &.ox-checkbox--danger .ox-checkbox-box,
-    &.ox-checkbox--error .ox-checkbox-box {
-      background: var(--oxy-danger, #ef4444);
-      border-color: var(--oxy-danger, #ef4444);
+    &.val-checkbox--danger .val-checkbox-box,
+    &.val-checkbox--error .val-checkbox-box {
+      background: var(--val-danger, #ef4444);
+      border-color: var(--val-danger, #ef4444);
     }
-    &.ox-checkbox--warning .ox-checkbox-box,
-    &.ox-checkbox--warn .ox-checkbox-box {
-      background: var(--oxy-warning, #f59e0b);
-      border-color: var(--oxy-warning, #f59e0b);
+    &.val-checkbox--warning .val-checkbox-box,
+    &.val-checkbox--warn .val-checkbox-box {
+      background: var(--val-warning, #f59e0b);
+      border-color: var(--val-warning, #f59e0b);
     }
-    &.ox-checkbox--info .ox-checkbox-box {
-      background: var(--oxy-info, #06b6d4);
-      border-color: var(--oxy-info, #06b6d4);
+    &.val-checkbox--info .val-checkbox-box {
+      background: var(--val-info, #06b6d4);
+      border-color: var(--val-info, #06b6d4);
     }
   }
 
   &-disabled {
     cursor: not-allowed;
     opacity: 0.6;
-    .ox-checkbox-box {
+    .val-checkbox-box {
       background: #f1f5f9;
     }
   }
@@ -68,12 +68,12 @@
     color: #334155;
   }
 
-  &:hover:not(.ox-checkbox-disabled) .ox-checkbox-box {
-    border-color: var(--oxy-primary-hover, #2563eb);
+  &:hover:not(.val-checkbox-disabled) .val-checkbox-box {
+    border-color: var(--val-primary-hover, #2563eb);
   }
 }
 
-.ox-checkbox-icon {
+.val-checkbox-icon {
   width: 12px;
   height: 12px;
 }

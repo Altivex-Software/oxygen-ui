@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AutoCompleteComponent, AutoCompleteCompleteEvent } from 'oxygen-ui';
+import { AutoCompleteComponent, AutoCompleteCompleteEvent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FormsModule, AutoCompleteComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>AutoComplete</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Campo de texto predictivo que consulta y muestra sugerencias coincidentes a medida que el usuario escribe, con soporte para objetos complejos y botón desplegable.
       </p>
 
@@ -23,13 +23,13 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [htmlCode]="basicHtml"
         [tsCode]="basicTs">
         <div style="max-width: 400px; width: 100%;">
-          <ox-autocomplete 
+          <val-autocomplete 
             [(value)]="selectedCountry"
             [suggestions]="filteredCountries"
             (completeMethod)="searchCountry($event)"
             placeholder="Escribe para buscar un país (ej: Ar...)">
-          </ox-autocomplete>
-          <p class="ox-mt-4" style="font-size: 0.875rem; color: #64748b; margin-top: 0.75rem;">
+          </val-autocomplete>
+          <p class="val-mt-4" style="font-size: 0.875rem; color: #64748b; margin-top: 0.75rem;">
             País seleccionado: <code>{{ selectedCountry | json }}</code>
           </p>
         </div>
@@ -42,15 +42,15 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [htmlCode]="advancedHtml"
         [tsCode]="advancedTs">
         <div style="max-width: 400px; width: 100%;">
-          <ox-autocomplete 
+          <val-autocomplete 
             [(value)]="selectedAdvancedCountry"
             [suggestions]="filteredAdvancedCountries"
             (completeMethod)="searchAdvancedCountry($event)"
             field="name"
             [dropdown]="true"
             placeholder="Buscar país...">
-          </ox-autocomplete>
-          <p class="ox-mt-4" style="font-size: 0.875rem; color: #64748b; margin-top: 0.75rem;">
+          </val-autocomplete>
+          <p class="val-mt-4" style="font-size: 0.875rem; color: #64748b; margin-top: 0.75rem;">
             Objeto seleccionado: <code>{{ selectedAdvancedCountry | json }}</code>
           </p>
         </div>
@@ -92,15 +92,15 @@ export class AutoCompleteDemoComponent {
     this.filteredAdvancedCountries = this.advancedCountries.filter(c => c.name.toLowerCase().includes(query));
   }
 
-  basicHtml = `<ox-autocomplete 
+  basicHtml = `<val-autocomplete 
   [(value)]="selectedCountry"
   [suggestions]="filteredCountries"
   (completeMethod)="searchCountry($event)"
   placeholder="Buscar país...">
-</ox-autocomplete>`;
+</val-autocomplete>`;
 
   basicTs = `import { Component } from '@angular/core';
-import { AutoCompleteComponent, AutoCompleteCompleteEvent } from 'oxygen-ui';
+import { AutoCompleteComponent, AutoCompleteCompleteEvent } from 'valence-ui';
 
 @Component({
   standalone: true,
@@ -119,17 +119,17 @@ export class MyComponent {
   }
 }`;
 
-  advancedHtml = `<ox-autocomplete 
+  advancedHtml = `<val-autocomplete 
   [(value)]="selectedItem"
   [suggestions]="filteredItems"
   (completeMethod)="search($event)"
   field="name"
   [dropdown]="true"
   placeholder="Buscar...">
-</ox-autocomplete>`;
+</val-autocomplete>`;
 
   advancedTs = `import { Component } from '@angular/core';
-import { AutoCompleteComponent, AutoCompleteCompleteEvent } from 'oxygen-ui';
+import { AutoCompleteComponent, AutoCompleteCompleteEvent } from 'valence-ui';
 
 @Component({
   standalone: true,

@@ -1,19 +1,19 @@
 import { Component, input, TemplateRef, viewChild, Directive, inject, contentChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OxIconName } from '../icon/icon.types';
+import { ValIconName } from '../icon/icon.types';
 
 @Directive({
-  selector: 'ng-template[oxTabHeader]',
+  selector: 'ng-template[valTabHeader]',
   standalone: true
 })
-export class OxTabHeaderDirective {
+export class ValTabHeaderDirective {
   templateRef = inject(TemplateRef);
 }
 
 let nextId = 0;
 
 @Component({
-  selector: 'ox-tab',
+  selector: 'val-tab',
   standalone: true,
   imports: [CommonModule],
   template: `
@@ -24,11 +24,11 @@ let nextId = 0;
   styles: []
 })
 export class TabComponent {
-  id = input<string>(`ox-tab-${nextId++}`);
+  id = input<string>(`val-tab-${nextId++}`);
   label = input<string>(''); // Make optional if template is used
-  icon = input<OxIconName | string>();
+  icon = input<ValIconName | string>();
   disabled = input<boolean>(false);
 
   content = viewChild.required<TemplateRef<any>>('tabContent');
-  headerTemplate = contentChild(OxTabHeaderDirective);
+  headerTemplate = contentChild(ValTabHeaderDirective);
 }

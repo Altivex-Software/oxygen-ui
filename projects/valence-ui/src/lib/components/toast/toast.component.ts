@@ -4,7 +4,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { ToastService, ToastMessage } from '../../services/toast.service';
 
 @Component({
-  selector: 'ox-toast',
+  selector: 'val-toast',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './toast.component.html',

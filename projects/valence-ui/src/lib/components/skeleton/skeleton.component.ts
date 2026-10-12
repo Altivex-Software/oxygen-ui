@@ -4,7 +4,7 @@ export type SkeletonShape = 'rectangle' | 'circle';
 export type SkeletonAnimation = 'wave' | 'pulse' | 'none';
 
 @Component({
-  selector: 'ox-skeleton',
+  selector: 'val-skeleton',
   standalone: true,
   template: ``,
   styleUrl: './skeleton.component.scss',
@@ -30,9 +30,9 @@ export class SkeletonComponent {
 
   hostClasses = computed(() => {
     return [
-      'oxy-skeleton',
-      `oxy-skeleton-animation-${this.animation()}`,
-      `oxy-skeleton-shape-${this.shape()}`
+      'val-skeleton',
+      `val-skeleton-animation-${this.animation()}`,
+      `val-skeleton-shape-${this.shape()}`
     ].join(' ');
   });
 }

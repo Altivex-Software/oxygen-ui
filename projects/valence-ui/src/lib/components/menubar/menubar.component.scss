@@ -1,4 +1,4 @@
-.ox-menubar {
+.val-menubar {
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
@@ -58,13 +58,13 @@
     display: none;
     z-index: 1000;
 
-    .ox-menubar-item-link {
+    .val-menubar-item-link {
       padding: 0.5rem 1rem;
       border-radius: 0;
     }
   }
 
-  &-item:hover > .ox-menubar-submenu {
+  &-item:hover > .val-menubar-submenu {
     display: block;
   }
 
@@ -82,7 +82,7 @@
   &-end { margin-left: auto; }
 }
 
-.ox-menubar-separator {
+.val-menubar-separator {
   width: 1px;
   height: 24px;
   background: #e2e8f0;

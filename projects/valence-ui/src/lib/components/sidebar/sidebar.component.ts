@@ -11,33 +11,33 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
-  selector: 'ox-sidebar',
+  selector: 'val-sidebar',
   standalone: true,
   imports: [CommonModule, IconComponent],
   template: `
     @if (visible()) {
       <div 
-        class="ox-sidebar-mask" 
+        class="val-sidebar-mask" 
         (click)="onMaskClick()">
         <div 
-          class="ox-sidebar ox-sidebar-{{position()}} ox-elevation-4" 
+          class="val-sidebar val-sidebar-{{position()}} val-elevation-4" 
           (click)="$event.stopPropagation()"
           [@panelAnim]="{ value: position(), params: { transform: getTransform() } }">
           
-          <div class="ox-sidebar-header">
-            <span class="ox-sidebar-title">{{ header() }}</span>
+          <div class="val-sidebar-header">
+            <span class="val-sidebar-title">{{ header() }}</span>
             @if (showCloseIcon()) {
               <button 
                 type="button" 
-                class="ox-sidebar-close" 
+                class="val-sidebar-close" 
                 (click)="close()"
                 aria-label="Cerrar panel">
-                <ox-icon name="x" size="sm"></ox-icon>
+                <val-icon name="x" size="sm"></val-icon>
               </button>
             }
           </div>
           
-          <div class="ox-sidebar-content">
+          <div class="val-sidebar-content">
             <ng-content></ng-content>
           </div>
         </div>

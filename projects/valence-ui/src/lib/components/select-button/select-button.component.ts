@@ -11,47 +11,47 @@ import {
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IconComponent } from '../icon/icon.component';
-import { OxIconName } from '../icon/icon.types';
+import { ValIconName } from '../icon/icon.types';
 
 export interface SelectButtonOption<T = any> {
   label?: string;
   value: T;
-  icon?: OxIconName | string;
+  icon?: ValIconName | string;
   disabled?: boolean;
   [key: string]: any;
 }
 
 @Component({
-  selector: 'ox-select-button',
+  selector: 'val-select-button',
   standalone: true,
   imports: [CommonModule, IconComponent],
   template: `
     <div 
-      class="ox-select-button" 
-      [class.ox-select-button-disabled]="disabled()"
+      class="val-select-button" 
+      [class.val-select-button-disabled]="disabled()"
       role="group">
       @for (opt of options(); track $index) {
         <button
           type="button"
-          class="ox-select-button-item"
-          [class.ox-select-button-item-active]="isSelected(getOptionValue(opt))"
-          [class.ox-select-button-item-disabled]="disabled() || isOptionDisabled(opt)"
+          class="val-select-button-item"
+          [class.val-select-button-item-active]="isSelected(getOptionValue(opt))"
+          [class.val-select-button-item-disabled]="disabled() || isOptionDisabled(opt)"
           [disabled]="disabled() || isOptionDisabled(opt)"
           (click)="selectOption(getOptionValue(opt))">
           @if (getOptionIcon(opt)) {
-            <span class="ox-select-button-icon">
-              <ox-icon [name]="$any(getOptionIcon(opt))" size="1rem"></ox-icon>
+            <span class="val-select-button-icon">
+              <val-icon [name]="$any(getOptionIcon(opt))" size="1rem"></val-icon>
             </span>
           }
           @if (getOptionLabel(opt)) {
-            <span class="ox-select-button-label">{{ getOptionLabel(opt) }}</span>
+            <span class="val-select-button-label">{{ getOptionLabel(opt) }}</span>
           }
         </button>
       }
     </div>
   `,
   styles: [`
-    .ox-select-button {
+    .val-select-button {
       display: inline-flex;
       background: var(--bg-surface-subtle, #f1f5f9);
       border: 1px solid var(--border-color, #e2e8f0);
@@ -61,12 +61,12 @@ export interface SelectButtonOption<T = any> {
       user-select: none;
     }
 
-    .ox-select-button-disabled {
+    .val-select-button-disabled {
       opacity: 0.6;
       cursor: not-allowed;
     }
 
-    .ox-select-button-item {
+    .val-select-button-item {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -83,24 +83,24 @@ export interface SelectButtonOption<T = any> {
       outline: none;
     }
 
-    .ox-select-button-item:hover:not(.ox-select-button-item-disabled):not(.ox-select-button-item-active) {
+    .val-select-button-item:hover:not(.val-select-button-item-disabled):not(.val-select-button-item-active) {
       color: var(--text-primary, #1e293b);
       background: rgba(255, 255, 255, 0.6);
     }
 
-    .ox-select-button-item-active {
+    .val-select-button-item-active {
       color: var(--primary-color, #4f46e5);
       background: var(--bg-surface, #ffffff);
       font-weight: 600;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
     }
 
-    .ox-select-button-item-disabled {
+    .val-select-button-item-disabled {
       cursor: not-allowed;
       opacity: 0.5;
     }
 
-    .ox-select-button-icon {
+    .val-select-button-icon {
       font-size: 1rem;
       display: inline-flex;
       align-items: center;

@@ -3,22 +3,22 @@ import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'ox-knob',
+  selector: 'val-knob',
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="oxy-knob-container" 
-         [class.oxy-knob--disabled]="disabled()"
-         [ngClass]="'oxy-knob--' + variant()"
+    <div class="val-knob-container" 
+         [class.val-knob--disabled]="disabled()"
+         [ngClass]="'val-knob--' + variant()"
          [style.width.px]="size()"
          (mousedown)="onMouseDown($event)"
          (wheel)="onWheel($event)">
       
-      <svg viewBox="0 0 100 100" class="oxy-knob-svg">
+      <svg viewBox="0 0 100 100" class="val-knob-svg">
         <!-- Background Track -->
         <circle 
           cx="50" cy="50" r="40" 
-          class="oxy-knob-track"
+          class="val-knob-track"
           [style.stroke]="rangeColor()"
           [style.stroke-width]="strokeWidth()"
           stroke-dasharray="251.2"
@@ -27,7 +27,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
         <!-- Progress Bar -->
         <circle 
           cx="50" cy="50" r="40" 
-          class="oxy-knob-progress"
+          class="val-knob-progress"
           [style.stroke]="valueColor()"
           [style.stroke-width]="strokeWidth()"
           [style.stroke-dashoffset]="dashOffset()"
@@ -35,13 +35,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
         
         <!-- Center Knob -->
         @if (variant() === 'default') {
-          <circle cx="50" cy="50" r="32" class="oxy-knob-center" />
+          <circle cx="50" cy="50" r="32" class="val-knob-center" />
         }
         
         <!-- Indicator Dot -->
         @if (variant() !== 'outline') {
           <g [style.transform]="rotateIndicator()" style="transform-origin: 50% 50%">
-            <circle cx="50" cy="18" r="4" class="oxy-knob-indicator" [style.fill]="valueColor()" />
+            <circle cx="50" cy="18" r="4" class="val-knob-indicator" [style.fill]="valueColor()" />
           </g>
         }
 
@@ -49,13 +49,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
         <text 
           x="50" y="55" 
           text-anchor="middle" 
-          class="oxy-knob-text">
+          class="val-knob-text">
           {{ value() }}{{ unit() }}
         </text>
       </svg>
       
       @if (label()) {
-        <span class="oxy-knob-label">{{ label() }}</span>
+        <span class="val-knob-label">{{ label() }}</span>
       }
     </div>
   `,

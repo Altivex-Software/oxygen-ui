@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { OxygenUiService } from './oxygen-ui.service';
+import { ValenceUiService } from './valence-ui.service';
 
-describe('OxygenUiService', () => {
-  let service: OxygenUiService;
+describe('ValenceUiService', () => {
+  let service: ValenceUiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(OxygenUiService);
+    service = TestBed.inject(ValenceUiService);
   });
 
   it('should be created', () => {

@@ -1,4 +1,4 @@
-.ox-form-field {
+.val-form-field {
   display: inline-flex;
   flex-direction: column;
   position: relative;
@@ -12,48 +12,48 @@
   }
 
   // Top Label
-  .ox-form-field-label {
+  .val-form-field-label {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--oxy-text-color, #374151);
+    color: var(--val-text-color, #374151);
     margin-bottom: 0.375rem;
     transition: color 0.15s ease-in-out;
     user-select: none;
 
-    .ox-form-field-required-marker {
-      color: var(--oxy-danger-500, #ef4444);
+    .val-form-field-required-marker {
+      color: var(--val-danger-500, #ef4444);
       font-weight: 700;
     }
   }
 
   // Control Container (Wrapper for Prefix + Control + Suffix)
-  .ox-form-field-control-wrapper {
+  .val-form-field-control-wrapper {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
-    border-radius: var(--oxy-border-radius, 0.5rem);
-    background-color: var(--oxy-surface-card, #ffffff);
-    border: 1px solid var(--oxy-surface-border, #e5e7eb);
+    border-radius: var(--val-border-radius, 0.5rem);
+    background-color: var(--val-surface-card, #ffffff);
+    border: 1px solid var(--val-surface-border, #e5e7eb);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
-    &:hover:not(.ox-form-field-control-wrapper--disabled) {
-      border-color: var(--oxy-surface-border-hover, #9ca3af);
+    &:hover:not(.val-form-field-control-wrapper--disabled) {
+      border-color: var(--val-surface-border-hover, #9ca3af);
     }
 
-    &:focus-within:not(.ox-form-field-control-wrapper--disabled) {
-      border-color: var(--oxy-primary-500, #3b82f6);
-      box-shadow: 0 0 0 3px var(--oxy-primary-100, rgba(59, 130, 246, 0.2));
+    &:focus-within:not(.val-form-field-control-wrapper--disabled) {
+      border-color: var(--val-primary-500, #3b82f6);
+      box-shadow: 0 0 0 3px var(--val-primary-100, rgba(59, 130, 246, 0.2));
     }
 
     // Native inputs inside form-field
-    input.ox-input-native,
-    textarea.ox-input-native,
-    select.ox-input-native {
+    input.val-input-native,
+    textarea.val-input-native,
+    select.val-input-native {
       flex: 1 1 auto;
       width: 100%;
       min-width: 0;
@@ -61,39 +61,39 @@
       background: transparent;
       outline: none;
       box-shadow: none;
-      color: var(--oxy-text-color, #111827);
+      color: var(--val-text-color, #111827);
       font-size: 0.875rem;
       padding: 0.5rem 0.75rem;
       font-family: inherit;
 
       &::placeholder {
-        color: var(--oxy-text-muted, #9ca3af);
+        color: var(--val-text-muted, #9ca3af);
       }
 
       &:disabled {
         cursor: not-allowed;
-        color: var(--oxy-text-muted, #9ca3af);
+        color: var(--val-text-muted, #9ca3af);
       }
     }
 
-    textarea.ox-input-native {
+    textarea.val-input-native {
       min-height: 5rem;
       resize: vertical;
     }
   }
 
   // Affixes (Prefix / Suffix)
-  .ox-form-field-prefix,
-  .ox-form-field-suffix {
+  .val-form-field-prefix,
+  .val-form-field-suffix {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--oxy-text-muted, #6b7280);
+    color: var(--val-text-muted, #6b7280);
     padding: 0 0.625rem;
     flex-shrink: 0;
     font-size: 0.875rem;
 
-    svg, ox-icon {
+    svg, val-icon {
       font-size: 1.125rem;
       color: inherit;
     }
@@ -101,38 +101,38 @@
 
   // Size Variants
   &--sm {
-    .ox-form-field-label {
+    .val-form-field-label {
       font-size: 0.75rem;
       margin-bottom: 0.25rem;
     }
-    .ox-form-field-control-wrapper {
+    .val-form-field-control-wrapper {
       border-radius: 0.375rem;
-      input.ox-input-native,
-      select.ox-input-native {
+      input.val-input-native,
+      select.val-input-native {
         padding: 0.375rem 0.5rem;
         font-size: 0.75rem;
       }
-      .ox-form-field-prefix,
-      .ox-form-field-suffix {
+      .val-form-field-prefix,
+      .val-form-field-suffix {
         padding: 0 0.5rem;
       }
     }
   }
 
   &--lg {
-    .ox-form-field-label {
+    .val-form-field-label {
       font-size: 1rem;
       margin-bottom: 0.5rem;
     }
-    .ox-form-field-control-wrapper {
+    .val-form-field-control-wrapper {
       border-radius: 0.625rem;
-      input.ox-input-native,
-      select.ox-input-native {
+      input.val-input-native,
+      select.val-input-native {
         padding: 0.75rem 1rem;
         font-size: 1rem;
       }
-      .ox-form-field-prefix,
-      .ox-form-field-suffix {
+      .val-form-field-prefix,
+      .val-form-field-suffix {
         padding: 0 0.875rem;
       }
     }
@@ -140,40 +140,40 @@
 
   // Appearances
   &--filled {
-    .ox-form-field-control-wrapper {
-      background-color: var(--oxy-surface-ground, #f3f4f6);
+    .val-form-field-control-wrapper {
+      background-color: var(--val-surface-ground, #f3f4f6);
       border-color: transparent;
 
-      &:hover:not(.ox-form-field-control-wrapper--disabled) {
-        background-color: var(--oxy-surface-hover, #e5e7eb);
+      &:hover:not(.val-form-field-control-wrapper--disabled) {
+        background-color: var(--val-surface-hover, #e5e7eb);
         border-color: transparent;
       }
 
-      &:focus-within:not(.ox-form-field-control-wrapper--disabled) {
-        background-color: var(--oxy-surface-card, #ffffff);
-        border-color: var(--oxy-primary-500, #3b82f6);
-        box-shadow: 0 0 0 3px var(--oxy-primary-100, rgba(59, 130, 246, 0.2));
+      &:focus-within:not(.val-form-field-control-wrapper--disabled) {
+        background-color: var(--val-surface-card, #ffffff);
+        border-color: var(--val-primary-500, #3b82f6);
+        box-shadow: 0 0 0 3px var(--val-primary-100, rgba(59, 130, 246, 0.2));
       }
     }
   }
 
   &--standard {
-    .ox-form-field-control-wrapper {
+    .val-form-field-control-wrapper {
       background-color: transparent;
       border: none;
-      border-bottom: 1.5px solid var(--oxy-surface-border, #d1d5db);
+      border-bottom: 1.5px solid var(--val-surface-border, #d1d5db);
       border-radius: 0;
       box-shadow: none;
       padding-left: 0;
       padding-right: 0;
 
-      &:hover:not(.ox-form-field-control-wrapper--disabled) {
-        border-bottom-color: var(--oxy-surface-border-hover, #6b7280);
+      &:hover:not(.val-form-field-control-wrapper--disabled) {
+        border-bottom-color: var(--val-surface-border-hover, #6b7280);
       }
 
-      &:focus-within:not(.ox-form-field-control-wrapper--disabled) {
-        border-bottom-color: var(--oxy-primary-500, #3b82f6);
-        box-shadow: 0 1px 0 0 var(--oxy-primary-500, #3b82f6);
+      &:focus-within:not(.val-form-field-control-wrapper--disabled) {
+        border-bottom-color: var(--val-primary-500, #3b82f6);
+        box-shadow: 0 1px 0 0 var(--val-primary-500, #3b82f6);
       }
     }
   }
@@ -183,33 +183,33 @@
     opacity: 0.65;
     cursor: not-allowed;
 
-    .ox-form-field-control-wrapper {
-      background-color: var(--oxy-surface-disabled, #f9fafb);
+    .val-form-field-control-wrapper {
+      background-color: var(--val-surface-disabled, #f9fafb);
       cursor: not-allowed;
     }
-    .ox-form-field-label {
-      color: var(--oxy-text-muted, #9ca3af);
+    .val-form-field-label {
+      color: var(--val-text-muted, #9ca3af);
     }
   }
 
   // Invalid / Error State
   &--invalid {
-    .ox-form-field-label {
-      color: var(--oxy-danger-600, #dc2626);
+    .val-form-field-label {
+      color: var(--val-danger-600, #dc2626);
     }
 
-    .ox-form-field-control-wrapper {
-      border-color: var(--oxy-danger-500, #ef4444) !important;
+    .val-form-field-control-wrapper {
+      border-color: var(--val-danger-500, #ef4444) !important;
 
       &:focus-within {
-        border-color: var(--oxy-danger-600, #dc2626) !important;
-        box-shadow: 0 0 0 3px var(--oxy-danger-100, rgba(239, 68, 68, 0.2)) !important;
+        border-color: var(--val-danger-600, #dc2626) !important;
+        box-shadow: 0 0 0 3px var(--val-danger-100, rgba(239, 68, 68, 0.2)) !important;
       }
     }
   }
 
   // Subscript Area (Hints & Errors)
-  .ox-form-field-subscript {
+  .val-form-field-subscript {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -220,8 +220,8 @@
     padding: 0 0.125rem;
     box-sizing: border-box;
 
-    .ox-form-field-hint {
-      color: var(--oxy-text-muted, #6b7280);
+    .val-form-field-hint {
+      color: var(--val-text-muted, #6b7280);
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
@@ -231,20 +231,20 @@
       }
     }
 
-    .ox-form-field-error {
-      color: var(--oxy-danger-500, #ef4444);
+    .val-form-field-error {
+      color: var(--val-danger-500, #ef4444);
       display: inline-flex;
       align-items: center;
       gap: 0.375rem;
       font-weight: 500;
 
-      .ox-form-field-error-icon-wrapper {
+      .val-form-field-error-icon-wrapper {
         display: inline-flex;
         align-items: center;
         flex-shrink: 0;
       }
 
-      .ox-form-field-error-message {
+      .val-form-field-error-message {
         line-height: 1.25;
       }
     }
@@ -252,29 +252,29 @@
 }
 
 // Dark theme overrides
-.dark .ox-form-field {
-  .ox-form-field-label {
-    color: var(--oxy-text-color, #f3f4f6);
+.dark .val-form-field {
+  .val-form-field-label {
+    color: var(--val-text-color, #f3f4f6);
   }
 
-  .ox-form-field-control-wrapper {
-    background-color: var(--oxy-surface-card, #1e293b);
-    border-color: var(--oxy-surface-border, #334155);
+  .val-form-field-control-wrapper {
+    background-color: var(--val-surface-card, #1e293b);
+    border-color: var(--val-surface-border, #334155);
 
-    input.ox-input-native,
-    textarea.ox-input-native,
-    select.ox-input-native {
-      color: var(--oxy-text-color, #f9fafb);
+    input.val-input-native,
+    textarea.val-input-native,
+    select.val-input-native {
+      color: var(--val-text-color, #f9fafb);
       &::placeholder {
-        color: var(--oxy-text-muted, #64748b);
+        color: var(--val-text-muted, #64748b);
       }
     }
   }
 
-  &.ox-form-field--filled .ox-form-field-control-wrapper {
-    background-color: var(--oxy-surface-ground, #0f172a);
+  &.val-form-field--filled .val-form-field-control-wrapper {
+    background-color: var(--val-surface-ground, #0f172a);
     &:focus-within {
-      background-color: var(--oxy-surface-card, #1e293b);
+      background-color: var(--val-surface-card, #1e293b);
     }
   }
 }

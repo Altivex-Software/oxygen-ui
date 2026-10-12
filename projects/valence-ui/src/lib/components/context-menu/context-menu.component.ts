@@ -12,11 +12,11 @@ import {
 import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { IconComponent } from '../icon/icon.component';
-import { OxIconName } from '../icon/icon.types';
+import { ValIconName } from '../icon/icon.types';
 
 export interface ContextMenuItem {
   label?: string;
-  icon?: OxIconName | string;
+  icon?: ValIconName | string;
   command?: (event?: any) => void;
   disabled?: boolean;
   danger?: boolean;
@@ -24,34 +24,34 @@ export interface ContextMenuItem {
 }
 
 @Component({
-  selector: 'ox-context-menu',
+  selector: 'val-context-menu',
   standalone: true,
   imports: [CommonModule, OverlayModule, IconComponent],
   template: `
     <div 
       *ngIf="isOpen()"
-      class="ox-context-menu-wrapper"
+      class="val-context-menu-wrapper"
       (click)="close()"
       (contextmenu)="$event.preventDefault(); close()">
       <div 
-        class="ox-context-menu-panel ox-elevation-3"
+        class="val-context-menu-panel val-elevation-3"
         [style.left.px]="clickX()"
         [style.top.px]="clickY()"
         (click)="$event.stopPropagation()">
-        <ul class="ox-context-menu-items">
+        <ul class="val-context-menu-items">
           @for (item of model(); track $index) {
             @if (item.separator) {
-              <li class="ox-context-menu-separator"></li>
+              <li class="val-context-menu-separator"></li>
             } @else {
               <li 
-                class="ox-context-menu-item" 
-                [class.ox-context-menu-item-disabled]="item.disabled"
-                [class.ox-context-menu-item-danger]="item.danger"
+                class="val-context-menu-item" 
+                [class.val-context-menu-item-disabled]="item.disabled"
+                [class.val-context-menu-item-danger]="item.danger"
                 (click)="onItemClick(item, $event)">
                 @if (item.icon) {
-                  <ox-icon [name]="$any(item.icon)" size="1rem" class="ox-context-menu-icon"></ox-icon>
+                  <val-icon [name]="$any(item.icon)" size="1rem" class="val-context-menu-icon"></val-icon>
                 }
-                <span class="ox-context-menu-label">{{ item.label }}</span>
+                <span class="val-context-menu-label">{{ item.label }}</span>
               </li>
             }
           }

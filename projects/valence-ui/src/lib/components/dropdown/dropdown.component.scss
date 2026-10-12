@@ -1,4 +1,4 @@
-.ox-dropdown {
+.val-dropdown {
   display: inline-flex;
   position: relative;
   width: 100%;
@@ -15,43 +15,43 @@
   outline: 0 none;
 
   /* Tamaños */
-  &.ox-dropdown-sm {
+  &.val-dropdown-sm {
     height: 32px;
     font-size: 0.75rem;
     padding: 0 8px;
-    .ox-dropdown-label { font-size: 0.75rem; }
-    .ox-dropdown-trigger-icon { width: 14px; height: 14px; }
+    .val-dropdown-label { font-size: 0.75rem; }
+    .val-dropdown-trigger-icon { width: 14px; height: 14px; }
   }
 
-  &.ox-dropdown-md {
+  &.val-dropdown-md {
     height: 40px;
   }
 
-  &.ox-dropdown-lg {
+  &.val-dropdown-lg {
     height: 48px;
     font-size: 1.125rem;
     padding: 0 16px;
-    .ox-dropdown-label { font-size: 1.125rem; }
-    .ox-dropdown-trigger-icon { width: 20px; height: 20px; }
+    .val-dropdown-label { font-size: 1.125rem; }
+    .val-dropdown-trigger-icon { width: 20px; height: 20px; }
   }
 
   /* Variantes */
-  &.ox-dropdown-filled {
+  &.val-dropdown-filled {
     background: #f1f5f9;
     border-color: transparent;
-    &:hover:not(.ox-dropdown-disabled) {
+    &:hover:not(.val-dropdown-disabled) {
       background: #e2e8f0;
     }
   }
 
-  &.ox-dropdown-outlined {
+  &.val-dropdown-outlined {
     background: transparent;
     border-width: 1px;
     border-style: solid;
     border-color: #d1d5db;
   }
 
-  &.ox-dropdown-oneLine {
+  &.val-dropdown-oneLine {
     background: transparent;
     border-top: none;
     border-left: none;
@@ -62,18 +62,18 @@
     padding-left: 4px;
     padding-right: 4px;
     
-    &.ox-dropdown-open {
+    &.val-dropdown-open {
       box-shadow: none;
       border-bottom-width: 2px;
     }
   }
 
-  &.ox-dropdown-fieldset {
+  &.val-dropdown-fieldset {
     margin-top: 8px;
     position: relative;
     background: transparent;
 
-    .ox-dropdown-fieldset-label {
+    .val-dropdown-fieldset-label {
       position: absolute;
       top: -10px;
       left: 10px;
@@ -87,8 +87,8 @@
       transition: color 0.2s;
     }
 
-    &.ox-dropdown-open, &:hover:not(.ox-dropdown-disabled) {
-      .ox-dropdown-fieldset-label {
+    &.val-dropdown-open, &:hover:not(.val-dropdown-disabled) {
+      .val-dropdown-fieldset-label {
         color: inherit; /* Toma el color de la severidad aplicada */
       }
     }
@@ -105,22 +105,22 @@
   );
 
   @each $name, $color in $severities {
-    &.ox-dropdown-#{$name} {
-      &.ox-dropdown-open, &:hover:not(.ox-dropdown-disabled) {
+    &.val-dropdown-#{$name} {
+      &.val-dropdown-open, &:hover:not(.val-dropdown-disabled) {
         border-color: $color;
       }
-      &.ox-dropdown-open {
+      &.val-dropdown-open {
         box-shadow: 0 0 0 3px rgba($color, 0.1);
       }
       
-      &.ox-dropdown-filled.ox-dropdown-open {
+      &.val-dropdown-filled.val-dropdown-open {
         background: white;
         border-color: $color;
       }
     }
   }
 
-  &:hover:not(.ox-dropdown-disabled) {
+  &:hover:not(.val-dropdown-disabled) {
     border-color: #3b82f6;
   }
 
@@ -144,7 +144,7 @@
     font-size: 0.875rem;
     color: #1f2937;
 
-    &.ox-dropdown-placeholder {
+    &.val-dropdown-placeholder {
       color: #6b7280;
     }
   }
@@ -163,7 +163,7 @@
   }
 }
 
-.ox-dropdown-panel {
+.val-dropdown-panel {
   background: white;
   border: 1px solid #e2e8f0;
   border-radius: var(--radius-md);
@@ -173,13 +173,13 @@
   min-width: 100%;
 }
 
-.ox-dropdown-filter-container {
+.val-dropdown-filter-container {
   padding: 8px;
   border-bottom: 1px solid #f1f5f9;
   background: #f8fafc;
 }
 
-.ox-dropdown-filter-input {
+.val-dropdown-filter-input {
   width: 100%;
   padding: 8px 12px;
   border: 1px solid #e2e8f0;
@@ -196,7 +196,7 @@
   }
 }
 
-.ox-dropdown-items {
+.val-dropdown-items {
   list-style: none;
   margin: 0;
   padding: 4px 0;
@@ -204,7 +204,7 @@
   overflow-y: auto;
 }
 
-.ox-dropdown-item {
+.val-dropdown-item {
   padding: 8px 12px;
   font-size: 0.875rem;
   color: #1e293b;
@@ -230,7 +230,7 @@
   }
 }
 
-.ox-dropdown-checkbox {
+.val-dropdown-checkbox {
   width: 18px;
   height: 18px;
   border: 2px solid #cbd5e1;
@@ -253,14 +253,14 @@
   }
 }
 
-.ox-dropdown-empty-message {
+.val-dropdown-empty-message {
   padding: 12px;
   font-size: 0.875rem;
   color: #94a3b8;
   text-align: center;
 }
 
-.ox-dropdown-item {
+.val-dropdown-item {
   padding: 10px 12px;
   font-size: 0.875rem;
   color: #1f2937;
@@ -269,7 +269,7 @@
   display: flex;
   align-items: center;
 
-  &:hover:not(.ox-dropdown-item-disabled) {
+  &:hover:not(.val-dropdown-item-disabled) {
     background: #eff6ff;
     color: #3b82f6;
   }
@@ -287,7 +287,7 @@
   }
 }
 
-.ox-dropdown-empty-message {
+.val-dropdown-empty-message {
   padding: 12px;
   font-size: 0.875rem;
   color: #6b7280;

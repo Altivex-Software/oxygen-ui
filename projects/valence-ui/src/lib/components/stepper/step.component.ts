@@ -2,7 +2,7 @@ import { Component, input, TemplateRef, viewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'ox-step',
+  selector: 'val-step',
   standalone: true,
   imports: [CommonModule],
   template: `

@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'ox-otp',
+  selector: 'val-otp',
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="oxy-otp-container" [class.oxy-otp--disabled]="disabled()">
+    <div class="val-otp-container" [class.val-otp--disabled]="disabled()">
       @for (i of [0, 1, 2, 3, 4, 5].slice(0, length()); track i) {
         <input
           #otpInput
           type="text"
           maxlength="1"
-          class="oxy-otp-input"
+          class="val-otp-input"
           [disabled]="disabled()"
           [value]="otpValues()[i] || ''"
           (input)="onInputChange($event, i)"

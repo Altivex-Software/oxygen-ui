@@ -3,25 +3,25 @@ import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'ox-textarea',
+  selector: 'val-textarea',
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="oxy-input-wrapper" 
-         [class.oxy-input-wrapper--disabled]="disabled()"
-         [class.oxy-input-wrapper--error]="!!error()"
-         [ngClass]="'oxy-input-wrapper--' + size()">
+    <div class="val-input-wrapper" 
+         [class.val-input-wrapper--disabled]="disabled()"
+         [class.val-input-wrapper--error]="!!error()"
+         [ngClass]="'val-input-wrapper--' + size()">
       
       @if (label()) {
-        <label [for]="id()" class="oxy-input-label">
+        <label [for]="id()" class="val-input-label">
           {{ label() }}
           @if (required()) {
-            <span class="oxy-input-required">*</span>
+            <span class="val-input-required">*</span>
           }
         </label>
       }
 
-      <div class="oxy-input-container">
+      <div class="val-input-container">
         <textarea
           [id]="id()"
           [value]="value()"
@@ -29,16 +29,16 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/f
           [disabled]="disabled()"
           [required]="required()"
           [rows]="rows()"
-          class="oxy-textarea-field"
+          class="val-textarea-field"
           (input)="onInput($event)"
           (blur)="onBlur()"
         ></textarea>
       </div>
 
       @if (error()) {
-        <div class="oxy-input-error" role="alert">{{ error() }}</div>
+        <div class="val-input-error" role="alert">{{ error() }}</div>
       } @else if (hint()) {
-        <div class="oxy-input-hint">{{ hint() }}</div>
+        <div class="val-input-hint">{{ hint() }}</div>
       }
     </div>
   `,
@@ -53,7 +53,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/f
   ]
 })
 export class TextareaComponent implements ControlValueAccessor {
-  id = input<string>(`oxy-textarea-${Math.random().toString(36).substr(2, 9)}`);
+  id = input<string>(`val-textarea-${Math.random().toString(36).substr(2, 9)}`);
   label = input<string>();
   placeholder = input<string>('');
   disabled = input<boolean>(false);

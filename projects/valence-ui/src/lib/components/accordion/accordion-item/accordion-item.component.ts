@@ -1,6 +1,6 @@
 import { Component, input, model, computed, contentChild, viewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OxAccordionHeaderDirective } from './accordion-header.directive';
+import { ValAccordionHeaderDirective } from './accordion-header.directive';
 import { IconComponent } from '../../icon/icon.component';
 
 export type AccordionColor = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
@@ -8,7 +8,7 @@ export type AccordionVariantPrefix = 'outline' | 'ghost';
 export type AccordionVariant = AccordionColor | `${AccordionVariantPrefix}-${AccordionColor}`;
 
 @Component({
-  selector: 'ox-accordion-item',
+  selector: 'val-accordion-item',
   standalone: true,
   imports: [CommonModule, IconComponent],
   templateUrl: './accordion-item.component.html',
@@ -19,7 +19,7 @@ export type AccordionVariant = AccordionColor | `${AccordionVariantPrefix}-${Acc
 })
 export class AccordionItemComponent {
   private static nextId = 0;
-  private readonly uniqueId = `ox-accordion-item-${AccordionItemComponent.nextId++}`;
+  private readonly uniqueId = `val-accordion-item-${AccordionItemComponent.nextId++}`;
 
   title = input<string>('');
   expanded = model<boolean>(false);
@@ -29,7 +29,7 @@ export class AccordionItemComponent {
   boxShadow = input<'sm' | 'md' | 'none'>('none');
   disabled = input<boolean>(false);
 
-  customHeader = contentChild(OxAccordionHeaderDirective);
+  customHeader = contentChild(ValAccordionHeaderDirective);
 
   headerButton = viewChild<ElementRef<HTMLButtonElement>>('headerButton');
 
@@ -42,7 +42,7 @@ export class AccordionItemComponent {
   });
 
   hostStyles = computed(() => ({
-    '--ox-accordion-item-shadow': this.shadowValue(),
+    '--val-accordion-item-shadow': this.shadowValue(),
     'z-index': this.expanded() ? '1' : '0',
     'position': 'relative',
     'opacity': this.disabled() ? '0.6' : '1',
@@ -51,9 +51,9 @@ export class AccordionItemComponent {
 
   headerClasses = computed(() => {
     return [
-      'ox-accordion-item__header',
-      this.color() ? `ox-accordion-item__header--${this.color()}` : '',
-      this.disabled() ? 'ox-accordion-item__header--disabled' : ''
+      'val-accordion-item__header',
+      this.color() ? `val-accordion-item__header--${this.color()}` : '',
+      this.disabled() ? 'val-accordion-item__header--disabled' : ''
     ].filter(Boolean).join(' ');
   });
 

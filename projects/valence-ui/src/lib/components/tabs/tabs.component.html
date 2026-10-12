@@ -1,17 +1,17 @@
-<div class="ox-tabs">
-  <div class="ox-tabs__header-container">
+<div class="val-tabs">
+  <div class="val-tabs__header-container">
     @if (showLeftArrow()) {
     <button
-      class="ox-tabs__nav ox-tabs__nav--prev"
+      class="val-tabs__nav val-tabs__nav--prev"
       (click)="scrollHeader('left')"
       aria-label="Previous tabs"
     >
-      <ox-icon name="chevron-left" size="1rem"></ox-icon>
+      <val-icon name="chevron-left" size="1rem"></val-icon>
     </button>
     }
 
     <div
-      class="ox-tabs__header"
+      class="val-tabs__header"
       role="tablist"
       #headerContainer
       (scroll)="onScroll()"
@@ -20,9 +20,9 @@
       @for (tab of tabs(); track tab; let i = $index) {
       <button
         #tabButton
-        class="ox-tabs__tab-label"
-        [class.ox-tabs__tab-label--active]="i === activeIndex()"
-        [class.ox-tabs__tab-label--disabled]="tab.disabled()"
+        class="val-tabs__tab-label"
+        [class.val-tabs__tab-label--active]="i === activeIndex()"
+        [class.val-tabs__tab-label--disabled]="tab.disabled()"
         (click)="selectTab(i)"
         role="tab"
         [id]="tab.id() + '-label'"
@@ -37,14 +37,14 @@
         ></ng-container>
         } @else {
           @if (tab.icon()) {
-            <ox-icon [name]="$any(tab.icon()!)" size="1rem" style="margin-right: 0.375rem; vertical-align: middle;"></ox-icon>
+            <val-icon [name]="$any(tab.icon()!)" size="1rem" style="margin-right: 0.375rem; vertical-align: middle;"></val-icon>
           }
           <span>{{ tab.label() }}</span>
         }
       </button>
       }
       <div
-        class="ox-tabs__indicator"
+        class="val-tabs__indicator"
         [style.left.px]="indicatorLeft()"
         [style.width.px]="indicatorWidth()"
         aria-hidden="true"
@@ -53,17 +53,17 @@
 
     @if (showRightArrow()) {
     <button
-      class="ox-tabs__nav ox-tabs__nav--next"
+      class="val-tabs__nav val-tabs__nav--next"
       (click)="scrollHeader('right')"
       aria-label="Next tabs"
     >
-      <ox-icon name="chevron-right" size="1rem"></ox-icon>
+      <val-icon name="chevron-right" size="1rem"></val-icon>
     </button>
     }
   </div>
 
   <div
-    class="ox-tabs__content"
+    class="val-tabs__content"
     role="tabpanel"
     [id]="(activeTab()?.id() ?? '') + '-panel'"
     [attr.aria-labelledby]="(activeTab()?.id() ?? '') + '-label'"

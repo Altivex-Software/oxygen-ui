@@ -5,32 +5,32 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
-  selector: 'ox-date-picker',
+  selector: 'val-date-picker',
   standalone: true,
   imports: [CommonModule, OverlayModule, FormsModule, IconComponent],
   template: `
-    <div class="oxy-input-wrapper" 
-         [class.oxy-input-wrapper--disabled]="disabled()"
-         [class.oxy-input-wrapper--error]="!!error()"
-         [class.oxy-input-wrapper--float]="floatLabel()"
-         [class.oxy-input-wrapper--has-value]="!!value()"
-         [class.oxy-input-wrapper--open]="isOpen()"
+    <div class="val-input-wrapper" 
+         [class.val-input-wrapper--disabled]="disabled()"
+         [class.val-input-wrapper--error]="!!error()"
+         [class.val-input-wrapper--float]="floatLabel()"
+         [class.val-input-wrapper--has-value]="!!value()"
+         [class.val-input-wrapper--open]="isOpen()"
          [ngClass]="[
-           'oxy-input-wrapper--' + size(),
-           variant() === 'fieldset' ? 'oxy-input-wrapper--fieldset' : '',
-           variant() === 'oneLine' ? 'oxy-input-wrapper--oneLine' : ''
+           'val-input-wrapper--' + size(),
+           variant() === 'fieldset' ? 'val-input-wrapper--fieldset' : '',
+           variant() === 'oneLine' ? 'val-input-wrapper--oneLine' : ''
          ]">
       
       @if (label()) {
-        <label class="oxy-input-label" (click)="toggle()">
+        <label class="val-input-label" (click)="toggle()">
           {{ label() }}
           @if (required()) {
-            <span class="oxy-input-required">*</span>
+            <span class="val-input-required">*</span>
           }
         </label>
       }
 
-      <div class="oxy-input-container" cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="toggle()">
+      <div class="val-input-container" cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="toggle()">
         <input
           [id]="id()"
           type="text"
@@ -38,17 +38,17 @@ import { IconComponent } from '../icon/icon.component';
           [disabled]="disabled()"
           [placeholder]="placeholder() || ''"
           readonly
-          class="oxy-input-field oxy-datepicker-input"
+          class="val-input-field val-datepicker-input"
         />
-        <div class="oxy-datepicker-trigger">
-          <ox-icon name="calendar" size="1.125rem"></ox-icon>
+        <div class="val-datepicker-trigger">
+          <val-icon name="calendar" size="1.125rem"></val-icon>
         </div>
       </div>
 
       @if (error()) {
-        <div class="oxy-input-error" role="alert">{{ error() }}</div>
+        <div class="val-input-error" role="alert">{{ error() }}</div>
       } @else if (hint()) {
-        <div class="oxy-input-hint">{{ hint() }}</div>
+        <div class="val-input-hint">{{ hint() }}</div>
       }
 
       <ng-template 
@@ -58,12 +58,12 @@ import { IconComponent } from '../icon/icon.component';
         [cdkConnectedOverlayOffsetY]="4"
         (overlayOutsideClick)="close()">
         
-        <div class="oxy-datepicker-panel oxy-elevation-4">
-          <div class="oxy-datepicker-header">
-            <button type="button" (click)="prev()" class="oxy-datepicker-nav-btn">
-              <ox-icon name="chevron-left" size="0.875rem"></ox-icon>
+        <div class="val-datepicker-panel val-elevation-4">
+          <div class="val-datepicker-header">
+            <button type="button" (click)="prev()" class="val-datepicker-nav-btn">
+              <val-icon name="chevron-left" size="0.875rem"></val-icon>
             </button>
-            <span class="oxy-datepicker-month-year" (click)="toggleView()">
+            <span class="val-datepicker-month-year" (click)="toggleView()">
               @if (currentView() === 'days') {
                 {{ currentMonthName() }} {{ currentYear() }}
               } @else if (currentView() === 'months') {
@@ -72,25 +72,25 @@ import { IconComponent } from '../icon/icon.component';
                 {{ yearsRange()[1] }} - {{ yearsRange()[yearsRange().length - 2] }}
               }
             </span>
-            <button type="button" (click)="next()" class="oxy-datepicker-nav-btn">
-              <ox-icon name="chevron-right" size="0.875rem"></ox-icon>
+            <button type="button" (click)="next()" class="val-datepicker-nav-btn">
+              <val-icon name="chevron-right" size="0.875rem"></val-icon>
             </button>
           </div>
           
           @if (currentView() === 'days') {
-            <div class="oxy-datepicker-calendar">
-              <div class="oxy-datepicker-weekdays">
+            <div class="val-datepicker-calendar">
+              <div class="val-datepicker-weekdays">
                 @for (day of weekDays; track day) {
-                  <span class="oxy-datepicker-weekday">{{ day }}</span>
+                  <span class="val-datepicker-weekday">{{ day }}</span>
                 }
               </div>
-              <div class="oxy-datepicker-days">
+              <div class="val-datepicker-days">
                 @for (date of calendarDays(); track date.getTime()) {
                   <div 
-                    class="oxy-datepicker-day"
-                    [class.oxy-datepicker-day--other-month]="!isCurrentMonth(date)"
-                    [class.oxy-datepicker-day--today]="isToday(date)"
-                    [class.oxy-datepicker-day--selected]="isSelected(date)"
+                    class="val-datepicker-day"
+                    [class.val-datepicker-day--other-month]="!isCurrentMonth(date)"
+                    [class.val-datepicker-day--today]="isToday(date)"
+                    [class.val-datepicker-day--selected]="isSelected(date)"
                     (click)="selectDate(date)">
                     {{ date.getDate() }}
                   </div>
@@ -98,23 +98,23 @@ import { IconComponent } from '../icon/icon.component';
               </div>
             </div>
           } @else if (currentView() === 'months') {
-            <div class="oxy-datepicker-grid oxy-datepicker-months">
+            <div class="val-datepicker-grid val-datepicker-months">
               @for (month of monthNames; track month; let i = $index) {
                 <div 
-                  class="oxy-datepicker-grid-item"
-                  [class.oxy-datepicker-grid-item--selected]="viewDate().getMonth() === i"
+                  class="val-datepicker-grid-item"
+                  [class.val-datepicker-grid-item--selected]="viewDate().getMonth() === i"
                   (click)="selectMonth(i)">
                   {{ month.substring(0, 3) }}
                 </div>
               }
             </div>
           } @else if (currentView() === 'years') {
-            <div class="oxy-datepicker-grid oxy-datepicker-years">
+            <div class="val-datepicker-grid val-datepicker-years">
               @for (year of yearsRange(); track year; let i = $index) {
                 <div 
-                  class="oxy-datepicker-grid-item"
-                  [class.oxy-datepicker-grid-item--other]="i === 0 || i === yearsRange().length - 1"
-                  [class.oxy-datepicker-grid-item--selected]="viewDate().getFullYear() === year"
+                  class="val-datepicker-grid-item"
+                  [class.val-datepicker-grid-item--other]="i === 0 || i === yearsRange().length - 1"
+                  [class.val-datepicker-grid-item--selected]="viewDate().getFullYear() === year"
                   (click)="selectYear(year)">
                   {{ year }}
                 </div>
@@ -122,9 +122,9 @@ import { IconComponent } from '../icon/icon.component';
             </div>
           }
 
-          <div class="oxy-datepicker-footer">
-            <button type="button" (click)="clear()" class="oxy-datepicker-btn oxy-datepicker-btn--text">Borrar</button>
-            <button type="button" (click)="setToday()" class="oxy-datepicker-btn oxy-datepicker-btn--text">Hoy</button>
+          <div class="val-datepicker-footer">
+            <button type="button" (click)="clear()" class="val-datepicker-btn val-datepicker-btn--text">Borrar</button>
+            <button type="button" (click)="setToday()" class="val-datepicker-btn val-datepicker-btn--text">Hoy</button>
           </div>
         </div>
       </ng-template>
@@ -142,7 +142,7 @@ import { IconComponent } from '../icon/icon.component';
   ]
 })
 export class DatePickerComponent implements ControlValueAccessor {
-  id = input<string>(`oxy-datepicker-${Math.random().toString(36).substr(2, 9)}`);
+  id = input<string>(`val-datepicker-${Math.random().toString(36).substr(2, 9)}`);
   label = input<string>();
   placeholder = input<string>();
   disabled = input<boolean>(false);

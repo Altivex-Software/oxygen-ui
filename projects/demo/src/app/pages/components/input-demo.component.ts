@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { InputComponent } from 'oxygen-ui';
+import { InputComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
   standalone: true,
   imports: [CommonModule, FormsModule, InputComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Input (Campo de Texto)</h1>
-      <p class="ox-description">Campos de entrada de texto versátiles con soporte para etiquetas flotantes, validación y múltiples variantes de diseño.</p>
+      <p class="val-description">Campos de entrada de texto versátiles con soporte para etiquetas flotantes, validación y múltiples variantes de diseño.</p>
 
       <!-- 1. BÁSICO -->
       <app-doc-code
@@ -21,8 +21,8 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="basicHtml"
         [ts]="inputTs">
         <div class="demo-grid">
-          <ox-input label="Nombre de usuario" placeholder="Ej. juanito123"></ox-input>
-          <ox-input label="Correo Electrónico" placeholder="tu@email.com"></ox-input>
+          <val-input label="Nombre de usuario" placeholder="Ej. juanito123"></val-input>
+          <val-input label="Correo Electrónico" placeholder="tu@email.com"></val-input>
         </div>
       </app-doc-code>
 
@@ -33,9 +33,9 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="statesHtml"
         [ts]="inputTs">
         <div class="demo-grid">
-          <ox-input label="Deshabilitado" [disabled]="true" [ngModel]="'No puedes tocar esto'"></ox-input>
-          <ox-input label="Con error" error="El correo no es válido" [ngModel]="'correo@ejemplo'"></ox-input>
-          <ox-input label="Ayuda" hint="Ingresa tu correo institucional"></ox-input>
+          <val-input label="Deshabilitado" [disabled]="true" [ngModel]="'No puedes tocar esto'"></val-input>
+          <val-input label="Con error" error="El correo no es válido" [ngModel]="'correo@ejemplo'"></val-input>
+          <val-input label="Ayuda" hint="Ingresa tu correo institucional"></val-input>
         </div>
       </app-doc-code>
 
@@ -46,9 +46,9 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="variantsHtml"
         [ts]="inputTs">
         <div class="demo-grid">
-          <ox-input label="Variante Estándar" [floatLabel]="true" variant="default" placeholder=" "></ox-input>
-          <ox-input label="Variante Fieldset" [floatLabel]="true" variant="fieldset"></ox-input>
-          <ox-input label="Variante One Line" [floatLabel]="true" variant="oneLine" placeholder=" "></ox-input>
+          <val-input label="Variante Estándar" [floatLabel]="true" variant="default" placeholder=" "></val-input>
+          <val-input label="Variante Fieldset" [floatLabel]="true" variant="fieldset"></val-input>
+          <val-input label="Variante One Line" [floatLabel]="true" variant="oneLine" placeholder=" "></val-input>
         </div>
       </app-doc-code>
 
@@ -59,9 +59,9 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="sizesHtml"
         [ts]="inputTs">
         <div class="demo-grid">
-          <ox-input label="Pequeño" size="sm" placeholder="Input pequeño"></ox-input>
-          <ox-input label="Mediano" size="md" placeholder="Input mediano"></ox-input>
-          <ox-input label="Grande" size="lg" placeholder="Input grande"></ox-input>
+          <val-input label="Pequeño" size="sm" placeholder="Input pequeño"></val-input>
+          <val-input label="Mediano" size="md" placeholder="Input mediano"></val-input>
+          <val-input label="Grande" size="lg" placeholder="Input grande"></val-input>
         </div>
       </app-doc-code>
 
@@ -81,23 +81,23 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
   `]
 })
 export class InputDemoComponent {
-  basicHtml = `<ox-input label="Nombre de usuario" placeholder="Ej. juanito123"></ox-input>
-<ox-input label="Correo Electrónico" placeholder="tu@email.com"></ox-input>`;
+  basicHtml = `<val-input label="Nombre de usuario" placeholder="Ej. juanito123"></val-input>
+<val-input label="Correo Electrónico" placeholder="tu@email.com"></val-input>`;
 
-  statesHtml = `<ox-input label="Deshabilitado" [disabled]="true" [ngModel]="'Solo lectura'"></ox-input>
-<ox-input label="Con error" error="Correo inválido"></ox-input>
-<ox-input label="Ayuda" hint="Ingresa tu correo"></ox-input>`;
+  statesHtml = `<val-input label="Deshabilitado" [disabled]="true" [ngModel]="'Solo lectura'"></val-input>
+<val-input label="Con error" error="Correo inválido"></val-input>
+<val-input label="Ayuda" hint="Ingresa tu correo"></val-input>`;
 
-  variantsHtml = `<ox-input label="Estándar" [floatLabel]="true" variant="default"></ox-input>
-<ox-input label="Fieldset" [floatLabel]="true" variant="fieldset"></ox-input>
-<ox-input label="One Line" [floatLabel]="true" variant="oneLine"></ox-input>`;
+  variantsHtml = `<val-input label="Estándar" [floatLabel]="true" variant="default"></val-input>
+<val-input label="Fieldset" [floatLabel]="true" variant="fieldset"></val-input>
+<val-input label="One Line" [floatLabel]="true" variant="oneLine"></val-input>`;
 
-  sizesHtml = `<ox-input size="sm" placeholder="Small"></ox-input>
-<ox-input size="md" placeholder="Medium"></ox-input>
-<ox-input size="lg" placeholder="Large"></ox-input>`;
+  sizesHtml = `<val-input size="sm" placeholder="Small"></val-input>
+<val-input size="md" placeholder="Medium"></val-input>
+<val-input size="lg" placeholder="Large"></val-input>`;
 
   inputTs = `import { Component } from '@angular/core';
-import { InputComponent } from 'oxygen-ui';
+import { InputComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-input',

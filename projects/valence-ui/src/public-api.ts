@@ -1,8 +1,8 @@
 /*
- * Public API Surface of oxigen-ui
+ * Public API Surface of valence-ui
  */
 
-export * from './lib/services/oxygen-ui.service';
+export * from './lib/services/valence-ui.service';
 export * from './lib/components/sample/sample.component';
 export * from './lib/components/button/button.component';
 export * from './lib/components/accordion/accordion.component';

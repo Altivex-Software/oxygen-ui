@@ -1,19 +1,19 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[oxPrefix]',
+  selector: '[valPrefix]',
   standalone: true,
   host: {
-    'class': 'ox-form-field-prefix'
+    'class': 'val-form-field-prefix'
   }
 })
 export class FormFieldPrefixDirective {}
 
 @Directive({
-  selector: '[oxSuffix]',
+  selector: '[valSuffix]',
   standalone: true,
   host: {
-    'class': 'ox-form-field-suffix'
+    'class': 'val-form-field-suffix'
   }
 })
 export class FormFieldSuffixDirective {}

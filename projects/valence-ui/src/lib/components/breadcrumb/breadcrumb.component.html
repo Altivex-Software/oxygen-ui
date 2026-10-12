@@ -1,15 +1,15 @@
-<ol class="ox-breadcrumb">
+<ol class="val-breadcrumb">
   @if (homeIcon()) {
-  <li class="ox-breadcrumb-item">
-    <span class="ox-breadcrumb-icon" [class]="homeIcon()"></span>
+  <li class="val-breadcrumb-item">
+    <span class="val-breadcrumb-icon" [class]="homeIcon()"></span>
     @if (items().length > 0) {
-    <span class="ox-breadcrumb-separator">{{ separator() }}</span>
+    <span class="val-breadcrumb-separator">{{ separator() }}</span>
     }
   </li>
   } @for (item of items(); track item.label; let last = $last) {
   <li
-    class="ox-breadcrumb-item"
-    [class.ox-breadcrumb-item--disabled]="item.disabled"
+    class="val-breadcrumb-item"
+    [class.val-breadcrumb-item--disabled]="item.disabled"
   >
     @if (itemTemplate()) {
     <ng-container
@@ -22,23 +22,23 @@
     <a
       [href]="item.url"
       [target]="item.target || '_self'"
-      class="ox-breadcrumb-link"
+      class="val-breadcrumb-link"
       (click)="onItemClick($event, item)"
     >
       @if (item.icon) {
-      <span class="ox-breadcrumb-icon" [class]="item.icon"></span>
+      <span class="val-breadcrumb-icon" [class]="item.icon"></span>
       }
-      <span class="ox-breadcrumb-label">{{ item.label }}</span>
+      <span class="val-breadcrumb-label">{{ item.label }}</span>
     </a>
     } @else {
-    <span class="ox-breadcrumb-text" [attr.aria-current]="last ? 'page' : null">
+    <span class="val-breadcrumb-text" [attr.aria-current]="last ? 'page' : null">
       @if (item.icon) {
-      <span class="ox-breadcrumb-icon" [class]="item.icon"></span>
+      <span class="val-breadcrumb-icon" [class]="item.icon"></span>
       }
-      <span class="ox-breadcrumb-label">{{ item.label }}</span>
+      <span class="val-breadcrumb-label">{{ item.label }}</span>
     </span>
     } @if (!last) {
-    <span class="ox-breadcrumb-separator" aria-hidden="true">{{
+    <span class="val-breadcrumb-separator" aria-hidden="true">{{
       separator()
     }}</span>
     }

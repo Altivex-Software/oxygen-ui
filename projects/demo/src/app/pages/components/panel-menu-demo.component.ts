@@ -9,7 +9,7 @@ import {
   BadgeComponent, 
   ToastComponent,
   ToastService 
-} from 'oxygen-ui';
+} from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api-table.component';
 
@@ -29,11 +29,11 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
   providers: [ToastService],
   template: `
     <div class="demo-container">
-      <ox-toast></ox-toast>
+      <val-toast></val-toast>
 
       <header class="demo-header">
         <div class="demo-title-badge">
-          <ox-badge value="Navigation & Menus" severity="primary"></ox-badge>
+          <val-badge value="Navigation & Menus" severity="primary"></val-badge>
         </div>
         <h1 class="demo-title">PanelMenu & MegaMenu</h1>
         <p class="demo-description">
@@ -47,7 +47,7 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         description="Ideal para paneles laterales (Sidebars). Soporta múltiples niveles de subelementos anidados, badges de estado y apertura única o múltiple."
         [html]="panelMenuHtml">
         <div class="p-4 max-w-md mx-auto">
-          <ox-panel-menu [model]="panelMenuItems()" [multiple]="false"></ox-panel-menu>
+          <val-panel-menu [model]="panelMenuItems()" [multiple]="false"></val-panel-menu>
         </div>
       </app-doc-code>
 
@@ -57,10 +57,10 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         description="Barra de navegación de escritorio con desplegables multi-columna organizados por categorías, iconos y descripciones detalladas."
         [html]="megaMenuHorizontalHtml">
         <div class="p-4">
-          <ox-mega-menu [model]="megaMenuItems()" orientation="horizontal">
+          <val-mega-menu [model]="megaMenuItems()" orientation="horizontal">
             <div start class="font-bold text-lg text-primary-600 dark:text-primary-400 mr-4 flex items-center gap-2">
               <span class="p-1.5 bg-primary-500/10 rounded-lg text-primary-500">⚡</span>
-              Oxygen Portal
+              Valence Portal
             </div>
             <div end class="flex items-center gap-2">
               <input 
@@ -68,7 +68,7 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
                 placeholder="Buscar en el portal..." 
                 class="px-3 py-1.5 text-xs rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 outline-none" />
             </div>
-          </ox-mega-menu>
+          </val-mega-menu>
         </div>
       </app-doc-code>
 
@@ -78,15 +78,15 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         description="Menú vertical compacto con paneles flotantes a la derecha para marketplaces o catálogos extensos."
         [html]="megaMenuVerticalHtml">
         <div class="p-4">
-          <ox-mega-menu [model]="megaMenuVerticalItems()" orientation="vertical"></ox-mega-menu>
+          <val-mega-menu [model]="megaMenuVerticalItems()" orientation="vertical"></val-mega-menu>
         </div>
       </app-doc-code>
 
       <!-- API Reference -->
       <section class="demo-section">
-        <app-doc-api-table title="ox-panel-menu API" [properties]="panelMenuProperties"></app-doc-api-table>
+        <app-doc-api-table title="val-panel-menu API" [properties]="panelMenuProperties"></app-doc-api-table>
         <div class="mt-8">
-          <app-doc-api-table title="ox-mega-menu API" [properties]="megaMenuProperties"></app-doc-api-table>
+          <app-doc-api-table title="val-mega-menu API" [properties]="megaMenuProperties"></app-doc-api-table>
         </div>
       </section>
     </div>
@@ -106,12 +106,12 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
     .demo-title {
       font-size: 2.25rem;
       font-weight: 700;
-      color: var(--ox-text-primary, #0f172a);
+      color: var(--val-text-primary, #0f172a);
       margin: 0;
     }
     .demo-description {
       font-size: 1.125rem;
-      color: var(--ox-text-secondary, #64748b);
+      color: var(--val-text-secondary, #64748b);
       margin: 0;
       line-height: 1.6;
     }
@@ -302,16 +302,16 @@ export class PanelMenuDemoComponent {
     });
   }
 
-  panelMenuHtml = `<ox-panel-menu [model]="panelMenuItems" [multiple]="false"></ox-panel-menu>`;
+  panelMenuHtml = `<val-panel-menu [model]="panelMenuItems" [multiple]="false"></val-panel-menu>`;
 
-  megaMenuHorizontalHtml = `<ox-mega-menu [model]="megaMenuItems" orientation="horizontal">
-  <div start class="font-bold mr-4">Oxygen Portal</div>
+  megaMenuHorizontalHtml = `<val-mega-menu [model]="megaMenuItems" orientation="horizontal">
+  <div start class="font-bold mr-4">Valence Portal</div>
   <div end>
     <input type="text" placeholder="Buscar..." />
   </div>
-</ox-mega-menu>`;
+</val-mega-menu>`;
 
-  megaMenuVerticalHtml = `<ox-mega-menu [model]="megaMenuVerticalItems" orientation="vertical"></ox-mega-menu>`;
+  megaMenuVerticalHtml = `<val-mega-menu [model]="megaMenuVerticalItems" orientation="vertical"></val-mega-menu>`;
 
   panelMenuProperties: ApiProperty[] = [
     { name: 'model', type: 'PanelMenuItem[]', default: '[]', description: 'Lista jerárquica de elementos para el menú acordeón.' },

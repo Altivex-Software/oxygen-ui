@@ -1,5 +1,5 @@
-<div class="ox-accordion-item" [class.ox-accordion-item--expanded]="expanded()">
-  <div role="heading" [attr.aria-level]="headingLevel()" class="ox-accordion-item__header-wrapper">
+<div class="val-accordion-item" [class.val-accordion-item--expanded]="expanded()">
+  <div role="heading" [attr.aria-level]="headingLevel()" class="val-accordion-item__header-wrapper">
     <button type="button" 
             [id]="headerId()"
             [class]="headerClasses()" 
@@ -9,26 +9,26 @@
             [disabled]="disabled()"
             [attr.aria-disabled]="disabled()"
             #headerButton>
-      <span class="ox-accordion-item__title">
+      <span class="val-accordion-item__title">
         @if (customHeader()) {
           <ng-container [ngTemplateOutlet]="customHeader()!.templateRef"></ng-container>
         } @else {
           {{ title() }}
         }
       </span>
-      <span class="ox-accordion-item__icon" 
-            [class.ox-accordion-item__icon--rotated]="expanded()"
+      <span class="val-accordion-item__icon" 
+            [class.val-accordion-item__icon--rotated]="expanded()"
             aria-hidden="true">
-        <ox-icon name="chevron-down" size="1.125rem"></ox-icon>
+        <val-icon name="chevron-down" size="1.125rem"></val-icon>
       </span>
     </button>
   </div>
   <div [id]="panelId()"
-       class="ox-accordion-item__content" 
+       class="val-accordion-item__content" 
        role="region"
        [attr.aria-labelledby]="headerId()"
        [style.max-height]="expanded() ? '1000px' : '0'">
-    <div class="ox-accordion-item__content-inner">
+    <div class="val-accordion-item__content-inner">
       <ng-content></ng-content>
     </div>
   </div>

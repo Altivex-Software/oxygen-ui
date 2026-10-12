@@ -4,25 +4,25 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/f
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
-  selector: 'ox-password',
+  selector: 'val-password',
   standalone: true,
   imports: [CommonModule, FormsModule, IconComponent],
   template: `
     @if (label() && variant() !== 'fieldset' && !floatLabel()) {
-      <label [for]="id()" class="oxy-input-label">
+      <label [for]="id()" class="val-input-label">
         {{ label() }}
         @if (required()) {
-          <span class="oxy-input-required">*</span>
+          <span class="val-input-required">*</span>
         }
       </label>
     }
 
-    <div class="oxy-input-container">
+    <div class="val-input-container">
       @if (label() && (variant() === 'fieldset' || floatLabel())) {
-        <label [for]="id()" class="oxy-input-label">
+        <label [for]="id()" class="val-input-label">
           {{ label() }}
           @if (required()) {
-            <span class="oxy-input-required">*</span>
+            <span class="val-input-required">*</span>
           }
         </label>
       }
@@ -33,38 +33,38 @@ import { IconComponent } from '../icon/icon.component';
         [placeholder]="(floatLabel() && !hasValue()) ? '' : placeholder()"
         [disabled]="disabled()"
         [required]="required()"
-        class="oxy-input-field oxy-password-field"
+        class="val-input-field val-password-field"
         (input)="onInput($event)"
         (blur)="onBlur()"
       />
       <button 
         type="button" 
-        class="oxy-password-toggle"
+        class="val-password-toggle"
         (click)="togglePassword()"
         [disabled]="disabled()"
         aria-label="Toggle password visibility">
         @if (showPassword()) {
-          <ox-icon name="eye-off" size="1.125rem"></ox-icon>
+          <val-icon name="eye-off" size="1.125rem"></val-icon>
         } @else {
-          <ox-icon name="eye" size="1.125rem"></ox-icon>
+          <val-icon name="eye" size="1.125rem"></val-icon>
         }
       </button>
     </div>
 
     @if (error()) {
-      <div class="oxy-input-error" role="alert">{{ error() }}</div>
+      <div class="val-input-error" role="alert">{{ error() }}</div>
     } @else if (hint()) {
-      <div class="oxy-input-hint">{{ hint() }}</div>
+      <div class="val-input-hint">{{ hint() }}</div>
     }
   `,
   styleUrl: './password.component.scss',
   encapsulation: ViewEncapsulation.None,
   host: {
-    '[class.oxy-input-wrapper--disabled]': 'disabled()',
-    '[class.oxy-input-wrapper--error]': '!!error()',
-    '[class.oxy-input-wrapper--float]': 'floatLabel()',
-    '[class.oxy-input-wrapper--has-value]': 'hasValue()',
-    '[class]': '"oxy-input-wrapper oxy-input-wrapper--" + size() + " oxy-input-wrapper--" + variant()',
+    '[class.val-input-wrapper--disabled]': 'disabled()',
+    '[class.val-input-wrapper--error]': '!!error()',
+    '[class.val-input-wrapper--float]': 'floatLabel()',
+    '[class.val-input-wrapper--has-value]': 'hasValue()',
+    '[class]': '"val-input-wrapper val-input-wrapper--" + size() + " val-input-wrapper--" + variant()',
   },
   providers: [
     {
@@ -75,7 +75,7 @@ import { IconComponent } from '../icon/icon.component';
   ]
 })
 export class PasswordComponent implements ControlValueAccessor {
-  id = input<string>(`oxy-password-${Math.random().toString(36).substr(2, 9)}`);
+  id = input<string>(`val-password-${Math.random().toString(36).substr(2, 9)}`);
   label = input<string>();
   placeholder = input<string>('');
   disabled = input<boolean>(false);

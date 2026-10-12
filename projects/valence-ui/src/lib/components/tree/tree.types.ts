@@ -1,13 +1,13 @@
 import { TemplateRef } from '@angular/core';
-import { OxIconName } from '../icon/icon.types';
+import { ValIconName } from '../icon/icon.types';
 
 export interface TreeNode<T = any> {
   key?: string;
   label: string;
   data?: T;
-  icon?: OxIconName | string;
-  expandedIcon?: OxIconName | string;
-  collapsedIcon?: OxIconName | string;
+  icon?: ValIconName | string;
+  expandedIcon?: ValIconName | string;
+  collapsedIcon?: ValIconName | string;
   children?: TreeNode<T>[];
   leaf?: boolean;
   expanded?: boolean;
