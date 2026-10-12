@@ -53,7 +53,14 @@ jobs:
 
       - name: Publish to npm
         if: steps.check_version.outputs.should_publish == 'true'
-        working-directory: ./dist/valence-ui
-        run: npm publish --access public --provenance
+        run: |
+          if [ -z "${NODE_AUTH_TOKEN}" ]; then
+            echo "::error::El secret NPM_TOKEN no está definido en GitHub Secrets o está vacío!"
+            exit 1
+          fi
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > dist/valence-ui/.npmrc
+          cd dist/valence-ui
+          npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
