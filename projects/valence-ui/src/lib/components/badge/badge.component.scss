@@ -1,0 +1,89 @@
+@use '../../styles/tokens' as t;
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-weight: 600;
+  border-radius: 4px;
+  line-height: 1;
+  transition: all 0.2s ease;
+
+  &.val-badge--overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    z-index: 10;
+    border: 2px solid #ffffff; 
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+}
+
+// Sizes
+:host(.val-badge--sm) {
+  font-size: 10px;
+  padding: 2px 4px;
+  min-width: 16px;
+  height: 16px;
+}
+
+:host(.val-badge--md) {
+  font-size: 12px;
+  padding: 2px 6px;
+  min-width: 20px;
+  height: 20px;
+}
+
+:host(.val-badge--lg) {
+  font-size: 14px;
+  padding: 4px 8px;
+  min-width: 24px;
+  height: 24px;
+}
+
+// Variations
+:host(.val-badge--pill) {
+  border-radius: 100px;
+}
+
+:host(.val-badge--dot) {
+  padding: 0;
+  min-width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  
+  &.val-badge--sm { width: 6px; height: 6px; min-width: 6px; }
+  &.val-badge--md { width: 8px; height: 8px; min-width: 8px; }
+  &.val-badge--lg { width: 10px; height: 10px; min-width: 10px; }
+}
+
+// Severity Classes (using CSS variables)
+:host {
+  &.val-badge--primary { --badge-color: var(--val-primary); }
+  &.val-badge--secondary { --badge-color: var(--val-secondary); }
+  &.val-badge--success { --badge-color: var(--val-success); --badge-text-color: white; }
+  &.val-badge--warning, &.val-badge--warn { --badge-color: var(--val-warning); --badge-text-color: #212529; }
+  &.val-badge--error, &.val-badge--danger { --badge-color: var(--val-danger); --badge-text-color: white; }
+  &.val-badge--info { --badge-color: var(--val-info); --badge-text-color: #212529; }
+
+  &.val-badge--filled {
+    background-color: var(--badge-color);
+    color: var(--badge-text-color, white);
+    border: 1px solid transparent;
+  }
+  
+  &.val-badge--outlined {
+    background-color: transparent;
+    color: var(--badge-color);
+    border: 1px solid var(--badge-color);
+  }
+  
+  &.val-badge--flat {
+    background-color: color-mix(in srgb, var(--badge-color), transparent 85%);
+    color: var(--badge-color);
+    border: 1px solid transparent;
+  }
+}

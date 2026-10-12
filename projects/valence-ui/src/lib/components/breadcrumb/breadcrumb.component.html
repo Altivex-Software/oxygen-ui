@@ -1,0 +1,47 @@
+<ol class="val-breadcrumb">
+  @if (homeIcon()) {
+  <li class="val-breadcrumb-item">
+    <span class="val-breadcrumb-icon" [class]="homeIcon()"></span>
+    @if (items().length > 0) {
+    <span class="val-breadcrumb-separator">{{ separator() }}</span>
+    }
+  </li>
+  } @for (item of items(); track item.label; let last = $last) {
+  <li
+    class="val-breadcrumb-item"
+    [class.val-breadcrumb-item--disabled]="item.disabled"
+  >
+    @if (itemTemplate()) {
+    <ng-container
+      *ngTemplateOutlet="
+        itemTemplate()!.template;
+        context: { item: item, last: last }
+      "
+    ></ng-container>
+    } @else if (item.url && !last && !item.disabled) {
+    <a
+      [href]="item.url"
+      [target]="item.target || '_self'"
+      class="val-breadcrumb-link"
+      (click)="onItemClick($event, item)"
+    >
+      @if (item.icon) {
+      <span class="val-breadcrumb-icon" [class]="item.icon"></span>
+      }
+      <span class="val-breadcrumb-label">{{ item.label }}</span>
+    </a>
+    } @else {
+    <span class="val-breadcrumb-text" [attr.aria-current]="last ? 'page' : null">
+      @if (item.icon) {
+      <span class="val-breadcrumb-icon" [class]="item.icon"></span>
+      }
+      <span class="val-breadcrumb-label">{{ item.label }}</span>
+    </span>
+    } @if (!last) {
+    <span class="val-breadcrumb-separator" aria-hidden="true">{{
+      separator()
+    }}</span>
+    }
+  </li>
+  }
+</ol>

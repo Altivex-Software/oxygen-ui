@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PaginatorComponent } from 'oxygen-ui';
+import { PaginatorComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, PaginatorComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Paginator</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Componente de paginación reactivo para navegar grandes colecciones de datos, con soporte para selector de filas por página.
       </p>
 
@@ -22,11 +22,11 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [htmlCode]="basicHtml"
         [tsCode]="basicTs">
         <div style="width: 100%;">
-          <ox-paginator 
+          <val-paginator 
             [rows]="10" 
             [totalRecords]="totalRecords()" 
             (onPageChange)="onPageChange($event)">
-          </ox-paginator>
+          </val-paginator>
           <div style="margin-top: 1rem; font-size: 0.875rem; color: #64748b; background: #ffffff; padding: 8px 12px; border-radius: 6px; border: 1px solid #e2e8f0; width: fit-content;">
             <strong>Estado actual:</strong> Página {{ (pageState()?.page ?? 0) + 1 }} &mdash; Primer índice: {{ pageState()?.first ?? 0 }} ({{ totalRecords() }} registros)
           </div>
@@ -40,12 +40,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [htmlCode]="rowsOptionsHtml"
         [tsCode]="rowsOptionsTs">
         <div style="width: 100%;">
-          <ox-paginator 
+          <val-paginator 
             [rows]="10" 
             [totalRecords]="120" 
             [rowsPerPageOptions]="[5, 10, 25, 50]"
             (onPageChange)="onPageChange($event)">
-          </ox-paginator>
+          </val-paginator>
         </div>
       </app-doc-code>
 
@@ -66,14 +66,14 @@ export class PaginatorDemoComponent {
     this.pageState.set(event);
   }
 
-  basicHtml = `<ox-paginator 
+  basicHtml = `<val-paginator 
   [rows]="10" 
   [totalRecords]="100" 
   (onPageChange)="onPageChange($event)">
-</ox-paginator>`;
+</val-paginator>`;
 
   basicTs = `import { Component } from '@angular/core';
-import { PaginatorComponent } from 'oxygen-ui';
+import { PaginatorComponent } from 'valence-ui';
 
 @Component({
   standalone: true,
@@ -86,15 +86,15 @@ export class MyComponent {
   }
 }`;
 
-  rowsOptionsHtml = `<ox-paginator 
+  rowsOptionsHtml = `<val-paginator 
   [rows]="10" 
   [totalRecords]="120" 
   [rowsPerPageOptions]="[5, 10, 25, 50]"
   (onPageChange)="onPageChange($event)">
-</ox-paginator>`;
+</val-paginator>`;
 
   rowsOptionsTs = `import { Component } from '@angular/core';
-import { PaginatorComponent } from 'oxygen-ui';
+import { PaginatorComponent } from 'valence-ui';
 
 @Component({
   standalone: true,

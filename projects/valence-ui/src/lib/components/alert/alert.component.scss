@@ -1,0 +1,114 @@
+@use "sass:map";
+
+:host {
+  display: block;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: var(--radius-md, 8px);
+}
+
+:host(.val-alert--hidden) {
+  opacity: 0;
+  transform: scale(0.95);
+  height: 0;
+  margin-bottom: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, height 0.3s ease, margin 0.3s ease;
+}
+
+.val-alert__container {
+  display: flex;
+  padding: 1rem;
+  gap: 0.75rem;
+  align-items: flex-start;
+  position: relative;
+}
+
+.val-alert__content {
+  flex: 1;
+}
+
+.val-alert__title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  font-size: 0.9375rem;
+}
+
+.val-alert__message {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.val-alert__close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  color: inherit;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  margin-top: -0.125rem;
+  margin-right: -0.25rem;
+
+  &:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+// Variables based on severity (using CSS variables)
+:host {
+  &.val-alert--success {
+    --alert-color: var(--val-success);
+    --alert-bg-flat: rgba(34, 197, 94, 0.1);
+    --alert-text-flat: #15803d;
+  }
+  &.val-alert--info {
+    --alert-color: var(--val-info);
+    --alert-bg-flat: rgba(59, 130, 246, 0.1);
+    --alert-text-flat: #1d4ed8;
+  }
+  &.val-alert--warning {
+    --alert-color: var(--val-warning);
+    --alert-bg-flat: rgba(245, 158, 11, 0.1);
+    --alert-text-flat: #a16207;
+  }
+  &.val-alert--danger {
+    --alert-color: var(--val-danger);
+    --alert-bg-flat: rgba(239, 68, 68, 0.1);
+    --alert-text-flat: #b91c1c;
+  }
+
+  &.val-alert--filled {
+    background-color: var(--alert-color);
+    color: white;
+  }
+
+  &.val-alert--outlined {
+    background-color: transparent;
+    border: 1px solid var(--alert-color);
+    color: var(--alert-color);
+  }
+
+  &.val-alert--flat {
+    background-color: var(--alert-bg-flat);
+    color: var(--alert-text-flat);
+  }
+
+  &.val-alert--glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--alert-color);
+  }
+}
+

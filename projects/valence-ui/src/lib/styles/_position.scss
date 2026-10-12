@@ -1,0 +1,67 @@
+@use 'sass:map';
+@use './tokens' as t;
+@use './breakpoints' as b;
+
+@mixin generate-position($breakpoint: null) {
+  $prefix: '';
+  @if $breakpoint {
+    $prefix: '-#{$breakpoint}';
+  }
+
+  // Position types
+  .val-position#{$prefix}-static   { position: static !important; }
+  .val-position#{$prefix}-relative { position: relative !important; }
+  .val-position#{$prefix}-absolute { position: absolute !important; }
+  .val-position#{$prefix}-fixed    { position: fixed !important; }
+  .val-position#{$prefix}-sticky   { position: sticky !important; }
+
+  // Coordinates
+  $coordinates: (0: 0, 50: 50%, 100: 100%);
+  @each $name, $val in $coordinates {
+    .val-top#{$prefix}-#{$name}    { top: $val !important; }
+    .val-bottom#{$prefix}-#{$name} { bottom: $val !important; }
+    .val-start#{$prefix}-#{$name}, .val-left#{$prefix}-#{$name}  { left: $val !important; }
+    .val-end#{$prefix}-#{$name}, .val-right#{$prefix}-#{$name}    { right: $val !important; }
+  }
+
+  // Pixel-based coordinates
+  @each $px in t.$pixel-spacings {
+    $val: #{$px}px;
+    .val-top#{$prefix}-#{$px}px    { top: $val !important; }
+    .val-bottom#{$prefix}-#{$px}px { bottom: $val !important; }
+    .val-start#{$prefix}-#{$px}px, .val-left#{$prefix}-#{$px}px  { left: $val !important; }
+    .val-end#{$prefix}-#{$px}px, .val-right#{$prefix}-#{$px}px    { right: $val !important; }
+  }
+
+  // Inset pairs (sus pares)
+  .val-inset-x#{$prefix}-0 { left: 0 !important; right: 0 !important; }
+  .val-inset-y#{$prefix}-0 { top: 0 !important; bottom: 0 !important; }
+  @each $px in t.$pixel-spacings {
+    $val: #{$px}px;
+    .val-inset-x#{$prefix}-#{$px}px { left: $val !important; right: $val !important; }
+    .val-inset-y#{$prefix}-#{$px}px { top: $val !important; bottom: $val !important; }
+  }
+
+  // Centering helpers
+  .val-translate-middle#{$prefix} {
+    transform: translate(-50%, -50%) !important;
+  }
+  .val-translate-middle-x#{$prefix} {
+    transform: translateX(-50%) !important;
+  }
+  .val-translate-middle-y#{$prefix} {
+    transform: translateY(-50%) !important;
+  }
+}
+
+// Base
+@include generate-position();
+
+// Responsive
+@each $name, $value in b.$breakpoints {
+  @if $name != 'xs' {
+    @include b.up($name) {
+      @include generate-position($name);
+    }
+  }
+}

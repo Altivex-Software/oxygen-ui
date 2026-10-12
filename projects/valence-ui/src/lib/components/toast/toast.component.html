@@ -1,0 +1,23 @@
+<div class="val-toast-container val-toast-{{toastService.position()}}">
+  @for (msg of toastService.messages(); track msg.id) {
+    <div 
+      class="val-toast-item val-toast-item-{{msg.severity || 'info'}} val-toast-item-{{msg.variant || 'standard'}}"
+      [@slideIn]
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true">
+      <div class="val-toast-item-content">
+        <span class="val-toast-icon"></span>
+        <div class="val-toast-message-text">
+          <div class="val-toast-summary">{{msg.summary}}</div>
+          <div class="val-toast-detail">{{msg.detail}}</div>
+        </div>
+        @if (msg.closable) {
+          <button class="val-toast-close-button" (click)="close(msg.id!)">
+            <span class="val-toast-close-icon">×</span>
+          </button>
+        }
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,81 @@
+@use 'sass:map';
+@use 'sass:math';
+@use './breakpoints' as b;
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 1.5rem !default;
+
+.val-row {
+  --val-gutter-x: #{$grid-gutter-width};
+  --val-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--val-gutter-y) * -1);
+  margin-right: calc(var(--val-gutter-x) * -0.5);
+  margin-left: calc(var(--val-gutter-x) * -0.5);
+
+  & > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--val-gutter-x) * 0.5);
+    padding-left: calc(var(--val-gutter-x) * 0.5);
+    margin-top: var(--val-gutter-y);
+  }
+}
+
+.val-col {
+  flex: 1 0 0%;
+}
+
+.val-col-auto {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+// Base columns without breakpoint (val-col-1 to val-col-12)
+@for $i from 1 through $grid-columns {
+  .val-col-#{$i} {
+    flex: 0 0 auto;
+    width: math.percentage(math.div($i, $grid-columns));
+  }
+}
+
+// Responsive breakpoint columns
+@each $name, $value in b.$breakpoints {
+  @if $name != 'xs' {
+    @include b.up($name) {
+      .val-col-#{$name} {
+        flex: 1 0 0%;
+      }
+
+      .val-col-#{$name}-auto {
+        flex: 0 0 auto;
+        width: auto;
+      }
+
+      @for $i from 1 through $grid-columns {
+        .val-col-#{$name}-#{$i} {
+          flex: 0 0 auto;
+          width: math.percentage(math.div($i, $grid-columns));
+        }
+      }
+    }
+  } @else {
+    .val-col-xs {
+      flex: 1 0 0%;
+    }
+
+    .val-col-xs-auto {
+      flex: 0 0 auto;
+      width: auto;
+    }
+
+    @for $i from 1 through $grid-columns {
+      .val-col-xs-#{$i} {
+        flex: 0 0 auto;
+        width: math.percentage(math.div($i, $grid-columns));
+      }
+    }
+  }
+}

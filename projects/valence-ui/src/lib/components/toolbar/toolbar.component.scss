@@ -1,0 +1,67 @@
+:host {
+  display: block;
+  width: 100%;
+  min-height: 64px;
+  z-index: 1000;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+
+  &.val-toolbar--sticky {
+    position: sticky;
+    top: 0;
+  }
+
+  &.val-toolbar--shadow {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  // Color Variants
+  &.val-toolbar--surface {
+    background-color: white;
+    color: #1e293b;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+  }
+
+  &.val-toolbar--primary {
+    background-color: #3b82f6;
+    color: white;
+  }
+
+  &.val-toolbar--secondary {
+    background-color: #64748b;
+    color: white;
+  }
+
+  &.val-toolbar--transparent {
+    background-color: transparent;
+    color: inherit;
+    box-shadow: none !important;
+  }
+}
+
+.val-toolbar {
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    min-height: inherit;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+  }
+
+  &__left, &__right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  &__center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}

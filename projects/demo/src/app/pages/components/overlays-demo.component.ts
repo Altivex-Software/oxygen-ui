@@ -7,10 +7,10 @@ import {
   ButtonComponent, 
   ContextMenuItem,
   BadgeComponent,
-  OxygenTemplateDirective,
+  ValenceTemplateDirective,
   TableComponent,
   IconComponent
-} from "oxygen-ui";
+} from "valence-ui";
 import { DocCodeComponent } from "../../shared/doc-code/doc-code.component";
 import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-code/doc-api-table.component";
 
@@ -24,27 +24,27 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
     ConfirmPopupComponent, 
     ButtonComponent, 
     BadgeComponent,
-    OxygenTemplateDirective,
+    ValenceTemplateDirective,
     TableComponent,
     IconComponent,
     DocCodeComponent,
     DocApiTableComponent
   ],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Overlays & Context Menus</h1>
-      <p class="ox-description">
-        Superposiciones contextuales de alto nivel: <code>ox-popover</code>, <code>ox-confirm-popup</code> y <code>ox-context-menu</code> basados en Angular CDK Overlay.
+      <p class="val-description">
+        Superposiciones contextuales de alto nivel: <code>val-popover</code>, <code>val-confirm-popup</code> y <code>val-context-menu</code> basados en Angular CDK Overlay.
       </p>
 
       <!-- 1. POPOVER -->
-      <section class="ox-section">
+      <section class="val-section">
         <h2>1. Popover (OverlayPanel)</h2>
-        <p>Contenedor flotante interactivo anclado a un botón o elemento objetivo con directiva <code>oxTarget</code>.</p>
+        <p>Contenedor flotante interactivo anclado a un botón o elemento objetivo con directiva <code>valTarget</code>.</p>
 
         <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-          <ox-popover #userPopover>
-            <ox-button oxTarget variant="primary" icon="user">Ver Perfil de Usuario</ox-button>
+          <val-popover #userPopover>
+            <val-button valTarget variant="primary" icon="user">Ver Perfil de Usuario</val-button>
 
             <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 220px; padding: 0.5rem;">
               <div style="display: flex; align-items: center; gap: 0.75rem;">
@@ -59,11 +59,11 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
               <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 0;" />
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <span style="font-size: 0.8125rem; color: #475569;">Rol:</span>
-                <ox-badge value="Administrador" severity="primary" size="sm"></ox-badge>
+                <val-badge value="Administrador" severity="primary" size="sm"></val-badge>
               </div>
-              <ox-button size="sm" variant="outline-primary" (click)="userPopover.close()">Cerrar Perfil</ox-button>
+              <val-button size="sm" variant="outline-primary" (click)="userPopover.close()">Cerrar Perfil</val-button>
             </div>
-          </ox-popover>
+          </val-popover>
         </div>
 
         <app-doc-code 
@@ -74,24 +74,24 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
       </section>
 
       <!-- 2. CONFIRM POPUP -->
-      <section class="ox-section">
+      <section class="val-section">
         <h2>2. ConfirmPopup</h2>
         <p>Confirmación compacta en línea posicionada directamente junto al botón de acción destructiva.</p>
 
         <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-          <ox-confirm-popup 
+          <val-confirm-popup 
             message="¿Estás seguro de que deseas eliminar este registro?"
             acceptLabel="Eliminar"
             rejectLabel="Cancelar"
             acceptVariant="danger"
             (onAccept)="onDeleteConfirmed()"
             (onReject)="onDeleteCancelled()">
-            <ox-button oxTarget variant="danger" icon="trash-2">Eliminar Elemento</ox-button>
-          </ox-confirm-popup>
+            <val-button valTarget variant="danger" icon="trash-2">Eliminar Elemento</val-button>
+          </val-confirm-popup>
 
           @if (lastActionMessage) {
             <span style="font-size: 0.875rem; color: #475569; font-weight: 500; background: #f8fafc; padding: 6px 12px; border-radius: 6px; border: 1px solid #e2e8f0; display: inline-flex; align-items: center; gap: 6px;">
-              <ox-icon name="info" size="sm" color="primary"></ox-icon>
+              <val-icon name="info" size="sm" color="primary"></val-icon>
               Estado: {{ lastActionMessage }}
             </span>
           }
@@ -105,14 +105,14 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
       </section>
 
       <!-- 3. CONTEXT MENU -->
-      <section class="ox-section">
+      <section class="val-section">
         <h2>3. ContextMenu (Clic Derecho)</h2>
         <p>Menú contextual que reacciona al clic derecho sobre filas de una tabla o cualquier elemento.</p>
 
-        <ox-context-menu #contextMenu [model]="menuItems"></ox-context-menu>
+        <val-context-menu #contextMenu [model]="menuItems"></val-context-menu>
 
-        <ox-table [value]="users" class="ox-mb-4">
-          <ng-template oxTemplate="header">
+        <val-table [value]="users" class="val-mb-4">
+          <ng-template valTemplate="header">
             <tr>
               <th>ID</th>
               <th>Nombre</th>
@@ -122,22 +122,22 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
             </tr>
           </ng-template>
 
-          <ng-template oxTemplate="body" let-user>
+          <ng-template valTemplate="body" let-user>
             <tr (contextmenu)="contextMenu.show($event, user)" style="cursor: context-menu;">
-              <td class="ox-fw-bold">{{ user.id }}</td>
+              <td class="val-fw-bold">{{ user.id }}</td>
               <td>{{ user.name }}</td>
               <td>{{ user.email }}</td>
               <td>
-                <ox-badge [value]="user.role" [severity]="user.role === 'Admin' ? 'danger' : 'info'" size="sm"></ox-badge>
+                <val-badge [value]="user.role" [severity]="user.role === 'Admin' ? 'danger' : 'info'" size="sm"></val-badge>
               </td>
               <td style="color: #94a3b8; font-size: 0.8125rem;">
                 <span style="display: inline-flex; align-items: center; gap: 4px;">
-                  Haz clic derecho aquí <ox-icon name="mouse-pointer" size="sm"></ox-icon>
+                  Haz clic derecho aquí <val-icon name="mouse-pointer" size="sm"></val-icon>
                 </span>
               </td>
             </tr>
           </ng-template>
-        </ox-table>
+        </val-table>
 
         <app-doc-code 
           title="ContextMenu"
@@ -147,12 +147,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
       </section>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
+      <section class="val-section">
         <h2>API Reference &mdash; Overlays</h2>
-        <h3>&lt;ox-confirm-popup&gt;</h3>
+        <h3>&lt;val-confirm-popup&gt;</h3>
         <app-doc-api-table [properties]="confirmPopupProperties" [events]="confirmPopupEvents"></app-doc-api-table>
         
-        <h3 class="ox-mt-4">&lt;ox-context-menu&gt;</h3>
+        <h3 class="val-mt-4">&lt;val-context-menu&gt;</h3>
         <app-doc-api-table [properties]="contextMenuProperties"></app-doc-api-table>
       </section>
     </div>
@@ -186,18 +186,18 @@ export class OverlaysDemoComponent {
     this.lastActionMessage = msg;
   }
 
-  popoverHtml = `<ox-popover #userPopover>
-  <ox-button oxTarget variant="primary">Ver Perfil</ox-button>
+  popoverHtml = `<val-popover #userPopover>
+  <val-button valTarget variant="primary">Ver Perfil</val-button>
 
   <div class="user-card">
     <h4>Jane Doe</h4>
     <p>jane.doe@example.com</p>
-    <ox-button size="sm" (click)="userPopover.close()">Cerrar</ox-button>
+    <val-button size="sm" (click)="userPopover.close()">Cerrar</val-button>
   </div>
-</ox-popover>`;
+</val-popover>`;
 
   popoverTs = `import { Component } from '@angular/core';
-import { PopoverComponent, ButtonComponent } from 'oxygen-ui';
+import { PopoverComponent, ButtonComponent } from 'valence-ui';
 
 @Component({
   standalone: true,
@@ -206,18 +206,18 @@ import { PopoverComponent, ButtonComponent } from 'oxygen-ui';
 })
 export class MyComponent {}`;
 
-  confirmPopupHtml = `<ox-confirm-popup 
+  confirmPopupHtml = `<val-confirm-popup 
   message="¿Estás seguro de eliminar este registro?"
   acceptLabel="Eliminar"
   rejectLabel="Cancelar"
   acceptVariant="danger"
   (onAccept)="onDeleteConfirmed()"
   (onReject)="onDeleteCancelled()">
-  <ox-button oxTarget variant="danger">Eliminar</ox-button>
-</ox-confirm-popup>`;
+  <val-button valTarget variant="danger">Eliminar</val-button>
+</val-confirm-popup>`;
 
   confirmPopupTs = `import { Component } from '@angular/core';
-import { ConfirmPopupComponent, ButtonComponent } from 'oxygen-ui';
+import { ConfirmPopupComponent, ButtonComponent } from 'valence-ui';
 
 @Component({
   standalone: true,
@@ -233,14 +233,14 @@ export class MyComponent {
   }
 }`;
 
-  contextMenuHtml = `<ox-context-menu #contextMenu [model]="menuItems"></ox-context-menu>
+  contextMenuHtml = `<val-context-menu #contextMenu [model]="menuItems"></val-context-menu>
 
 <tr (contextmenu)="contextMenu.show($event, user)">
   <td>{{ user.name }}</td>
 </tr>`;
 
   contextMenuTs = `import { Component } from '@angular/core';
-import { ContextMenuComponent, ContextMenuItem } from 'oxygen-ui';
+import { ContextMenuComponent, ContextMenuItem } from 'valence-ui';
 
 @Component({
   standalone: true,

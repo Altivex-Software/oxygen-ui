@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FileUploadComponent, FileUploadSelectEvent, FileUploadErrorEvent, ToastService } from 'oxygen-ui';
+import { FileUploadComponent, FileUploadSelectEvent, FileUploadErrorEvent, ToastService } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FileUploadComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>FileUpload</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Zona de carga interactiva para selección y arrastre de archivos (Drag & Drop), con validación integrada de extensiones y peso máximo.
       </p>
 
@@ -22,11 +22,11 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [htmlCode]="singleHtml"
         [tsCode]="uploadTs">
         <div style="max-width: 500px; width: 100%;">
-          <ox-file-upload 
+          <val-file-upload 
             (onSelect)="onSelect($event)" 
             (onRemove)="onRemove()"
             chooseLabel="Seleccionar un documento">
-          </ox-file-upload>
+          </val-file-upload>
         </div>
       </app-doc-code>
 
@@ -37,13 +37,13 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [htmlCode]="multipleHtml"
         [tsCode]="uploadTs">
         <div style="max-width: 500px; width: 100%;">
-          <ox-file-upload 
+          <val-file-upload 
             [multiple]="true"
             accept="image/png, image/jpeg"
             [maxFileSize]="1048576"
             (onSelect)="onSelect($event)"
             (onError)="onError($event)">
-          </ox-file-upload>
+          </val-file-upload>
         </div>
       </app-doc-code>
 
@@ -90,22 +90,22 @@ export class FileUploadDemoComponent {
     });
   }
 
-  singleHtml = `<ox-file-upload 
+  singleHtml = `<val-file-upload 
   (onSelect)="onSelect($event)" 
   (onRemove)="onRemove()"
   chooseLabel="Seleccionar un documento">
-</ox-file-upload>`;
+</val-file-upload>`;
 
-  multipleHtml = `<ox-file-upload 
+  multipleHtml = `<val-file-upload 
   [multiple]="true"
   accept="image/png, image/jpeg"
   [maxFileSize]="1048576"
   (onSelect)="onSelect($event)"
   (onError)="onError($event)">
-</ox-file-upload>`;
+</val-file-upload>`;
 
   uploadTs = `import { Component, inject } from '@angular/core';
-import { FileUploadComponent, FileUploadSelectEvent, ToastService } from 'oxygen-ui';
+import { FileUploadComponent, FileUploadSelectEvent, ToastService } from 'valence-ui';
 
 @Component({
   standalone: true,

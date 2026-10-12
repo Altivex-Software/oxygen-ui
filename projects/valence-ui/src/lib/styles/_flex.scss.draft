@@ -1,0 +1,91 @@
+@use 'sass:map';
+@use './breakpoints' as b;
+
+$flex-properties: (
+  'flex-direction': (
+    'row': row,
+    'column': column,
+    'row-reverse': row-reverse,
+    'column-reverse': column-reverse
+  ),
+  'flex-wrap': (
+    'wrap': wrap,
+    'nowrap': nowrap,
+    'wrap-reverse': wrap-reverse
+  ),
+  'justify-content': (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'between': space-between,
+    'around': space-around,
+    'evenly': space-evenly
+  ),
+  'align-items': (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'baseline': baseline,
+    'stretch': stretch
+  ),
+  'align-content': (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'between': space-between,
+    'around': space-around,
+    'stretch': stretch
+  ),
+  'flex-grow': (
+    '0': 0,
+    '1': 1
+  ),
+  'flex-shrink': (
+    '0': 0,
+    '1': 1
+  )
+);
+
+// Helper to generate utilities
+@mixin generate-flex-utils($breakpoint: null) {
+  $prefix: if($breakpoint, 'val-flex-#{$breakpoint}-', 'val-flex-');
+  $disp-prefix: if($breakpoint, 'val-d-#{$breakpoint}-', 'val-d-');
+
+  // Display
+  .#{$disp-prefix}flex { display: flex !important; }
+  .#{$disp-prefix}inline-flex { display: inline-flex !important; }
+
+  @each $prop, $values in $flex-properties {
+    @each $key, $val in $values {
+      // Handle special case for property names in classes
+      $class-name: '';
+      @if $prop == 'flex-direction' { $class-name: '#{$prefix}#{$key}'; }
+      @else if $prop == 'flex-wrap' { $class-name: '#{$prefix}#{$key}'; }
+      @else if $prop == 'justify-content' { $class-name: '#{if($breakpoint, "val-justify-content-#{$breakpoint}-", "val-justify-content-")}#{$key}'; }
+      @else if $prop == 'align-items' { $class-name: '#{if($breakpoint, "val-align-items-#{$breakpoint}-", "val-align-items-")}#{$key}'; }
+      @else if $prop == 'align-content' { $class-name: '#{if($breakpoint, "val-align-content-#{$breakpoint}-", "val-align-content-")}#{$key}'; }
+      @else { $class-name: '#{$prefix}#{str-slice($prop, 6)}-#{$key}'; }
+
+      .#{$class-name} {
+        #{$prop}: #{$val} !important;
+      }
+    }
+  }
+
+  // Flex fill
+  .#{$prefix}fill {
+    flex: 1 1 auto !important;
+  }
+}
+
+// Base utilities
+@include generate-flex-utils();
+
+// Responsive utilities
+@each $name, $value in b.$breakpoints {
+  @if $name != 'xs' { // xs is already covered by base
+    @include b.up($name) {
+      @include generate-flex-utils($name);
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { RouterOutlet } from "@angular/router";
 import { HeaderComponent } from "./layout/header.component";
 import { FooterComponent } from "./layout/footer.component";
-import { ToastComponent, ConfirmDialogComponent } from "oxygen-ui";
+import { ToastComponent, ConfirmDialogComponent } from "valence-ui";
 
 @Component({
   selector: "app-root",

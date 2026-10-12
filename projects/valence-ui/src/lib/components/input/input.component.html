@@ -1,0 +1,51 @@
+@if (hasLabel() && !floatLabel()) {
+  <label [for]="id()" class="val-input-label">
+    {{ label() }}
+    @if (required()) {
+      <span class="val-input-required">*</span>
+    }
+  </label>
+}
+
+<div class="val-input-container">
+  @if (hasLabel() && floatLabel()) {
+    <label [for]="id()" class="val-input-label">
+      {{ label() }}
+      @if (required()) {
+        <span class="val-input-required">*</span>
+      }
+    </label>
+  }
+  @if (icon()) {
+    <span class="val-input-icon">
+      <val-icon [name]="$any(icon()!)" size="1.125rem"></val-icon>
+    </span>
+  }
+  <input
+    [id]="id()"
+    [type]="type()"
+    [value]="value()"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [readOnly]="readonly()"
+    [required]="required()"
+    class="val-input-field"
+    [class.val-input-field--has-icon]="!!icon()"
+    [attr.aria-describedby]="
+      error() ? id() + '-error' : hint() ? id() + '-hint' : null
+    "
+    [attr.aria-invalid]="!!error()"
+    (input)="onInput($event)"
+    (blur)="onBlur()"
+  />
+</div>
+
+@if (error()) {
+  <div [id]="id() + '-error'" class="val-input-error" role="alert">
+    {{ error() }}
+  </div>
+} @else if (hint()) {
+  <div [id]="id() + '-hint'" class="val-input-hint">
+    {{ hint() }}
+  </div>
+}

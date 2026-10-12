@@ -1,0 +1,67 @@
+@use 'sass:map';
+@use './breakpoints' as b;
+
+@mixin generate-utils($breakpoint: null) {
+  $prefix: '';
+  @if $breakpoint {
+    $prefix: '-#{$breakpoint}';
+  }
+
+  // Text alignment
+  .val-text#{$prefix}-start { text-align: left !important; }
+  .val-text#{$prefix}-center { text-align: center !important; }
+  .val-text#{$prefix}-end { text-align: right !important; }
+
+}
+
+// Base
+@include generate-utils();
+
+// Responsive
+@each $name, $value in b.$breakpoints {
+  @if $name != 'xs' {
+    @include b.up($name) {
+      @include generate-utils($name);
+    }
+  }
+}
+
+// Border utilities
+$border-widths: (
+  '0': 0,
+  '1': 1px,
+  '2': 2px,
+  '3': 3px,
+  '4': 4px,
+  '5': 5px
+);
+$border-color: #dee2e6 !default;
+
+.val-border { border: 1px solid $border-color !important; }
+.val-border-top { border-top: 1px solid $border-color !important; }
+.val-border-bottom { border-bottom: 1px solid $border-color !important; }
+.val-border-left { border-left: 1px solid $border-color !important; }
+.val-border-right { border-right: 1px solid $border-color !important; }
+
+@each $key, $val in $border-widths {
+  .val-border-#{$key} { border-width: $val !important; border-style: solid; border-color: $border-color; }
+  .val-border-top-#{$key} { border-top-width: $val !important; border-top-style: solid; border-top-color: $border-color; }
+  .val-border-bottom-#{$key} { border-bottom-width: $val !important; border-bottom-style: solid; border-bottom-color: $border-color; }
+  .val-border-left-#{$key} { border-left-width: $val !important; border-left-style: solid; border-left-color: $border-color; }
+  .val-border-right-#{$key} { border-right-width: $val !important; border-right-style: solid; border-right-color: $border-color; }
+}
+
+// Border styles
+$border-styles: (
+  'solid': solid,
+  'dashed': dashed,
+  'dotted': dotted,
+  'double': double,
+  'none': none
+);
+
+@each $name, $val in $border-styles {
+  .val-border-#{$name} { border-style: #{$val} !important; }
+}
+
+.val-bg-light { background-color: #f8f9fa !important; }

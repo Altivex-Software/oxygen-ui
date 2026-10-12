@@ -3,12 +3,12 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { 
   TableComponent, 
-  OxygenTemplateDirective, 
+  ValenceTemplateDirective, 
   BadgeComponent, 
   ButtonComponent,
   InputComponent,
   PaginatorComponent 
-} from "oxygen-ui";
+} from "valence-ui";
 import { DocCodeComponent } from "../../shared/doc-code/doc-code.component";
 import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-code/doc-api-table.component";
 
@@ -19,7 +19,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
     CommonModule, 
     FormsModule,
     TableComponent, 
-    OxygenTemplateDirective, 
+    ValenceTemplateDirective, 
     BadgeComponent, 
     ButtonComponent,
     InputComponent,
@@ -28,9 +28,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
     DocApiTableComponent
   ],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Table (Tabla de Datos Interactiva)</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Componente de tabla avanzado con soporte para ordenamiento por columnas, selección múltiple de filas, paginación integrada y exportación a CSV.
       </p>
 
@@ -43,20 +43,20 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
         <!-- Global Actions Toolbar -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; gap: 1rem; flex-wrap: wrap;">
           <div style="width: 280px;">
-            <ox-input 
+            <val-input 
               placeholder="Buscar clientes..." 
               [(ngModel)]="searchValue"
               icon="search">
-            </ox-input>
+            </val-input>
           </div>
           <div style="display: flex; gap: 0.5rem;">
-            <ox-button variant="outline-primary" icon="download" (onClick)="table.exportCSV('customers-export.csv')">
+            <val-button variant="outline-primary" icon="download" (onClick)="table.exportCSV('customers-export.csv')">
               Exportar CSV
-            </ox-button>
+            </val-button>
           </div>
         </div>
 
-        <ox-table 
+        <val-table 
           #table
           [value]="paginatedCustomers" 
           [globalFilter]="searchValue"
@@ -64,67 +64,67 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
           [(selection)]="selectedCustomers"
           dataKey="id">
           
-          <ng-template oxTemplate="header">
+          <ng-template valTemplate="header">
             <tr>
               <th style="width: 3rem; text-align: center;">
                 <input type="checkbox" [checked]="isAllSelected()" (change)="toggleSelectAll($event)" />
               </th>
-              <th class="ox-sortable-column" (click)="table.toggleSort('name')">
+              <th class="val-sortable-column" (click)="table.toggleSort('name')">
                 Nombre 
-                <span class="ox-sort-icon" [class.active]="table.getSortOrder('name') !== 0">
+                <span class="val-sort-icon" [class.active]="table.getSortOrder('name') !== 0">
                   {{ table.getSortOrder('name') === 1 ? '▲' : table.getSortOrder('name') === -1 ? '▼' : '⇅' }}
                 </span>
               </th>
-              <th class="ox-sortable-column" (click)="table.toggleSort('country')">
+              <th class="val-sortable-column" (click)="table.toggleSort('country')">
                 País
-                <span class="ox-sort-icon" [class.active]="table.getSortOrder('country') !== 0">
+                <span class="val-sort-icon" [class.active]="table.getSortOrder('country') !== 0">
                   {{ table.getSortOrder('country') === 1 ? '▲' : table.getSortOrder('country') === -1 ? '▼' : '⇅' }}
                 </span>
               </th>
-              <th class="ox-sortable-column" (click)="table.toggleSort('status')">
+              <th class="val-sortable-column" (click)="table.toggleSort('status')">
                 Estado
-                <span class="ox-sort-icon" [class.active]="table.getSortOrder('status') !== 0">
+                <span class="val-sort-icon" [class.active]="table.getSortOrder('status') !== 0">
                   {{ table.getSortOrder('status') === 1 ? '▲' : table.getSortOrder('status') === -1 ? '▼' : '⇅' }}
                 </span>
               </th>
-              <th class="ox-sortable-column" (click)="table.toggleSort('activity')">
+              <th class="val-sortable-column" (click)="table.toggleSort('activity')">
                 Actividad
-                <span class="ox-sort-icon" [class.active]="table.getSortOrder('activity') !== 0">
+                <span class="val-sort-icon" [class.active]="table.getSortOrder('activity') !== 0">
                   {{ table.getSortOrder('activity') === 1 ? '▲' : table.getSortOrder('activity') === -1 ? '▼' : '⇅' }}
                 </span>
               </th>
             </tr>
           </ng-template>
 
-          <ng-template oxTemplate="body" let-customer let-selected="selected">
-            <tr [class.ox-table-row-selected]="selected" (click)="table.onRowClick($event, customer)">
+          <ng-template valTemplate="body" let-customer let-selected="selected">
+            <tr [class.val-table-row-selected]="selected" (click)="table.onRowClick($event, customer)">
               <td style="text-align: center;">
                 <input type="checkbox" [checked]="selected" />
               </td>
-              <td class="ox-fw-bold">{{ customer.name }}</td>
+              <td class="val-fw-bold">{{ customer.name }}</td>
               <td>{{ customer.country }}</td>
               <td>
-                <ox-badge 
+                <val-badge 
                   [severity]="getStatusSeverity(customer.status)" 
                   [value]="customer.status"
                   [pill]="true"
                   size="sm">
-                </ox-badge>
+                </val-badge>
               </td>
               <td>{{ customer.activity }}%</td>
             </tr>
           </ng-template>
-        </ox-table>
+        </val-table>
 
         <!-- Integrated Paginator -->
         <div style="margin-top: 1rem;">
-          <ox-paginator
+          <val-paginator
             [rows]="rows"
             [totalRecords]="customers.length"
             [first]="first"
             [rowsPerPageOptions]="[3, 5, 10]"
             (onPageChange)="onPageChange($event)">
-          </ox-paginator>
+          </val-paginator>
         </div>
 
         <!-- Selection Info Box -->
@@ -202,7 +202,7 @@ export class TableDemoComponent {
     }
   }
 
-  tableHtml = `<ox-table 
+  tableHtml = `<val-table 
   #table
   [value]="customers" 
   [globalFilter]="searchValue"
@@ -210,30 +210,30 @@ export class TableDemoComponent {
   [(selection)]="selectedCustomers"
   dataKey="id">
   
-  <ng-template oxTemplate="header">
+  <ng-template valTemplate="header">
     <tr>
-      <th class="ox-sortable-column" (click)="table.toggleSort('name')">Nombre</th>
-      <th class="ox-sortable-column" (click)="table.toggleSort('country')">País</th>
+      <th class="val-sortable-column" (click)="table.toggleSort('name')">Nombre</th>
+      <th class="val-sortable-column" (click)="table.toggleSort('country')">País</th>
       <th>Estado</th>
     </tr>
   </ng-template>
 
-  <ng-template oxTemplate="body" let-customer let-selected="selected">
-    <tr [class.ox-table-row-selected]="selected" (click)="table.onRowClick($event, customer)">
-      <td class="ox-fw-bold">{{ customer.name }}</td>
+  <ng-template valTemplate="body" let-customer let-selected="selected">
+    <tr [class.val-table-row-selected]="selected" (click)="table.onRowClick($event, customer)">
+      <td class="val-fw-bold">{{ customer.name }}</td>
       <td>{{ customer.country }}</td>
-      <td><ox-badge [value]="customer.status"></ox-badge></td>
+      <td><val-badge [value]="customer.status"></val-badge></td>
     </tr>
   </ng-template>
-</ox-table>`;
+</val-table>`;
 
   tableTs = `import { Component } from '@angular/core';
-import { TableComponent, OxygenTemplateDirective } from 'oxygen-ui';
+import { TableComponent, ValenceTemplateDirective } from 'valence-ui';
 
 @Component({
   selector: 'app-my-table',
   standalone: true,
-  imports: [TableComponent, OxygenTemplateDirective],
+  imports: [TableComponent, ValenceTemplateDirective],
   templateUrl: './my-table.component.html'
 })
 export class MyTableComponent {

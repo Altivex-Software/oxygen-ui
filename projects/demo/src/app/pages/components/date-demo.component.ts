@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { DateInputComponent } from 'oxygen-ui';
+import { DateInputComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FormsModule, DateInputComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Date Input</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Campo de selección de fecha nativo optimizado con compatibilidad para validación de rangos (min/max), etiquetas flotantes y variantes de estilo.
       </p>
 
@@ -23,8 +23,8 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [htmlCode]="dateHtml"
         [tsCode]="dateTs">
         <div style="max-width: 400px; width: 100%; display: flex; flex-direction: column; gap: 1rem;">
-          <ox-date-input label="Fecha de Nacimiento"></ox-date-input>
-          <ox-date-input label="Rango Válido (2024-2026)" min="2024-01-01" max="2026-12-31"></ox-date-input>
+          <val-date-input label="Fecha de Nacimiento"></val-date-input>
+          <val-date-input label="Rango Válido (2024-2026)" min="2024-01-01" max="2026-12-31"></val-date-input>
         </div>
       </app-doc-code>
 
@@ -35,23 +35,23 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [htmlCode]="dateHtml"
         [tsCode]="dateTs">
         <div style="max-width: 400px; width: 100%; display: flex; flex-direction: column; gap: 1.5rem;">
-          <ox-date-input 
+          <val-date-input 
             label="Default Float" 
             [floatLabel]="true" 
             variant="default">
-          </ox-date-input>
+          </val-date-input>
           
-          <ox-date-input 
+          <val-date-input 
             label="Fieldset Float" 
             [floatLabel]="true" 
             variant="fieldset">
-          </ox-date-input>
+          </val-date-input>
 
-          <ox-date-input 
+          <val-date-input 
             label="One Line Float" 
             [floatLabel]="true" 
             variant="oneLine">
-          </ox-date-input>
+          </val-date-input>
         </div>
       </app-doc-code>
 
@@ -64,12 +64,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   `
 })
 export class DateDemoComponent {
-  dateHtml = `<ox-date-input label="Fecha de Nacimiento"></ox-date-input>
-<ox-date-input label="Con Límites" min="2024-01-01" max="2026-12-31"></ox-date-input>
-<ox-date-input label="Fieldset Float" [floatLabel]="true" variant="fieldset"></ox-date-input>`;
+  dateHtml = `<val-date-input label="Fecha de Nacimiento"></val-date-input>
+<val-date-input label="Con Límites" min="2024-01-01" max="2026-12-31"></val-date-input>
+<val-date-input label="Fieldset Float" [floatLabel]="true" variant="fieldset"></val-date-input>`;
 
   dateTs = `import { Component } from '@angular/core';
-import { DateInputComponent } from 'oxygen-ui';
+import { DateInputComponent } from 'valence-ui';
 
 @Component({
   standalone: true,

@@ -1,0 +1,48 @@
+// Estilos de borde
+.val-border-solid { border-style: solid !important; }
+.val-border-dashed { border-style: dashed !important; }
+.val-border-dotted { border-style: dotted !important; }
+.val-border-double { border-style: double !important; }
+.val-border-none { border-style: none !important; border-width: 0 !important; }
+
+// Grosores Direccionales
+$border-widths: (
+  '0': 0px,
+  '1': 1px,
+  '2': 2px,
+  '4': 4px,
+  '8': 8px
+);
+
+@each $name, $value in $border-widths {
+  .val-border-#{$name} {
+    border-width: #{$value} !important;
+  }
+  .val-border-t-#{$name} {
+    border-top-width: #{$value} !important;
+  }
+  .val-border-r-#{$name} {
+    border-right-width: #{$value} !important;
+  }
+  .val-border-b-#{$name} {
+    border-bottom-width: #{$value} !important;
+  }
+  .val-border-l-#{$name} {
+    border-left-width: #{$value} !important;
+  }
+  .val-border-x-#{$name} {
+    border-left-width: #{$value} !important;
+    border-right-width: #{$value} !important;
+  }
+  .val-border-y-#{$name} {
+    border-top-width: #{$value} !important;
+    border-bottom-width: #{$value} !important;
+  }
+}
+
+.val-border-t { border-top-width: 1px !important; }
+.val-border-r { border-right-width: 1px !important; }
+.val-border-b { border-bottom-width: 1px !important; }
+.val-border-l { border-left-width: 1px !important; }
+.val-border-x { border-left-width: 1px !important; border-right-width: 1px !important; }
+.val-border-y { border-top-width: 1px !important; border-bottom-width: 1px !important; }

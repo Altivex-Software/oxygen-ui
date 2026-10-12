@@ -12,7 +12,7 @@ import {
   DropdownComponent,
   FormFieldComponent,
   FormFieldPrefixDirective
-} from 'oxygen-ui';
+} from 'valence-ui';
 
 export interface ThemePreset {
   name: string;
@@ -46,118 +46,118 @@ export interface ThemePreset {
   template: `
     <div class="theme-builder-container">
       <!-- HEADER -->
-      <div class="ox-flex ox-items-center ox-justify-between ox-flex-wrap ox-gap-4 ox-mb-6">
+      <div class="val-flex val-items-center val-justify-between val-flex-wrap val-gap-4 val-mb-6">
         <div>
-          <h1 class="ox-text-3xl ox-font-bold ox-text-slate-900 dark:ox-text-white ox-mb-2">Theme Builder & Generador de Tokens</h1>
-          <p class="ox-text-slate-600 dark:ox-text-slate-400">
-            Personaliza en tiempo real la paleta de colores, radios de borde y tipografía de Oxygen UI. Previsualiza los cambios al instante y exporta el código en CSS, SCSS o JSON.
+          <h1 class="val-text-3xl val-font-bold val-text-slate-900 dark:val-text-white val-mb-2">Theme Builder & Generador de Tokens</h1>
+          <p class="val-text-slate-600 dark:val-text-slate-400">
+            Personaliza en tiempo real la paleta de colores, radios de borde y tipografía de Valence UI. Previsualiza los cambios al instante y exporta el código en CSS, SCSS o JSON.
           </p>
         </div>
-        <div class="ox-flex ox-gap-2">
-          <ox-button label="Restablecer" variant="outline-secondary" icon="refresh-cw" (onClick)="resetDefaults()"></ox-button>
+        <div class="val-flex val-gap-2">
+          <val-button label="Restablecer" variant="outline-secondary" icon="refresh-cw" (onClick)="resetDefaults()"></val-button>
         </div>
       </div>
 
       <!-- MAIN WORKSPACE -->
-      <div class="ox-grid ox-grid-cols-1 lg:ox-grid-cols-12 ox-gap-6">
+      <div class="val-grid val-grid-cols-1 lg:val-grid-cols-12 val-gap-6">
         
         <!-- CONTROLS PANEL (LEFT 5 COLS) -->
-        <div class="lg:ox-col-span-5 ox-space-y-6">
+        <div class="lg:val-col-span-5 val-space-y-6">
           
           <!-- PRESETS -->
-          <ox-card>
-            <h3 class="ox-text-sm ox-font-bold ox-uppercase ox-tracking-wider ox-text-slate-500 ox-mb-3 ox-flex ox-items-center ox-gap-2">
-              <ox-icon name="palette" size="1rem"></ox-icon> Presets Rápidos
+          <val-card>
+            <h3 class="val-text-sm val-font-bold val-uppercase val-tracking-wider val-text-slate-500 val-mb-3 val-flex val-items-center val-gap-2">
+              <val-icon name="palette" size="1rem"></val-icon> Presets Rápidos
             </h3>
-            <div class="ox-grid ox-grid-cols-2 sm:ox-grid-cols-3 ox-gap-2">
+            <div class="val-grid val-grid-cols-2 sm:val-grid-cols-3 val-gap-2">
               @for (preset of presets; track preset.name) {
                 <button 
                   type="button" 
-                  class="preset-chip ox-flex ox-items-center ox-gap-2 ox-p-2 ox-rounded-lg ox-border ox-border-slate-200 dark:ox-border-slate-700 ox-text-xs ox-font-medium hover:ox-border-blue-500 ox-transition-all"
+                  class="preset-chip val-flex val-items-center val-gap-2 val-p-2 val-rounded-lg val-border val-border-slate-200 dark:val-border-slate-700 val-text-xs val-font-medium hover:val-border-blue-500 val-transition-all"
                   [class.active]="selectedPreset() === preset.name"
                   (click)="applyPreset(preset)">
-                  <span class="ox-w-4 ox-h-4 ox-rounded-full ox-flex-shrink-0" [style.background-color]="preset.primary"></span>
-                  <span class="ox-truncate">{{ preset.name }}</span>
+                  <span class="val-w-4 val-h-4 val-rounded-full val-flex-shrink-0" [style.background-color]="preset.primary"></span>
+                  <span class="val-truncate">{{ preset.name }}</span>
                 </button>
               }
             </div>
-          </ox-card>
+          </val-card>
 
           <!-- COLORS CUSTOMIZER -->
-          <ox-card>
-            <h3 class="ox-text-sm ox-font-bold ox-uppercase ox-tracking-wider ox-text-slate-500 ox-mb-4 ox-flex ox-items-center ox-gap-2">
-              <ox-icon name="sliders" size="1rem"></ox-icon> Paleta de Colores
+          <val-card>
+            <h3 class="val-text-sm val-font-bold val-uppercase val-tracking-wider val-text-slate-500 val-mb-4 val-flex val-items-center val-gap-2">
+              <val-icon name="sliders" size="1rem"></val-icon> Paleta de Colores
             </h3>
 
-            <div class="ox-space-y-3">
+            <div class="val-space-y-3">
               <!-- Primary -->
-              <div class="color-picker-row ox-flex ox-items-center ox-justify-between">
-                <label class="ox-text-sm ox-font-medium ox-text-slate-700 dark:ox-text-slate-300">Color Primario</label>
-                <div class="ox-flex ox-items-center ox-gap-2">
-                  <input type="color" [(ngModel)]="primaryColor" (ngModelChange)="onColorChange()" class="ox-w-8 ox-h-8 ox-rounded ox-cursor-pointer ox-border-0" />
-                  <input type="text" [(ngModel)]="primaryColor" (ngModelChange)="onColorChange()" class="ox-w-24 ox-p-1 ox-text-xs ox-border ox-border-slate-300 dark:ox-border-slate-700 ox-rounded dark:ox-bg-slate-800" />
+              <div class="color-picker-row val-flex val-items-center val-justify-between">
+                <label class="val-text-sm val-font-medium val-text-slate-700 dark:val-text-slate-300">Color Primario</label>
+                <div class="val-flex val-items-center val-gap-2">
+                  <input type="color" [(ngModel)]="primaryColor" (ngModelChange)="onColorChange()" class="val-w-8 val-h-8 val-rounded val-cursor-pointer val-border-0" />
+                  <input type="text" [(ngModel)]="primaryColor" (ngModelChange)="onColorChange()" class="val-w-24 val-p-1 val-text-xs val-border val-border-slate-300 dark:val-border-slate-700 val-rounded dark:val-bg-slate-800" />
                 </div>
               </div>
 
               <!-- Secondary -->
-              <div class="color-picker-row ox-flex ox-items-center ox-justify-between">
-                <label class="ox-text-sm ox-font-medium ox-text-slate-700 dark:ox-text-slate-300">Color Secundario</label>
-                <div class="ox-flex ox-items-center ox-gap-2">
-                  <input type="color" [(ngModel)]="secondaryColor" (ngModelChange)="onColorChange()" class="ox-w-8 ox-h-8 ox-rounded ox-cursor-pointer ox-border-0" />
-                  <input type="text" [(ngModel)]="secondaryColor" (ngModelChange)="onColorChange()" class="ox-w-24 ox-p-1 ox-text-xs ox-border ox-border-slate-300 dark:ox-border-slate-700 ox-rounded dark:ox-bg-slate-800" />
+              <div class="color-picker-row val-flex val-items-center val-justify-between">
+                <label class="val-text-sm val-font-medium val-text-slate-700 dark:val-text-slate-300">Color Secundario</label>
+                <div class="val-flex val-items-center val-gap-2">
+                  <input type="color" [(ngModel)]="secondaryColor" (ngModelChange)="onColorChange()" class="val-w-8 val-h-8 val-rounded val-cursor-pointer val-border-0" />
+                  <input type="text" [(ngModel)]="secondaryColor" (ngModelChange)="onColorChange()" class="val-w-24 val-p-1 val-text-xs val-border val-border-slate-300 dark:val-border-slate-700 val-rounded dark:val-bg-slate-800" />
                 </div>
               </div>
 
               <!-- Success -->
-              <div class="color-picker-row ox-flex ox-items-center ox-justify-between">
-                <label class="ox-text-sm ox-font-medium ox-text-slate-700 dark:ox-text-slate-300">Éxito (Success)</label>
-                <div class="ox-flex ox-items-center ox-gap-2">
-                  <input type="color" [(ngModel)]="successColor" (ngModelChange)="onColorChange()" class="ox-w-8 ox-h-8 ox-rounded ox-cursor-pointer ox-border-0" />
-                  <input type="text" [(ngModel)]="successColor" (ngModelChange)="onColorChange()" class="ox-w-24 ox-p-1 ox-text-xs ox-border ox-border-slate-300 dark:ox-border-slate-700 ox-rounded dark:ox-bg-slate-800" />
+              <div class="color-picker-row val-flex val-items-center val-justify-between">
+                <label class="val-text-sm val-font-medium val-text-slate-700 dark:val-text-slate-300">Éxito (Success)</label>
+                <div class="val-flex val-items-center val-gap-2">
+                  <input type="color" [(ngModel)]="successColor" (ngModelChange)="onColorChange()" class="val-w-8 val-h-8 val-rounded val-cursor-pointer val-border-0" />
+                  <input type="text" [(ngModel)]="successColor" (ngModelChange)="onColorChange()" class="val-w-24 val-p-1 val-text-xs val-border val-border-slate-300 dark:val-border-slate-700 val-rounded dark:val-bg-slate-800" />
                 </div>
               </div>
 
               <!-- Warning -->
-              <div class="color-picker-row ox-flex ox-items-center ox-justify-between">
-                <label class="ox-text-sm ox-font-medium ox-text-slate-700 dark:ox-text-slate-300">Advertencia (Warning)</label>
-                <div class="ox-flex ox-items-center ox-gap-2">
-                  <input type="color" [(ngModel)]="warningColor" (ngModelChange)="onColorChange()" class="ox-w-8 ox-h-8 ox-rounded ox-cursor-pointer ox-border-0" />
-                  <input type="text" [(ngModel)]="warningColor" (ngModelChange)="onColorChange()" class="ox-w-24 ox-p-1 ox-text-xs ox-border ox-border-slate-300 dark:ox-border-slate-700 ox-rounded dark:ox-bg-slate-800" />
+              <div class="color-picker-row val-flex val-items-center val-justify-between">
+                <label class="val-text-sm val-font-medium val-text-slate-700 dark:val-text-slate-300">Advertencia (Warning)</label>
+                <div class="val-flex val-items-center val-gap-2">
+                  <input type="color" [(ngModel)]="warningColor" (ngModelChange)="onColorChange()" class="val-w-8 val-h-8 val-rounded val-cursor-pointer val-border-0" />
+                  <input type="text" [(ngModel)]="warningColor" (ngModelChange)="onColorChange()" class="val-w-24 val-p-1 val-text-xs val-border val-border-slate-300 dark:val-border-slate-700 val-rounded dark:val-bg-slate-800" />
                 </div>
               </div>
 
               <!-- Danger -->
-              <div class="color-picker-row ox-flex ox-items-center ox-justify-between">
-                <label class="ox-text-sm ox-font-medium ox-text-slate-700 dark:ox-text-slate-300">Peligro (Danger)</label>
-                <div class="ox-flex ox-items-center ox-gap-2">
-                  <input type="color" [(ngModel)]="dangerColor" (ngModelChange)="onColorChange()" class="ox-w-8 ox-h-8 ox-rounded ox-cursor-pointer ox-border-0" />
-                  <input type="text" [(ngModel)]="dangerColor" (ngModelChange)="onColorChange()" class="ox-w-24 ox-p-1 ox-text-xs ox-border ox-border-slate-300 dark:ox-border-slate-700 ox-rounded dark:ox-bg-slate-800" />
+              <div class="color-picker-row val-flex val-items-center val-justify-between">
+                <label class="val-text-sm val-font-medium val-text-slate-700 dark:val-text-slate-300">Peligro (Danger)</label>
+                <div class="val-flex val-items-center val-gap-2">
+                  <input type="color" [(ngModel)]="dangerColor" (ngModelChange)="onColorChange()" class="val-w-8 val-h-8 val-rounded val-cursor-pointer val-border-0" />
+                  <input type="text" [(ngModel)]="dangerColor" (ngModelChange)="onColorChange()" class="val-w-24 val-p-1 val-text-xs val-border val-border-slate-300 dark:val-border-slate-700 val-rounded dark:val-bg-slate-800" />
                 </div>
               </div>
 
               <!-- Info -->
-              <div class="color-picker-row ox-flex ox-items-center ox-justify-between">
-                <label class="ox-text-sm ox-font-medium ox-text-slate-700 dark:ox-text-slate-300">Información (Info)</label>
-                <div class="ox-flex ox-items-center ox-gap-2">
-                  <input type="color" [(ngModel)]="infoColor" (ngModelChange)="onColorChange()" class="ox-w-8 ox-h-8 ox-rounded ox-cursor-pointer ox-border-0" />
-                  <input type="text" [(ngModel)]="infoColor" (ngModelChange)="onColorChange()" class="ox-w-24 ox-p-1 ox-text-xs ox-border ox-border-slate-300 dark:ox-border-slate-700 ox-rounded dark:ox-bg-slate-800" />
+              <div class="color-picker-row val-flex val-items-center val-justify-between">
+                <label class="val-text-sm val-font-medium val-text-slate-700 dark:val-text-slate-300">Información (Info)</label>
+                <div class="val-flex val-items-center val-gap-2">
+                  <input type="color" [(ngModel)]="infoColor" (ngModelChange)="onColorChange()" class="val-w-8 val-h-8 val-rounded val-cursor-pointer val-border-0" />
+                  <input type="text" [(ngModel)]="infoColor" (ngModelChange)="onColorChange()" class="val-w-24 val-p-1 val-text-xs val-border val-border-slate-300 dark:val-border-slate-700 val-rounded dark:val-bg-slate-800" />
                 </div>
               </div>
             </div>
-          </ox-card>
+          </val-card>
 
           <!-- GEOMETRY & TYPOGRAPHY -->
-          <ox-card>
-            <h3 class="ox-text-sm ox-font-bold ox-uppercase ox-tracking-wider ox-text-slate-500 ox-mb-4 ox-flex ox-items-center ox-gap-2">
-              <ox-icon name="type" size="1rem"></ox-icon> Geometría & Tipografía
+          <val-card>
+            <h3 class="val-text-sm val-font-bold val-uppercase val-tracking-wider val-text-slate-500 val-mb-4 val-flex val-items-center val-gap-2">
+              <val-icon name="type" size="1rem"></val-icon> Geometría & Tipografía
             </h3>
 
-            <div class="ox-space-y-4">
+            <div class="val-space-y-4">
               <!-- Border Radius -->
               <div>
-                <div class="ox-flex ox-justify-between ox-text-sm ox-mb-2">
-                  <span class="ox-font-medium ox-text-slate-700 dark:ox-text-slate-300">Radio de Bordes (Border Radius)</span>
-                  <span class="ox-text-xs ox-text-slate-500">{{ borderRadius }}px</span>
+                <div class="val-flex val-justify-between val-text-sm val-mb-2">
+                  <span class="val-font-medium val-text-slate-700 dark:val-text-slate-300">Radio de Bordes (Border Radius)</span>
+                  <span class="val-text-xs val-text-slate-500">{{ borderRadius }}px</span>
                 </div>
                 <input 
                   type="range" 
@@ -166,8 +166,8 @@ export interface ThemePreset {
                   step="2" 
                   [(ngModel)]="borderRadius" 
                   (ngModelChange)="onGeometryChange()" 
-                  class="ox-w-full ox-cursor-pointer" />
-                <div class="ox-flex ox-justify-between ox-text-[10px] ox-text-slate-400 ox-mt-1">
+                  class="val-w-full val-cursor-pointer" />
+                <div class="val-flex val-justify-between val-text-[10px] val-text-slate-400 val-mt-1">
                   <span>Recto (0px)</span>
                   <span>Estándar (6px)</span>
                   <span>Suave (12px)</span>
@@ -177,8 +177,8 @@ export interface ThemePreset {
 
               <!-- Font Family -->
               <div>
-                <label class="ox-text-sm ox-font-medium ox-text-slate-700 dark:ox-text-slate-300 ox-block ox-mb-1">Familia Tipográfica</label>
-                <select [(ngModel)]="fontFamily" (ngModelChange)="onGeometryChange()" class="ox-w-full ox-p-2 ox-border ox-border-slate-300 dark:ox-border-slate-700 ox-rounded-lg dark:ox-bg-slate-800 ox-text-sm">
+                <label class="val-text-sm val-font-medium val-text-slate-700 dark:val-text-slate-300 val-block val-mb-1">Familia Tipográfica</label>
+                <select [(ngModel)]="fontFamily" (ngModelChange)="onGeometryChange()" class="val-w-full val-p-2 val-border val-border-slate-300 dark:val-border-slate-700 val-rounded-lg dark:val-bg-slate-800 val-text-sm">
                   <option value="'Manrope', sans-serif">Manrope (Modern & Crisp)</option>
                   <option value="'Inter', sans-serif">Inter (Clean Enterprise)</option>
                   <option value="'Outfit', sans-serif">Outfit (Geometric & Bold)</option>
@@ -187,140 +187,140 @@ export interface ThemePreset {
                 </select>
               </div>
             </div>
-          </ox-card>
+          </val-card>
         </div>
 
         <!-- LIVE PREVIEW & EXPORT (RIGHT 7 COLS) -->
-        <div class="lg:ox-col-span-7 ox-space-y-6">
+        <div class="lg:val-col-span-7 val-space-y-6">
           
           <!-- LIVE PREVIEW CANVAS -->
-          <div class="theme-preview-box ox-p-6 ox-rounded-2xl ox-border ox-border-slate-200 dark:ox-border-slate-800 ox-bg-slate-50/50 dark:ox-bg-slate-900/50" [style]="previewStyles()">
-            <div class="ox-flex ox-items-center ox-justify-between ox-mb-4">
-              <span class="ox-text-xs ox-font-bold ox-uppercase ox-tracking-wider ox-text-slate-500 ox-flex ox-items-center ox-gap-1.5">
-                <span class="ox-w-2 ox-h-2 ox-rounded-full ox-bg-emerald-500 ox-animate-pulse"></span>
+          <div class="theme-preview-box val-p-6 val-rounded-2xl val-border val-border-slate-200 dark:val-border-slate-800 val-bg-slate-50/50 dark:val-bg-slate-900/50" [style]="previewStyles()">
+            <div class="val-flex val-items-center val-justify-between val-mb-4">
+              <span class="val-text-xs val-font-bold val-uppercase val-tracking-wider val-text-slate-500 val-flex val-items-center val-gap-1.5">
+                <span class="val-w-2 val-h-2 val-rounded-full val-bg-emerald-500 val-animate-pulse"></span>
                 Previsualización en Vivo de Componentes
               </span>
-              <span class="ox-text-xs ox-text-slate-400">Tokens aplicados en tiempo real</span>
+              <span class="val-text-xs val-text-slate-400">Tokens aplicados en tiempo real</span>
             </div>
 
             <!-- PREVIEW COMPONENTS -->
-            <div class="ox-space-y-6">
+            <div class="val-space-y-6">
               
               <!-- Buttons & Actions -->
               <div>
-                <div class="ox-text-xs ox-font-semibold ox-text-slate-500 ox-mb-2">Botones & Acciones</div>
-                <div class="ox-flex ox-flex-wrap ox-gap-3">
-                  <ox-button label="Primario" variant="primary" icon="check"></ox-button>
-                  <ox-button label="Secundario" variant="outline-secondary"></ox-button>
-                  <ox-button label="Éxito" variant="success" icon="thumbs-up"></ox-button>
-                  <ox-button label="Peligro" variant="danger" icon="trash-2"></ox-button>
-                  <ox-button label="Deshabilitado" [disabled]="true"></ox-button>
+                <div class="val-text-xs val-font-semibold val-text-slate-500 val-mb-2">Botones & Acciones</div>
+                <div class="val-flex val-flex-wrap val-gap-3">
+                  <val-button label="Primario" variant="primary" icon="check"></val-button>
+                  <val-button label="Secundario" variant="outline-secondary"></val-button>
+                  <val-button label="Éxito" variant="success" icon="thumbs-up"></val-button>
+                  <val-button label="Peligro" variant="danger" icon="trash-2"></val-button>
+                  <val-button label="Deshabilitado" [disabled]="true"></val-button>
                 </div>
               </div>
 
               <!-- Badges & Tags -->
               <div>
-                <div class="ox-text-xs ox-font-semibold ox-text-slate-500 ox-mb-2">Badges & Tags</div>
-                <div class="ox-flex ox-flex-wrap ox-gap-2">
-                  <ox-badge value="Primary Live" severity="primary"></ox-badge>
-                  <ox-badge value="Approved" severity="success"></ox-badge>
-                  <ox-badge value="Attention" severity="warning"></ox-badge>
-                  <ox-badge value="Critical" severity="danger"></ox-badge>
-                  <ox-badge value="Info Note" severity="info"></ox-badge>
+                <div class="val-text-xs val-font-semibold val-text-slate-500 val-mb-2">Badges & Tags</div>
+                <div class="val-flex val-flex-wrap val-gap-2">
+                  <val-badge value="Primary Live" severity="primary"></val-badge>
+                  <val-badge value="Approved" severity="success"></val-badge>
+                  <val-badge value="Attention" severity="warning"></val-badge>
+                  <val-badge value="Critical" severity="danger"></val-badge>
+                  <val-badge value="Info Note" severity="info"></val-badge>
                 </div>
               </div>
 
               <!-- Form Controls -->
               <div>
-                <div class="ox-text-xs ox-font-semibold ox-text-slate-500 ox-mb-2">Campos de Entrada (FormField)</div>
-                <div class="ox-grid ox-grid-cols-1 sm:ox-grid-cols-2 ox-gap-4">
-                  <ox-form-field label="Nombre de Usuario">
-                    <ox-icon oxPrefix name="user"></ox-icon>
-                    <input class="ox-input-native" placeholder="Ingresa tu usuario..." />
-                  </ox-form-field>
+                <div class="val-text-xs val-font-semibold val-text-slate-500 val-mb-2">Campos de Entrada (FormField)</div>
+                <div class="val-grid val-grid-cols-1 sm:val-grid-cols-2 val-gap-4">
+                  <val-form-field label="Nombre de Usuario">
+                    <val-icon valPrefix name="user"></val-icon>
+                    <input class="val-input-native" placeholder="Ingresa tu usuario..." />
+                  </val-form-field>
 
-                  <ox-form-field label="Correo Electrónico" hint="Enviaremos un enlace de confirmación">
-                    <ox-icon oxPrefix name="mail"></ox-icon>
-                    <input class="ox-input-native" type="email" placeholder="usuario@oxygen.dev" />
-                  </ox-form-field>
+                  <val-form-field label="Correo Electrónico" hint="Enviaremos un enlace de confirmación">
+                    <val-icon valPrefix name="mail"></val-icon>
+                    <input class="val-input-native" type="email" placeholder="usuario@valence.dev" />
+                  </val-form-field>
                 </div>
               </div>
 
               <!-- Tags & Interactive Switches -->
-              <div class="ox-flex ox-items-center ox-justify-between ox-flex-wrap ox-gap-4">
-                <div class="ox-flex ox-flex-wrap ox-gap-2">
-                  <ox-tag value="Nuevo" severity="primary"></ox-tag>
-                  <ox-tag value="En Producción" severity="success"></ox-tag>
-                  <ox-tag value="Beta" severity="warning"></ox-tag>
+              <div class="val-flex val-items-center val-justify-between val-flex-wrap val-gap-4">
+                <div class="val-flex val-flex-wrap val-gap-2">
+                  <val-tag value="Nuevo" severity="primary"></val-tag>
+                  <val-tag value="En Producción" severity="success"></val-tag>
+                  <val-tag value="Beta" severity="warning"></val-tag>
                 </div>
 
-                <div class="ox-flex ox-items-center ox-gap-3">
-                  <span class="ox-text-xs ox-font-medium ox-text-slate-600 dark:ox-text-slate-400">Notificaciones</span>
-                  <ox-input-switch [(ngModel)]="previewSwitch"></ox-input-switch>
+                <div class="val-flex val-items-center val-gap-3">
+                  <span class="val-text-xs val-font-medium val-text-slate-600 dark:val-text-slate-400">Notificaciones</span>
+                  <val-input-switch [(ngModel)]="previewSwitch"></val-input-switch>
                 </div>
               </div>
 
               <!-- Dropdown Selector -->
-              <div class="ox-max-w-xs">
-                <label class="ox-text-xs ox-font-medium ox-text-slate-500 ox-mb-1 ox-block">Selector de Plan</label>
-                <ox-dropdown 
+              <div class="val-max-w-xs">
+                <label class="val-text-xs val-font-medium val-text-slate-500 val-mb-1 val-block">Selector de Plan</label>
+                <val-dropdown 
                   [options]="planOptions" 
                   [(ngModel)]="selectedPlan" 
                   placeholder="Selecciona un plan">
-                </ox-dropdown>
+                </val-dropdown>
               </div>
 
               <!-- Alert & Card -->
-              <ox-alert severity="info" title="Tema Dinámico Activo">
+              <val-alert severity="info" title="Tema Dinámico Activo">
                 Los estilos CSS Variables se actualizan reactivamente sin recargar la página.
-              </ox-alert>
+              </val-alert>
             </div>
           </div>
 
           <!-- EXPORTER TABS & CODE GENERATOR -->
-          <ox-card>
-            <div class="ox-flex ox-items-center ox-justify-between ox-flex-wrap ox-gap-2 ox-mb-4">
-              <div class="ox-flex ox-gap-2">
+          <val-card>
+            <div class="val-flex val-items-center val-justify-between val-flex-wrap val-gap-2 val-mb-4">
+              <div class="val-flex val-gap-2">
                 <button 
                   type="button"
-                  class="ox-px-3 ox-py-1.5 ox-rounded-md ox-text-xs ox-font-semibold ox-transition-all"
-                  [class.ox-bg-blue-600]="activeTab === 'css'"
-                  [class.ox-text-white]="activeTab === 'css'"
-                  [class.ox-text-slate-600]="activeTab !== 'css'"
+                  class="val-px-3 val-py-1.5 val-rounded-md val-text-xs val-font-semibold val-transition-all"
+                  [class.val-bg-blue-600]="activeTab === 'css'"
+                  [class.val-text-white]="activeTab === 'css'"
+                  [class.val-text-slate-600]="activeTab !== 'css'"
                   (click)="activeTab = 'css'">
                   CSS Variables
                 </button>
                 <button 
                   type="button"
-                  class="ox-px-3 ox-py-1.5 ox-rounded-md ox-text-xs ox-font-semibold ox-transition-all"
-                  [class.ox-bg-blue-600]="activeTab === 'scss'"
-                  [class.ox-text-white]="activeTab === 'scss'"
-                  [class.ox-text-slate-600]="activeTab !== 'scss'"
+                  class="val-px-3 val-py-1.5 val-rounded-md val-text-xs val-font-semibold val-transition-all"
+                  [class.val-bg-blue-600]="activeTab === 'scss'"
+                  [class.val-text-white]="activeTab === 'scss'"
+                  [class.val-text-slate-600]="activeTab !== 'scss'"
                   (click)="activeTab = 'scss'">
                   SCSS Map
                 </button>
                 <button 
                   type="button"
-                  class="ox-px-3 ox-py-1.5 ox-rounded-md ox-text-xs ox-font-semibold ox-transition-all"
-                  [class.ox-bg-blue-600]="activeTab === 'json'"
-                  [class.ox-text-white]="activeTab === 'json'"
-                  [class.ox-text-slate-600]="activeTab !== 'json'"
+                  class="val-px-3 val-py-1.5 val-rounded-md val-text-xs val-font-semibold val-transition-all"
+                  [class.val-bg-blue-600]="activeTab === 'json'"
+                  [class.val-text-white]="activeTab === 'json'"
+                  [class.val-text-slate-600]="activeTab !== 'json'"
                   (click)="activeTab = 'json'">
                   JSON Tokens
                 </button>
               </div>
 
-              <ox-button 
+              <val-button 
                 [label]="copied ? '¡Copiado!' : 'Copiar al Portapapeles'" 
                 [icon]="copied ? 'check' : 'copy'" 
                 variant="primary" 
                 size="sm" 
                 (onClick)="copyToClipboard()">
-              </ox-button>
+              </val-button>
             </div>
 
-            <pre class="code-export-box ox-p-4 ox-rounded-xl ox-bg-slate-900 ox-text-emerald-400 ox-text-xs ox-font-mono ox-overflow-x-auto ox-max-h-64"><code>{{ generatedCode() }}</code></pre>
-          </ox-card>
+            <pre class="code-export-box val-p-4 val-rounded-xl val-bg-slate-900 val-text-emerald-400 val-text-xs val-font-mono val-overflow-x-auto val-max-h-64"><code>{{ generatedCode() }}</code></pre>
+          </val-card>
         </div>
       </div>
     </div>
@@ -333,7 +333,7 @@ export interface ThemePreset {
     }
     .preset-chip {
       cursor: pointer;
-      background: var(--oxy-surface-card, #ffffff);
+      background: var(--val-surface-card, #ffffff);
       &:hover {
         transform: translateY(-1px);
       }
@@ -445,14 +445,14 @@ export class ThemeBuilderDemoComponent {
 
   previewStyles = computed(() => {
     return `
-      --oxy-primary: ${this.primaryColor};
-      --oxy-primary-hover: ${this.primaryColor}dd;
-      --oxy-secondary: ${this.secondaryColor};
-      --oxy-success: ${this.successColor};
-      --oxy-warning: ${this.warningColor};
-      --oxy-danger: ${this.dangerColor};
-      --oxy-info: ${this.infoColor};
-      --oxy-border-radius: ${this.borderRadius}px;
+      --val-primary: ${this.primaryColor};
+      --val-primary-hover: ${this.primaryColor}dd;
+      --val-secondary: ${this.secondaryColor};
+      --val-success: ${this.successColor};
+      --val-warning: ${this.warningColor};
+      --val-danger: ${this.dangerColor};
+      --val-info: ${this.infoColor};
+      --val-border-radius: ${this.borderRadius}px;
       --radius-sm: ${Math.max(2, parseInt(this.borderRadius) - 4)}px;
       --radius-md: ${this.borderRadius}px;
       --radius-lg: ${parseInt(this.borderRadius) + 4}px;
@@ -463,32 +463,32 @@ export class ThemeBuilderDemoComponent {
   generatedCode = computed(() => {
     if (this.activeTab === 'css') {
       return `:root {
-  /* Oxygen UI Custom Palette */
-  --oxy-primary: ${this.primaryColor};
-  --oxy-secondary: ${this.secondaryColor};
-  --oxy-success: ${this.successColor};
-  --oxy-warning: ${this.warningColor};
-  --oxy-danger: ${this.dangerColor};
-  --oxy-info: ${this.infoColor};
+  /* Valence UI Custom Palette */
+  --val-primary: ${this.primaryColor};
+  --val-secondary: ${this.secondaryColor};
+  --val-success: ${this.successColor};
+  --val-warning: ${this.warningColor};
+  --val-danger: ${this.dangerColor};
+  --val-info: ${this.infoColor};
 
   /* Geometry & Typography */
-  --oxy-border-radius: ${this.borderRadius}px;
+  --val-border-radius: ${this.borderRadius}px;
   --radius-sm: ${Math.max(2, parseInt(this.borderRadius) - 4)}px;
   --radius-md: ${this.borderRadius}px;
   --radius-lg: ${parseInt(this.borderRadius) + 4}px;
   --font-primary: ${this.fontFamily};
 }`;
     } else if (this.activeTab === 'scss') {
-      return `// Oxygen UI Theme Variables
-$oxy-primary: ${this.primaryColor};
-$oxy-secondary: ${this.secondaryColor};
-$oxy-success: ${this.successColor};
-$oxy-warning: ${this.warningColor};
-$oxy-danger: ${this.dangerColor};
-$oxy-info: ${this.infoColor};
+      return `// Valence UI Theme Variables
+$val-primary: ${this.primaryColor};
+$val-secondary: ${this.secondaryColor};
+$val-success: ${this.successColor};
+$val-warning: ${this.warningColor};
+$val-danger: ${this.dangerColor};
+$val-info: ${this.infoColor};
 
-$oxy-border-radius: ${this.borderRadius}px;
-$oxy-font-family: ${this.fontFamily};`;
+$val-border-radius: ${this.borderRadius}px;
+$val-font-family: ${this.fontFamily};`;
     } else {
       return JSON.stringify({
         theme: this.selectedPreset(),

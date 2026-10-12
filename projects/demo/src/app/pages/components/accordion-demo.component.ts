@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AccordionComponent, AccordionItemComponent, OxAccordionHeaderDirective } from 'oxygen-ui';
+import { AccordionComponent, AccordionItemComponent, ValAccordionHeaderDirective } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -11,14 +11,14 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
     CommonModule, 
     AccordionComponent, 
     AccordionItemComponent, 
-    OxAccordionHeaderDirective,
+    ValAccordionHeaderDirective,
     DocCodeComponent,
     DocApiTableComponent
   ],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Accordion (Acordeón de Paneles)</h1>
-      <p class="ox-description">Contenedor para agrupar y mostrar contenido en paneles expandibles y colapsables con animaciones suaves.</p>
+      <p class="val-description">Contenedor para agrupar y mostrar contenido en paneles expandibles y colapsables con animaciones suaves.</p>
 
       <!-- 1. BÁSICO -->
       <app-doc-code
@@ -26,16 +26,16 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Solo un panel permanece abierto a la vez."
         [html]="basicHtml"
         [ts]="accordionTs">
-        <ox-accordion>
-          <ox-accordion-item id="item1">
-            <ng-template oxAccordionHeader>Sección 1: Información General</ng-template>
+        <val-accordion>
+          <val-accordion-item id="item1">
+            <ng-template valAccordionHeader>Sección 1: Información General</ng-template>
             <p style="margin: 0; color: #475569;">Contenido detallado de la primera sección con información relevante.</p>
-          </ox-accordion-item>
-          <ox-accordion-item id="item2">
-            <ng-template oxAccordionHeader>Sección 2: Ajustes de Cuenta</ng-template>
+          </val-accordion-item>
+          <val-accordion-item id="item2">
+            <ng-template valAccordionHeader>Sección 2: Ajustes de Cuenta</ng-template>
             <p style="margin: 0; color: #475569;">Configuraciones y opciones del perfil de usuario.</p>
-          </ox-accordion-item>
-        </ox-accordion>
+          </val-accordion-item>
+        </val-accordion>
       </app-doc-code>
 
       <!-- 2. MÚLTIPLE SELECCIÓN -->
@@ -44,16 +44,16 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Permite tener abiertos varios paneles de forma simultánea con [multi]='true'."
         [html]="multiHtml"
         [ts]="accordionTs">
-        <ox-accordion [multi]="true">
-          <ox-accordion-item id="m1">
-            <ng-template oxAccordionHeader>Panel A: Notificaciones</ng-template>
+        <val-accordion [multi]="true">
+          <val-accordion-item id="m1">
+            <ng-template valAccordionHeader>Panel A: Notificaciones</ng-template>
             <p style="margin: 0; color: #475569;">Configuración de alertas de correo y notificaciones push.</p>
-          </ox-accordion-item>
-          <ox-accordion-item id="m2">
-            <ng-template oxAccordionHeader>Panel B: Seguridad y Accesos</ng-template>
+          </val-accordion-item>
+          <val-accordion-item id="m2">
+            <ng-template valAccordionHeader>Panel B: Seguridad y Accesos</ng-template>
             <p style="margin: 0; color: #475569;">Autenticación en dos pasos y claves de seguridad.</p>
-          </ox-accordion-item>
-        </ox-accordion>
+          </val-accordion-item>
+        </val-accordion>
       </app-doc-code>
 
       <!-- API REFERENCE -->
@@ -66,35 +66,35 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   `
 })
 export class AccordionDemoComponent {
-  basicHtml = `<ox-accordion>
-  <ox-accordion-item id="item1">
-    <ng-template oxAccordionHeader>Sección 1: Información</ng-template>
+  basicHtml = `<val-accordion>
+  <val-accordion-item id="item1">
+    <ng-template valAccordionHeader>Sección 1: Información</ng-template>
     <p>Contenido detallado de la primera sección.</p>
-  </ox-accordion-item>
-  <ox-accordion-item id="item2">
-    <ng-template oxAccordionHeader>Sección 2: Ajustes</ng-template>
+  </val-accordion-item>
+  <val-accordion-item id="item2">
+    <ng-template valAccordionHeader>Sección 2: Ajustes</ng-template>
     <p>Configuraciones y opciones.</p>
-  </ox-accordion-item>
-</ox-accordion>`;
+  </val-accordion-item>
+</val-accordion>`;
 
-  multiHtml = `<ox-accordion [multi]="true">
-  <ox-accordion-item id="m1">
-    <ng-template oxAccordionHeader>Panel A</ng-template>
+  multiHtml = `<val-accordion [multi]="true">
+  <val-accordion-item id="m1">
+    <ng-template valAccordionHeader>Panel A</ng-template>
     <p>Contenido A</p>
-  </ox-accordion-item>
-  <ox-accordion-item id="m2">
-    <ng-template oxAccordionHeader>Panel B</ng-template>
+  </val-accordion-item>
+  <val-accordion-item id="m2">
+    <ng-template valAccordionHeader>Panel B</ng-template>
     <p>Contenido B</p>
-  </ox-accordion-item>
-</ox-accordion>`;
+  </val-accordion-item>
+</val-accordion>`;
 
   accordionTs = `import { Component } from '@angular/core';
-import { AccordionComponent, AccordionItemComponent, OxAccordionHeaderDirective } from 'oxygen-ui';
+import { AccordionComponent, AccordionItemComponent, ValAccordionHeaderDirective } from 'valence-ui';
 
 @Component({
   selector: 'app-my-accordion',
   standalone: true,
-  imports: [AccordionComponent, AccordionItemComponent, OxAccordionHeaderDirective],
+  imports: [AccordionComponent, AccordionItemComponent, ValAccordionHeaderDirective],
   templateUrl: './my-accordion.component.html'
 })
 export class MyAccordionComponent {}`;

@@ -1,0 +1,53 @@
+@use 'sass:map';
+@use './breakpoints' as b;
+
+$radii: (
+  'sm': var(--radius-sm),
+  'md': var(--radius-md),
+  'lg': var(--radius-lg),
+  'circle': 50%,
+  'pill': 50rem,
+  'none': 0
+);
+
+$shadows: (
+  'sm': var(--shadow-sm),
+  'md': var(--shadow-md),
+  'none': none
+);
+
+@mixin generate-effects($breakpoint: null) {
+  $prefix: '';
+  @if $breakpoint {
+    $prefix: '-#{$breakpoint}';
+  }
+
+  @each $name, $value in $radii {
+    .val-rounded#{$prefix}-#{$name} {
+      border-radius: #{$value} !important;
+    }
+  }
+
+  .val-rounded#{$prefix} {
+    border-radius: var(--radius-md) !important;
+  }
+
+  @each $name, $value in $shadows {
+    .val-shadow#{$prefix}-#{$name} {
+      box-shadow: #{$value} !important;
+    }
+  }
+}
+
+// Base
+@include generate-effects();
+
+// Responsive
+@each $name, $value in b.$breakpoints {
+  @if $name != 'xs' {
+    @include b.up($name) {
+      @include generate-effects($name);
+    }
+  }
+}
+

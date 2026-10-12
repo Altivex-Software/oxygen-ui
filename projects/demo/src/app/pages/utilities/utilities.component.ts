@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { IconComponent } from 'oxygen-ui';
+import { IconComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-utilities-page',
@@ -13,56 +13,56 @@ import { IconComponent } from 'oxygen-ui';
         <nav class="nav">
           <div class="nav-section">Comenzar</div>
           <a routerLink="overview" routerLinkActive="active" class="nav-item">
-            <ox-icon name="file-text" size="1.125rem" class="nav-icon"></ox-icon> Guía & Instalación
+            <val-icon name="file-text" size="1.125rem" class="nav-icon"></val-icon> Guía & Instalación
           </a>
           <a routerLink="theme-builder" routerLinkActive="active" class="nav-item">
-            <ox-icon name="palette" size="1.125rem" class="nav-icon"></ox-icon> Theme Builder (Live)
+            <val-icon name="palette" size="1.125rem" class="nav-icon"></val-icon> Theme Builder (Live)
           </a>
           <a routerLink="tokens" routerLinkActive="active" class="nav-item">
-            <ox-icon name="settings" size="1.125rem" class="nav-icon"></ox-icon> Variables & Tokens
+            <val-icon name="settings" size="1.125rem" class="nav-icon"></val-icon> Variables & Tokens
           </a>
 
           <div class="nav-section">Layout & Estructura</div>
           <a routerLink="grid" routerLinkActive="active" class="nav-item">
-            <ox-icon name="grid" size="1.125rem" class="nav-icon"></ox-icon> Grid (12 Cols)
+            <val-icon name="grid" size="1.125rem" class="nav-icon"></val-icon> Grid (12 Cols)
           </a>
           <a routerLink="flex" routerLinkActive="active" class="nav-item">
-            <ox-icon name="layers" size="1.125rem" class="nav-icon"></ox-icon> Flexbox
+            <val-icon name="layers" size="1.125rem" class="nav-icon"></val-icon> Flexbox
           </a>
           <a routerLink="display" routerLinkActive="active" class="nav-item">
-            <ox-icon name="eye" size="1.125rem" class="nav-icon"></ox-icon> Display & Visibilidad
+            <val-icon name="eye" size="1.125rem" class="nav-icon"></val-icon> Display & Visibilidad
           </a>
           <a routerLink="sizing" routerLinkActive="active" class="nav-item">
-            <ox-icon name="maximize-2" size="1.125rem" class="nav-icon"></ox-icon> Dimensiones (Sizing)
+            <val-icon name="maximize-2" size="1.125rem" class="nav-icon"></val-icon> Dimensiones (Sizing)
           </a>
           <a routerLink="position" routerLinkActive="active" class="nav-item">
-            <ox-icon name="map-pin" size="1.125rem" class="nav-icon"></ox-icon> Posicionamiento
+            <val-icon name="map-pin" size="1.125rem" class="nav-icon"></val-icon> Posicionamiento
           </a>
 
           <div class="nav-section">Estilos & Efectos</div>
           <a routerLink="spacing" routerLinkActive="active" class="nav-item">
-            <ox-icon name="sliders" size="1.125rem" class="nav-icon"></ox-icon> Espaciado (M / P / Gap)
+            <val-icon name="sliders" size="1.125rem" class="nav-icon"></val-icon> Espaciado (M / P / Gap)
           </a>
           <a routerLink="typography" routerLinkActive="active" class="nav-item">
-            <ox-icon name="edit-3" size="1.125rem" class="nav-icon"></ox-icon> Tipografía & Texto
+            <val-icon name="edit-3" size="1.125rem" class="nav-icon"></val-icon> Tipografía & Texto
           </a>
           <a routerLink="colors" routerLinkActive="active" class="nav-item">
-            <ox-icon name="sun" size="1.125rem" class="nav-icon"></ox-icon> Colores & Gradientes
+            <val-icon name="sun" size="1.125rem" class="nav-icon"></val-icon> Colores & Gradientes
           </a>
           <a routerLink="borders" routerLinkActive="active" class="nav-item">
-            <ox-icon name="shield" size="1.125rem" class="nav-icon"></ox-icon> Bordes, Rings & Sombras
+            <val-icon name="shield" size="1.125rem" class="nav-icon"></val-icon> Bordes, Rings & Sombras
           </a>
           <a routerLink="motion" routerLinkActive="active" class="nav-item">
-            <ox-icon name="activity" size="1.125rem" class="nav-icon"></ox-icon> Movimiento & Animaciones
+            <val-icon name="activity" size="1.125rem" class="nav-icon"></val-icon> Movimiento & Animaciones
           </a>
           <a routerLink="filters" routerLinkActive="active" class="nav-item">
-            <ox-icon name="sparkles" size="1.125rem" class="nav-icon"></ox-icon> Filtros & Glassmorphism
+            <val-icon name="sparkles" size="1.125rem" class="nav-icon"></val-icon> Filtros & Glassmorphism
           </a>
           <a routerLink="interactivity" routerLinkActive="active" class="nav-item">
-            <ox-icon name="mouse-pointer" size="1.125rem" class="nav-icon"></ox-icon> Interactividad & A11y
+            <val-icon name="mouse-pointer" size="1.125rem" class="nav-icon"></val-icon> Interactividad & A11y
           </a>
           <a routerLink="extras" routerLinkActive="active" class="nav-item">
-            <ox-icon name="zap" size="1.125rem" class="nav-icon"></ox-icon> Extras & Tablas
+            <val-icon name="zap" size="1.125rem" class="nav-icon"></val-icon> Extras & Tablas
           </a>
         </nav>
       </aside>
@@ -124,11 +124,11 @@ import { IconComponent } from 'oxygen-ui';
     }
     .nav-item:hover {
       background-color: #f8fafc;
-      color: var(--oxy-primary, #0066ff);
+      color: var(--val-primary, #0066ff);
     }
     .nav-item.active {
-      background-color: color-mix(in srgb, var(--oxy-primary, #0066ff), transparent 90%);
-      color: var(--oxy-primary, #0066ff);
+      background-color: color-mix(in srgb, var(--val-primary, #0066ff), transparent 90%);
+      color: var(--val-primary, #0066ff);
       font-weight: 600;
     }
     .content {

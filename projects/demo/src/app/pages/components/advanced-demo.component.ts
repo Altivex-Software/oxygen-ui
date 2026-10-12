@@ -8,7 +8,7 @@ import {
   TimelineComponent, 
   TimelineItem,
   CardComponent
-} from "oxygen-ui";
+} from "valence-ui";
 import { DocCodeComponent } from "../../shared/doc-code/doc-code.component";
 import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-code/doc-api-table.component";
 
@@ -26,24 +26,24 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
     DocApiTableComponent
   ],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Advanced Forms & Layout</h1>
-      <p class="ox-description">
-        Componentes avanzados de navegación, jerarquías y estructura de paneles: <code>ox-tree-select</code>, <code>ox-splitter</code> y <code>ox-timeline</code>.
+      <p class="val-description">
+        Componentes avanzados de navegación, jerarquías y estructura de paneles: <code>val-tree-select</code>, <code>val-splitter</code> y <code>val-timeline</code>.
       </p>
 
       <!-- 1. TREE SELECT -->
-      <section class="ox-section">
+      <section class="val-section">
         <h2>1. TreeSelect (Selector Jerárquico)</h2>
         <p>Desplegable con soporte para árbol de nodos jerárquicos y filtrado en tiempo real.</p>
 
         <div style="max-width: 340px; margin-bottom: 1rem;">
-          <ox-tree-select 
+          <val-tree-select 
             [options]="categoryNodes" 
             [(ngModel)]="selectedCategory"
             placeholder="Selecciona una categoría"
             [filter]="true">
-          </ox-tree-select>
+          </val-tree-select>
         </div>
 
         <div style="font-size: 0.875rem; color: #475569; margin-bottom: 1.5rem;">
@@ -58,25 +58,25 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
       </section>
 
       <!-- 2. SPLITTER -->
-      <section class="ox-section">
+      <section class="val-section">
         <h2>2. Splitter (Paneles Redimensionables)</h2>
         <p>Arrastra la barra divisoria central para redimensionar los paneles izquierdo y derecho en tiempo real.</p>
 
         <div style="height: 250px; margin-bottom: 1.5rem; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
-          <ox-splitter [initialSize]="40">
-            <div oxPanel1 style="padding: 1rem; background: #f8fafc; height: 100%;">
+          <val-splitter [initialSize]="40">
+            <div valPanel1 style="padding: 1rem; background: #f8fafc; height: 100%;">
               <h3 style="margin-top: 0; font-size: 1rem;">Panel Izquierdo</h3>
               <p style="font-size: 0.875rem; color: #64748b;">
                 Área de navegación, estructura de carpetas o lista maestra.
               </p>
             </div>
-            <div oxPanel2 style="padding: 1rem; height: 100%;">
+            <div valPanel2 style="padding: 1rem; height: 100%;">
               <h3 style="margin-top: 0; font-size: 1rem;">Panel Derecho</h3>
               <p style="font-size: 0.875rem; color: #64748b;">
                 Área de inspección de detalles, editor o previsualización.
               </p>
             </div>
-          </ox-splitter>
+          </val-splitter>
         </div>
 
         <app-doc-code 
@@ -87,15 +87,15 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
       </section>
 
       <!-- 3. TIMELINE -->
-      <section class="ox-section">
+      <section class="val-section">
         <h2>3. Timeline (Línea de Tiempo)</h2>
         <p>Visualización cronológica de eventos, seguimiento de envíos o historial de actividad.</p>
 
-        <ox-card style="max-width: 600px; margin-bottom: 1.5rem;">
+        <val-card style="max-width: 600px; margin-bottom: 1.5rem;">
           <div style="padding: 1.5rem;">
-            <ox-timeline [value]="orderHistory"></ox-timeline>
+            <val-timeline [value]="orderHistory"></val-timeline>
           </div>
-        </ox-card>
+        </val-card>
 
         <app-doc-code 
           title="Timeline"
@@ -105,8 +105,8 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from "../../shared/doc-co
       </section>
 
       <!-- API REFERENCE -->
-      <section class="ox-section">
-        <h2>API Reference &mdash; &lt;ox-tree-select&gt;</h2>
+      <section class="val-section">
+        <h2>API Reference &mdash; &lt;val-tree-select&gt;</h2>
         <app-doc-api-table [properties]="treeSelectProperties"></app-doc-api-table>
       </section>
     </div>
@@ -173,7 +173,7 @@ export class AdvancedDemoComponent {
       date: "16/10/2026 09:00",
       icon: "truck",
       color: "#06b6d4",
-      description: "En ruta de entrega con número de seguimiento #OX-8840."
+      description: "En ruta de entrega con número de seguimiento #VAL-8840."
     },
     {
       status: "Entregado",
@@ -184,15 +184,15 @@ export class AdvancedDemoComponent {
     }
   ];
 
-  treeSelectHtml = `<ox-tree-select 
+  treeSelectHtml = `<val-tree-select 
   [options]="categoryNodes" 
   [(ngModel)]="selectedCategory"
   placeholder="Selecciona categoría"
   [filter]="true">
-</ox-tree-select>`;
+</val-tree-select>`;
 
   treeSelectTs = `import { Component } from '@angular/core';
-import { TreeSelectComponent, TreeNode } from 'oxygen-ui';
+import { TreeSelectComponent, TreeNode } from 'valence-ui';
 
 @Component({
   standalone: true,
@@ -210,13 +210,13 @@ export class MyComponent {
   ];
 }`;
 
-  splitterHtml = `<ox-splitter [initialSize]="40">
-  <div oxPanel1>Panel 1</div>
-  <div oxPanel2>Panel 2</div>
-</ox-splitter>`;
+  splitterHtml = `<val-splitter [initialSize]="40">
+  <div valPanel1>Panel 1</div>
+  <div valPanel2>Panel 2</div>
+</val-splitter>`;
 
   splitterTs = `import { Component } from '@angular/core';
-import { SplitterComponent } from 'oxygen-ui';
+import { SplitterComponent } from 'valence-ui';
 
 @Component({
   standalone: true,
@@ -225,10 +225,10 @@ import { SplitterComponent } from 'oxygen-ui';
 })
 export class MyComponent {}`;
 
-  timelineHtml = `<ox-timeline [value]="orderHistory"></ox-timeline>`;
+  timelineHtml = `<val-timeline [value]="orderHistory"></val-timeline>`;
 
   timelineTs = `import { Component } from '@angular/core';
-import { TimelineComponent, TimelineItem } from 'oxygen-ui';
+import { TimelineComponent, TimelineItem } from 'valence-ui';
 
 @Component({
   standalone: true,

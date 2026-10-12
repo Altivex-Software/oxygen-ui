@@ -10,7 +10,7 @@ import {
   IconComponent,
   ToastComponent,
   ToastService
-} from 'oxygen-ui';
+} from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api-table.component';
 
@@ -31,11 +31,11 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
   providers: [ToastService],
   template: `
     <div class="demo-container">
-      <ox-toast></ox-toast>
+      <val-toast></val-toast>
 
       <header class="demo-header">
         <div class="demo-title-badge">
-          <ox-badge value="Data & Navigation" severity="primary"></ox-badge>
+          <val-badge value="Data & Navigation" severity="primary"></val-badge>
         </div>
         <h1 class="demo-title">Tree</h1>
         <p class="demo-description">
@@ -50,19 +50,19 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="basicTreeHtml">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
           <div>
-            <ox-tree 
+            <val-tree 
               [value]="filesTree()" 
               selectionMode="single" 
               [(selection)]="selectedFile"
               (nodeSelect)="onNodeSelect($event)"
               (nodeUnselect)="onNodeUnselect($event)">
-            </ox-tree>
+            </val-tree>
           </div>
           <div class="flex flex-col justify-center p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
             <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Nodo Seleccionado</span>
             @if (selectedFile()) {
               <div class="flex items-center gap-3">
-                <ox-icon [name]="$any(selectedFile()?.icon || 'file-text')" size="1.5rem" class="text-primary-500"></ox-icon>
+                <val-icon [name]="$any(selectedFile()?.icon || 'file-text')" size="1.5rem" class="text-primary-500"></val-icon>
                 <div>
                   <h4 class="font-semibold text-slate-800 dark:text-slate-100 m-0">{{ selectedFile()?.label }}</h4>
                   <p class="text-xs text-slate-500 m-0">Tipo: {{ selectedFile()?.data?.type || 'Elemento' }}</p>
@@ -82,11 +82,11 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="checkboxTreeHtml">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
           <div>
-            <ox-tree 
+            <val-tree 
               [value]="checkboxTree()" 
               selectionMode="checkbox" 
               [(selection)]="selectedCheckboxNodes">
-            </ox-tree>
+            </val-tree>
           </div>
           <div class="flex flex-col p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 max-h-72 overflow-y-auto">
             <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Elementos Seleccionados ({{ selectedCheckboxNodes().length }})</span>
@@ -94,7 +94,7 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
               <ul class="flex flex-col gap-1 p-0 m-0 list-none">
                 @for (node of selectedCheckboxNodes(); track node.key || node.label) {
                   <li class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
-                    <ox-icon name="check-circle" size="0.875rem" class="text-emerald-500"></ox-icon>
+                    <val-icon name="check-circle" size="0.875rem" class="text-emerald-500"></val-icon>
                     <span>{{ node.label }}</span>
                   </li>
                 }
@@ -112,12 +112,12 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         description="Incluye barra de búsqueda integrada con auto-expansión de ramas coincidentes y botones para expandir/colapsar todo el árbol."
         [html]="filterableTreeHtml">
         <div class="p-4">
-          <ox-tree 
+          <val-tree 
             [value]="searchableTree()" 
             [filter]="true" 
             filterPlaceholder="Buscar archivos o servicios..."
             selectionMode="single">
-          </ox-tree>
+          </val-tree>
         </div>
       </app-doc-code>
 
@@ -127,22 +127,22 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         description="Personaliza el contenido de cada nodo añadiendo etiquetas, tags, badges o acciones interactivas."
         [html]="customTemplateTreeHtml">
         <div class="p-4">
-          <ox-tree [value]="customTemplateTree()" selectionMode="single">
+          <val-tree [value]="customTemplateTree()" selectionMode="single">
             <ng-template #nodeTemplate let-node>
               <div class="flex items-center justify-between w-full pr-2">
                 <span class="font-medium text-slate-700 dark:text-slate-200">{{ node.label }}</span>
                 @if (node.data?.badge) {
-                  <ox-tag [value]="node.data.badge" [severity]="node.data.severity || 'info'"></ox-tag>
+                  <val-tag [value]="node.data.badge" [severity]="node.data.severity || 'info'"></val-tag>
                 }
               </div>
             </ng-template>
-          </ox-tree>
+          </val-tree>
         </div>
       </app-doc-code>
 
       <!-- API Documentation -->
       <section class="demo-section">
-        <app-doc-api-table title="ox-tree API" [properties]="treeProperties"></app-doc-api-table>
+        <app-doc-api-table title="val-tree API" [properties]="treeProperties"></app-doc-api-table>
       </section>
     </div>
   `,
@@ -161,12 +161,12 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
     .demo-title {
       font-size: 2.25rem;
       font-weight: 700;
-      color: var(--ox-text-primary, #0f172a);
+      color: var(--val-text-primary, #0f172a);
       margin: 0;
     }
     .demo-description {
       font-size: 1.125rem;
-      color: var(--ox-text-secondary, #64748b);
+      color: var(--val-text-secondary, #64748b);
       margin: 0;
       line-height: 1.6;
     }
@@ -321,36 +321,36 @@ export class TreeDemoComponent {
     });
   }
 
-  basicTreeHtml = `<ox-tree 
+  basicTreeHtml = `<val-tree 
   [value]="filesTree()" 
   selectionMode="single" 
   [(selection)]="selectedFile"
   (nodeSelect)="onNodeSelect($event)">
-</ox-tree>`;
+</val-tree>`;
 
-  checkboxTreeHtml = `<ox-tree 
+  checkboxTreeHtml = `<val-tree 
   [value]="checkboxTree()" 
   selectionMode="checkbox" 
   [(selection)]="selectedCheckboxNodes">
-</ox-tree>`;
+</val-tree>`;
 
-  filterableTreeHtml = `<ox-tree 
+  filterableTreeHtml = `<val-tree 
   [value]="searchableTree()" 
   [filter]="true" 
   filterPlaceholder="Buscar archivos o carpetas..."
   selectionMode="single">
-</ox-tree>`;
+</val-tree>`;
 
-  customTemplateTreeHtml = `<ox-tree [value]="customTemplateTree()" selectionMode="single">
+  customTemplateTreeHtml = `<val-tree [value]="customTemplateTree()" selectionMode="single">
   <ng-template #nodeTemplate let-node>
     <div class="flex items-center justify-between w-full pr-2">
       <span class="font-medium text-slate-700 dark:text-slate-200">{{ node.label }}</span>
       @if (node.data?.badge) {
-        <ox-tag [value]="node.data.badge" [severity]="node.data.severity || 'info'"></ox-tag>
+        <val-tag [value]="node.data.badge" [severity]="node.data.severity || 'info'"></val-tag>
       }
     </div>
   </ng-template>
-</ox-tree>`;
+</val-tree>`;
 
   treeProperties: ApiProperty[] = [
     { name: 'value', type: 'TreeNode[]', default: '[]', description: 'Arreglo jerárquico de nodos que estructuran el árbol.' },

@@ -1,0 +1,35 @@
+<div class="val-accordion-item" [class.val-accordion-item--expanded]="expanded()">
+  <div role="heading" [attr.aria-level]="headingLevel()" class="val-accordion-item__header-wrapper">
+    <button type="button" 
+            [id]="headerId()"
+            [class]="headerClasses()" 
+            (click)="toggle()" 
+            [attr.aria-expanded]="expanded()"
+            [attr.aria-controls]="panelId()"
+            [disabled]="disabled()"
+            [attr.aria-disabled]="disabled()"
+            #headerButton>
+      <span class="val-accordion-item__title">
+        @if (customHeader()) {
+          <ng-container [ngTemplateOutlet]="customHeader()!.templateRef"></ng-container>
+        } @else {
+          {{ title() }}
+        }
+      </span>
+      <span class="val-accordion-item__icon" 
+            [class.val-accordion-item__icon--rotated]="expanded()"
+            aria-hidden="true">
+        <val-icon name="chevron-down" size="1.125rem"></val-icon>
+      </span>
+    </button>
+  </div>
+  <div [id]="panelId()"
+       class="val-accordion-item__content" 
+       role="region"
+       [attr.aria-labelledby]="headerId()"
+       [style.max-height]="expanded() ? '1000px' : '0'">
+    <div class="val-accordion-item__content-inner">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

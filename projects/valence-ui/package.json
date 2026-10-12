@@ -1,0 +1,32 @@
+{
+  "name": "valence-ui",
+  "version": "0.0.1",
+  "description": "A modern, rich UI component library for Angular applications.",
+  "keywords": [
+    "angular",
+    "ui-library",
+    "components",
+    "valence-ui",
+    "design-system"
+  ],
+  "license": "MIT",
+  "author": "Altivex",
+  "peerDependencies": {
+    "@angular/animations": ">=19.0.0",
+    "@angular/cdk": ">=19.0.0",
+    "@angular/common": ">=19.0.0",
+    "@angular/core": ">=19.0.0",
+    "@angular/forms": ">=19.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": [
+    "*.scss",
+    "*.css"
+  ],
+  "exports": {
+    "./styles/*": "./styles/*",
+    "./themes/*": "./themes/*"
+  }
+}

@@ -3,23 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "oxygen-ui": {
+    "valence-ui": {
       "projectType": "library",
-      "root": "projects/oxygen-ui",
-      "sourceRoot": "projects/oxygen-ui/src",
-      "prefix": "ox",
+      "root": "projects/valence-ui",
+      "sourceRoot": "projects/valence-ui/src",
+      "prefix": "val",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/oxygen-ui/ng-package.json"
+            "project": "projects/valence-ui/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/oxygen-ui/tsconfig.lib.prod.json"
+              "tsConfig": "projects/valence-ui/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/oxygen-ui/tsconfig.lib.json"
+              "tsConfig": "projects/valence-ui/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,7 +27,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/oxygen-ui/tsconfig.spec.json",
+            "tsConfig": "projects/valence-ui/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
@@ -65,7 +65,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "projects/oxygen-ui/src/lib/styles/fonts",
+                "input": "projects/valence-ui/src/lib/styles/fonts",
                 "output": "fonts"
               }
             ],

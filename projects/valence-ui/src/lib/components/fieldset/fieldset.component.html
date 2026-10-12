@@ -1,0 +1,35 @@
+<fieldset [disabled]="disabled()" [class.val-fieldset--collapsed]="collapsed()">
+  @if (legend() || legendTemplate()) {
+    <legend class="val-fieldset__legend">
+      <span class="val-fieldset__legend-content"
+            [class.val-fieldset__legend-content--toggleable]="toggleable()"
+            (click)="toggle()"
+            (keydown.enter)="toggle()"
+            (keydown.space)="toggle()"
+            [attr.tabindex]="toggleable() ? 0 : null"
+            [attr.role]="toggleable() ? 'button' : null"
+            [attr.aria-expanded]="toggleable() ? !collapsed() : null">
+        
+        @if (toggleable()) {
+           @if (iconTemplate()) {
+             <ng-container *ngTemplateOutlet="iconTemplate() || null; context: { $implicit: collapsed() }"></ng-container>
+           } @else {
+             <val-icon name="chevron-down" size="1rem" class="val-fieldset__icon" [class.val-fieldset__icon--collapsed]="collapsed()"></val-icon>
+           }
+        }
+        
+        @if (legendTemplate()) {
+          <ng-container *ngTemplateOutlet="legendTemplate() || null; context: { $implicit: collapsed() }"></ng-container>
+        } @else {
+          {{ legend() }}
+        }
+      </span>
+    </legend>
+  }
+  
+  <div class="val-fieldset__wrapper" [class.val-fieldset__wrapper--collapsed]="collapsed()">
+    <div class="val-fieldset__content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</fieldset>

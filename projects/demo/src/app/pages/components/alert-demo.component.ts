@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AlertComponent } from 'oxygen-ui';
+import { AlertComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, AlertComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Alert (Mensajes de Alerta)</h1>
-      <p class="ox-description">Banners contextuales para comunicar mensajes informativos, de éxito, advertencia o error en la interfaz.</p>
+      <p class="val-description">Banners contextuales para comunicar mensajes informativos, de éxito, advertencia o error en la interfaz.</p>
 
       <!-- 1. SEVERIDADES -->
       <app-doc-code
@@ -20,18 +20,18 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="basicHtml"
         [ts]="alertTs">
         <div style="display: flex; flex-direction: column; gap: 1rem;">
-          <ox-alert severity="info" title="Información">
+          <val-alert severity="info" title="Información">
             Este es un mensaje informativo para el usuario.
-          </ox-alert>
-          <ox-alert severity="success" title="Operación Exitosa">
+          </val-alert>
+          <val-alert severity="success" title="Operación Exitosa">
             ¡La acción se procesó y guardó correctamente!
-          </ox-alert>
-          <ox-alert severity="warn" title="Advertencia">
+          </val-alert>
+          <val-alert severity="warn" title="Advertencia">
             Por favor verifica tus datos antes de continuar.
-          </ox-alert>
-          <ox-alert severity="error" title="Error">
+          </val-alert>
+          <val-alert severity="error" title="Error">
             Ha ocurrido un problema al conectar con el servidor.
-          </ox-alert>
+          </val-alert>
         </div>
       </app-doc-code>
 
@@ -42,13 +42,13 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="variantsHtml"
         [ts]="alertTs">
         <div style="display: flex; flex-direction: column; gap: 1rem;">
-          <ox-alert variant="filled" severity="info" [closable]="true">
+          <val-alert variant="filled" severity="info" [closable]="true">
             Variante Filled con fondo sólido y botón de cierre.
-          </ox-alert>
+          </val-alert>
           
-          <ox-alert variant="outlined" severity="success" [closable]="true">
+          <val-alert variant="outlined" severity="success" [closable]="true">
             Variante Outlined con borde de realce.
-          </ox-alert>
+          </val-alert>
         </div>
       </app-doc-code>
 
@@ -62,19 +62,19 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   `
 })
 export class AlertDemoComponent {
-  basicHtml = `<ox-alert severity="info" title="Información">
+  basicHtml = `<val-alert severity="info" title="Información">
   Mensaje informativo para el usuario.
-</ox-alert>
-<ox-alert severity="success" title="Éxito">
+</val-alert>
+<val-alert severity="success" title="Éxito">
   ¡Operación completada exitosamente!
-</ox-alert>`;
+</val-alert>`;
 
-  variantsHtml = `<ox-alert variant="filled" severity="info" [closable]="true">
+  variantsHtml = `<val-alert variant="filled" severity="info" [closable]="true">
   Alerta rellena con botón de cierre.
-</ox-alert>`;
+</val-alert>`;
 
   alertTs = `import { Component } from '@angular/core';
-import { AlertComponent } from 'oxygen-ui';
+import { AlertComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-alert',

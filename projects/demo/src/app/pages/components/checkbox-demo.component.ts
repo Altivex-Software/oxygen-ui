@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CheckboxComponent } from 'oxygen-ui';
+import { CheckboxComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FormsModule, CheckboxComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Checkbox (Casilla de Verificación)</h1>
-      <p class="ox-description">Componente de selección binaria para opciones individuales o múltiples.</p>
+      <p class="val-description">Componente de selección binaria para opciones individuales o múltiples.</p>
 
       <!-- 1. BÁSICO -->
       <app-doc-code
@@ -21,8 +21,8 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="basicHtml"
         [ts]="checkboxTs">
         <div style="display: flex; flex-direction: column; gap: 1rem;">
-          <ox-checkbox label="Acepto los términos y condiciones" [(checked)]="terms"></ox-checkbox>
-          <ox-checkbox label="Recibir boletín semanal (Deshabilitado)" [(checked)]="news" [disabled]="true"></ox-checkbox>
+          <val-checkbox label="Acepto los términos y condiciones" [(checked)]="terms"></val-checkbox>
+          <val-checkbox label="Recibir boletín semanal (Deshabilitado)" [(checked)]="news" [disabled]="true"></val-checkbox>
           <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #475569;">
             Estado términos: <b>{{ terms ? 'Aceptado' : 'Pendiente' }}</b>
           </p>
@@ -42,13 +42,13 @@ export class CheckboxDemoComponent {
   terms = false;
   news = true;
 
-  basicHtml = `<ox-checkbox 
+  basicHtml = `<val-checkbox 
   label="Acepto los términos y condiciones" 
   [(checked)]="terms">
-</ox-checkbox>`;
+</val-checkbox>`;
 
   checkboxTs = `import { Component } from '@angular/core';
-import { CheckboxComponent } from 'oxygen-ui';
+import { CheckboxComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-checkbox',

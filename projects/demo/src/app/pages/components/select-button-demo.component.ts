@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SelectButtonComponent, ToggleButtonComponent } from 'oxygen-ui';
+import { SelectButtonComponent, ToggleButtonComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FormsModule, SelectButtonComponent, ToggleButtonComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>SelectButton & ToggleButton</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Controles de selección estilizados en botones interactivos para selecciones individuales, múltiples o interruptores booleanos.
       </p>
 
@@ -23,12 +23,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="singleHtml"
         [ts]="selectTs">
         <div style="max-width: 600px;">
-          <ox-select-button 
+          <val-select-button 
             [options]="paymentOptions" 
             [(ngModel)]="selectedPayment"
             optionLabel="label"
             optionValue="value">
-          </ox-select-button>
+          </val-select-button>
 
           <div style="margin-top: 1rem; font-size: 0.875rem; color: #475569;">
             <strong>Método seleccionado:</strong> {{ selectedPayment || 'Ninguno' }}
@@ -43,11 +43,11 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="multiHtml"
         [ts]="selectTs">
         <div style="max-width: 600px;">
-          <ox-select-button 
+          <val-select-button 
             [options]="alignOptions" 
             [(ngModel)]="selectedAlignments"
             [multiple]="true">
-          </ox-select-button>
+          </val-select-button>
 
           <div style="margin-top: 1rem; font-size: 0.875rem; color: #475569;">
             <strong>Alineaciones activas:</strong> {{ selectedAlignments | json }}
@@ -63,26 +63,26 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [ts]="selectTs">
         <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
           <div>
-            <ox-toggle-button 
+            <val-toggle-button 
               [(ngModel)]="isNotificationsEnabled"
               onLabel="Notificaciones ON" 
               offLabel="Notificaciones OFF"
               onIcon="bell"
               offIcon="bell-off">
-            </ox-toggle-button>
+            </val-toggle-button>
             <div style="margin-top: 0.5rem; font-size: 0.8125rem; color: #64748b;">
               Estado: {{ isNotificationsEnabled }}
             </div>
           </div>
 
           <div>
-            <ox-toggle-button 
+            <val-toggle-button 
               [(ngModel)]="isFavorite"
               onLabel="Favorito" 
               offLabel="Añadir a Favoritos"
               onIcon="heart"
               offIcon="heart">
-            </ox-toggle-button>
+            </val-toggle-button>
             <div style="margin-top: 0.5rem; font-size: 0.8125rem; color: #64748b;">
               Estado: {{ isFavorite }}
             </div>
@@ -118,26 +118,26 @@ export class SelectButtonDemoComponent {
   isNotificationsEnabled = true;
   isFavorite = false;
 
-  singleHtml = `<ox-select-button 
+  singleHtml = `<val-select-button 
   [options]="paymentOptions" 
   [(ngModel)]="selectedPayment"
   optionLabel="label"
   optionValue="value">
-</ox-select-button>`;
+</val-select-button>`;
 
-  multiHtml = `<ox-select-button 
+  multiHtml = `<val-select-button 
   [options]="alignOptions" 
   [(ngModel)]="selectedAlignments"
   [multiple]="true">
-</ox-select-button>`;
+</val-select-button>`;
 
-  toggleHtml = `<ox-toggle-button 
+  toggleHtml = `<val-toggle-button 
   [(ngModel)]="isNotificationsEnabled"
   onLabel="Notificaciones ON" 
   offLabel="Notificaciones OFF"
   onIcon="bell"
   offIcon="bell-off">
-</ox-toggle-button>`;
+</val-toggle-button>`;
 
   selectTs = `paymentOptions = [
   { label: 'Tarjeta de Crédito', value: 'credit_card', icon: 'credit-card' },

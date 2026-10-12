@@ -1,0 +1,68 @@
+// Rings (Contornos de foco y anillos de elevación)
+:root {
+  --val-ring-offset-shadow: 0 0 #0000;
+  --val-ring-shadow: 0 0 #0000;
+  --val-ring-inset: ;
+  --val-ring-offset-width: 0px;
+  --val-ring-offset-color: #fff;
+  --val-ring-color: rgba(0, 102, 255, 0.5);
+}
+
+.val-ring-inset {
+  --val-ring-inset: inset;
+}
+
+$ring-widths: (
+  '0': 0px,
+  '1': 1px,
+  '2': 2px,
+  '4': 4px,
+  '8': 8px
+);
+
+@each $name, $value in $ring-widths {
+  .val-ring-#{$name} {
+    --val-ring-offset-shadow: var(--val-ring-inset) 0 0 0 var(--val-ring-offset-width) var(--val-ring-offset-color);
+    --val-ring-shadow: var(--val-ring-inset) 0 0 0 calc(#{$value} + var(--val-ring-offset-width)) var(--val-ring-color);
+    box-shadow: var(--val-ring-offset-shadow), var(--val-ring-shadow), var(--val-shadow, 0 0 #0000) !important;
+  }
+}
+
+.val-ring {
+  --val-ring-offset-shadow: var(--val-ring-inset) 0 0 0 var(--val-ring-offset-width) var(--val-ring-offset-color);
+  --val-ring-shadow: var(--val-ring-inset) 0 0 0 calc(3px + var(--val-ring-offset-width)) var(--val-ring-color);
+  box-shadow: var(--val-ring-offset-shadow), var(--val-ring-shadow), var(--val-shadow, 0 0 #0000) !important;
+}
+
+// Colores del Ring
+$ring-colors: (
+  'primary': var(--val-primary),
+  'secondary': var(--val-secondary),
+  'success': var(--val-success),
+  'danger': var(--val-danger),
+  'warning': var(--val-warning),
+  'info': var(--val-info),
+  'white': #ffffff,
+  'black': #000000,
+  'gray': #9ca3af
+);
+
+@each $name, $value in $ring-colors {
+  .val-ring-#{$name} {
+    --val-ring-color: #{$value};
+  }
+}
+
+// Ring Offset Widths
+@each $name, $value in $ring-widths {
+  .val-ring-offset-#{$name} {
+    --val-ring-offset-width: #{$value};
+  }
+}
+
+// Ring Offset Colors
+@each $name, $value in $ring-colors {
+  .val-ring-offset-#{$name} {
+    --val-ring-offset-color: #{$value};
+  }
+}

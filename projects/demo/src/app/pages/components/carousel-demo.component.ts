@@ -6,7 +6,7 @@ import {
   CarouselEffect,
   ButtonComponent, 
   TagComponent
-} from 'oxygen-ui';
+} from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -39,9 +39,9 @@ interface Product {
     DocApiTableComponent
   ],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Carousel (Carrusel 3D, Coverflow, Perspective & Slide)</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Múltiples variantes visuales de carrusel: <strong>Perspective 3D</strong> (con rotación angular y profundidad), <strong>Coverflow</strong>, <strong>Cards Stack</strong>, <strong>Fade</strong> y el clásico <strong>Slide responsivo</strong>.
       </p>
 
@@ -52,7 +52,7 @@ interface Product {
         [html]="perspectiveHtml"
         [ts]="carouselTs">
         <div style="background: #f8fafc; border-radius: 16px; padding: 2rem 1rem; border: 1px dashed #cbd5e1; overflow: hidden;">
-          <ox-carousel 
+          <val-carousel 
             [value]="coloredCards" 
             effect="perspective" 
             [circular]="true"
@@ -69,7 +69,7 @@ interface Product {
                 <span class="perspective-number">{{ card.label }}</span>
               </div>
             </ng-template>
-          </ox-carousel>
+          </val-carousel>
         </div>
       </app-doc-code>
 
@@ -80,7 +80,7 @@ interface Product {
         [html]="coverflowHtml"
         [ts]="carouselTs">
         <div style="background: #0f172a; border-radius: 16px; padding: 2rem 1rem; overflow: hidden;">
-          <ox-carousel 
+          <val-carousel 
             [value]="products" 
             effect="coverflow" 
             [circular]="true"
@@ -95,7 +95,7 @@ interface Product {
                 </div>
               </div>
             </ng-template>
-          </ox-carousel>
+          </val-carousel>
         </div>
       </app-doc-code>
 
@@ -107,7 +107,7 @@ interface Product {
         [ts]="carouselTs">
         <div style="background: #f1f5f9; border-radius: 16px; padding: 2rem 1rem; overflow: hidden; display: flex; justify-content: center;">
           <div style="width: 360px;">
-            <ox-carousel 
+            <val-carousel 
               [value]="products" 
               effect="cards" 
               [circular]="true"
@@ -122,7 +122,7 @@ interface Product {
                   </div>
                 </div>
               </ng-template>
-            </ox-carousel>
+            </val-carousel>
           </div>
         </div>
       </app-doc-code>
@@ -134,7 +134,7 @@ interface Product {
         [html]="fadeHtml"
         [ts]="carouselTs">
         <div style="max-width: 680px; width: 100%; margin: 0 auto;">
-          <ox-carousel 
+          <val-carousel 
             [value]="products" 
             effect="fade" 
             [circular]="true"
@@ -149,7 +149,7 @@ interface Product {
                 </div>
               </div>
             </ng-template>
-          </ox-carousel>
+          </val-carousel>
         </div>
       </app-doc-code>
 
@@ -159,7 +159,7 @@ interface Product {
         description="Carrusel horizontal estándar con múltiples elementos visibles y navegación suave."
         [html]="basicHtml"
         [ts]="carouselTs">
-        <ox-carousel 
+        <val-carousel 
           [value]="products" 
           [numVisible]="3" 
           [numScroll]="1" 
@@ -169,23 +169,23 @@ interface Product {
             <div class="product-card">
               <div class="product-img-wrapper">
                 <img [src]="product.image" [alt]="product.name" class="product-img" />
-                <ox-tag 
+                <val-tag 
                   [value]="product.inventoryStatus" 
                   [severity]="getSeverity(product.inventoryStatus)"
                   class="product-badge">
-                </ox-tag>
+                </val-tag>
               </div>
               <div class="product-details">
                 <h4 class="product-title">{{ product.name }}</h4>
                 <p class="product-price">\${{ product.price }}</p>
                 <div class="product-actions">
-                  <ox-button icon="shopping-bag" label="Comprar" size="sm"></ox-button>
-                  <ox-button icon="heart" variant="outline-secondary" size="sm"></ox-button>
+                  <val-button icon="shopping-bag" label="Comprar" size="sm"></val-button>
+                  <val-button icon="heart" variant="outline-secondary" size="sm"></val-button>
                 </div>
               </div>
             </div>
           </ng-template>
-        </ox-carousel>
+        </val-carousel>
       </app-doc-code>
 
       <!-- API REFERENCE -->
@@ -311,8 +311,8 @@ interface Product {
 
     // STANDARD PRODUCT CARD STYLES
     .product-card {
-      background: var(--oxy-surface-card, #ffffff);
-      border: 1px solid var(--oxy-surface-border, #e2e8f0);
+      background: var(--val-surface-card, #ffffff);
+      border: 1px solid var(--val-surface-border, #e2e8f0);
       border-radius: 12px;
       overflow: hidden;
       display: flex;
@@ -356,14 +356,14 @@ interface Product {
     .product-title {
       font-size: 1rem;
       font-weight: 600;
-      color: var(--oxy-text-color, #1e293b);
+      color: var(--val-text-color, #1e293b);
       margin: 0 0 0.5rem;
     }
 
     .product-price {
       font-size: 1.125rem;
       font-weight: 700;
-      color: var(--oxy-primary, #0066ff);
+      color: var(--val-primary, #0066ff);
       margin: 0 0 1rem;
     }
 
@@ -458,7 +458,7 @@ export class CarouselDemoComponent {
     }
   }
 
-  perspectiveHtml = `<ox-carousel 
+  perspectiveHtml = `<val-carousel 
   [value]="coloredCards" 
   effect="perspective" 
   [circular]="true"
@@ -474,9 +474,9 @@ export class CarouselDemoComponent {
       <span>{{ card.label }}</span>
     </div>
   </ng-template>
-</ox-carousel>`;
+</val-carousel>`;
 
-  coverflowHtml = `<ox-carousel 
+  coverflowHtml = `<val-carousel 
   [value]="products" 
   effect="coverflow" 
   [circular]="true"
@@ -491,9 +491,9 @@ export class CarouselDemoComponent {
       </div>
     </div>
   </ng-template>
-</ox-carousel>`;
+</val-carousel>`;
 
-  cardsHtml = `<ox-carousel 
+  cardsHtml = `<val-carousel 
   [value]="products" 
   effect="cards" 
   [circular]="true"
@@ -506,9 +506,9 @@ export class CarouselDemoComponent {
       <p>\${{ product.price }}</p>
     </div>
   </ng-template>
-</ox-carousel>`;
+</val-carousel>`;
 
-  fadeHtml = `<ox-carousel 
+  fadeHtml = `<val-carousel 
   [value]="products" 
   effect="fade" 
   [circular]="true"
@@ -523,9 +523,9 @@ export class CarouselDemoComponent {
       </div>
     </div>
   </ng-template>
-</ox-carousel>`;
+</val-carousel>`;
 
-  basicHtml = `<ox-carousel 
+  basicHtml = `<val-carousel 
   [value]="products" 
   [numVisible]="3" 
   [numScroll]="1" 
@@ -538,10 +538,10 @@ export class CarouselDemoComponent {
       <p>\${{ product.price }}</p>
     </div>
   </ng-template>
-</ox-carousel>`;
+</val-carousel>`;
 
   carouselTs = `import { Component } from '@angular/core';
-import { CarouselComponent, CarouselEffect } from 'oxygen-ui';
+import { CarouselComponent, CarouselEffect } from 'valence-ui';
 
 @Component({
   selector: 'app-my-carousel',

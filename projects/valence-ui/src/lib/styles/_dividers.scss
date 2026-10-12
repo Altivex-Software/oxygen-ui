@@ -1,0 +1,65 @@
+// Dividers (Líneas divisorias entre elementos hijos)
+.val-divide-y > :not([hidden]) ~ :not([hidden]) {
+  --val-divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--val-divide-y-reverse))) !important;
+  border-bottom-width: calc(1px * var(--val-divide-y-reverse)) !important;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-color: var(--val-border-color, #e5e7eb);
+}
+
+.val-divide-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --val-divide-y-reverse: 0;
+  border-top-width: calc(2px * calc(1 - var(--val-divide-y-reverse))) !important;
+  border-bottom-width: calc(2px * var(--val-divide-y-reverse)) !important;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-color: var(--val-border-color, #e5e7eb);
+}
+
+.val-divide-y-0 > :not([hidden]) ~ :not([hidden]) {
+  border-top-width: 0px !important;
+  border-bottom-width: 0px !important;
+}
+
+.val-divide-x > :not([hidden]) ~ :not([hidden]) {
+  --val-divide-x-reverse: 0;
+  border-right-width: calc(1px * var(--val-divide-x-reverse)) !important;
+  border-left-width: calc(1px * calc(1 - var(--val-divide-x-reverse))) !important;
+  border-right-style: solid;
+  border-left-style: solid;
+  border-color: var(--val-border-color, #e5e7eb);
+}
+
+.val-divide-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --val-divide-x-reverse: 0;
+  border-right-width: calc(2px * var(--val-divide-x-reverse)) !important;
+  border-left-width: calc(2px * calc(1 - var(--val-divide-x-reverse))) !important;
+  border-right-style: solid;
+  border-left-style: solid;
+  border-color: var(--val-border-color, #e5e7eb);
+}
+
+.val-divide-x-0 > :not([hidden]) ~ :not([hidden]) {
+  border-right-width: 0px !important;
+  border-left-width: 0px !important;
+}
+
+// Colores de separadores
+$divide-colors: (
+  'primary': var(--val-primary),
+  'secondary': var(--val-secondary),
+  'success': var(--val-success),
+  'danger': var(--val-danger),
+  'warning': var(--val-warning),
+  'info': var(--val-info),
+  'border': var(--val-border-color, #d1d5db),
+  'light': #f3f4f6,
+  'dark': #374151
+);
+
+@each $name, $value in $divide-colors {
+  .val-divide-#{$name} > :not([hidden]) ~ :not([hidden]) {
+    border-color: #{$value} !important;
+  }
+}

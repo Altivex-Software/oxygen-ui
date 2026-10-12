@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PanelComponent, FieldsetComponent, DividerComponent } from 'oxygen-ui';
+import { PanelComponent, FieldsetComponent, DividerComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -16,9 +16,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
     DocApiTableComponent
   ],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Panel & Containers</h1>
-      <p class="ox-description">Contenedores estructurados para organizar el contenido de la aplicación con soporte para colapso, variantes y divisiones.</p>
+      <p class="val-description">Contenedores estructurados para organizar el contenido de la aplicación con soporte para colapso, variantes y divisiones.</p>
 
       <!-- 1. PANEL -->
       <app-doc-code
@@ -26,11 +26,11 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Panel con cabecera y botón de alternancia para expandir o contraer contenido."
         [html]="panelHtml"
         [ts]="panelTs">
-        <ox-panel header="Ajustes de Cuenta" [toggleable]="true">
+        <val-panel header="Ajustes de Cuenta" [toggleable]="true">
           <p style="margin: 0; color: #475569;">
             Los paneles pueden tener cabecera y ser colapsables para ahorrar espacio en interfaces con mucha información.
           </p>
-        </ox-panel>
+        </val-panel>
       </app-doc-code>
 
       <!-- 2. FIELDSET -->
@@ -39,11 +39,11 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Ideal para agrupar campos relacionados en formularios con leyenda interactiva."
         [html]="fieldsetHtml"
         [ts]="panelTs">
-        <ox-fieldset legend="Información Personal" [toggleable]="true">
+        <val-fieldset legend="Información Personal" [toggleable]="true">
           <p style="margin: 0; color: #475569;">
             El fieldset permite estructurar visualmente bloques lógicos dentro de formularios extensos.
           </p>
-        </ox-fieldset>
+        </val-fieldset>
       </app-doc-code>
 
       <!-- 3. DIVIDER -->
@@ -54,7 +54,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [ts]="panelTs">
         <div>
           <p style="margin: 0; color: #475569;">Sección Superior de la Información</p>
-          <ox-divider align="center">O CONTINÚA CON</ox-divider>
+          <val-divider align="center">O CONTINÚA CON</val-divider>
           <p style="margin: 0; color: #475569;">Sección Inferior de la Información</p>
         </div>
       </app-doc-code>
@@ -69,20 +69,20 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   `
 })
 export class PanelDemoComponent {
-  panelHtml = `<ox-panel header="Ajustes de Cuenta" [toggleable]="true">
+  panelHtml = `<val-panel header="Ajustes de Cuenta" [toggleable]="true">
   <p>Contenido del panel colapsable.</p>
-</ox-panel>`;
+</val-panel>`;
 
-  fieldsetHtml = `<ox-fieldset legend="Información Personal" [toggleable]="true">
+  fieldsetHtml = `<val-fieldset legend="Información Personal" [toggleable]="true">
   <p>Agrupador de campos de formulario.</p>
-</ox-fieldset>`;
+</val-fieldset>`;
 
   dividerHtml = `<p>Texto superior</p>
-<ox-divider align="center">CONCEPTO</ox-divider>
+<val-divider align="center">CONCEPTO</val-divider>
 <p>Texto inferior</p>`;
 
   panelTs = `import { Component } from '@angular/core';
-import { PanelComponent, FieldsetComponent, DividerComponent } from 'oxygen-ui';
+import { PanelComponent, FieldsetComponent, DividerComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-panel-demo',

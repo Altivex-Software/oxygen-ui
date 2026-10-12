@@ -1,0 +1,114 @@
+.val-table-container {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.val-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+
+  th, td {
+    vertical-align: middle;
+  }
+
+  &-thead {
+    background: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+  }
+
+  &-th {
+    padding: 1rem;
+    font-weight: 600;
+    color: #475569;
+    white-space: nowrap;
+    text-align: left;
+    border-bottom: 2px solid #e2e8f0;
+  }
+
+  &-tr {
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #f8fafc;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    // Support internal <tr> within templates
+    // But we are already using <tr> in templates, let's make sure
+    // the styles apply to <tr> tags inside .val-table
+  }
+
+  tr {
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #f8fafc;
+    }
+
+    &.val-table-row-selected {
+      background-color: #eff6ff !important;
+      color: #1d4ed8;
+
+      td {
+        border-bottom-color: #bfdbfe;
+      }
+    }
+  }
+
+  th {
+    padding: 1rem;
+    font-weight: 600;
+    color: #475569;
+    white-space: nowrap;
+    text-align: left;
+    border-bottom: 2px solid #e2e8f0;
+
+    &.val-sortable-column {
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s, color 0.2s;
+
+      &:hover {
+        background: #f1f5f9;
+        color: #0f172a;
+      }
+    }
+  }
+
+  .val-sort-icon {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    opacity: 0.4;
+    transition: opacity 0.2s, transform 0.2s;
+
+    &.active {
+      opacity: 1;
+      color: #2563eb;
+    }
+  }
+
+  td {
+    padding: 1rem;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  &-empty {
+    padding: 2rem;
+    text-align: center;
+    color: #94a3b8;
+    font-style: italic;
+  }
+}
+

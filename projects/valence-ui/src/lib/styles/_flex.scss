@@ -1,0 +1,107 @@
+@use 'sass:map';
+@use './breakpoints' as b;
+
+$flex-properties: (
+  'flex-direction': (
+    'row': row,
+    'column': column,
+    'row-reverse': row-reverse,
+    'column-reverse': column-reverse
+  ),
+  'flex-wrap': (
+    'wrap': wrap,
+    'nowrap': nowrap,
+    'wrap-reverse': wrap-reverse
+  ),
+  'justify-content': (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'between': space-between,
+    'around': space-around,
+    'evenly': space-evenly
+  ),
+  'align-items': (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'baseline': baseline,
+    'stretch': stretch
+  ),
+  'align-content': (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'between': space-between,
+    'around': space-around,
+    'stretch': stretch
+  ),
+  'flex-grow': (
+    '0': 0,
+    '1': 1
+  ),
+  'flex-shrink': (
+    '0': 0,
+    '1': 1
+  )
+);
+
+// Helper to generate utilities
+@mixin generate-flex-utils($breakpoint: null) {
+  $prefix-base: '';
+  @if $breakpoint {
+    $prefix-base: '-#{$breakpoint}';
+  }
+  
+  @each $prop, $values in $flex-properties {
+    @each $key, $val in $values {
+      $class-name: '';
+      
+      @if $prop == 'flex-direction' {
+        $class-name: 'val-flex#{$prefix-base}-#{$key}';
+      } @else if $prop == 'flex-wrap' {
+        $class-name: 'val-flex#{$prefix-base}-#{$key}';
+      } @else if $prop == 'justify-content' {
+        $class-name: 'val-justify-content#{$prefix-base}-#{$key}';
+      } @else if $prop == 'align-items' {
+        $class-name: 'val-align-items#{$prefix-base}-#{$key}';
+      } @else if $prop == 'align-content' {
+        $class-name: 'val-align-content#{$prefix-base}-#{$key}';
+      } @else if $prop == 'flex-grow' {
+        $class-name: 'val-flex#{$prefix-base}-grow-#{$key}';
+      } @else if $prop == 'flex-shrink' {
+        $class-name: 'val-flex#{$prefix-base}-shrink-#{$key}';
+      }
+
+      .#{$class-name} {
+        #{$prop}: #{$val} !important;
+      }
+    }
+  }
+
+  // Flex fill
+  .val-flex#{$prefix-base}-fill {
+    flex: 1 1 auto !important;
+  }
+  
+  // Display flex shortcuts
+  .val-flex#{$prefix-base} {
+    display: flex !important;
+  }
+  
+  .val-inline-flex#{$prefix-base} {
+    display: inline-flex !important;
+  }
+}
+
+// Base utilities
+@include generate-flex-utils();
+
+// Responsive utilities
+@each $name, $value in b.$breakpoints {
+  @if $name != 'xs' {
+    @include b.up($name) {
+      @include generate-flex-utils($name);
+    }
+  }
+}

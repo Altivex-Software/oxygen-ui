@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ImageComponent, BadgeComponent } from 'oxygen-ui';
+import { ImageComponent, BadgeComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -15,17 +15,17 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
     DocApiTableComponent
   ],
   template: `
-    <div class="ox-page-container">
-      <div class="ox-flex ox-items-center ox-justify-between ox-flex-wrap ox-gap-4 ox-mb-6">
+    <div class="val-page-container">
+      <div class="val-flex val-items-center val-justify-between val-flex-wrap val-gap-4 val-mb-6">
         <div>
-          <h1 class="ox-text-3xl ox-font-bold ox-text-slate-900 dark:ox-text-white ox-mb-2">Image (Visor con Zoom y Lightbox)</h1>
-          <p class="ox-text-slate-600 dark:ox-text-slate-400">
+          <h1 class="val-text-3xl val-font-bold val-text-slate-900 dark:val-text-white val-mb-2">Image (Visor con Zoom y Lightbox)</h1>
+          <p class="val-text-slate-600 dark:val-text-slate-400">
             Componente de imagen optimizado con visor Lightbox a pantalla completa, rotación en 360°, zoom multinivel con indicador de porcentaje, inversión horizontal/vertical (flip), descarga y skeleton shimmer.
           </p>
         </div>
-        <div class="ox-flex ox-gap-2">
-          <ox-badge value="Lightbox Pro" severity="primary"></ox-badge>
-          <ox-badge value="High-Res Viewer" severity="success"></ox-badge>
+        <div class="val-flex val-gap-2">
+          <val-badge value="Lightbox Pro" severity="primary"></val-badge>
+          <val-badge value="High-Res Viewer" severity="success"></val-badge>
         </div>
       </div>
 
@@ -35,46 +35,46 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Haz clic sobre cualquiera de las imágenes para abrir la barra de herramientas del visor a pantalla completa."
         [html]="previewHtml"
         [ts]="imageTs">
-        <div class="ox-grid ox-grid-cols-1 sm:ox-grid-cols-2 md:ox-grid-cols-3 ox-gap-6">
-          <div class="image-showcase-card ox-flex ox-flex-col ox-items-center ox-p-3 ox-rounded-xl ox-border ox-border-slate-200 dark:ox-border-slate-800 ox-bg-white dark:ox-bg-slate-900 shadow-sm">
-            <ox-image 
+        <div class="val-grid val-grid-cols-1 sm:val-grid-cols-2 md:val-grid-cols-3 val-gap-6">
+          <div class="image-showcase-card val-flex val-flex-col val-items-center val-p-3 val-rounded-xl val-border val-border-slate-200 dark:val-border-slate-800 val-bg-white dark:val-bg-slate-900 shadow-sm">
+            <val-image 
               src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop&q=80" 
               alt="Paisaje Natural de Montañas"
               width="100%"
               height="180px"
               [preview]="true">
-            </ox-image>
-            <div class="ox-mt-3 ox-text-center">
-              <span class="ox-text-xs ox-font-semibold ox-text-slate-800 dark:ox-text-slate-200 ox-block">Montañas y Lago</span>
-              <span class="ox-text-[11px] ox-text-slate-400">Haz clic para expandir visor</span>
+            </val-image>
+            <div class="val-mt-3 val-text-center">
+              <span class="val-text-xs val-font-semibold val-text-slate-800 dark:val-text-slate-200 val-block">Montañas y Lago</span>
+              <span class="val-text-[11px] val-text-slate-400">Haz clic para expandir visor</span>
             </div>
           </div>
 
-          <div class="image-showcase-card ox-flex ox-flex-col ox-items-center ox-p-3 ox-rounded-xl ox-border ox-border-slate-200 dark:ox-border-slate-800 ox-bg-white dark:ox-bg-slate-900 shadow-sm">
-            <ox-image 
+          <div class="image-showcase-card val-flex val-flex-col val-items-center val-p-3 val-rounded-xl val-border val-border-slate-200 dark:val-border-slate-800 val-bg-white dark:val-bg-slate-900 shadow-sm">
+            <val-image 
               src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80" 
               alt="Placa de Circuitos Tecnológicos"
               width="100%"
               height="180px"
               [preview]="true">
-            </ox-image>
-            <div class="ox-mt-3 ox-text-center">
-              <span class="ox-text-xs ox-font-semibold ox-text-slate-800 dark:ox-text-slate-200 ox-block">Microprocesador Tech</span>
-              <span class="ox-text-[11px] ox-text-slate-400">Rotación y Zoom disponibles</span>
+            </val-image>
+            <div class="val-mt-3 val-text-center">
+              <span class="val-text-xs val-font-semibold val-text-slate-800 dark:val-text-slate-200 val-block">Microprocesador Tech</span>
+              <span class="val-text-[11px] val-text-slate-400">Rotación y Zoom disponibles</span>
             </div>
           </div>
 
-          <div class="image-showcase-card ox-flex ox-flex-col ox-items-center ox-p-3 ox-rounded-xl ox-border ox-border-slate-200 dark:ox-border-slate-800 ox-bg-white dark:ox-bg-slate-900 shadow-sm">
-            <ox-image 
+          <div class="image-showcase-card val-flex val-flex-col val-items-center val-p-3 val-rounded-xl val-border val-border-slate-200 dark:val-border-slate-800 val-bg-white dark:val-bg-slate-900 shadow-sm">
+            <val-image 
               src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=800&auto=format&fit=crop&q=80" 
               alt="Galería de Arte Contemporáneo"
               width="100%"
               height="180px"
               [preview]="true">
-            </ox-image>
-            <div class="ox-mt-3 ox-text-center">
-              <span class="ox-text-xs ox-font-semibold ox-text-slate-800 dark:ox-text-slate-200 ox-block">Pintura Abstracta</span>
-              <span class="ox-text-[11px] ox-text-slate-400">Soporta atajos de teclado (Esc, +, -)</span>
+            </val-image>
+            <div class="val-mt-3 val-text-center">
+              <span class="val-text-xs val-font-semibold val-text-slate-800 dark:val-text-slate-200 val-block">Pintura Abstracta</span>
+              <span class="val-text-[11px] val-text-slate-400">Soporta atajos de teclado (Esc, +, -)</span>
             </div>
           </div>
         </div>
@@ -86,26 +86,26 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Manejo automático de animación shimmer durante la carga y mensaje elegante en caso de URL rota."
         [html]="statesHtml"
         [ts]="imageTs">
-        <div class="ox-grid ox-grid-cols-1 sm:ox-grid-cols-2 ox-gap-6">
-          <div class="ox-flex ox-flex-col ox-items-center">
-            <ox-image 
+        <div class="val-grid val-grid-cols-1 sm:val-grid-cols-2 val-gap-6">
+          <div class="val-flex val-flex-col val-items-center">
+            <val-image 
               src="https://invalid-broken-url-example.com/not-found.jpg" 
               alt="Imagen Rota"
               width="240px"
               height="150px">
-            </ox-image>
-            <span class="ox-text-xs ox-text-slate-500 ox-mt-2">Fallback cuando la URL es inválida</span>
+            </val-image>
+            <span class="val-text-xs val-text-slate-500 val-mt-2">Fallback cuando la URL es inválida</span>
           </div>
 
-          <div class="ox-flex ox-flex-col ox-items-center">
-            <ox-image 
+          <div class="val-flex val-flex-col val-items-center">
+            <val-image 
               src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80" 
               alt="Planeta Tierra Espacio"
               width="240px"
               height="150px"
               [preview]="true">
-            </ox-image>
-            <span class="ox-text-xs ox-text-slate-500 ox-mt-2">Carga suave con fade-in</span>
+            </val-image>
+            <span class="val-text-xs val-text-slate-500 val-mt-2">Carga suave con fade-in</span>
           </div>
         </div>
       </app-doc-code>
@@ -119,7 +119,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
     </div>
   `,
   styles: [`
-    .ox-page-container {
+    .val-page-container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 1.5rem;
@@ -127,23 +127,23 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   `]
 })
 export class ImageDemoComponent {
-  previewHtml = `<ox-image 
+  previewHtml = `<val-image 
   src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" 
   alt="Paisaje Natural" 
   width="100%" 
   height="180px"
   [preview]="true">
-</ox-image>`;
+</val-image>`;
 
   statesHtml = `<!-- Manejo de imagen rota o no disponible -->
-<ox-image 
+<val-image 
   src="https://invalid-url.com/broken.jpg" 
   width="240px" 
   height="150px">
-</ox-image>`;
+</val-image>`;
 
   imageTs = `import { Component } from '@angular/core';
-import { ImageComponent } from 'oxygen-ui';
+import { ImageComponent } from 'valence-ui';
 
 @Component({
   imports: [ImageComponent],
@@ -190,7 +190,7 @@ export class MyImageComponent {}`;
     },
     {
       name: 'indicatorIcon',
-      type: 'OxIconName | string',
+      type: 'ValIconName | string',
       default: "'zoom-in'",
       description: 'Nombre del icono mostrado en la máscara al pasar el cursor sobre la imagen.'
     }

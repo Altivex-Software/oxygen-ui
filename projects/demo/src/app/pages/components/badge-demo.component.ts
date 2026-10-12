@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BadgeComponent, ButtonComponent } from 'oxygen-ui';
+import { BadgeComponent, ButtonComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
   standalone: true,
   imports: [CommonModule, BadgeComponent, ButtonComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Badge (Insignias e Indicadores)</h1>
-      <p class="ox-description">Etiquetas pequeñas para notificaciones, contadores numéricos y estados.</p>
+      <p class="val-description">Etiquetas pequeñas para notificaciones, contadores numéricos y estados.</p>
 
       <!-- 1. BÁSICO Y POSICIONADOS -->
       <app-doc-code
@@ -20,20 +20,20 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="basicHtml"
         [ts]="badgeTs">
         <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
-          <ox-button>
+          <val-button>
             Bandeja de Entrada
-            <ox-badge value="4" severity="secondary" style="margin-left: 8px"></ox-badge>
-          </ox-button>
+            <val-badge value="4" severity="secondary" style="margin-left: 8px"></val-badge>
+          </val-button>
 
-          <ox-button style="position: relative;">
+          <val-button style="position: relative;">
             Mensajes
-            <ox-badge value="99+" severity="error" [overlay]="true"></ox-badge>
-          </ox-button>
+            <val-badge value="99+" severity="error" [overlay]="true"></val-badge>
+          </val-button>
 
-          <ox-button style="position: relative;">
+          <val-button style="position: relative;">
             Perfil
-            <ox-badge [dot]="true" severity="error" [overlay]="true"></ox-badge>
-          </ox-button>
+            <val-badge [dot]="true" severity="error" [overlay]="true"></val-badge>
+          </val-button>
         </div>
       </app-doc-code>
 
@@ -44,12 +44,12 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="severitiesHtml"
         [ts]="badgeTs">
         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-          <ox-badge value="Primary" severity="primary" [pill]="true"></ox-badge>
-          <ox-badge value="Secondary" severity="secondary" [pill]="true"></ox-badge>
-          <ox-badge value="Success" severity="success" [pill]="true"></ox-badge>
-          <ox-badge value="Danger" severity="error" [pill]="true"></ox-badge>
-          <ox-badge value="Warning" severity="warn" [pill]="true"></ox-badge>
-          <ox-badge value="Info" severity="info" [pill]="true"></ox-badge>
+          <val-badge value="Primary" severity="primary" [pill]="true"></val-badge>
+          <val-badge value="Secondary" severity="secondary" [pill]="true"></val-badge>
+          <val-badge value="Success" severity="success" [pill]="true"></val-badge>
+          <val-badge value="Danger" severity="error" [pill]="true"></val-badge>
+          <val-badge value="Warning" severity="warn" [pill]="true"></val-badge>
+          <val-badge value="Info" severity="info" [pill]="true"></val-badge>
         </div>
       </app-doc-code>
 
@@ -62,16 +62,16 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
   `
 })
 export class BadgeDemoComponent {
-  basicHtml = `<ox-button style="position: relative;">
+  basicHtml = `<val-button style="position: relative;">
   Mensajes
-  <ox-badge value="99+" severity="error" [overlay]="true"></ox-badge>
-</ox-button>`;
+  <val-badge value="99+" severity="error" [overlay]="true"></val-badge>
+</val-button>`;
 
-  severitiesHtml = `<ox-badge value="Success" severity="success" [pill]="true"></ox-badge>
-<ox-badge value="Danger" severity="error" [pill]="true"></ox-badge>`;
+  severitiesHtml = `<val-badge value="Success" severity="success" [pill]="true"></val-badge>
+<val-badge value="Danger" severity="error" [pill]="true"></val-badge>`;
 
   badgeTs = `import { Component } from '@angular/core';
-import { BadgeComponent, ButtonComponent } from 'oxygen-ui';
+import { BadgeComponent, ButtonComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-badge',

@@ -1,0 +1,21 @@
+@use '../../styles/tokens' as t;
+
+:host {
+  display: block;
+  width: 100%;
+  border: var(--val-accordion-border-width, 1px) solid var(--val-border-color, #e0e0e0);
+  border-radius: var(--val-accordion-border-radius, 8px);
+  overflow: visible; // Allow item shadows to be visible
+  transition: all 0.2s ease;
+
+  &.val-accordion--no-border {
+    border-width: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+.val-accordion {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

@@ -1,0 +1,50 @@
+// Micro-utilidades de estados Hover y Focus
+
+// Hover Opacity
+.val-hover-opacity-100:hover { opacity: 1 !important; }
+.val-hover-opacity-90:hover { opacity: .9 !important; }
+.val-hover-opacity-75:hover { opacity: .75 !important; }
+.val-hover-opacity-50:hover { opacity: .5 !important; }
+.val-hover-opacity-25:hover { opacity: .25 !important; }
+.val-hover-opacity-0:hover { opacity: 0 !important; }
+
+// Hover Scale
+.val-hover-scale-105:hover { transform: scale(1.05) !important; }
+.val-hover-scale-110:hover { transform: scale(1.1) !important; }
+.val-hover-scale-95:hover { transform: scale(0.95) !important; }
+.val-hover-scale-100:hover { transform: scale(1) !important; }
+
+// Hover Shadows
+.val-hover-shadow-sm:hover { box-shadow: var(--shadow-sm) !important; }
+.val-hover-shadow-md:hover { box-shadow: var(--shadow-md) !important; }
+.val-hover-shadow-none:hover { box-shadow: none !important; }
+
+// Hover Colors
+.val-hover-text-primary:hover { color: var(--val-primary-hover, var(--val-primary)) !important; }
+.val-hover-text-secondary:hover { color: var(--val-secondary-hover, var(--val-secondary)) !important; }
+.val-hover-text-success:hover { color: var(--val-success-hover, var(--val-success)) !important; }
+.val-hover-text-danger:hover { color: var(--val-danger-hover, var(--val-danger)) !important; }
+.val-hover-text-warning:hover { color: var(--val-warning-hover, var(--val-warning)) !important; }
+.val-hover-text-info:hover { color: var(--val-info-hover, var(--val-info)) !important; }
+
+.val-hover-bg-primary:hover { background-color: var(--val-primary-hover, var(--val-primary)) !important; }
+.val-hover-bg-secondary:hover { background-color: var(--val-secondary-hover, var(--val-secondary)) !important; }
+.val-hover-bg-success:hover { background-color: var(--val-success-hover, var(--val-success)) !important; }
+.val-hover-bg-danger:hover { background-color: var(--val-danger-hover, var(--val-danger)) !important; }
+.val-hover-bg-light:hover { background-color: #f3f4f6 !important; }
+.val-hover-bg-dark:hover { background-color: #111827 !important; }
+
+// Focus Rings
+.val-focus-ring:focus {
+  outline: none !important;
+  --val-ring-offset-shadow: var(--val-ring-inset) 0 0 0 var(--val-ring-offset-width) var(--val-ring-offset-color);
+  --val-ring-shadow: var(--val-ring-inset) 0 0 0 calc(3px + var(--val-ring-offset-width)) var(--val-ring-color);
+  box-shadow: var(--val-ring-offset-shadow), var(--val-ring-shadow), var(--val-shadow, 0 0 #0000) !important;
+}
+
+.val-focus-visible-ring:focus-visible {
+  outline: none !important;
+  --val-ring-offset-shadow: var(--val-ring-inset) 0 0 0 var(--val-ring-offset-width) var(--val-ring-offset-color);
+  --val-ring-shadow: var(--val-ring-inset) 0 0 0 calc(3px + var(--val-ring-offset-width)) var(--val-ring-color);
+  box-shadow: var(--val-ring-offset-shadow), var(--val-ring-shadow), var(--val-shadow, 0 0 #0000) !important;
+}

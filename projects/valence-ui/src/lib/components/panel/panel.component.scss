@@ -1,0 +1,117 @@
+:host {
+  display: block;
+}
+
+.val-panel__container {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.val-panel__header {
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--val-text-primary, #333);
+  font-size: 0.875rem;
+  transition: color 0.2s;
+  display: flex;
+}
+
+.val-panel__header-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  &--toggleable {
+    cursor: pointer;
+    user-select: none;
+    
+    &:hover {
+      color: var(--val-primary-color, #007bff);
+    }
+  }
+}
+
+.val-panel__icon {
+  transition: transform 0.2s ease;
+  
+  &--collapsed {
+    transform: rotate(-90deg);
+  }
+}
+
+// Animation Wrapper
+.val-panel__wrapper {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.3s ease-out;
+  overflow: hidden;
+
+  &--collapsed {
+    grid-template-rows: 0fr;
+  }
+}
+
+.val-panel__content {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; 
+  text-align: start; 
+}
+
+// Header Positions
+:host(.val-panel--header-start) {
+  .val-panel__header {
+    justify-content: flex-start;
+  }
+}
+
+:host(.val-panel--header-center) {
+  .val-panel__header {
+    justify-content: center;
+  }
+  .val-panel__content {
+    align-items: center; /* Optional: center content too? */
+  }
+}
+
+:host(.val-panel--header-end) {
+  .val-panel__header {
+    justify-content: flex-end;
+  }
+  .val-panel__content {
+    align-items: flex-end;
+  }
+}
+
+// Variants
+:host(.val-panel--outlined) {
+  .val-panel__container {
+    border: 1px var(--val-panel-border-style, solid) var(--val-border-color, #e0e0e0);
+    border-radius: var(--val-border-radius-md, 8px);
+    padding: 1rem;
+    box-shadow: var(--val-panel-box-shadow);
+  }
+}
+
+:host(.val-panel--flat) {
+   .val-panel__container {
+    background-color: var(--val-surface-secondary, #f8f9fa);
+    border-radius: var(--val-border-radius-md, 8px);
+    padding: 1rem;
+   }
+}
+
+:host(.val-panel--seamless) {
+  .val-panel__container {
+    padding: 0;
+    border: none;
+  }
+}
+
+// Disabled State
+:host(.val-panel--disabled) {
+  opacity: 0.6;
+  pointer-events: none;
+}

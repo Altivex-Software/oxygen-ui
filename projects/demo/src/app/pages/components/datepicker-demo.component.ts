@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { DatePickerComponent } from 'oxygen-ui';
+import { DatePickerComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FormsModule, DatePickerComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>DatePicker (Selector de Fecha)</h1>
-      <p class="ox-description">Selector de fecha avanzado con calendario visual desplegable, formatos personalizables y etiquetas flotantes.</p>
+      <p class="val-description">Selector de fecha avanzado con calendario visual desplegable, formatos personalizables y etiquetas flotantes.</p>
 
       <!-- 1. BÁSICO -->
       <app-doc-code
@@ -21,8 +21,8 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="basicHtml"
         [ts]="datePickerTs">
         <div class="demo-grid">
-          <ox-date-picker label="Seleccionar Fecha"></ox-date-picker>
-          <ox-date-picker label="Con Placeholder" placeholder="DD/MM/YYYY"></ox-date-picker>
+          <val-date-picker label="Seleccionar Fecha"></val-date-picker>
+          <val-date-picker label="Con Placeholder" placeholder="DD/MM/YYYY"></val-date-picker>
         </div>
       </app-doc-code>
 
@@ -33,8 +33,8 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="variantsHtml"
         [ts]="datePickerTs">
         <div class="demo-grid">
-          <ox-date-picker label="Default Float" [floatLabel]="true" variant="default"></ox-date-picker>
-          <ox-date-picker label="Fieldset Float" [floatLabel]="true" variant="fieldset"></ox-date-picker>
+          <val-date-picker label="Default Float" [floatLabel]="true" variant="default"></val-date-picker>
+          <val-date-picker label="Fieldset Float" [floatLabel]="true" variant="fieldset"></val-date-picker>
         </div>
       </app-doc-code>
 
@@ -45,8 +45,8 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="formatHtml"
         [ts]="datePickerTs">
         <div class="demo-grid">
-          <ox-date-picker label="Formato ISO" format="YYYY-MM-DD" placeholder="YYYY-MM-DD"></ox-date-picker>
-          <ox-date-picker label="Formato Estándar" format="DD/MM/YYYY" placeholder="DD/MM/YYYY"></ox-date-picker>
+          <val-date-picker label="Formato ISO" format="YYYY-MM-DD" placeholder="YYYY-MM-DD"></val-date-picker>
+          <val-date-picker label="Formato Estándar" format="DD/MM/YYYY" placeholder="DD/MM/YYYY"></val-date-picker>
         </div>
       </app-doc-code>
 
@@ -67,12 +67,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   `]
 })
 export class DatePickerDemoComponent {
-  basicHtml = `<ox-date-picker label="Fecha de Nacimiento"></ox-date-picker>`;
-  variantsHtml = `<ox-date-picker label="Fieldset" [floatLabel]="true" variant="fieldset"></ox-date-picker>`;
-  formatHtml = `<ox-date-picker format="YYYY-MM-DD" placeholder="YYYY-MM-DD"></ox-date-picker>`;
+  basicHtml = `<val-date-picker label="Fecha de Nacimiento"></val-date-picker>`;
+  variantsHtml = `<val-date-picker label="Fieldset" [floatLabel]="true" variant="fieldset"></val-date-picker>`;
+  formatHtml = `<val-date-picker format="YYYY-MM-DD" placeholder="YYYY-MM-DD"></val-date-picker>`;
 
   datePickerTs = `import { Component } from '@angular/core';
-import { DatePickerComponent } from 'oxygen-ui';
+import { DatePickerComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-datepicker',

@@ -1,0 +1,147 @@
+.val-input-mask {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &:focus-within .val-input-mask-container {
+    border-color: var(--val-primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  }
+
+  &-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    .val-input-mask-container {
+      background: #f3f4f6;
+      border-color: #d1d5db;
+    }
+  }
+
+  /* Tamaños */
+  &.val-input-mask-sm {
+    .val-input-mask-container { min-height: 32px; }
+    .val-input-mask-field { font-size: 0.75rem; padding: 0.25rem 0.5rem; }
+  }
+
+  &.val-input-mask-md {
+    .val-input-mask-container { min-height: 40px; }
+    .val-input-mask-field { padding: 0.5rem 0.75rem; }
+  }
+
+  &.val-input-mask-lg {
+    .val-input-mask-container { min-height: 48px; }
+    .val-input-mask-field { font-size: 1.125rem; padding: 0.5rem 1rem; }
+  }
+
+  /* Variantes */
+  &.val-input-mask-filled .val-input-mask-container {
+    background: #f1f5f9;
+    border-color: transparent;
+    &:hover:not(.val-input-mask-disabled) {
+      background: #e2e8f0;
+    }
+  }
+
+  &.val-input-mask-outlined .val-input-mask-container {
+    background: transparent;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d1d5db;
+  }
+
+  &.val-input-mask-oneLine .val-input-mask-container {
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    border-bottom-width: 1px;
+    border-bottom-color: #d1d5db;
+    
+    &:focus-within {
+      box-shadow: none;
+      border-bottom-width: 2px;
+    }
+  }
+
+  &.val-input-mask-fieldset {
+    margin-top: 8px;
+    position: relative;
+    
+    .val-input-mask-container {
+      background: transparent;
+    }
+
+    .val-input-mask-fieldset-label {
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      background: white;
+      padding: 0 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #6b7280;
+      z-index: 1;
+      pointer-events: none;
+      transition: color 0.2s;
+    }
+
+    &:focus-within .val-input-mask-fieldset-label {
+      color: inherit;
+    }
+  }
+
+  /* Severidades */
+  $severities: (
+    "primary": #3b82f6,
+    "secondary": #64748b,
+    "success": #22c55e,
+    "danger": #ef4444,
+    "warning": #f59e0b,
+    "info": #06b6d4
+  );
+
+  @each $name, $color in $severities {
+    &.val-input-mask-#{$name} {
+      &:focus-within .val-input-mask-container, &:hover:not(.val-input-mask-disabled) .val-input-mask-container {
+        border-color: $color;
+      }
+      &:focus-within .val-input-mask-container {
+        box-shadow: 0 0 0 3px rgba($color, 0.1);
+      }
+      
+      &.val-input-mask-filled:focus-within .val-input-mask-container {
+        background: white;
+        border-color: $color;
+      }
+    }
+  }
+}
+
+.val-input-mask-container {
+  display: flex;
+  background: white;
+  border: 1px solid var(--val-surface-200, #e2e8f0);
+  border-radius: var(--radius-md, 0.375rem);
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.val-input-mask-field {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.875rem;
+  color: var(--val-surface-900, #0f172a);
+  outline: none;
+  min-width: 0;
+
+  &::placeholder {
+    color: var(--val-surface-400, #94a3b8);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

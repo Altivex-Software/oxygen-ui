@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { ButtonComponent } from 'oxygen-ui';
+import { ButtonComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +12,7 @@ import { ButtonComponent } from 'oxygen-ui';
       <div class="header-container">
         <div class="logo-container" routerLink="/">
           <div class="logo-icon">O₂</div>
-          <span class="logo-text">Oxygen UI</span>
+          <span class="logo-text">Valence UI</span>
         </div>
         
         <nav class="main-nav">
@@ -23,9 +23,9 @@ import { ButtonComponent } from 'oxygen-ui';
         </nav>
 
         <div class="header-actions">
-          <ox-button variant="outline-primary" size="sm" (click)="toggleTheme()">
+          <val-button variant="outline-primary" size="sm" (click)="toggleTheme()">
              Theme
-          </ox-button>
+          </val-button>
         </div>
       </div>
     </header>
@@ -58,7 +58,7 @@ import { ButtonComponent } from 'oxygen-ui';
     .logo-icon {
       width: 32px;
       height: 32px;
-      background: var(--oxy-primary);
+      background: var(--val-primary);
       color: white;
       border-radius: 8px;
       display: flex;
@@ -84,10 +84,10 @@ import { ButtonComponent } from 'oxygen-ui';
       transition: color 0.3s;
       
       &:hover {
-        color: var(--oxy-primary);
+        color: var(--val-primary);
       }
       &.active {
-        color: var(--oxy-primary);
+        color: var(--val-primary);
         font-weight: 600;
       }
     }

@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GalleriaComponent, GalleriaItem, GalleriaResponsiveOption, ButtonComponent } from 'oxygen-ui';
+import { GalleriaComponent, GalleriaItem, GalleriaResponsiveOption, ButtonComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -15,9 +15,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
     DocApiTableComponent
   ],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Galleria (Galería de Medios e Imágenes)</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Componente avanzado de galería con miniaturas (thumbnails), soporte responsivo, navegación con teclado, pies de foto y modo pantalla completa (lightbox).
       </p>
 
@@ -28,14 +28,14 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="basicHtml"
         [ts]="galleriaTs">
         <div style="max-width: 640px; margin: 0 auto;">
-          <ox-galleria 
+          <val-galleria 
             [value]="images" 
             [numVisible]="5" 
             [circular]="true"
             [showItemNavigators]="true"
             [showCaption]="true"
             [responsiveOptions]="responsiveOptions">
-          </ox-galleria>
+          </val-galleria>
         </div>
       </app-doc-code>
 
@@ -46,13 +46,13 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="verticalThumbHtml"
         [ts]="galleriaTs">
         <div style="max-width: 700px; margin: 0 auto;">
-          <ox-galleria 
+          <val-galleria 
             [value]="images" 
             [numVisible]="4" 
             thumbnailsPosition="left"
             [circular]="true"
             [showItemNavigators]="true">
-          </ox-galleria>
+          </val-galleria>
         </div>
       </app-doc-code>
 
@@ -63,20 +63,20 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="fullscreenHtml"
         [ts]="galleriaTs">
         <div style="display: flex; gap: 1rem; align-items: center; justify-content: center; padding: 2rem;">
-          <ox-button 
+          <val-button 
             label="Abrir Galería a Pantalla Completa" 
             icon="maximize" 
             (onClick)="openFullscreenGalleria()">
-          </ox-button>
+          </val-button>
 
-          <ox-galleria 
+          <val-galleria 
             [value]="images" 
             [(visible)]="displayFullscreen"
             [fullScreen]="true"
             [showItemNavigators]="true"
             [showThumbnails]="true"
             [circular]="true">
-          </ox-galleria>
+          </val-galleria>
         </div>
       </app-doc-code>
 
@@ -87,7 +87,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="autoplayHtml"
         [ts]="galleriaTs">
         <div style="max-width: 640px; margin: 0 auto;">
-          <ox-galleria 
+          <val-galleria 
             [value]="images" 
             [autoPlay]="true"
             [transitionInterval]="3500"
@@ -97,7 +97,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
             [circular]="true"
             [showItemNavigators]="true"
             [showItemNavigatorsOnHover]="true">
-          </ox-galleria>
+          </val-galleria>
         </div>
       </app-doc-code>
 
@@ -170,48 +170,48 @@ export class GalleriaDemoComponent {
     this.displayFullscreen.set(true);
   }
 
-  basicHtml = `<ox-galleria 
+  basicHtml = `<val-galleria 
   [value]="images" 
   [numVisible]="5" 
   [circular]="true"
   [showItemNavigators]="true"
   [showCaption]="true"
   [responsiveOptions]="responsiveOptions">
-</ox-galleria>`;
+</val-galleria>`;
 
-  verticalThumbHtml = `<ox-galleria 
+  verticalThumbHtml = `<val-galleria 
   [value]="images" 
   [numVisible]="4" 
   thumbnailsPosition="left"
   [circular]="true"
   [showItemNavigators]="true">
-</ox-galleria>`;
+</val-galleria>`;
 
-  fullscreenHtml = `<ox-button 
+  fullscreenHtml = `<val-button 
   label="Abrir Galería a Pantalla Completa" 
   icon="maximize" 
   (onClick)="displayFullscreen.set(true)">
-</ox-button>
+</val-button>
 
-<ox-galleria 
+<val-galleria 
   [value]="images" 
   [(visible)]="displayFullscreen"
   [fullScreen]="true"
   [showItemNavigators]="true"
   [showThumbnails]="true">
-</ox-galleria>`;
+</val-galleria>`;
 
-  autoplayHtml = `<ox-galleria 
+  autoplayHtml = `<val-galleria 
   [value]="images" 
   [autoPlay]="true"
   [transitionInterval]="3500"
   [showIndicators]="true"
   [showIndicatorsOnItem]="true"
   [showThumbnails]="false">
-</ox-galleria>`;
+</val-galleria>`;
 
   galleriaTs = `import { Component, signal } from '@angular/core';
-import { GalleriaComponent, GalleriaItem, GalleriaResponsiveOption, ButtonComponent } from 'oxygen-ui';
+import { GalleriaComponent, GalleriaItem, GalleriaResponsiveOption, ButtonComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-galleria',

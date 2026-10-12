@@ -1,0 +1,92 @@
+@use './breakpoints' as b;
+
+// Propiedades de transición
+.val-transition-none {
+  transition-property: none !important;
+}
+
+.val-transition-all {
+  transition-property: all !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 150ms !important;
+}
+
+.val-transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 150ms !important;
+}
+
+.val-transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 150ms !important;
+}
+
+.val-transition-opacity {
+  transition-property: opacity !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 150ms !important;
+}
+
+.val-transition-shadow {
+  transition-property: box-shadow !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 150ms !important;
+}
+
+.val-transition-transform {
+  transition-property: transform !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 150ms !important;
+}
+
+// Duraciones
+$durations: (
+  '75': 75ms,
+  '100': 100ms,
+  '150': 150ms,
+  '200': 200ms,
+  '300': 300ms,
+  '500': 500ms,
+  '700': 700ms,
+  '1000': 1000ms
+);
+
+@each $name, $value in $durations {
+  .val-duration-#{$name} {
+    transition-duration: #{$value} !important;
+  }
+}
+
+// Curvas de aceleración (Timing functions)
+.val-ease-linear {
+  transition-timing-function: linear !important;
+}
+.val-ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1) !important;
+}
+.val-ease-out {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important;
+}
+.val-ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+// Retardos (Delays)
+$delays: (
+  '75': 75ms,
+  '100': 100ms,
+  '150': 150ms,
+  '200': 200ms,
+  '300': 300ms,
+  '500': 500ms,
+  '700': 700ms,
+  '1000': 1000ms
+);
+
+@each $name, $value in $delays {
+  .val-delay-#{$name} {
+    transition-delay: #{$value} !important;
+  }
+}

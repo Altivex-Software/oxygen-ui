@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenubarComponent, MenuItem } from 'oxygen-ui';
+import { MenubarComponent, MenuItem } from 'valence-ui';
 import { CommonModule } from '@angular/common';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, MenubarComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Menubar</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Barra de navegación horizontal multinivel con soporte para submenús desplegables anidados, iconos y plantillas de contenido final.
       </p>
 
@@ -22,7 +22,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [htmlCode]="menubarHtml"
         [tsCode]="menubarTs">
         <div style="width: 100%; min-height: 140px;">
-          <ox-menubar [model]="items"></ox-menubar>
+          <val-menubar [model]="items"></val-menubar>
         </div>
       </app-doc-code>
 
@@ -68,10 +68,10 @@ export class MenubarDemoComponent {
     }
   ];
 
-  menubarHtml = `<ox-menubar [model]="items"></ox-menubar>`;
+  menubarHtml = `<val-menubar [model]="items"></val-menubar>`;
 
   menubarTs = `import { Component } from '@angular/core';
-import { MenubarComponent, MenuItem } from 'oxygen-ui';
+import { MenubarComponent, MenuItem } from 'valence-ui';
 
 @Component({
   standalone: true,

@@ -1,7 +1,7 @@
 import { Component, input, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IconComponent } from 'oxygen-ui';
+import { IconComponent } from 'valence-ui';
 
 export interface UtilityClass {
   name: string;
@@ -15,14 +15,14 @@ export interface UtilityClass {
   standalone: true,
   imports: [CommonModule, FormsModule, IconComponent],
   template: `
-    <div class="ox-table-wrapper">
-      <div class="ox-table-header">
-        <h3 class="ox-table-title">{{ title() }}</h3>
-        <div class="ox-search-box">
-          <ox-icon name="search" size="1rem" class="ox-search-icon"></ox-icon>
+    <div class="val-table-wrapper">
+      <div class="val-table-header">
+        <h3 class="val-table-title">{{ title() }}</h3>
+        <div class="val-search-box">
+          <val-icon name="search" size="1rem" class="val-search-icon"></val-icon>
           <input 
             type="text" 
-            class="ox-search-input" 
+            class="val-search-input" 
             placeholder="Filtrar clases..."
             [ngModel]="searchQuery()"
             (ngModelChange)="searchQuery.set($event)"
@@ -30,8 +30,8 @@ export interface UtilityClass {
         </div>
       </div>
 
-      <div class="ox-table-scroll">
-        <table class="ox-class-table">
+      <div class="val-table-scroll">
+        <table class="val-class-table">
           <thead>
             <tr>
               <th style="width: 260px">Clase</th>
@@ -45,40 +45,40 @@ export interface UtilityClass {
             @for (item of filteredClasses(); track item.name) {
               <tr>
                 <td>
-                  <code class="ox-class-name">.{{ item.name }}</code>
+                  <code class="val-class-name">.{{ item.name }}</code>
                 </td>
                 <td>
                   @if (item.responsive !== false) {
-                    <span class="ox-resp-pill" title="Admite prefijos: -sm, -md, -lg, -xl, -xxl" style="display: inline-flex; align-items: center; gap: 4px;">
-                      <ox-icon name="check" size="0.75rem"></ox-icon> Responsivo
+                    <span class="val-resp-pill" title="Admite prefijos: -sm, -md, -lg, -xl, -xxl" style="display: inline-flex; align-items: center; gap: 4px;">
+                      <val-icon name="check" size="0.75rem"></val-icon> Responsivo
                     </span>
                   } @else {
-                    <span class="ox-no-resp-pill">—</span>
+                    <span class="val-no-resp-pill">—</span>
                   }
                 </td>
                 <td>
-                  <code class="ox-css-preview">{{ item.css }}</code>
+                  <code class="val-css-preview">{{ item.css }}</code>
                 </td>
-                <td class="ox-desc-cell">
+                <td class="val-desc-cell">
                   {{ item.description }}
                 </td>
                 <td style="text-align: center">
                   <button 
                     type="button" 
-                    class="ox-copy-btn" 
+                    class="val-copy-btn" 
                     (click)="copyClass(item.name)"
                     [title]="'Copiar .' + item.name">
                     @if (copiedName() === item.name) {
-                      <ox-icon name="check" size="0.875rem" class="ox-copied-icon"></ox-icon>
+                      <val-icon name="check" size="0.875rem" class="val-copied-icon"></val-icon>
                     } @else {
-                      <ox-icon name="copy" size="0.875rem"></ox-icon>
+                      <val-icon name="copy" size="0.875rem"></val-icon>
                     }
                   </button>
                 </td>
               </tr>
             } @empty {
               <tr>
-                <td colspan="5" class="ox-empty">
+                <td colspan="5" class="val-empty">
                   No se encontraron clases que coincidan con "{{ searchQuery() }}"
                 </td>
               </tr>
@@ -88,9 +88,9 @@ export interface UtilityClass {
       </div>
 
       @if (copiedToast()) {
-        <div class="ox-toast">
+        <div class="val-toast">
           <span style="display: inline-flex; align-items: center; gap: 6px;">
-            <ox-icon name="check" size="sm" color="success"></ox-icon>
+            <val-icon name="check" size="sm" color="success"></val-icon>
             Copiado: <code>.{{ copiedToast() }}</code>
           </span>
         </div>
@@ -98,7 +98,7 @@ export interface UtilityClass {
     </div>
   `,
   styles: [`
-    .ox-table-wrapper {
+    .val-table-wrapper {
       background: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 12px;
@@ -106,7 +106,7 @@ export interface UtilityClass {
       margin: 2rem 0;
       box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
-    .ox-table-header {
+    .val-table-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -116,17 +116,17 @@ export interface UtilityClass {
       gap: 1rem;
       flex-wrap: wrap;
     }
-    .ox-table-title {
+    .val-table-title {
       font-size: 1rem;
       font-weight: 700;
       color: #1e293b;
       margin: 0;
     }
-    .ox-search-box {
+    .val-search-box {
       position: relative;
       min-width: 220px;
     }
-    .ox-search-icon {
+    .val-search-icon {
       position: absolute;
       left: 10px;
       top: 50%;
@@ -135,7 +135,7 @@ export interface UtilityClass {
       height: 14px;
       color: #94a3b8;
     }
-    .ox-search-input {
+    .val-search-input {
       width: 100%;
       padding: 0.4rem 0.75rem 0.4rem 2rem;
       border: 1px solid #cbd5e1;
@@ -143,20 +143,20 @@ export interface UtilityClass {
       font-size: 0.8125rem;
       outline: none;
     }
-    .ox-search-input:focus {
-      border-color: var(--oxy-primary, #0066ff);
+    .val-search-input:focus {
+      border-color: var(--val-primary, #0066ff);
       box-shadow: 0 0 0 2px rgba(0,102,255,0.15);
     }
-    .ox-table-scroll {
+    .val-table-scroll {
       overflow-x: auto;
     }
-    .ox-class-table {
+    .val-class-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.875rem;
       text-align: left;
     }
-    .ox-class-table th {
+    .val-class-table th {
       padding: 0.75rem 1rem;
       background: #f8fafc;
       color: #475569;
@@ -166,25 +166,25 @@ export interface UtilityClass {
       text-transform: uppercase;
       letter-spacing: 0.03em;
     }
-    .ox-class-table td {
+    .val-class-table td {
       padding: 0.75rem 1rem;
       border-bottom: 1px solid #f1f5f9;
       color: #334155;
       vertical-align: middle;
     }
-    .ox-class-table tr:hover td {
+    .val-class-table tr:hover td {
       background: #fbfdff;
     }
-    .ox-class-name {
+    .val-class-name {
       font-family: 'JetBrains Mono', Consolas, monospace;
       font-weight: 600;
-      color: var(--oxy-primary, #0066ff);
+      color: var(--val-primary, #0066ff);
       background: rgba(0, 102, 255, 0.07);
       padding: 3px 6px;
       border-radius: 4px;
       font-size: 0.8125rem;
     }
-    .ox-resp-pill {
+    .val-resp-pill {
       font-size: 0.6875rem;
       font-weight: 600;
       color: #059669;
@@ -193,10 +193,10 @@ export interface UtilityClass {
       border-radius: 4px;
       border: 1px solid #a7f3d0;
     }
-    .ox-no-resp-pill {
+    .val-no-resp-pill {
       color: #94a3b8;
     }
-    .ox-css-preview {
+    .val-css-preview {
       font-family: 'JetBrains Mono', Consolas, monospace;
       font-size: 0.75rem;
       color: #0284c7;
@@ -204,11 +204,11 @@ export interface UtilityClass {
       padding: 2px 6px;
       border-radius: 4px;
     }
-    .ox-desc-cell {
+    .val-desc-cell {
       font-size: 0.8125rem;
       color: #64748b;
     }
-    .ox-copy-btn {
+    .val-copy-btn {
       background: #ffffff;
       border: 1px solid #cbd5e1;
       border-radius: 4px;
@@ -220,22 +220,22 @@ export interface UtilityClass {
       justify-content: center;
       transition: all 0.15s;
     }
-    .ox-copy-btn:hover {
+    .val-copy-btn:hover {
       background: #f8fafc;
-      color: var(--oxy-primary, #0066ff);
-      border-color: var(--oxy-primary, #0066ff);
+      color: var(--val-primary, #0066ff);
+      border-color: var(--val-primary, #0066ff);
     }
-    .ox-copied-icon {
+    .val-copied-icon {
       color: #059669;
       font-weight: 700;
       font-size: 0.75rem;
     }
-    .ox-empty {
+    .val-empty {
       padding: 2rem !important;
       text-align: center;
       color: #64748b;
     }
-    .ox-toast {
+    .val-toast {
       position: fixed;
       bottom: 2rem;
       right: 2rem;
@@ -247,7 +247,7 @@ export interface UtilityClass {
       z-index: 9999;
       box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
     }
-    .ox-toast code {
+    .val-toast code {
       color: #38bdf8;
     }
   `]

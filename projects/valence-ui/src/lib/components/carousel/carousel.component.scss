@@ -1,0 +1,175 @@
+.val-carousel {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+
+  .val-carousel-header,
+  .val-carousel-footer {
+    padding: 0.5rem 0;
+  }
+
+  .val-carousel-content {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    align-items: center;
+
+    &.val-carousel-vertical {
+      flex-direction: column;
+
+      .val-carousel-viewport {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .val-carousel-items-container {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .val-carousel-viewport {
+    overflow: hidden;
+    flex: 1 1 0%;
+    min-width: 0;
+    width: 100%;
+    position: relative;
+    touch-action: pan-y;
+
+    &.val-carousel-3d-viewport {
+      perspective: 1200px;
+      transform-style: preserve-3d;
+      min-height: 280px;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &.val-carousel-fade-viewport {
+      min-height: 280px;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+  }
+
+  .val-carousel-items-container {
+    display: flex;
+    width: 100%;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+    user-select: none;
+
+    &.val-carousel-custom-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: block;
+      transform: none !important;
+    }
+  }
+
+  .val-carousel-item {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 0.5rem;
+
+    &.val-carousel-item-fade {
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &.val-carousel-item-3d {
+      will-change: transform, opacity;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+    }
+  }
+
+  // Navigators
+  .val-carousel-prev,
+  .val-carousel-next {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--val-surface-card, #ffffff);
+    color: var(--val-text-color, #334155);
+    border: 1px solid var(--val-surface-border, #e2e8f0);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 30;
+    flex-shrink: 0;
+
+    &:hover:not(:disabled) {
+      background-color: var(--val-surface-hover, #f8fafc);
+      color: var(--val-primary, #0066ff);
+      transform: scale(1.08);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--val-primary, #0066ff);
+      outline-offset: 2px;
+    }
+  }
+
+  .val-carousel-prev {
+    margin-right: 0.5rem;
+  }
+
+  .val-carousel-next {
+    margin-left: 0.5rem;
+  }
+
+  // Indicators
+  .val-carousel-indicators {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 0;
+    list-style: none;
+    margin: 0;
+
+    &.val-carousel-indicators-top {
+      order: -1;
+    }
+
+    .val-carousel-indicator {
+      button {
+        width: 1.75rem;
+        height: 0.375rem;
+        border-radius: 999px;
+        background-color: var(--val-surface-border, #cbd5e1);
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.25s ease;
+
+        &:hover {
+          background-color: var(--val-primary-300, #93c5fd);
+        }
+
+        &.val-carousel-indicator-active {
+          background-color: var(--val-primary, #0066ff);
+          width: 2.5rem;
+        }
+      }
+    }
+  }
+}

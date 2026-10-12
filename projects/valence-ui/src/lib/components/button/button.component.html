@@ -1,0 +1,22 @@
+@if (icon() && iconPos() === 'left') {
+  <val-icon [name]="icon()!" [size]="size() === 'lg' ? '1.25rem' : size() === 'sm' ? '0.875rem' : '1rem'"></val-icon>
+}
+<ng-content></ng-content>
+@if (label()) {
+  <span>{{ label() }}</span>
+}
+@if (icon() && iconPos() === 'right') {
+  <val-icon [name]="icon()!" [size]="size() === 'lg' ? '1.25rem' : size() === 'sm' ? '0.875rem' : '1rem'"></val-icon>
+}
+
+@if (badge() !== undefined) {
+<val-badge
+  [value]="badge()"
+  [severity]="badgeSeverity()"
+  [overlay]="badgeOverlay()"
+  aria-hidden="true"
+  size="sm"
+>
+</val-badge>
+}
+

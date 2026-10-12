@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { OtpComponent } from 'oxygen-ui';
+import { OtpComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FormsModule, OtpComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>OTP (One-Time Password)</h1>
-      <p class="ox-description">Entrada estructurada de dígitos de verificación por SMS o correo con salto automático de foco.</p>
+      <p class="val-description">Entrada estructurada de dígitos de verificación por SMS o correo con salto automático de foco.</p>
 
       <!-- 1. BÁSICO (6 DÍGITOS) -->
       <app-doc-code
@@ -21,7 +21,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="basicHtml"
         [ts]="otpTs">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-          <ox-otp [(ngModel)]="otpValue"></ox-otp>
+          <val-otp [(ngModel)]="otpValue"></val-otp>
           <p style="font-size: 0.875rem; color: #475569;">Código ingresado: <b>{{ otpValue || 'Vacío' }}</b></p>
         </div>
       </app-doc-code>
@@ -33,7 +33,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="fourHtml"
         [ts]="otpTs">
         <div style="display: flex; justify-content: center;">
-          <ox-otp [length]="4" [(ngModel)]="otpValue4"></ox-otp>
+          <val-otp [length]="4" [(ngModel)]="otpValue4"></val-otp>
         </div>
       </app-doc-code>
 
@@ -50,11 +50,11 @@ export class OtpDemoComponent {
   otpValue = '';
   otpValue4 = '';
 
-  basicHtml = `<ox-otp [(ngModel)]="otpValue"></ox-otp>`;
-  fourHtml = `<ox-otp [length]="4" [(ngModel)]="otpValue4"></ox-otp>`;
+  basicHtml = `<val-otp [(ngModel)]="otpValue"></val-otp>`;
+  fourHtml = `<val-otp [length]="4" [(ngModel)]="otpValue4"></val-otp>`;
 
   otpTs = `import { Component } from '@angular/core';
-import { OtpComponent } from 'oxygen-ui';
+import { OtpComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-otp',

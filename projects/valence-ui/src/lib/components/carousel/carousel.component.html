@@ -1,0 +1,122 @@
+<div 
+  class="val-carousel"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+  tabindex="0">
+
+  <!-- Header Template -->
+  @if (headerTemplate()) {
+    <div class="val-carousel-header">
+      <ng-container *ngTemplateOutlet="headerTemplate()!"></ng-container>
+    </div>
+  }
+
+  <!-- Indicators Top -->
+  @if (showIndicators() && indicatorsContentPosition() === 'top') {
+    <ul class="val-carousel-indicators val-carousel-indicators-top">
+      @for (ind of indicatorPages(); track ind) {
+        <li class="val-carousel-indicator">
+          <button 
+            type="button" 
+            [class.val-carousel-indicator-active]="ind === page()" 
+            (click)="setPage(ind)"
+            [attr.aria-label]="'Página ' + (ind + 1)">
+          </button>
+        </li>
+      }
+    </ul>
+  }
+
+  <!-- Content Container (Navigators + Viewport) -->
+  <div 
+    class="val-carousel-content" 
+    [class.val-carousel-vertical]="orientation() === 'vertical'"
+    [style.height]="orientation() === 'vertical' || isCustomEffect() ? verticalViewPortHeight() : 'auto'">
+
+    <!-- Prev Navigator -->
+    @if (showNavigators()) {
+      <button 
+        type="button" 
+        class="val-carousel-prev" 
+        [disabled]="isBackwardDisabled()" 
+        (click)="stepBackward()"
+        [attr.aria-label]="'Anterior'">
+        <val-icon [name]="orientation() === 'vertical' ? 'chevron-up' : 'chevron-left'" size="1.25rem"></val-icon>
+      </button>
+    }
+
+    <!-- Viewport -->
+    <div 
+      #viewport
+      class="val-carousel-viewport"
+      [class.val-carousel-3d-viewport]="is3DEffect()"
+      [class.val-carousel-fade-viewport]="effect() === 'fade'"
+      [style.height]="isCustomEffect() ? verticalViewPortHeight() : 'auto'"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)">
+
+      <div 
+        class="val-carousel-items-container" 
+        [class.val-carousel-custom-container]="isCustomEffect()"
+        [style]="itemsContainerStyle()"
+        (transitionend)="onTransitionEnd()">
+
+        @for (item of renderedItems(); track $index) {
+          <div 
+            class="val-carousel-item" 
+            [class.val-carousel-item-3d]="is3DEffect()"
+            [class.val-carousel-item-fade]="effect() === 'fade'"
+            [class.val-carousel-item-active]="item.index === page()"
+            [style.flex-basis]="!isCustomEffect() ? itemFlexBasis() : 'auto'"
+            [style.max-width]="!isCustomEffect() && orientation() === 'horizontal' ? itemFlexBasis() : '100%'"
+            [style]="getItemStyle(item.index)"
+            (click)="onItemClick(item.index)">
+            @if (itemTemplate()) {
+              <ng-container *ngTemplateOutlet="itemTemplate()!; context: { $implicit: item.data, index: item.index, active: item.index === page() }"></ng-container>
+            } @else {
+              <div>{{ item.data }}</div>
+            }
+          </div>
+        }
+
+      </div>
+    </div>
+
+    <!-- Next Navigator -->
+    @if (showNavigators()) {
+      <button 
+        type="button" 
+        class="val-carousel-next" 
+        [disabled]="isForwardDisabled()" 
+        (click)="stepForward()"
+        [attr.aria-label]="'Siguiente'">
+        <val-icon [name]="orientation() === 'vertical' ? 'chevron-down' : 'chevron-right'" size="1.25rem"></val-icon>
+      </button>
+    }
+
+  </div>
+
+  <!-- Indicators Bottom -->
+  @if (showIndicators() && indicatorsContentPosition() === 'bottom') {
+    <ul class="val-carousel-indicators val-carousel-indicators-bottom">
+      @for (ind of indicatorPages(); track ind) {
+        <li class="val-carousel-indicator">
+          <button 
+            type="button" 
+            [class.val-carousel-indicator-active]="ind === page()" 
+            (click)="setPage(ind)"
+            [attr.aria-label]="'Página ' + (ind + 1)">
+          </button>
+        </li>
+      }
+    </ul>
+  }
+
+  <!-- Footer Template -->
+  @if (footerTemplate()) {
+    <div class="val-carousel-footer">
+      <ng-container *ngTemplateOutlet="footerTemplate()!"></ng-container>
+    </div>
+  }
+
+</div>

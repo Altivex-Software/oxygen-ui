@@ -1,0 +1,58 @@
+// Cursores
+.val-cursor-auto { cursor: auto !important; }
+.val-cursor-default { cursor: default !important; }
+.val-cursor-pointer { cursor: pointer !important; }
+.val-cursor-wait { cursor: wait !important; }
+.val-cursor-text { cursor: text !important; }
+.val-cursor-move { cursor: move !important; }
+.val-cursor-help { cursor: help !important; }
+.val-cursor-not-allowed { cursor: not-allowed !important; }
+.val-cursor-none { cursor: none !important; }
+.val-cursor-context-menu { cursor: context-menu !important; }
+.val-cursor-progress { cursor: progress !important; }
+.val-cursor-cell { cursor: cell !important; }
+.val-cursor-crosshair { cursor: crosshair !important; }
+.val-cursor-vertical-text { cursor: vertical-text !important; }
+.val-cursor-alias { cursor: alias !important; }
+.val-cursor-copy { cursor: copy !important; }
+.val-cursor-no-drop { cursor: no-drop !important; }
+.val-cursor-grab { cursor: grab !important; }
+.val-cursor-grabbing { cursor: grabbing !important; }
+.val-cursor-all-scroll { cursor: all-scroll !important; }
+.val-cursor-col-resize { cursor: col-resize !important; }
+.val-cursor-row-resize { cursor: row-resize !important; }
+.val-cursor-n-resize { cursor: n-resize !important; }
+.val-cursor-e-resize { cursor: e-resize !important; }
+.val-cursor-s-resize { cursor: s-resize !important; }
+.val-cursor-w-resize { cursor: w-resize !important; }
+.val-cursor-zoom-in { cursor: zoom-in !important; }
+.val-cursor-zoom-out { cursor: zoom-out !important; }
+
+// Selección de usuario
+.val-user-select-none { user-select: none !important; -webkit-user-select: none !important; }
+.val-user-select-text { user-select: text !important; -webkit-user-select: text !important; }
+.val-user-select-all { user-select: all !important; -webkit-user-select: all !important; }
+.val-user-select-auto { user-select: auto !important; -webkit-user-select: auto !important; }
+
+// Eventos de puntero
+.val-pointer-events-none { pointer-events: none !important; }
+.val-pointer-events-auto { pointer-events: auto !important; }
+
+// Resize
+.val-resize-none { resize: none !important; }
+.val-resize-y { resize: vertical !important; }
+.val-resize-x { resize: horizontal !important; }
+.val-resize { resize: both !important; }
+
+// Scroll Behavior & Overscroll
+.val-scroll-auto { scroll-behavior: auto !important; }
+.val-scroll-smooth { scroll-behavior: smooth !important; }
+.val-overscroll-auto { overscroll-behavior: auto !important; }
+.val-overscroll-contain { overscroll-behavior: contain !important; }
+.val-overscroll-none { overscroll-behavior: none !important; }
+.val-overscroll-y-auto { overscroll-behavior-y: auto !important; }
+.val-overscroll-y-contain { overscroll-behavior-y: contain !important; }
+.val-overscroll-y-none { overscroll-behavior-y: none !important; }
+.val-overscroll-x-auto { overscroll-behavior-x: auto !important; }
+.val-overscroll-x-contain { overscroll-behavior-x: contain !important; }
+.val-overscroll-x-none { overscroll-behavior-x: none !important; }

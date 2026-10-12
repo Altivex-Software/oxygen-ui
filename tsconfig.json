@@ -15,8 +15,8 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "paths": {
-      "oxygen-ui": [
-        "./projects/oxygen-ui/src/public-api.ts"
+      "valence-ui": [
+        "./projects/valence-ui/src/public-api.ts"
       ]
     },
     "importHelpers": true,

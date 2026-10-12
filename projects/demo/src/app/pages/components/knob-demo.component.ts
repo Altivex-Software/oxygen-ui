@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { KnobComponent } from 'oxygen-ui';
+import { KnobComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FormsModule, KnobComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Knob (Selector Circular)</h1>
-      <p class="ox-description">Control circular táctil y giratorio para ajustar valores numéricos con dial interactivo.</p>
+      <p class="val-description">Control circular táctil y giratorio para ajustar valores numéricos con dial interactivo.</p>
 
       <!-- 1. BÁSICO -->
       <app-doc-code
@@ -21,7 +21,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="basicHtml"
         [ts]="knobTs">
         <div style="display: flex; flex-direction: column; align-items: center;">
-          <ox-knob [(ngModel)]="value" label="Temperatura" unit="°C"></ox-knob>
+          <val-knob [(ngModel)]="value" label="Temperatura" unit="°C"></val-knob>
           <p style="margin-top: 0.75rem; font-size: 0.875rem; color: #475569;">Valor actual: <b>{{ value }}°C</b></p>
         </div>
       </app-doc-code>
@@ -33,21 +33,21 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="variantsHtml"
         [ts]="knobTs">
         <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
-          <ox-knob 
+          <val-knob 
             [(ngModel)]="value3" 
             valueColor="#8b5cf6" 
             rangeColor="#ddd6fe" 
             label="Violeta"
             [strokeWidth]="12">
-          </ox-knob>
-          <ox-knob 
+          </val-knob>
+          <val-knob 
             [(ngModel)]="value3" 
             valueColor="#f43f5e" 
             rangeColor="#fff1f2" 
             variant="flat"
             label="Rosa Flat"
             [strokeWidth]="6">
-          </ox-knob>
+          </val-knob>
         </div>
       </app-doc-code>
 
@@ -64,22 +64,22 @@ export class KnobDemoComponent {
   value = 24;
   value3 = 65;
 
-  basicHtml = `<ox-knob 
+  basicHtml = `<val-knob 
   [(ngModel)]="value" 
   label="Temperatura" 
   unit="°C">
-</ox-knob>`;
+</val-knob>`;
 
-  variantsHtml = `<ox-knob 
+  variantsHtml = `<val-knob 
   [(ngModel)]="value" 
   valueColor="#8b5cf6" 
   rangeColor="#ddd6fe" 
   label="Violeta"
   [strokeWidth]="12">
-</ox-knob>`;
+</val-knob>`;
 
   knobTs = `import { Component } from '@angular/core';
-import { KnobComponent } from 'oxygen-ui';
+import { KnobComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-knob',

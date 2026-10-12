@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SliderComponent } from 'oxygen-ui';
+import { SliderComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FormsModule, SliderComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Slider (Control Deslizante)</h1>
-      <p class="ox-description">Control deslizante para selección intuitiva de valores o rangos numéricos.</p>
+      <p class="val-description">Control deslizante para selección intuitiva de valores o rangos numéricos.</p>
 
       <!-- 1. BÁSICO -->
       <app-doc-code
@@ -21,7 +21,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="basicHtml"
         [ts]="sliderTs">
         <div style="max-width: 400px;">
-          <ox-slider [(ngModel)]="value"></ox-slider>
+          <val-slider [(ngModel)]="value"></val-slider>
           <p style="margin-top: 0.75rem; font-size: 0.875rem; color: #475569;">
             Valor actual: <b>{{ value }}%</b>
           </p>
@@ -35,7 +35,7 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="stepHtml"
         [ts]="sliderTs">
         <div style="max-width: 400px;">
-          <ox-slider [min]="0" [max]="10" [step]="0.5" [(ngModel)]="valueStep"></ox-slider>
+          <val-slider [min]="0" [max]="10" [step]="0.5" [(ngModel)]="valueStep"></val-slider>
           <p style="margin-top: 0.75rem; font-size: 0.875rem; color: #475569;">
             Valor con paso 0.5: <b>{{ valueStep }}</b>
           </p>
@@ -55,11 +55,11 @@ export class SliderDemoComponent {
   value = 50;
   valueStep = 5;
 
-  basicHtml = `<ox-slider [(ngModel)]="value"></ox-slider>`;
-  stepHtml = `<ox-slider [min]="0" [max]="10" [step]="0.5" [(ngModel)]="valueStep"></ox-slider>`;
+  basicHtml = `<val-slider [(ngModel)]="value"></val-slider>`;
+  stepHtml = `<val-slider [min]="0" [max]="10" [step]="0.5" [(ngModel)]="valueStep"></val-slider>`;
 
   sliderTs = `import { Component } from '@angular/core';
-import { SliderComponent } from 'oxygen-ui';
+import { SliderComponent } from 'valence-ui';
 
 @Component({
   selector: 'app-my-slider',

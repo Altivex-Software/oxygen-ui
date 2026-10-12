@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use './tokens' as t;
+@use './breakpoints' as b;
+
+@mixin generate-colors($breakpoint: null) {
+  $prefix: '';
+  @if $breakpoint {
+    $prefix: '-#{$breakpoint}';
+  }
+
+  @each $name, $value in t.$text-colors {
+    .val-text#{$prefix}-#{$name} {
+      color: #{$value} !important;
+    }
+    .val-border#{$prefix}-#{$name} {
+      border-color: #{$value} !important;
+    }
+    .val-bg#{$prefix}-#{$name} {
+      background-color: #{$value} !important;
+    }
+  }
+}
+
+// Base
+@include generate-colors();
+
+// Responsive
+@each $name, $value in b.$breakpoints {
+  @if $name != 'xs' {
+    @include b.up($name) {
+      @include generate-colors($name);
+    }
+  }
+}
+

@@ -1,0 +1,175 @@
+@use '../input/input.component.scss' as *;
+
+.val-datepicker-input {
+  cursor: pointer !important;
+  caret-color: transparent;
+}
+
+.val-datepicker-trigger {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--val-text-hint, #6b7280);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+.val-datepicker-panel {
+  background-color: var(--val-bg-color, #ffffff);
+  border: 1px solid var(--val-border-color, #d1d5db);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  min-width: 280px;
+  user-select: none;
+  z-index: 1000;
+}
+
+.val-datepicker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.val-datepicker-month-year {
+  font-weight: 600;
+  color: var(--val-text-color, #111827);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: var(--val-hover-bg, #f3f4f6);
+  }
+}
+
+.val-datepicker-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.val-datepicker-grid-item {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: var(--val-hover-bg, #f3f4f6);
+  }
+
+  &--selected {
+    background-color: var(--val-primary-color, #0066ff) !important;
+    color: white !important;
+    font-weight: 600;
+  }
+
+  &--other {
+    color: var(--val-disabled-text, #9ca3af);
+  }
+}
+
+.val-datepicker-nav-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  color: var(--val-text-color);
+  &:hover {
+    background-color: var(--val-hover-bg, #f3f4f6);
+  }
+}
+
+.val-datepicker-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.val-datepicker-weekday {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--val-text-hint, #6b7280);
+}
+
+.val-datepicker-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.val-datepicker-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.875rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+
+  &:hover:not(.val-datepicker-day--selected) {
+    background-color: var(--val-hover-bg, #f3f4f6);
+  }
+
+  &--other-month {
+    color: var(--val-disabled-text, #9ca3af);
+  }
+
+  &--today {
+    color: var(--val-primary-color, #0066ff);
+    font-weight: 700;
+    box-shadow: inset 0 0 0 1px var(--val-primary-color);
+  }
+
+  &--selected {
+    background-color: var(--val-primary-color, #0066ff) !important;
+    color: #ffffff !important;
+  }
+}
+
+.val-datepicker-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--val-border-color, #f1f5f9);
+}
+
+.val-datepicker-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  
+  &--text {
+    color: var(--val-primary-color, #0066ff);
+    &:hover {
+      background-color: color-mix(in srgb, var(--val-primary-color) 10%, transparent);
+    }
+  }
+}
+
+// Ajustes específicos para que el label flote correctamente con el trigger icon
+.val-input-wrapper--oneLine .val-datepicker-trigger {
+  right: 0;
+}

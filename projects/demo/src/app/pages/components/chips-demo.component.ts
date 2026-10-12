@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ChipsComponent } from 'oxygen-ui';
+import { ChipsComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FormsModule, ChipsComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Chips / Tags</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Componente para ingresar múltiples valores como etiquetas, ideal para tags, correos, palabras clave o filtros.
       </p>
 
@@ -23,10 +23,10 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="basicHtml"
         [ts]="basicTs">
         <div style="max-width: 480px;">
-          <ox-chips 
+          <val-chips 
             [(ngModel)]="skills" 
             placeholder="Escribe tecnologías (ej: Angular, TypeScript, SCSS)">
-          </ox-chips>
+          </val-chips>
 
           <div style="margin-top: 0.75rem; font-size: 0.875rem; color: #475569;">
             <strong>Valores actuales:</strong> {{ skills | json }}
@@ -41,12 +41,12 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="limitHtml"
         [ts]="limitTs">
         <div style="max-width: 480px;">
-          <ox-chips 
+          <val-chips 
             [(ngModel)]="categories" 
             [max]="4"
             [allowDuplicate]="false"
             placeholder="Máximo 4 categorías...">
-          </ox-chips>
+          </val-chips>
 
           <div style="margin-top: 0.75rem; font-size: 0.875rem; color: #475569;">
             <strong>Chips ({{ categories.length }}/4):</strong> {{ categories | json }}
@@ -61,10 +61,10 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="disabledHtml"
         [ts]="disabledTs">
         <div style="max-width: 480px;">
-          <ox-chips 
+          <val-chips 
             [ngModel]="['Read Only', 'Protected Tag', 'System Tag']" 
             [disabled]="true">
-          </ox-chips>
+          </val-chips>
         </div>
       </app-doc-code>
 
@@ -81,26 +81,26 @@ export class ChipsDemoComponent {
   skills = ['Angular', 'TypeScript', 'RxJS'];
   categories = ['Frontend', 'UI Design'];
 
-  basicHtml = `<ox-chips 
+  basicHtml = `<val-chips 
   [(ngModel)]="skills" 
   placeholder="Escribe tecnologías (ej: Angular, TypeScript)">
-</ox-chips>`;
+</val-chips>`;
 
   basicTs = `skills = ['Angular', 'TypeScript', 'RxJS'];`;
 
-  limitHtml = `<ox-chips 
+  limitHtml = `<val-chips 
   [(ngModel)]="categories" 
   [max]="4"
   [allowDuplicate]="false"
   placeholder="Máximo 4 categorías...">
-</ox-chips>`;
+</val-chips>`;
 
   limitTs = `categories = ['Frontend', 'UI Design'];`;
 
-  disabledHtml = `<ox-chips 
+  disabledHtml = `<val-chips 
   [ngModel]="['Read Only', 'Protected Tag']" 
   [disabled]="true">
-</ox-chips>`;
+</val-chips>`;
 
   disabledTs = `// Componente en modo solo lectura con disabled=true`;
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TreeTableComponent, TreeTableNode, TreeTableColumn } from 'oxygen-ui';
+import { TreeTableComponent, TreeTableNode, TreeTableColumn } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -9,9 +9,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, TreeTableComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>TreeTable (Tabla Jerárquica)</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Muestra datos jerárquicos estructurados en formato tabular con soporte para expansión de nodos y selección.
       </p>
 
@@ -22,13 +22,13 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         [html]="treeTableHtml"
         [ts]="treeTableTs">
         <div style="max-width: 800px;">
-          <ox-tree-table 
+          <val-tree-table 
             [value]="files" 
             [columns]="cols"
             selectionMode="single"
             [striped]="true"
             (nodeSelect)="onSelect($event)">
-          </ox-tree-table>
+          </val-tree-table>
 
           <div style="margin-top: 1rem; font-size: 0.875rem; color: #475569;">
             <strong>Nodo Seleccionado:</strong> {{ selectedNode?.data?.name || 'Ninguno' }} (Tipo: {{ selectedNode?.data?.type || 'N/A' }})
@@ -92,7 +92,7 @@ export class TreeTableDemoComponent {
       children: [
         {
           key: '1-0',
-          data: { name: 'logo_oxygen_ui.png', size: '1.2 MB', type: 'Imagen PNG' },
+          data: { name: 'logo_valence_ui.png', size: '1.2 MB', type: 'Imagen PNG' },
           icon: 'image'
         },
         {
@@ -113,13 +113,13 @@ export class TreeTableDemoComponent {
     this.selectedNode = node;
   }
 
-  treeTableHtml = `<ox-tree-table 
+  treeTableHtml = `<val-tree-table 
   [value]="files" 
   [columns]="cols"
   selectionMode="single"
   [striped]="true"
   (nodeSelect)="onSelect($event)">
-</ox-tree-table>`;
+</val-tree-table>`;
 
   treeTableTs = `cols = [
   { field: 'name', header: 'Nombre', width: '45%' },

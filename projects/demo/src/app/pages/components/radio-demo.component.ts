@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RadioGroupComponent } from 'oxygen-ui';
+import { RadioGroupComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
   standalone: true,
   imports: [CommonModule, FormsModule, RadioGroupComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>Radio Button (Botones de Radio)</h1>
-      <p class="ox-description">Grupo de opciones mutuamente excluyentes para selección única en formularios.</p>
+      <p class="val-description">Grupo de opciones mutuamente excluyentes para selección única en formularios.</p>
 
       <!-- 1. HORIZONTAL -->
       <app-doc-code
@@ -21,7 +21,7 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         [html]="horizontalHtml"
         [ts]="radioTs">
         <div>
-          <ox-radio-group [options]="options" [(ngModel)]="selectedValue"></ox-radio-group>
+          <val-radio-group [options]="options" [(ngModel)]="selectedValue"></val-radio-group>
           <p style="margin-top: 0.75rem; font-size: 0.875rem; color: #475569;">
             Valor seleccionado: <b>Opción {{ selectedValue }}</b>
           </p>
@@ -34,7 +34,7 @@ import { DocApiTableComponent, ApiProperty } from '../../shared/doc-code/doc-api
         description="Opciones apiladas verticalmente con la directiva [vertical]='true'."
         [html]="verticalHtml"
         [ts]="radioTs">
-        <ox-radio-group [options]="options" [(ngModel)]="selectedValueVertical" [vertical]="true"></ox-radio-group>
+        <val-radio-group [options]="options" [(ngModel)]="selectedValueVertical" [vertical]="true"></val-radio-group>
       </app-doc-code>
 
       <!-- API REFERENCE -->
@@ -54,16 +54,16 @@ export class RadioDemoComponent {
   selectedValue = 1;
   selectedValueVertical = 2;
 
-  horizontalHtml = `<ox-radio-group 
+  horizontalHtml = `<val-radio-group 
   [options]="options" 
   [(ngModel)]="selectedValue">
-</ox-radio-group>`;
+</val-radio-group>`;
 
-  verticalHtml = `<ox-radio-group 
+  verticalHtml = `<val-radio-group 
   [options]="options" 
   [(ngModel)]="selectedValue" 
   [vertical]="true">
-</ox-radio-group>`;
+</val-radio-group>`;
 
   radioTs = `options = [
   { label: 'Opción 1', value: 1 },

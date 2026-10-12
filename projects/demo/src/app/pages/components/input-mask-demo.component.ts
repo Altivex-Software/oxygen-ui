@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { InputMaskComponent } from 'oxygen-ui';
+import { InputMaskComponent } from 'valence-ui';
 import { DocCodeComponent } from '../../shared/doc-code/doc-code.component';
 import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-code/doc-api-table.component';
 
@@ -10,9 +10,9 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
   standalone: true,
   imports: [CommonModule, FormsModule, InputMaskComponent, DocCodeComponent, DocApiTableComponent],
   template: `
-    <div class="ox-page-container">
+    <div class="val-page-container">
       <h1>InputMask</h1>
-      <p class="ox-description">
+      <p class="val-description">
         Campo de entrada estructurado que restringe y aplica automáticamente una máscara o plantilla a la entrada del usuario (teléfonos, fechas, identificadores).
       </p>
 
@@ -22,40 +22,40 @@ import { DocApiTableComponent, ApiProperty, ApiEvent } from '../../shared/doc-co
         description="Formatos preestablecidos para teléfonos, fechas y matrículas."
         [htmlCode]="maskHtml"
         [tsCode]="maskTs">
-        <div class="ox-flex ox-flex-column ox-gap-4" style="max-width: 400px; width: 100%;">
+        <div class="val-flex val-flex-column val-gap-4" style="max-width: 400px; width: 100%;">
           
           <!-- Teléfono -->
-          <div class="ox-flex ox-flex-column">
-            <label class="ox-mb-2" style="font-weight: 600; font-size: 0.875rem;">Teléfono: (999) 999-9999</label>
-            <ox-input-mask 
+          <div class="val-flex val-flex-column">
+            <label class="val-mb-2" style="font-weight: 600; font-size: 0.875rem;">Teléfono: (999) 999-9999</label>
+            <val-input-mask 
               mask="(999) 999-9999" 
               [(value)]="phone" 
               placeholder="(999) 999-9999">
-            </ox-input-mask>
-            <small class="ox-text-surface-500 ox-mt-1" style="color: #64748b; font-size: 0.75rem; margin-top: 4px;">Valor raw: {{ phone || 'Vacío' }}</small>
+            </val-input-mask>
+            <small class="val-text-surface-500 val-mt-1" style="color: #64748b; font-size: 0.75rem; margin-top: 4px;">Valor raw: {{ phone || 'Vacío' }}</small>
           </div>
 
           <!-- Fecha -->
-          <div class="ox-flex ox-flex-column">
-            <label class="ox-mb-2" style="font-weight: 600; font-size: 0.875rem;">Fecha: 99/99/9999</label>
-            <ox-input-mask 
+          <div class="val-flex val-flex-column">
+            <label class="val-mb-2" style="font-weight: 600; font-size: 0.875rem;">Fecha: 99/99/9999</label>
+            <val-input-mask 
               mask="99/99/9999" 
               [(value)]="date" 
               placeholder="dd/mm/yyyy"
               slotChar="*">
-            </ox-input-mask>
-            <small class="ox-text-surface-500 ox-mt-1" style="color: #64748b; font-size: 0.75rem; margin-top: 4px;">Valor raw: {{ date || 'Vacío' }}</small>
+            </val-input-mask>
+            <small class="val-text-surface-500 val-mt-1" style="color: #64748b; font-size: 0.75rem; margin-top: 4px;">Valor raw: {{ date || 'Vacío' }}</small>
           </div>
 
           <!-- Matrícula -->
-          <div class="ox-flex ox-flex-column">
-            <label class="ox-mb-2" style="font-weight: 600; font-size: 0.875rem;">Matrícula (Letras y Números): a-9999-aa</label>
-            <ox-input-mask 
+          <div class="val-flex val-flex-column">
+            <label class="val-mb-2" style="font-weight: 600; font-size: 0.875rem;">Matrícula (Letras y Números): a-9999-aa</label>
+            <val-input-mask 
               mask="a-9999-aa" 
               [(value)]="plate" 
               placeholder="a-9999-aa">
-            </ox-input-mask>
-            <small class="ox-text-surface-500 ox-mt-1" style="color: #64748b; font-size: 0.75rem; margin-top: 4px;">Valor raw: {{ plate || 'Vacío' }}</small>
+            </val-input-mask>
+            <small class="val-text-surface-500 val-mt-1" style="color: #64748b; font-size: 0.75rem; margin-top: 4px;">Valor raw: {{ plate || 'Vacío' }}</small>
           </div>
 
         </div>
@@ -75,20 +75,20 @@ export class InputMaskDemoComponent {
   date = '';
   plate = '';
 
-  maskHtml = `<ox-input-mask 
+  maskHtml = `<val-input-mask 
   mask="(999) 999-9999" 
   [(value)]="phone" 
   placeholder="(999) 999-9999">
-</ox-input-mask>
+</val-input-mask>
 
-<ox-input-mask 
+<val-input-mask 
   mask="99/99/9999" 
   [(value)]="date" 
   slotChar="*">
-</ox-input-mask>`;
+</val-input-mask>`;
 
   maskTs = `import { Component } from '@angular/core';
-import { InputMaskComponent } from 'oxygen-ui';
+import { InputMaskComponent } from 'valence-ui';
 
 @Component({
   standalone: true,
