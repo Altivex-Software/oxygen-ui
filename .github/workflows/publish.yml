@@ -53,6 +53,7 @@ jobs:
 
       - name: Publish to npm
         if: steps.check_version.outputs.should_publish == 'true'
-        run: npm publish dist/valence-ui --access public --provenance
+        working-directory: ./dist/valence-ui
+        run: npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

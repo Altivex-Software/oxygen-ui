@@ -11,6 +11,14 @@
   ],
   "license": "MIT",
   "author": "Altivex",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Altivex-Software/oxygen-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Altivex-Software/oxygen-ui/issues"
+  },
+  "homepage": "https://github.com/Altivex-Software/oxygen-ui#readme",
   "peerDependencies": {
     "@angular/animations": ">=19.0.0",
     "@angular/cdk": ">=19.0.0",
