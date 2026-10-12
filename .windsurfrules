@@ -1,0 +1,11 @@
+# Windsurf Cascade Rules for Valence UI
+
+Valence UI is an Angular 19+ design system and component library.
+
+## Guidelines
+- Always use standalone components from `valence-ui`.
+- Never write ad-hoc CSS for layout: use `val-flex`, `val-grid`, `val-m-*`, `val-p-*`, `val-text-*`.
+- Global styles import: `@use 'valence-ui/styles/main.scss';` in `styles.scss`.
+- Use `ButtonComponent` (`<button val-button variant="...">`).
+- Wrap inputs with `FormFieldComponent` (`<val-form-field>`).
+- Inject `ToastService` and `ConfirmService` for alerts and dialog prompts.

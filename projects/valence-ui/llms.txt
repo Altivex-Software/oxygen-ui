@@ -1,0 +1,169 @@
+# Valence UI
+
+> Valence UI is an enterprise-grade, modern UI component library and SCSS utility design system for Angular 19+ (compatible with Angular 19, 20, 21), developed by Altivex.
+
+## 📌 System Prompt Guidelines for AI Models
+When generating Angular applications using Valence UI:
+1. **Component Model**: Always use **Standalone Components** (`imports: [ValButtonComponent, ...]`). Valence UI does not use legacy NgModules.
+2. **Signals Architecture**: Valence UI components use modern Angular Signals (`input()`, `output()`, `model()`). When binding properties, use standard template syntax `[prop]="value"` and `(event)="handler($event)"`.
+3. **Styles & Design Tokens**: Never write raw CSS for margins, padding, flex, or grid. Always use Valence UI utility classes (`val-flex`, `val-grid`, `val-p-3`, `val-m-2`, `val-gap-3`, etc.).
+4. **Style Import**: Ensure `@use 'valence-ui/styles/main.scss';` is imported in `styles.scss`, or configured in `angular.json`.
+5. **Themes**: Built-in support for Light and Dark themes via `themes/light/theme-light.scss` and `themes/dark/theme-dark.scss`.
+
+---
+
+## 🚀 Quick Setup
+
+### Installation
+```bash
+# npm
+npm install valence-ui @angular/cdk
+
+# pnpm
+pnpm add valence-ui @angular/cdk
+
+# yarn
+yarn add valence-ui @angular/cdk
+```
+
+### Global Styles (`src/styles.scss`)
+```scss
+@use 'valence-ui/styles/main.scss';
+// Optional specific theme (light by default)
+@use 'valence-ui/themes/light/theme-light.scss';
+```
+
+---
+
+## 🎨 Core CSS Utility Classes Reference
+Valence UI provides a comprehensive SCSS utility framework where all classes begin with `val-`:
+
+| Category | Classes & Modifiers | Description |
+| :--- | :--- | :--- |
+| **Flexbox** | `val-flex`, `val-flex-column`, `val-flex-row`, `val-justify-content-center`, `val-justify-content-between`, `val-align-items-center`, `val-flex-wrap` | Flex container & alignment |
+| **Grid** | `val-grid`, `val-col-12`, `val-col-6`, `val-col-md-4`, `val-col-lg-3` | 12-column responsive grid |
+| **Spacing** | `val-m-0` to `val-m-5`, `val-p-0` to `val-p-5`, `val-mx-auto`, `val-mt-3`, `val-mb-4`, `val-gap-1` to `val-gap-5` | Margin, padding & gap (0.25rem - 3rem) |
+| **Display** | `val-block`, `val-inline-block`, `val-inline-flex`, `val-hidden`, `val-d-none` | Display behaviors |
+| **Typography** | `val-text-primary`, `val-text-secondary`, `val-text-muted`, `val-text-xs` to `val-text-3xl`, `val-font-bold`, `val-font-semibold`, `val-text-center` | Text size, weight & colors |
+| **Borders & Rings** | `val-border`, `val-rounded`, `val-rounded-lg`, `val-rounded-full`, `val-ring`, `val-ring-primary` | Borders and focus rings |
+| **Transitions & Anim**| `val-transition`, `val-transition-all`, `val-duration-200`, `val-fade-in`, `val-scale-in` | Smooth micro-animations |
+| **Containers** | `val-container`, `val-container-fluid`, `val-w-full`, `val-h-full` | Width & container constraints |
+
+---
+
+## 🧩 Components Catalog & Usage Cheat Sheet
+
+### 1. Button (`val-button` / `ButtonComponent`)
+```typescript
+import { ButtonComponent } from 'valence-ui';
+```
+```html
+<!-- Native button directive -->
+<button val-button variant="primary" size="md">Guardar</button>
+<button val-button variant="outline-primary" icon="pi-check">Confirmar</button>
+<button val-button variant="ghost-danger" [disabled]="isLoading">Eliminar</button>
+```
+* **Inputs**: `variant` ('primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'outline-primary' | 'ghost-primary'), `size` ('sm' | 'md' | 'lg'), `icon` (string), `iconPos` ('left' | 'right'), `disabled` (boolean), `badge` (string | number), `badgeSeverity` (ValenceSeverity).
+* **Outputs**: `(onClick)`: MouseEvent.
+
+---
+
+### 2. Card (`val-card` / `CardComponent`)
+```typescript
+import { CardComponent, ValCardHeaderDirective, ValCardBodyDirective, ValCardFooterDirective } from 'valence-ui';
+```
+```html
+<val-card [bordered]="true" [hoverable]="true" boxShadow="md">
+  <div valCardHeader>
+    <h3>Título de la Tarjeta</h3>
+  </div>
+  <div valCardBody>
+    <p>Contenido principal con estilos de Valence UI.</p>
+  </div>
+  <div valCardFooter class="val-flex val-justify-content-end val-gap-2">
+    <button val-button variant="secondary">Cancelar</button>
+    <button val-button variant="primary">Aceptar</button>
+  </div>
+</val-card>
+```
+* **Inputs**: `bordered` (boolean), `hoverable` (boolean), `liftOnHover` (boolean), `boxShadow` ('none' | 'sm' | 'md' | 'lg'), `flipped` (boolean, model 3D flip card).
+
+---
+
+### 3. Form Field & Inputs (`FormFieldComponent`, `InputComponent`)
+```typescript
+import { FormFieldComponent, InputComponent } from 'valence-ui';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+```
+```html
+<val-form-field label="Correo Electrónico" [required]="true" hint="Ingresa tu correo corporativo">
+  <val-input [(ngModel)]="email" placeholder="usuario@altivex.com" [clearable]="true" icon="pi-envelope"></val-input>
+</val-form-field>
+```
+
+---
+
+### 4. Dialog & Modal (`DialogComponent`)
+```typescript
+import { DialogComponent, ButtonComponent } from 'valence-ui';
+```
+```html
+<val-dialog [(visible)]="showDialog" header="Confirmación" [modal]="true" [dismissableMask]="true">
+  <p>¿Estás seguro de proceder con esta acción?</p>
+  <div class="val-flex val-justify-content-end val-gap-2 val-mt-4">
+    <button val-button variant="secondary" (click)="showDialog = false">Cancelar</button>
+    <button val-button variant="primary" (click)="confirmAction()">Confirmar</button>
+  </div>
+</val-dialog>
+```
+
+---
+
+### 5. Toast Notifications (`ToastService`, `ToastComponent`)
+```typescript
+import { ToastComponent, ToastService } from 'valence-ui';
+
+@Component({
+  imports: [ToastComponent],
+  template: `
+    <val-toast></val-toast>
+    <button val-button (click)="notify()">Mostrar Alerta</button>
+  `
+})
+export class MyComponent {
+  private toastService = inject(ToastService);
+
+  notify() {
+    this.toastService.add({
+      severity: 'success',
+      summary: 'Éxito',
+      detail: 'Operación realizada correctamente',
+      life: 3000
+    });
+  }
+}
+```
+
+---
+
+### 6. Table & Data (`TableComponent`, `PaginatorComponent`)
+```typescript
+import { TableComponent } from 'valence-ui';
+```
+```html
+<val-table [value]="users" [striped]="true" [hoverable]="true">
+  <!-- Definición de columnas y template -->
+</val-table>
+```
+
+---
+
+### 7. Layouts & Navigation (Tabs, Toolbar, Sidebar)
+* **Tabs**: `<val-tabs>` y `<val-tab header="Tab 1">`
+* **Toolbar**: `<val-toolbar>` con proyección de contenido `start` y `end`.
+* **Sidebar**: `<val-sidebar [(visible)]="isMenuOpen" position="left">`
+
+---
+
+## 📚 Complete API Reference
+For full exhaustive property listings, types, directives, and advanced services, refer to [`llms-full.txt`](./llms-full.txt).

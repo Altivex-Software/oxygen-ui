@@ -9,6 +9,21 @@
   },
   "assets": [
     {
+      "input": ".",
+      "glob": "llms*.txt",
+      "output": "."
+    },
+    {
+      "input": "bin",
+      "glob": "**/*",
+      "output": "bin"
+    },
+    {
+      "input": "ai",
+      "glob": "**/*",
+      "output": "ai"
+    },
+    {
       "input": "src/lib/styles",
       "glob": "**/*",
       "output": "styles"

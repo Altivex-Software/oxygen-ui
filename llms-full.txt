@@ -1,0 +1,294 @@
+# Valence UI — Full API Reference & LLM Knowledge Specification
+
+> Complete, exhaustive specification of the Valence UI library for AI agents, developers, and LLM code generators.
+
+Version: 0.0.1+
+Architecture: Angular 19+ (Standalone Components, Signals API, ControlValueAccessor)
+Design System: SCSS Native Utilities & Tokens (Manrope Font, Dark/Light Themes)
+Author: Altivex
+
+---
+
+## 1. Global Setup & Installation
+
+### Dependency Installation
+```bash
+npm install valence-ui @angular/cdk
+```
+
+### Style Integration
+In `src/styles.scss`:
+```scss
+@use 'valence-ui/styles/main.scss';
+@use 'valence-ui/themes/light/theme-light.scss'; // or theme-dark.scss
+```
+
+---
+
+## 2. CSS Utility System (Prefix: `val-`)
+
+### 2.1 Flexbox Utilities
+* `val-flex`: `display: flex !important;`
+* `val-inline-flex`: `display: inline-flex !important;`
+* `val-flex-row`: `flex-direction: row;`
+* `val-flex-column`: `flex-direction: column;`
+* `val-flex-row-reverse`: `flex-direction: row-reverse;`
+* `val-flex-column-reverse`: `flex-direction: column-reverse;`
+* `val-flex-wrap`: `flex-wrap: wrap;`
+* `val-flex-nowrap`: `flex-wrap: nowrap;`
+* `val-justify-content-start`: `justify-content: flex-start;`
+* `val-justify-content-end`: `justify-content: flex-end;`
+* `val-justify-content-center`: `justify-content: center;`
+* `val-justify-content-between`: `justify-content: space-between;`
+* `val-justify-content-around`: `justify-content: space-around;`
+* `val-justify-content-evenly`: `justify-content: space-evenly;`
+* `val-align-items-start`: `align-items: flex-start;`
+* `val-align-items-end`: `align-items: flex-end;`
+* `val-align-items-center`: `align-items: center;`
+* `val-align-items-baseline`: `align-items: baseline;`
+* `val-align-items-stretch`: `align-items: stretch;`
+* `val-flex-fill`: `flex: 1 1 auto;`
+* `val-flex-grow-1` / `val-flex-grow-0`: `flex-grow`
+* `val-flex-shrink-1` / `val-flex-shrink-0`: `flex-shrink`
+* Responsive variants: `val-flex-md-row`, `val-flex-lg-column`, `val-justify-content-md-between`, etc.
+
+### 2.2 Grid Utilities (12 Columns)
+* `val-grid`: Flex grid container with negative margins.
+* `val-col-1` to `val-col-12`: Column width spans.
+* Responsive breakpoints (`sm`, `md`, `lg`, `xl`):
+  * `val-col-12 val-col-md-6 val-col-lg-4 val-col-xl-3`
+* `val-col-fixed`: Fixed width column.
+
+### 2.3 Spacing & Gutters
+Scale: `0` (0), `1` (0.25rem), `2` (0.5rem), `3` (1rem), `4` (1.5rem), `5` (3rem), `auto` (auto)
+* Margin: `val-m-0` to `val-m-5`, `val-mt-*`, `val-mb-*`, `val-ml-*`, `val-mr-*`, `val-mx-*`, `val-my-*`, `val-mx-auto`
+* Padding: `val-p-0` to `val-p-5`, `val-pt-*`, `val-pb-*`, `val-pl-*`, `val-pr-*`, `val-px-*`, `val-py-*`
+* Gap: `val-gap-1` to `val-gap-5`, `val-row-gap-*`, `val-column-gap-*`
+
+### 2.4 Typography & Text
+* Font Family: `Manrope` (Variable Font included)
+* Text Color: `val-text-primary`, `val-text-secondary`, `val-text-muted`, `val-text-danger`, `val-text-success`, `val-text-warning`, `val-text-info`
+* Font Size: `val-text-xs` (0.75rem), `val-text-sm` (0.875rem), `val-text-base` (1rem), `val-text-lg` (1.125rem), `val-text-xl` (1.25rem), `val-text-2xl` (1.5rem), `val-text-3xl` (1.875rem)
+* Weight: `val-font-light`, `val-font-normal`, `val-font-medium`, `val-font-semibold`, `val-font-bold`
+* Alignment: `val-text-left`, `val-text-center`, `val-text-right`, `val-text-justify`
+* Transform: `val-uppercase`, `val-lowercase`, `val-capitalize`
+
+### 2.5 Borders, Radii, Rings & Shadows
+* Border: `val-border`, `val-border-top`, `val-border-bottom`, `val-border-none`
+* Border Radius: `val-rounded-none`, `val-rounded-sm`, `val-rounded`, `val-rounded-md`, `val-rounded-lg`, `val-rounded-xl`, `val-rounded-full`
+* Focus Rings: `val-ring`, `val-ring-primary`, `val-ring-offset`
+* Box Shadows: `val-shadow-none`, `val-shadow-sm`, `val-shadow-md`, `val-shadow-lg`, `val-shadow-xl`
+
+---
+
+## 3. Core Component Catalog & API Signatures
+
+### 3.1 Buttons & Actions
+#### `ButtonComponent`
+* Selector: `val-button`, `button[val-button]`
+* Import: `import { ButtonComponent } from 'valence-ui';`
+* Inputs:
+  * `label`: string
+  * `icon`: ValIconName (icon identifier)
+  * `iconPos`: 'left' | 'right' (default 'left')
+  * `variant`: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'contrast' | 'outline-primary' | 'ghost-primary' | etc.
+  * `size`: 'sm' | 'md' | 'lg' (default 'sm')
+  * `boxShadow`: 'none' | 'sm' | 'md' | 'lg'
+  * `disabled`: boolean (default false)
+  * `badge`: string | number
+  * `badgeSeverity`: ValenceSeverity | ValenceColor
+  * `badgeOverlay`: boolean (default true)
+  * `type`: 'button' | 'submit' | 'reset'
+* Outputs:
+  * `onClick`: MouseEvent
+
+#### `SpeedDialComponent`
+* Selector: `val-speed-dial`
+* Floating action speed-dial menu with expandable item buttons.
+
+---
+
+### 3.2 Containers & Layout
+#### `CardComponent`
+* Selector: `val-card`
+* Directives: `ValCardHeaderDirective` (`[valCardHeader]`), `ValCardBodyDirective` (`[valCardBody]`), `ValCardFooterDirective` (`[valCardFooter]`), `ValCardBackDirective` (`[valCardBack]`)
+* Inputs:
+  * `bordered`: boolean (default true)
+  * `hoverable`: boolean (default false)
+  * `liftOnHover`: boolean (default false)
+  * `boxShadow`: 'none' | 'sm' | 'md' | 'lg' (default 'sm')
+  * `flipped`: model<boolean> (supports 3D flip card toggle)
+
+#### `PanelComponent` & `FieldsetComponent`
+* Selectors: `val-panel`, `val-fieldset`
+* Collapsible container panels with custom headers and toggle animations.
+
+#### `ToolbarComponent`
+* Selector: `val-toolbar`
+* Standard application toolbars with `start`, `center`, and `end` content projection slots.
+
+#### `DividerComponent`
+* Selector: `val-divider`
+* Layout separator supporting horizontal or vertical layout with optional text badges.
+
+#### `SplitterComponent`
+* Selector: `val-splitter`
+* Resizable split view panes with drag handles.
+
+---
+
+### 3.3 Form Controls & Inputs (CVA Supported)
+
+#### `FormFieldComponent`
+* Selector: `val-form-field`
+* Wrapper providing label, required asterisk, hint text, character count, and error validation messages.
+* Inputs: `label` (string), `hint` (string), `required` (boolean), `error` (string).
+
+#### `InputComponent` (`val-input`)
+* Clean modern text input with prefix/suffix icons, clear button, and states.
+
+#### `PasswordComponent` (`val-password`)
+* Secure password field with reveal toggle and optional strength meter.
+
+#### `DatePickerComponent` (`val-date-picker`) & `DateInputComponent`
+* Calendar date selection with range, min/max date, and popup overlay.
+
+#### `DropdownComponent` (`val-dropdown`)
+* Single-select dropdown with search filter and custom item templates.
+
+#### `MultiSelectComponent` (`val-multi-select`)
+* Multi-select with chip display, select all, and virtual scrolling.
+
+#### `CheckboxComponent` & `InputSwitchComponent`
+* Native boolean toggles with animated states.
+
+#### `OtpComponent` (`val-otp`)
+* One-Time Password input supporting auto-focus tab advancement.
+
+#### `SliderComponent` & `KnobComponent`
+* Range inputs for continuous or stepped numeric values.
+
+#### `ChipsComponent` (`val-chips`)
+* Multi-tag text input with keyboard enter/backspace creation.
+
+#### `RatingComponent` (`val-rating`)
+* Interactive star rating control.
+
+#### `FileUploadComponent` (`val-file-upload`)
+* Drag & drop file uploader with progress and previews.
+
+---
+
+### 3.4 Navigation Components
+
+#### `TabsComponent` & `TabComponent`
+* Selectors: `val-tabs`, `val-tab`
+* Tab navigation with animated active pill and header icons.
+
+#### `StepperComponent` & `StepComponent`
+* Selectors: `val-stepper`, `val-step`
+* Linear or non-linear multi-step wizards with transition animations.
+
+#### `BreadcrumbComponent` (`val-breadcrumb`)
+* Hierarchical route trail navigation.
+
+#### `SidebarComponent` (`val-sidebar`)
+* Off-canvas drawer sliding from `left`, `right`, `top`, or `bottom`.
+
+#### `MenubarComponent`, `MegaMenuComponent`, `PanelMenuComponent`
+* Multi-tier desktop and responsive dropdown application menus.
+
+---
+
+### 3.5 Data & Tables
+
+#### `TableComponent` (`val-table`)
+* Rich data table supporting sorting, filtering, row selection, zebra striping, and empty templates.
+
+#### `PaginatorComponent` (`val-paginator`)
+* Page navigation with rows-per-page selector, total records display, and first/prev/next/last jumps.
+
+#### `TreeComponent` & `TreeTableComponent`
+* Hierarchical tree structures and expandable table rows.
+
+#### `TimelineComponent` (`val-timeline`)
+* Chronological event timeline with custom markers and contents.
+
+---
+
+### 3.6 Overlays & Feedback Services
+
+#### `ToastComponent` & `ToastService`
+* Injectable service:
+```typescript
+import { ToastService } from 'valence-ui';
+
+export class MyComp {
+  private toast = inject(ToastService);
+  
+  show() {
+    this.toast.add({
+      severity: 'success', // 'success' | 'info' | 'warn' | 'error'
+      summary: 'Guardado',
+      detail: 'Los datos fueron actualizados.',
+      life: 3000
+    });
+  }
+}
+```
+
+#### `DialogComponent` (`val-dialog`)
+* Modal dialog overlay with backdrop blur, custom header/footer, and maximize/close controls.
+
+#### `DynamicDialogService`
+* Programmatically open components inside dialog windows without template declaration.
+
+#### `ConfirmDialogComponent` & `ConfirmService`
+* Confirm popups and modal verification workflows (`confirmService.confirm({ ... })`).
+
+#### `TooltipDirective` (`[valTooltip]`)
+* Floating tooltips with customizable position (`top`, `bottom`, `left`, `right`).
+
+#### `BlockUIComponent` (`val-block-ui`)
+* Mask overlay to disable interactions during pending asynchronous operations.
+
+---
+
+### 3.7 Visual Indicators & Media
+
+#### `AlertComponent` (`val-alert`)
+* In-page notification banner with severity colors and dismiss button.
+
+#### `BadgeComponent` (`val-badge`) & `TagComponent` (`val-tag`)
+* Status pills, numerical counters, and label chips.
+
+#### `SkeletonComponent` (`val-skeleton`)
+* Loading state placeholders (circle, rectangle, card skeletons).
+
+#### `ProgressBarComponent` & `ProgressSpinnerComponent`
+* Determinate and indeterminate loading indicators.
+
+#### `GalleriaComponent` & `CarouselComponent`
+* Responsive image gallery viewers and rotating carousels with autoplay.
+
+---
+
+## 4. LLM Coding Conventions for Valence UI
+
+1. **Always export and import standalone components:**
+   ```typescript
+   import { Component } from '@angular/core';
+   import { ButtonComponent, CardComponent, InputComponent } from 'valence-ui';
+
+   @Component({
+     selector: 'app-example',
+     standalone: true,
+     imports: [ButtonComponent, CardComponent, InputComponent],
+     template: `...`
+   })
+   export class ExampleComponent {}
+   ```
+2. **Prefer Valence UI utility classes over custom CSS:**
+   * Use `class="val-flex val-items-center val-justify-between val-p-4"` instead of declaring `.header { display: flex; ... }`.
+3. **Reactive Forms integration:**
+   * Connect `[formControl]` or `formControlName` directly to `val-input`, `val-dropdown`, `val-checkbox`, etc., as they all implement `ControlValueAccessor`.

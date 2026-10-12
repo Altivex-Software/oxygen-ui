@@ -1,6 +1,9 @@
 {
   "name": "valence-ui",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "bin": {
+    "valence-ui": "./bin/init-ai.mjs"
+  },
   "description": "A modern, rich UI component library for Angular applications.",
   "keywords": [
     "angular",

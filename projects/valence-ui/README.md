@@ -28,6 +28,17 @@ pnpm add valence-ui @angular/cdk
 
 ---
 
+## 🤖 AI Assistant & Agent Skills Setup
+
+Enable your favorite AI assistant (**Cursor**, **GitHub Copilot**, **Antigravity**, **Windsurf**) to write and understand Valence UI code with native precision:
+
+```bash
+npx valence-ui
+```
+*Prompts you to select your AI editor and instantly sets up the official component & utility rules in your repository.*
+
+---
+
 ## 🎨 Styles & Themes Setup
 
 Include the core design tokens and styles in your application's global SCSS file (typically `src/styles.scss`):

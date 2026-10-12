@@ -1,0 +1,34 @@
+---
+description: Coding guidelines and component conventions for Valence UI in Angular
+globs: ["**/*.ts", "**/*.html", "**/*.scss"]
+alwaysApply: true
+---
+
+# Valence UI Coding Standards
+
+When generating or refactoring Angular code in this project:
+
+## 1. Component Imports
+- Always import standalone components directly from `valence-ui`:
+  ```typescript
+  import { ButtonComponent, CardComponent, FormFieldComponent, InputComponent, DialogComponent } from 'valence-ui';
+  ```
+- Do not import obsolete NgModules. Add components to the `@Component({ standalone: true, imports: [...] })` array.
+
+## 2. Layout & Styling Rules
+- **Do not write custom CSS for layout or spacing.** Always use Valence UI utility classes (`val-*`):
+  - Flexbox: `val-flex`, `val-flex-column`, `val-items-center`, `val-justify-between`, `val-gap-3`
+  - Grid: `val-grid`, `val-col-12`, `val-col-md-6`, `val-col-lg-4`
+  - Spacing: `val-m-0` to `val-m-5`, `val-p-0` to `val-p-5`, `val-mx-auto`
+  - Typography: `val-text-primary`, `val-text-muted`, `val-font-bold`, `val-text-lg`
+- Ensure `@use 'valence-ui/styles/main.scss';` is present in `styles.scss`.
+
+## 3. Form Controls
+- Wrap inputs with `<val-form-field label="..." [required]="true" [error]="...">`.
+- Form controls implement `ControlValueAccessor` — bind with `formControlName` or `[(ngModel)]`.
+- For buttons, use `<button val-button variant="primary" size="md">Texto</button>`.
+
+## 4. Notifications & Overlays
+- For toasts, inject `ToastService` and use `this.toastService.add({ severity: 'success', summary: '...', detail: '...' })`.
+- Ensure `<val-toast></val-toast>` is declared in the root template.
+- For modal dialogs, use `<val-dialog [(visible)]="showModal" header="...">`.
