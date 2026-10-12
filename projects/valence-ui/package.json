@@ -16,12 +16,12 @@
   "author": "Altivex",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Altivex-Software/oxygen-ui.git"
+    "url": "git+https://github.com/Altivex-Software/valence-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/Altivex-Software/oxygen-ui/issues"
+    "url": "https://github.com/Altivex-Software/valence-ui/issues"
   },
-  "homepage": "https://github.com/Altivex-Software/oxygen-ui#readme",
+  "homepage": "https://github.com/Altivex-Software/valence-ui#readme",
   "peerDependencies": {
     "@angular/animations": ">=19.0.0",
     "@angular/cdk": ">=19.0.0",
