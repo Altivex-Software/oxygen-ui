@@ -10,12 +10,12 @@
   "assets": [
     {
       "input": "src/lib/styles",
-      "glob": "**/*.scss",
+      "glob": "**/*",
       "output": "styles"
     },
     {
       "input": "src/lib/themes",
-      "glob": "**/*.scss",
+      "glob": "**/*",
       "output": "themes"
     }
   ]

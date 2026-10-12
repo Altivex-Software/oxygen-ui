@@ -1,63 +1,85 @@
-# ValenceUi
+# Valence UI
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+> A modern, comprehensive UI component library for Angular applications built by Altivex.
 
-## Code scaffolding
+[![npm version](https://img.shields.io/npm/v/valence-ui.svg)](https://www.npmjs.com/package/valence-ui)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
+## 🚀 Installation
+
+You can install **Valence UI** using your preferred package manager:
+
+### npm
 ```bash
-ng generate component component-name
+npm install valence-ui @angular/cdk
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+### Yarn
 ```bash
-ng generate --help
+yarn add valence-ui @angular/cdk
 ```
 
-## Building
-
-To build the library, run:
-
+### pnpm
 ```bash
-ng build valence-ui
+pnpm add valence-ui @angular/cdk
 ```
 
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
+---
 
-### Publishing the Library
+## 🎨 Styles & Themes Setup
 
-Once the project is built, you can publish your library by following these steps:
+Include the core design tokens and styles in your application's global SCSS file (typically `src/styles.scss`):
 
-1. Navigate to the `dist` directory:
-   ```bash
-   cd dist/valence-ui
-   ```
-
-2. Run the `npm publish` command to publish your library to the npm registry:
-   ```bash
-   npm publish
-   ```
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+```scss
+@use 'valence-ui/styles/main.scss';
 ```
 
-## Running end-to-end tests
+Or reference it in your `angular.json`:
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
+```json
+"styles": [
+  "node_modules/valence-ui/styles/main.scss",
+  "src/styles.scss"
+]
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## ⚡ Quick Start
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Import the components you need directly into your standalone component or NgModule:
+
+```typescript
+import { Component } from '@angular/core';
+import { ValButtonComponent } from 'valence-ui';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [ValButtonComponent],
+  template: `
+    <button val-button variant="primary">
+      Click me
+    </button>
+  `
+})
+export class AppComponent {}
+```
+
+---
+
+## 📦 What's Included
+
+- **Form Controls:** Input, Form Field, Password, Date Picker, OTP, Radio, Switch, Checkbox, Slider, Knob, Rating, Multi-Select, AutoComplete, Chips.
+- **Layout & Structure:** Card, Panel, Toolbar, Stepper, Tabs, Splitter, Divider, Fieldset.
+- **Data & Navigation:** Table, Tree Table, Tree, Breadcrumb, Menubar, Mega Menu, Panel Menu, Sidebar, Paginator.
+- **Feedback & Overlays:** Toast, Dialog, Dynamic Dialog, Popover, Confirm Popup, Confirm Dialog, Tooltip, Block UI.
+- **Media & Indicators:** Galleria, Carousel, Image, Badge, Tag, Skeleton, Progress Bar, Progress Spinner, Speed Dial.
+
+---
+
+## 📄 License
+
+MIT © [Altivex](https://github.com/Altivex-Software)
