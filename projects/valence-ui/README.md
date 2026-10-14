@@ -83,7 +83,7 @@ export class AppComponent {}
 
 ## 📦 What's Included
 
-- **Form Controls:** Input, Form Field, Password, Date Picker, OTP, Radio, Switch, Checkbox, Slider, Knob, Rating, Multi-Select, AutoComplete, Chips.
+- **Form Controls:** Input, Form Field, Password, Date Picker, OTP, Radio, Switch, Checkbox, Slider, Knob, Rating, Multi-Select, AutoComplete, Chips, Color Picker.
 - **Layout & Structure:** Card, Panel, Toolbar, Stepper, Tabs, Splitter, Divider, Fieldset.
 - **Data & Navigation:** Table, Tree Table, Tree, Breadcrumb, Menubar, Mega Menu, Panel Menu, Sidebar, Paginator.
 - **Feedback & Overlays:** Toast, Dialog, Dynamic Dialog, Popover, Confirm Popup, Confirm Dialog, Tooltip, Block UI.

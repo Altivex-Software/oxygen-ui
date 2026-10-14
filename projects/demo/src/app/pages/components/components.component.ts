@@ -44,6 +44,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
           <a routerLink="input-mask" routerLinkActive="active" class="nav-item">InputMask</a>
           <a routerLink="checkbox" routerLinkActive="active" class="nav-item">Checkbox</a>
           <a routerLink="switch" routerLinkActive="active" class="nav-item">Switch</a>
+          <a routerLink="color-picker" routerLinkActive="active" class="nav-item">Color Picker</a>
           <a routerLink="advanced" routerLinkActive="active" class="nav-item">TreeSelect & Splitter</a>
           
           <div class="nav-section">Data</div>

@@ -35,6 +35,7 @@ import { TextareaDemoComponent } from './pages/components/textarea-demo.componen
 import { SliderDemoComponent } from './pages/components/slider-demo.component';
 import { KnobDemoComponent } from './pages/components/knob-demo.component';
 import { InputSwitchDemoComponent } from './pages/components/input-switch-demo.component';
+import { ColorPickerDemoComponent } from './pages/components/color-picker-demo.component';
 import { DatePickerDemoComponent } from './pages/components/datepicker-demo.component';
 import { SkeletonDemoComponent } from './pages/components/skeleton-demo.component';
 import { ConfirmDemoComponent } from './pages/components/confirm-demo.component';
@@ -127,6 +128,7 @@ export const routes: Routes = [
       { path: 'dropdown', component: DropdownDemoComponent },
       { path: 'checkbox', component: CheckboxDemoComponent },
       { path: 'switch', component: InputSwitchDemoComponent },
+      { path: 'color-picker', component: ColorPickerDemoComponent },
       { path: 'chips', component: ChipsDemoComponent },
       { path: 'select-button', component: SelectButtonDemoComponent },
       { path: 'table', component: TableDemoComponent },
