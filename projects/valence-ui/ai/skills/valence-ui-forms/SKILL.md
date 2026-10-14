@@ -1,6 +1,6 @@
 ---
 name: valence-ui-forms
-description: API reference and best practices for Valence UI form controls (FormField, Input, Password, Dropdown, MultiSelect, DatePicker, Checkbox, Switch, Button, Slider, Knob, OTP). Use when building reactive forms, user input screens, and validation in Angular.
+description: API reference and best practices for Valence UI form controls (FormField, Input, Password, Dropdown, MultiSelect, DatePicker, Checkbox, Switch, ColorPicker, Button, Slider, Knob, OTP). Use when building reactive forms, user input screens, and validation in Angular.
 ---
 
 # Valence UI — Forms & Input Controls Skill
@@ -138,6 +138,19 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 ```html
 <val-checkbox [(ngModel)]="termsAccepted" label="Acepto los términos"></val-checkbox>
 <val-input-switch [(ngModel)]="notificationsEnabled" label="Notificaciones activas"></val-input-switch>
+```
+
+### `ColorPickerComponent` (`val-color-picker`)
+* Value is a `'#rrggbb'` string (or `null`). Short hex like `'#abc'` is normalized to `'#aabbcc'`.
+* Popup by default (button with swatch + hex code); `[inline]="true"` keeps the panel always visible.
+* Inputs: `presets` (`string[]`), `size` (`'sm' | 'md' | 'lg'`), `showValue` (`boolean`, default `true`), `placeholder`, `disabled`, `ariaLabel`.
+```html
+<val-color-picker
+  [(ngModel)]="brandColor"
+  [presets]="['#ef4444', '#f59e0b', '#22c55e', '#3b82f6']">
+</val-color-picker>
+
+<val-color-picker formControlName="accent" [inline]="true"></val-color-picker>
 ```
 
 ---
